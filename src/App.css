@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  border-style: solid;
+  border-radius: 15px;
+  border-color: #61dafb;
+  background-color: transparent;
+  padding: 10px;
+  color: #61dafb;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: dimgray;
+}
+
+div.container {
+  padding: 20px;
+}
