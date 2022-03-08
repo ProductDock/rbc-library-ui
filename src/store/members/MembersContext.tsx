@@ -24,17 +24,17 @@ const MemebersContextProvider = (props: any) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const findAllMembers = () => {
+  const findAllMembers = async () => {
     setLoading(true);
-    memberService
+    await memberService
       .fetchAllMembers()
       .then((resp) => dispatch({ type: actions.SET_MEMBERS, payload: resp.data }))
       .catch((err) => setError("Error while fetching data"));
     setLoading(false);
   };
 
-  const createMember = (member: Member) => {
-    memberService
+  const createMember = async (member: Member) => {
+    await memberService
       .createMember(member)
       .then((resp) => dispatch({ type: actions.ADD_MEMBER, payload: { ...member, id: resp.data } }))
       .catch((err) => setError("Error while creating member"));
