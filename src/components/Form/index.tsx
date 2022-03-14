@@ -1,7 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/require-default-props */
-/* eslint-disable max-len */
-/* eslint-disable react/jsx-props-no-spreading */
 import { Form, Formik } from "formik";
 import { renderError } from "./errorMessage";
 import InputField, { FieldProps } from "./inputField";
@@ -9,6 +5,7 @@ import InputField, { FieldProps } from "./inputField";
 type Props = {
   initialValues: object;
   validationSchema: object;
+  // eslint-disable-next-line no-unused-vars
   handleSubmit: (values: any, actions: any) => void;
   formFields: FieldProps[];
   submitMessage: string;

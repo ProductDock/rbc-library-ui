@@ -1,9 +1,3 @@
-/* eslint-disable max-len */
-/* eslint-disable react/function-component-definition */
-/* eslint-disable react/jsx-no-constructed-context-values */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import React, { useContext, useReducer, useState } from "react";
 import * as memberService from "../../services/MemberService";
 import { actions } from "./membersActions";
@@ -29,7 +23,7 @@ const MemebersContextProvider = (props: any) => {
     await memberService
       .fetchAllMembers()
       .then((resp) => dispatch({ type: actions.SET_MEMBERS, payload: resp.data }))
-      .catch((err) => setError("Error while fetching data"));
+      .catch(() => setError("Error while fetching data"));
     setLoading(false);
   };
 
@@ -37,7 +31,7 @@ const MemebersContextProvider = (props: any) => {
     await memberService
       .createMember(member)
       .then((resp) => dispatch({ type: actions.ADD_MEMBER, payload: { ...member, id: resp.data } }))
-      .catch((err) => setError("Error while creating member"));
+      .catch(() => setError("Error while creating member"));
   };
 
   return (
