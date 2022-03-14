@@ -1,4 +1,4 @@
-import * as Yup from "yup";
+import { ObjectSchema, StringSchema } from "yup";
 import { useMembersContext } from "../../store/members/MembersContext";
 import DynamicForm from "../Form";
 import { FieldProps } from "../Form/inputField";
@@ -21,9 +21,9 @@ const CreateMemberForm = () => {
           firstName: "",
           lastName: "",
         }}
-        validationSchema={Yup.object().shape({
-          firstName: Yup.string().required(),
-          lastName: Yup.string().required(),
+        validationSchema={new ObjectSchema().shape({
+          firstName: new StringSchema().required(),
+          lastName: new StringSchema().required(),
         })}
         formFields={formFields}
         handleSubmit={handleSubmit}
