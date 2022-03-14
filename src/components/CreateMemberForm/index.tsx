@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import * as Yup from "yup";
 import { useMembersContext } from "../../store/members/MembersContext";
 import DynamicForm from "../Form";
@@ -12,7 +11,7 @@ const formFields: FieldProps[] = [
 const CreateMemberForm = () => {
   const { createMember } = useMembersContext();
 
-  const handleSubmit = (values: any, actions: any) => {
+  const handleSubmit = (values: any) => {
     createMember?.({ firstName: values.firstName, lastName: values.lastName });
   };
   return (
