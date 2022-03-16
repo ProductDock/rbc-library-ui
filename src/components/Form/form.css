@@ -1,0 +1,19 @@
+.submit-button {
+  border-style: solid;
+  border-radius: 15px;
+  border-color: #61dafb;
+  background-color: transparent;
+  padding: 10px;
+  color: #61dafb;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: dimgray;
+}
+
+.validation-error-text {
+  font-size: 1rem;
+  color: red;
+}
