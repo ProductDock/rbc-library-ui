@@ -1,24 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// eslint-disable-next-line object-curly-newline
+import {
+  Rating,
+  Button,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from "@mui/material";
+import DoneIcon from "@mui/icons-material/Done";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import React from "react";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="main-div">
+      <img
+        className="book-img"
+        src="https://m.media-amazon.com/images/I/51eS3MxQ1YL.jpg"
+        alt="book"
+      />
+      <p className="availability-text">
+        <DoneIcon className="availability-icon" />
+        Available
+      </p>
+      <Rating className="rating-stars" value={4} readOnly />
+      <p className="title-text">
+        Java Programming - beginner and intermediate fundamentals of object
+        oriented programming
+      </p>
+      <p className="author-text">By (Author)&ensp;Scott Bernard</p>
+      <Button
+        type="submit"
+        className="rent-button"
+        color="success"
+        variant="contained"
+      >
+        Rent Book
+      </Button>
+      <Accordion>
+        <AccordionSummary
+          className="review-accordion"
+          expandIcon={<ExpandMoreIcon />}
         >
-          Learn React
-        </a>
-      </header>
+          <AccountBoxIcon />
+          <div className="review-accordion-div">Vladimir Vukoman</div>
+        </AccordionSummary>
+        <AccordionDetails>Review :</AccordionDetails>
+      </Accordion>
     </div>
   );
 }
