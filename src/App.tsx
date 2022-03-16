@@ -36,17 +36,62 @@ function App() {
         color="success"
         variant="contained"
       >
-        Rent Book
+        Rent book
       </Button>
       <Accordion>
         <AccordionSummary
-          className="review-accordion"
+          className="review-accordion-content"
           expandIcon={<ExpandMoreIcon />}
         >
-          <AccountBoxIcon />
-          <div className="review-accordion-div">Vladimir Vukoman</div>
+          <p className="review-accordion-div">
+            <AccountBoxIcon />
+            Vladimir Vukoman
+          </p>
+          <p className="review-accourdion-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque esse
+            expedita cumque dolorem sit animi sunt perspiciatis quaerat. Magnam,
+            possimus consequuntur.
+          </p>
         </AccordionSummary>
-        <AccordionDetails>Review :</AccordionDetails>
+        <AccordionDetails>
+          <div className="review-box">
+            <p className="review-box-info">
+              <AccountBoxIcon />
+              User1
+            </p>
+            <p className="review-box-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+              esse expedita cumque dolorem sit animi sunt perspiciatis quaerat.
+              Magnam, possimus consequuntur.
+            </p>
+          </div>
+        </AccordionDetails>
+        <AccordionDetails>
+          <div className="review-box">
+            <p className="review-box-info">
+              <AccountBoxIcon />
+              User2
+            </p>
+            <p className="review-box-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+              esse expedita cumque dolorem sit animi sunt perspiciatis quaerat.
+              Magnam, possimus consequuntur.
+            </p>
+          </div>
+        </AccordionDetails>
+        <AccordionDetails>
+          <div className="review-box">
+            <p className="review-box-info">
+              <AccountBoxIcon />
+              User3
+            </p>
+            <p className="review-box-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+              esse expedita cumque dolorem sit animi sunt perspiciatis quaerat.
+              Magnam, possimus consequuntur.
+            </p>
+          </div>
+        </AccordionDetails>
       </Accordion>
     </div>
   );

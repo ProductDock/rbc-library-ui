@@ -13,7 +13,7 @@
 
 .book-img {
   width: 230px;
-  margin: 40px 0 0 0;
+  margin: 70px 0 0 0;
 }
 
 .availability-text {
@@ -43,9 +43,10 @@
   margin: 12px 0 26px 0 !important;
   font-size: 16px !important;
   width: 230px;
+  border-radius: 20px !important;
 }
 
-.review-accordion {
+.review-accordion-content {
   width: 340px;
   font-size: 12px;
   display: flex;
@@ -57,4 +58,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.review-accourdion-text {
+  font-style: italic;
+  font-size: 11px;
+}
+
+.review-box {
+  width: 300px;
+  font-size: 12px;
+  display: flex;
+  border-top: 1px solid rgb(180, 180, 180);
+  padding-top: 8px;
+}
+
+.review-box-info {
+  width: 70px;
+  display: flex;
+  margin-right: 8px;
+  align-items: center;
+}
+
+.review-box-text {
+  width: 240px;
+  font-style: italic;
+  font-size: 11px;
 }
