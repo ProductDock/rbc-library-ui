@@ -3,25 +3,21 @@ import "./BookCard.css";
 type Props = {
   title: string;
   author: string;
+  imageUrl: string;
 };
 
-const BookCard = ({ title, author }: Props) => {
+const BookCard = ({ title, author, imageUrl }: Props) => {
   return (
     <div className="book-box">
       <div className="image-box">
         <div className="main-box">
-          {title} {author}
+          <img src={imageUrl} alt="book" />
         </div>
         <div className="shadow-box">a</div>
       </div>
       <div className="text-box">
-        <p className="title-box">
-          Lorem ipskmnonum dolor sit, amet consdvnec tetur adiggrpi sicing elit.
-          At dicta ea aut doloremque, architecto non cum explicabo sunt
-          voluptatum quibusdam neque omnis quam nulla ernibror soluta
-          exercitationem dolorem quisquam
-        </p>
-        <p className="author-box">Author</p>
+        <p className="title-box">{title}</p>
+        <p className="author-box">{author}</p>
       </div>
     </div>
   );

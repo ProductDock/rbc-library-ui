@@ -1,14 +1,33 @@
+@font-face {
+  font-family: "Neue Haas Unica W1G";
+  src: local("Neue Haas Unica W1G"),
+    url("../../fonts/NeueHaasUnicaW1G-Bold_0.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Neue Haas Unica W1G";
+  src: local("Neue Haas Unica W1G"),
+    url("../../fonts/NeueHaasUnicaW1G-Regular_0.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Neue Haas Unica W1G Light";
+  src: local("Neue Haas Unica W1G"),
+    url("../../fonts/NeueHaasUnicaW1G-Light_0.ttf") format("truetype");
+  font-weight: 400;
+}
+
 .book-box {
   height: 372px;
   width: 204px;
-  background-color: yellow;
 }
 
 .image-box {
   height: 240px;
   width: 176px;
   position: absolute;
-  background-color: aquamarine;
 }
 
 .main-box {
@@ -20,6 +39,13 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   z-index: 10;
+}
+
+.main-box img {
+  object-fit: cover;
+  height: 212px;
+  width: 148px;
+  border-radius: 8px;
 }
 
 .shadow-box {
@@ -53,6 +79,7 @@
 
   display: flex;
   align-items: center;
+  text-align: start;
 
   overflow: hidden;
   display: -webkit-box;
@@ -68,7 +95,7 @@
   margin-top: 76px;
   position: absolute;
 
-  font-family: "Neue Haas Unica W1G";
+  font-family: "Neue Haas Unica W1G Light";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
