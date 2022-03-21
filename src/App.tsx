@@ -6,9 +6,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <PageRouter />
-        </header>
+        <PageRouter />
       </div>
     </Router>
   );
