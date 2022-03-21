@@ -1,3 +1,5 @@
+import "./sectionTitle.css";
+
 type Props = {
   title: string;
   numberOfBooks: number;
