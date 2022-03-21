@@ -1,10 +1,10 @@
-import SectionTitle from "../components/Section/SectionTitle";
+import BookCollection from "../components/Section/BookCollection";
 import "./homePage.css";
 
 const HomePage = () => {
   return (
     <div className="main-container">
-      <SectionTitle title="All books" numberOfBooks={0} />
+      <BookCollection />
     </div>
   );
 };
