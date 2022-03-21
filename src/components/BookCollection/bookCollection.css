@@ -1,0 +1,14 @@
+.all-books {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(204px, 1fr));
+  grid-gap: 1vw;
+  flex-direction: column;
+}
+
+.card {
+  width: 204px;
+  height: 372px;
+  color: black;
+  border: black;
+  border-style: solid;
+}

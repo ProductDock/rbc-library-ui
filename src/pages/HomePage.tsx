@@ -1,4 +1,4 @@
-import BookCollection from "../components/Section/BookCollection";
+import BookCollection from "../components/BookCollection";
 import "./homePage.css";
 
 const HomePage = () => {
