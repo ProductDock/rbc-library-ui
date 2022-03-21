@@ -1,9 +1,99 @@
+import BookCard from "../BookCard";
 import "./bookCollection.css";
 
 const BookCollection = () => {
   return (
     <div className="all-books">
-      <div className="card">To be replaced with real book cards.</div>
+      <BookCard
+        title="Book title"
+        author="John Doe"
+        imageUrl="https://www.oreilly.com/library/view/java-program-design/9781484241431/images/978-1-4842-4143-1_CoverFigure.jpg"
+      />
+      <BookCard
+        title="Book2"
+        author="John Smith"
+        imageUrl="https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg"
+      />
+      <BookCard
+        title="Book title"
+        author="John Doe"
+        imageUrl="https://www.oreilly.com/library/view/java-program-design/9781484241431/images/978-1-4842-4143-1_CoverFigure.jpg"
+      />
+      <BookCard
+        title="Book2"
+        author="John Smith"
+        imageUrl="https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg"
+      />
+      <BookCard
+        title="Book title"
+        author="John Doe"
+        imageUrl="https://www.oreilly.com/library/view/java-program-design/9781484241431/images/978-1-4842-4143-1_CoverFigure.jpg"
+      />
+      <BookCard
+        title="Book2"
+        author="John Smith"
+        imageUrl="https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg"
+      />
+      <BookCard
+        title="Book title"
+        author="John Doe"
+        imageUrl="https://www.oreilly.com/library/view/java-program-design/9781484241431/images/978-1-4842-4143-1_CoverFigure.jpg"
+      />
+      <BookCard
+        title="Book2"
+        author="John Smith"
+        imageUrl="https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg"
+      />
+      <BookCard
+        title="Book title"
+        author="John Doe"
+        imageUrl="https://www.oreilly.com/library/view/java-program-design/9781484241431/images/978-1-4842-4143-1_CoverFigure.jpg"
+      />
+      <BookCard
+        title="Book2"
+        author="John Smith"
+        imageUrl="https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg"
+      />
+      <BookCard
+        title="Book title"
+        author="John Doe"
+        imageUrl="https://www.oreilly.com/library/view/java-program-design/9781484241431/images/978-1-4842-4143-1_CoverFigure.jpg"
+      />
+      <BookCard
+        title="Book2"
+        author="John Smith"
+        imageUrl="https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg"
+      />
+      <BookCard
+        title="Book title"
+        author="John Doe"
+        imageUrl="https://www.oreilly.com/library/view/java-program-design/9781484241431/images/978-1-4842-4143-1_CoverFigure.jpg"
+      />
+      <BookCard
+        title="Book2"
+        author="John Smith"
+        imageUrl="https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg"
+      />
+      <BookCard
+        title="Book title"
+        author="John Doe"
+        imageUrl="https://www.oreilly.com/library/view/java-program-design/9781484241431/images/978-1-4842-4143-1_CoverFigure.jpg"
+      />
+      <BookCard
+        title="Book2"
+        author="John Smith"
+        imageUrl="https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg"
+      />
+      <BookCard
+        title="Book title"
+        author="John Doe"
+        imageUrl="https://www.oreilly.com/library/view/java-program-design/9781484241431/images/978-1-4842-4143-1_CoverFigure.jpg"
+      />
+      <BookCard
+        title="Book2"
+        author="John Smith"
+        imageUrl="https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg"
+      />
     </div>
   );
 };
