@@ -1,10 +1,13 @@
 import BookCollection from "../components/BookCollection";
+import Section from "../components/Section";
 import "./homePage.css";
 
 const HomePage = () => {
   return (
     <div className="main-container">
-      <BookCollection />
+      <Section title="All books" numberOfBooks={72}>
+        <BookCollection />
+      </Section>
     </div>
   );
 };
