@@ -10,7 +10,7 @@ const TestPage = () => {
       />
       <BookCard
         title="Book2"
-        author="John Doe"
+        author="John Smith"
         imageUrl="https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg"
       />
     </div>

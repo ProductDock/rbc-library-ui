@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import { routes } from "../constants/routes";
-import HomePage from "../pages/HomePage";
+import TestPage from "../pages/TestPage";
 
 const PageRouter = () => {
   return (
     <Routes>
-      <Route path={routes.HOME} element={<HomePage />} />
+      <Route path={routes.HOME} element={<TestPage />} />
     </Routes>
   );
 };
