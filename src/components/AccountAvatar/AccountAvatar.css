@@ -1,0 +1,31 @@
+.credentials-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  margin-right: 4px;
+}
+
+.email {
+  font-size: 12px;
+}
+
+.user-details-menu-item {
+  background-color: #00609a;
+  color: #ffffff;
+  padding: 16px;
+}
+
+.user-details-menu-item:hover {
+  background-color: #00609a;
+  color: #ffffff;
+}
+
+.user-details-menu-item-colors {
+  background-color: #00609a;
+  color: #ffffff;
+}
+
+.user-details-menu-item-colors:hover {
+  background-color: #00609a;
+  color: #ffffff;
+}
