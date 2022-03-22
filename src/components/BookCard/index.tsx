@@ -1,3 +1,4 @@
+import BookCover from "../BookCover";
 import "./BookCard.css";
 
 type Props = {
@@ -9,12 +10,7 @@ type Props = {
 const BookCard = ({ title, author, imageUrl }: Props) => {
   return (
     <div className="book-box">
-      <div className="image-box">
-        <div className="main-box">
-          <img src={imageUrl} alt="book" />
-        </div>
-        <div className="shadow-box" />
-      </div>
+      <BookCover imageUrl={imageUrl} />
       <div className="text-box">
         <p className="title-box">{title}</p>
         <p className="author-box">{author}</p>
