@@ -4,12 +4,9 @@ import App from "./App";
 
 test("renders app and check for text", () => {
   render(<App />);
-  const linkElement = screen.getByText("ProductDock");
-  expect(linkElement).toBeInTheDocument();
-});
+  const navbarCompany = screen.getByText("ProductDock");
+  expect(navbarCompany).toBeInTheDocument();
 
-test("renders app and check for text", () => {
-  render(<App />);
-  const linkElement = screen.getByText("Library");
-  expect(linkElement).toBeInTheDocument();
+  const navbarTitle = screen.getByText("Library");
+  expect(navbarTitle).toBeInTheDocument();
 });

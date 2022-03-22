@@ -7,7 +7,10 @@ import logo from "./img/pd-logo.svg";
 function App() {
   return (
     <Router>
-      <AppBar className="navbar">
+      <AppBar
+        className="navbar"
+        style={{ backgroundColor: "white", position: "sticky" }}
+      >
         <div className="navbar-div">
           <div className="navbar-info">
             <img src={logo} alt="logo" className="logo" />

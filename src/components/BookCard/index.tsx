@@ -1,4 +1,3 @@
-/* eslint-disable react/self-closing-comp */
 import "./BookCard.css";
 
 type Props = {
@@ -14,7 +13,7 @@ const BookCard = ({ title, author, imageUrl }: Props) => {
         <div className="main-box">
           <img src={imageUrl} alt="book" />
         </div>
-        <div className="shadow-box"></div>
+        <div className="shadow-box" />
       </div>
       <div className="text-box">
         <p className="title-box">{title}</p>
