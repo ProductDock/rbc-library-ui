@@ -1,13 +1,14 @@
-import CreateMemberForm from "../components/CreateMemberForm";
-import MemberList from "../components/MemberList";
-import MemebersContextProvider from "../store/members/MembersContext";
+import BookCollection from "../components/BookCollection";
+import Section from "../components/Section";
+import "./HomePage.css";
 
 const HomePage = () => {
   return (
-    <MemebersContextProvider>
-      <CreateMemberForm />
-      <MemberList />
-    </MemebersContextProvider>
+    <div className="main-container">
+      <Section title="All books" numberOfBooks={72}>
+        <BookCollection />
+      </Section>
+    </div>
   );
 };
 
