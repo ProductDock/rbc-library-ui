@@ -3,6 +3,7 @@ import "./App.css";
 import { AppBar } from "@mui/material";
 import PageRouter from "./router";
 import logo from "./img/pd-logo.svg";
+import AccountAvatar from "./components/AccountAvatar";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
               <p className="navbar-company">ProductDock</p>
               <p className="navbar-title">Library</p>
             </div>
+          </div>
+          <div className="account-avatar">
+            <AccountAvatar />
           </div>
         </div>
       </AppBar>
