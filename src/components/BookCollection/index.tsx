@@ -1,5 +1,5 @@
 import BookCard from "../BookCard";
-import "./BookCollection.css";
+import "./bookCollection.css";
 
 const BookCollection = () => {
   const books = [
