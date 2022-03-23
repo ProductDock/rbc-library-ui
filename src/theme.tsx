@@ -1,15 +1,15 @@
 import { createTheme } from "@material-ui/core/styles";
 
 const neueHaasUnicaW1G = {
-  fontFamily: "NeueHaasUnicaW1G",
+  fontFamily: "Neue Haas Unica W1G",
   fontWeight: "400",
-  src: `local("NeueHaasUnicaW1G"),
+  src: `local("Neue Haas Unic aW1G"),
     url("./fonts/NeueHaasUnicaW1G-Regular_0.ttf") format("truetype")`,
 };
 
 const theme = createTheme({
   typography: {
-    fontFamily: ['"Open Sans"', "NeueHaasUnicaW1G", "Roboto"].join(","),
+    fontFamily: "Neue Haas Unica W1G",
   },
   overrides: {
     MuiCssBaseline: {
