@@ -1,5 +1,5 @@
 import SectionTitle from "./SectionTitle";
-import "./section.css";
+import "./Section.css";
 
 type Props = {
   title: string;

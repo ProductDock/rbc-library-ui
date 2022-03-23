@@ -17,6 +17,11 @@ div.container {
   height: 64px;
 }
 
+.MuiPaper-root.MuiAppBar-root {
+  position: sticky;
+  background-color: white;
+}
+
 .navbar-div {
   height: 64px;
   display: flex;

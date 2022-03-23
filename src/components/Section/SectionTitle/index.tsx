@@ -1,4 +1,4 @@
-import "./sectionTitle.css";
+import "./SectionTitle.css";
 
 type Props = {
   title: string;
