@@ -39,8 +39,52 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+# Deployment guide
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To deploy the react app you need a Compute Engine instance configured. (Persistent disk storage and HTTP traffic enabled are needed)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+One time configuration steps :
+
+- sudo apt-get update (updating the packages)
+
+- sudo apt-get upgrade (upgrade the packages)
+
+- sudo apt-get install nginx (installing nginx)
+
+- curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash - (add NodeSource repo)
+- sudo apt-get install -y nodejs (installing node js)
+
+## These steps are repeated everytime rbc-library-ui main branch is updated :
+
+- git clone [repo-url] (clone the repo)
+
+- npm i (install node modules)
+
+- npm run build (build the react app)
+
+- make the app-deploy folder in the root directory and copy contents of the build folder to it
+
+- sudo service nginx reload (restart nginx to preview changes)
+
+### Nginx config file that needs to be created
+
+File path /etc/nginx/conf.d/react.conf
+
+```
+server {
+  listen 80;
+  listen [::]:80;
+  root /home/ubuntu/app-deploy/build;
+  location / {
+    try_files $uri /index.html;
+  }
+}
+```
+
+If a default nginx page is displayed, comment out the line
+
+```
+#       include /etc/nginx/sites-enabled/*;
+```
+
+in the nginx.conf file, in order to show the React app.
