@@ -5,6 +5,12 @@
   margin-right: 16px;
 }
 
+.credentials-image-navbar {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
 .email {
   font-size: 12px;
 }
@@ -13,23 +19,30 @@
   font-size: 14px;
 }
 
-.user-details-menu-item {
+.MuiBox-root {
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+}
+
+.MuiButtonBase-root.MuiIconButton-root {
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+}
+
+.MuiList-root.MuiMenu-list {
+  padding: 0px;
+}
+
+.MuiPaper-root.MuiMenu-paper.MuiPaper-root.MuiPopover-paper {
+  margin-top: 12px;
+  border-radius: 8px;
+}
+
+.MuiButtonBase-root.MuiMenuItem-root:first-child {
   background-color: #00609a;
   color: #ffffff;
   padding: 16px;
-}
-
-.user-details-menu-item:hover {
-  background-color: #00609a;
-  color: #ffffff;
-}
-
-.user-details-menu-item-colors {
-  background-color: #00609a;
-  color: #ffffff;
-}
-
-.user-details-menu-item-colors:hover {
-  background-color: #00609a;
-  color: #ffffff;
+  pointer-events: none;
 }

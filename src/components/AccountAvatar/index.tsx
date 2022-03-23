@@ -6,6 +6,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Logout from "@mui/icons-material/Logout";
+import { Typography } from "@mui/material";
 import userImage from "../../loggedInUser.png";
 import "./AccountAvatar.css";
 
@@ -19,21 +20,20 @@ const AccountAvatar = () => {
     setAnchorEl(null);
   };
   const signOut = () => {
+    // To be replaced with logout handling
     handleClose();
   };
   return (
     <>
-      <Box sx={{ width: "40px", height: "40px" }}>
+      <Box>
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}
-            size="small"
             aria-controls={open ? "account-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
-            sx={{ width: "40px", height: "40px" }}
           >
-            <img className="credentials-image" src={userImage} alt="" />
+            <img className="credentials-image-navbar" src={userImage} alt="" />
           </IconButton>
         </Tooltip>
       </Box>
@@ -42,40 +42,21 @@ const AccountAvatar = () => {
         id="account-menu"
         onClose={handleClose}
         open={open}
-        MenuListProps={{
-          sx: {
-            padding: 0,
-          },
-        }}
-        PaperProps={{
-          sx: {
-            mt: 1.5,
-            borderRadius: "8px",
-          },
-        }}
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem
-          sx={{
-            backgroundColor: "#00609a",
-            color: "#ffffff",
-            padding: "16px",
-            pointerEvents: "none",
-            "&.MuiMenuItem-root:hover": {
-              backgroundColor: "#00609a",
-              cursor: "default",
-            },
-          }}
-          className="user-details-menu-item user-details-menu-item-colors"
-        >
+        <MenuItem>
           <img className="credentials-image" src={userImage} alt="" />
           <div className="d-flex flex-column">
             <div className="d-flex flex-row user-name">
-              <span> Name LastName</span>
+              <span>
+                <Typography>Name LastName</Typography>
+              </span>
             </div>
             <div className="d-flex flex-row">
-              <span className="email"> example@productdock.com</span>
+              <span className="email">
+                <Typography>example@productdock.com</Typography>
+              </span>
             </div>
           </div>
         </MenuItem>
@@ -83,7 +64,7 @@ const AccountAvatar = () => {
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
-          Sign out
+          <Typography>Sign out</Typography>
         </MenuItem>
       </Menu>
     </>
