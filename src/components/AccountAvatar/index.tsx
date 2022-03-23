@@ -23,7 +23,7 @@ const AccountAvatar = () => {
   };
   return (
     <>
-      <Box>
+      <Box sx={{ width: "40px", height: "40px" }}>
         <Tooltip title="Account settings">
           <IconButton
             onClick={handleClick}
@@ -31,8 +31,9 @@ const AccountAvatar = () => {
             aria-controls={open ? "account-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
+            sx={{ width: "40px", height: "40px" }}
           >
-            <img className="credentials-image" src={userImage} alt="NN" />
+            <img className="credentials-image" src={userImage} alt="" />
           </IconButton>
         </Tooltip>
       </Box>
@@ -70,11 +71,11 @@ const AccountAvatar = () => {
         >
           <img className="credentials-image" src={userImage} alt="" />
           <div className="d-flex flex-column">
-            <div className="d-flex flex-row">
-              <span> Nenad Becanovic</span>
+            <div className="d-flex flex-row user-name">
+              <span> Name LastName</span>
             </div>
             <div className="d-flex flex-row">
-              <span className="email"> nenad.becanovic@productdock.com</span>
+              <span className="email"> example@productdock.com</span>
             </div>
           </div>
         </MenuItem>

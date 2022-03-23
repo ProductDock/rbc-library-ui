@@ -4,6 +4,7 @@ import { AppBar } from "@mui/material";
 import PageRouter from "./router";
 import logo from "./img/pd-logo.svg";
 import AuthContextProvider from "./store/auth/AuthContext";
+import AccountAvatar from "./components/AccountAvatar";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
         </AppBar>
         <div className="main-div">
           <PageRouter />
+          <div className="account-avatar">
+            <AccountAvatar />
+          </div>
         </div>
       </Router>
     </AuthContextProvider>

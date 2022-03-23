@@ -71,3 +71,7 @@ div.container {
   padding-top: 0;
   background-color: #f7f7f9;
 }
+
+.account-avatar {
+  align-self: center;
+}

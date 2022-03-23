@@ -2,11 +2,15 @@
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  margin-right: 4px;
+  margin-right: 16px;
 }
 
 .email {
   font-size: 12px;
+}
+.user-name {
+  align-self: flex-end;
+  font-size: 14px;
 }
 
 .user-details-menu-item {
