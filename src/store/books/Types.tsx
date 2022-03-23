@@ -3,7 +3,7 @@ export interface Book {
   id?: number;
   title: string;
   author: string;
-  cover?: string;
+  cover: string;
 }
 
 export interface IBooksContext {
