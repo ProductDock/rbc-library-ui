@@ -1,5 +1,5 @@
 import BookCard from "../BookCard";
-import "./BookCollection.css";
+import "./bookCollection.css";
 
 const BookCollection = () => {
   const books = [
@@ -12,8 +12,7 @@ const BookCollection = () => {
     {
       title: "Book2",
       author: "John Smith",
-      imageUrl:
-        "https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg",
+      imageUrl: "https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg",
     },
     {
       title: "Book title",
@@ -24,8 +23,7 @@ const BookCollection = () => {
     {
       title: "Book2",
       author: "John Smith",
-      imageUrl:
-        "https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg",
+      imageUrl: "https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg",
     },
     {
       title: "Book title",
@@ -36,8 +34,7 @@ const BookCollection = () => {
     {
       title: "Book2",
       author: "John Smith",
-      imageUrl:
-        "https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg",
+      imageUrl: "https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg",
     },
     {
       title: "Book title",
@@ -48,20 +45,13 @@ const BookCollection = () => {
     {
       title: "Book2",
       author: "John Smith",
-      imageUrl:
-        "https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg",
+      imageUrl: "https://s3.us-east-2.amazonaws.com/shulph-dev-shelf/books/covers/9781789130690.jpg",
     },
   ];
   return (
     <div className="all-books">
       {books.map((book) => {
-        return (
-          <BookCard
-            title={book.title}
-            author={book.author}
-            imageUrl={book.imageUrl}
-          />
-        );
+        return <BookCard title={book.title} author={book.author} imageUrl={book.imageUrl} />;
       })}
     </div>
   );

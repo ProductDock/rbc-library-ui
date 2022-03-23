@@ -1,4 +1,5 @@
-import { Route, Routes } from "react-router-dom";
+import { Routes } from "react-router-dom";
+import { Route } from "react-router";
 import { routes } from "../constants/routes";
 import HomePage from "../pages/HomePage";
 import { useAuthContext } from "../store/auth/AuthContext";

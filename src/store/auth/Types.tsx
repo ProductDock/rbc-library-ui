@@ -11,4 +11,6 @@ export interface IAuthContext {
   isLoggedIn: boolean | null;
   signIn?: () => void;
   loaded?: boolean;
+  userRedirect?: () => void;
+  redirected: boolean;
 }
