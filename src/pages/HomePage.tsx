@@ -1,6 +1,6 @@
 import BookCollection from "../components/BookCollection";
 import Section from "../components/Section";
-import "./homePage.css";
+import "./HomePage.css";
 
 const HomePage = () => {
   return (
