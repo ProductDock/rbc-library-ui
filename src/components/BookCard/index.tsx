@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import BookCover from "../BookCover";
 import "./BookCard.css";
 
@@ -12,8 +13,12 @@ const BookCard = ({ title, author, imageUrl }: Props) => {
     <div className="book-box">
       <BookCover imageUrl={imageUrl} />
       <div className="text-box">
-        <p className="title-box">{title}</p>
-        <p className="author-box">{author}</p>
+        <p className="title-box">
+          <Typography>{title}</Typography>
+        </p>
+        <p className="author-box">
+          <Typography>{author}</Typography>
+        </p>
       </div>
     </div>
   );

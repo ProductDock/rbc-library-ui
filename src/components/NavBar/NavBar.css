@@ -1,0 +1,59 @@
+.navbar {
+  height: 64px;
+}
+
+.MuiPaper-root.MuiAppBar-root {
+  position: sticky;
+  background-color: white;
+}
+
+.navbar-div {
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0px 5.56%;
+}
+
+.navbar-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  height: 32px;
+  margin: 16px 32px 16px 0;
+}
+
+.navbar-text {
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #000000;
+}
+
+.navbar-company p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+}
+
+.navbar-title p {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 0;
+}
+
+.navbar-title Typography {
+  font-weight: lighter !important;
+}
+
+.account-avatar {
+  align-self: center;
+}
