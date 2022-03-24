@@ -14,11 +14,6 @@ const reducer = (state: IAuthContext, action: any) => {
         ...state,
         isLoggedIn: action.payload,
       };
-    case actions.SET_USER_REDIRECTED_TO_LOGIN:
-      return {
-        ...state,
-        redirected: action.payload,
-      };
     default:
       return state;
   }

@@ -10,7 +10,6 @@ const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID || "";
 const initialState = {
   userProfile: null,
   isLoggedIn: null,
-  redirected: false,
 };
 
 export const AuthContext = React.createContext<IAuthContext>(initialState);
@@ -31,15 +30,10 @@ const AuthContextProvider = (props: any) => {
 
   useEffect(() => {
     TokenStorage.removeAccessToken();
-    dispatch({ type: actions.SET_USER_REDIRECTED_TO_LOGIN, payload: false });
   }, []);
 
   const onAutoLoadFinished = (successLogin: boolean) => {
     dispatch({ type: actions.SET_LOGIN_STATUS, payload: successLogin });
-  };
-
-  const userRedirect = () => {
-    dispatch({ type: actions.SET_USER_REDIRECTED_TO_LOGIN, payload: true });
   };
 
   const { signIn, loaded } = useGoogleLogin({
@@ -55,7 +49,6 @@ const AuthContextProvider = (props: any) => {
       value={{
         ...authState,
         signIn,
-        userRedirect,
         loaded,
       }}
     >
