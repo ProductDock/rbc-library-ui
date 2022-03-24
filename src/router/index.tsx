@@ -3,7 +3,7 @@ import { Route } from "react-router";
 import { routes } from "../constants/routes";
 import HomePage from "../pages/HomePage";
 import { useAuthContext } from "../store/auth/AuthContext";
-import ProtectedRouter from "./protectedRouter";
+import ProtectedRouter from "./ProtectedRouter";
 
 const PageRouter = () => {
   const { loaded } = useAuthContext();
