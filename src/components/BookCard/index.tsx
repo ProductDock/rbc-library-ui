@@ -5,13 +5,13 @@ import "./BookCard.css";
 type Props = {
   title: string;
   author: string;
-  imageUrl: any;
+  cover: string;
 };
 
-const BookCard = ({ title, author, imageUrl }: Props) => {
+const BookCard = ({ title, author, cover }: Props) => {
   return (
     <div className="book-box">
-      <BookCover imageUrl={imageUrl} />
+      <BookCover imageUrl={cover} />
       <div className="text-box">
         <p className="title-box">
           <Typography>{title}</Typography>
