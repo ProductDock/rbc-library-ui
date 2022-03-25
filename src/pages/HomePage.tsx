@@ -1,7 +1,7 @@
 import BookCollection from "../components/BookCollection";
 import Section from "../components/Section";
 import BooksContexProvider from "../store/books/BooksContext";
-import "./homePage.css";
+import "./HomePage.css";
 
 const HomePage = () => {
   return (

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useBooksContext } from "../../store/books/BooksContext";
 import BookCard from "../BookCard";
-import "./bookCollection.css";
+import "./BookCollection.css";
 
 const BookCollection = () => {
   const { books, findAllBooks } = useBooksContext();
