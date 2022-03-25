@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import AccountAvatar from ".";
 
 describe("AccountAvatar component", () => {
@@ -12,7 +13,7 @@ describe("AccountAvatar component", () => {
     render(<AccountAvatar />);
     const button = screen.getByRole("button");
 
-    fireEvent.click(button);
+    userEvent.click(button);
 
     expect(screen.getByRole("menu")).toBeInTheDocument();
   });
