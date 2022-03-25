@@ -44,13 +44,12 @@
   z-index: 10;
 }
 
-.title-box {
+.title-box p {
   height: 36px;
   width: 204px;
   margin-top: 32px;
   position: absolute;
 
-  font-family: "Neue Haas Unica W1G";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -68,15 +67,14 @@
   color: #000000;
 }
 
-.author-box {
+.author-box p {
   height: 36px;
   width: 204px;
   margin-top: 76px;
   position: absolute;
 
-  font-family: "Neue Haas Unica W1G Light";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 12px;
   line-height: 18px;
 

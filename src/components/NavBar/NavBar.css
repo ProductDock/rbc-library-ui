@@ -1,18 +1,3 @@
-input[type="text"],
-select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-div.container {
-  padding: 20px;
-}
-
 .navbar {
   height: 64px;
 }
@@ -49,8 +34,7 @@ div.container {
   color: #000000;
 }
 
-.navbar-company {
-  font-family: "Neue Haas Unica W1G";
+.navbar-company p {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -58,18 +42,12 @@ div.container {
   margin: 0;
 }
 
-.navbar-title {
-  font-family: "Neue Haas Unica W1G Light";
+.navbar-title p {
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 14px;
   line-height: 18px;
   margin: 0;
-}
-
-.main-div {
-  padding-top: 0;
-  background-color: #f7f7f9;
 }
 
 .account-avatar {
