@@ -6,8 +6,7 @@ const BookCollection = () => {
     {
       title: "Book title",
       author: "John Doe",
-      imageUrl:
-        "https://www.oreilly.com/library/view/java-program-design/9781484241431/images/978-1-4842-4143-1_CoverFigure.jpg",
+      imageUrl: null,
     },
     {
       title: "Book2",
