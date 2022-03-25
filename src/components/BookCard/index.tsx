@@ -5,7 +5,7 @@ import "./BookCard.css";
 type Props = {
   title: string;
   author: string;
-  imageUrl: string;
+  imageUrl: any;
 };
 
 const BookCard = ({ title, author, imageUrl }: Props) => {
