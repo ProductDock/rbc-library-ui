@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import "./SectionTitle.css";
 
 type Props = {
@@ -8,7 +9,9 @@ type Props = {
 const SectionTitle = ({ title, numberOfBooks }: Props) => {
   return (
     <div className="title">
-      {title} ({numberOfBooks})
+      <Typography>
+        {title} ({numberOfBooks})
+      </Typography>
     </div>
   );
 };

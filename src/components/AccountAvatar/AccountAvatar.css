@@ -1,0 +1,48 @@
+.credentials-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  margin-right: 16px;
+}
+
+.credentials-image-navbar {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.email {
+  font-size: 12px;
+}
+.user-name {
+  align-self: flex-end;
+  font-size: 14px;
+}
+
+.MuiBox-root {
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+}
+
+.MuiButtonBase-root.MuiIconButton-root {
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+}
+
+.MuiList-root.MuiMenu-list {
+  padding: 0px;
+}
+
+.MuiPaper-root.MuiMenu-paper.MuiPaper-root.MuiPopover-paper {
+  margin-top: 12px;
+  border-radius: 8px;
+}
+
+.MuiButtonBase-root.MuiMenuItem-root:first-child {
+  background-color: #00609a;
+  color: #ffffff;
+  padding: 16px;
+  pointer-events: none;
+}
