@@ -11,6 +11,7 @@ const books: Book[] = [
 ];
 jest.mock("../../services/BookService", () => {
   return {
+    countAllBooks: () => Promise.resolve({ data: 0 }),
     fetchAllBooks: () => Promise.resolve({ data: books }),
   };
 });

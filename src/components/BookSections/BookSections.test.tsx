@@ -1,19 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import App from "../../App";
 import * as AuthContext from "../../store/auth/AuthContext";
-import { Book } from "../../store/books/Types";
-
-const books: Book[] = [
-  { id: 1, author: "Pera Peric", cover: "Cover", title: "Book title" },
-  { id: 2, author: "Nikola Peric", cover: "Cover1", title: "Book title1" },
-  { id: 3, author: "Milan Peric", cover: "Cover2", title: "Book title2" },
-  { id: 4, author: "Petar Peric", cover: "Cover3", title: "Book title3" },
-];
-jest.mock("../../services/BookService", () => {
-  return {
-    fetchAllBooks: () => Promise.resolve({ data: books }),
-  };
-});
 
 beforeEach(() => {
   jest.spyOn(AuthContext, "useAuthContext").mockImplementation(() => ({
@@ -27,18 +14,26 @@ beforeEach(() => {
   }));
 });
 
+jest.mock("../../services/BookService", () => {
+  return {
+    fetchAllBooks: () => Promise.resolve({ data: [] }),
+    countAllBooks: () => Promise.resolve({ data: 15 }),
+  };
+});
+
 describe("Test book number in section", () => {
-  test("should show number of book returned from server when books provided", async () => {
+  test("should show number of books returned from server when number is provided", async () => {
     render(<App />);
     await waitFor(() => {
-      expect(screen.getByText(`Catalog (${books.length})`)).toBeTruthy();
+      expect(screen.getByText(`Catalog (15)`)).toBeTruthy();
     });
   });
 
-  test("should show 0 when returned empty array of books", async () => {
+  test("should show 0 when there is no books", async () => {
     jest.mock("../../services/BookService", () => {
       return {
         fetchAllBooks: () => Promise.resolve({ data: [] }),
+        countAllBooks: () => Promise.resolve({ data: 0 }),
       };
     });
 
