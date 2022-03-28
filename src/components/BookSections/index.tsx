@@ -3,10 +3,10 @@ import BookCollection from "../BookCollection";
 import Section from "../Section";
 
 const BookSections = () => {
-  const { books } = useBooksContext();
+  const { allBooksCount } = useBooksContext();
 
   return (
-    <Section title="Catalog" numberOfBooks={books.length}>
+    <Section title="Catalog" numberOfBooks={allBooksCount}>
       <BookCollection />
     </Section>
   );

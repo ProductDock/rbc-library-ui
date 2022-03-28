@@ -8,7 +8,9 @@ export type Book = {
 
 export interface IBooksContext {
   books: Book[];
+  allBooksCount: number;
   loading: boolean;
   error: string | null;
   findAllBooks?: () => void;
+  countAllBooks?: () => void;
 }
