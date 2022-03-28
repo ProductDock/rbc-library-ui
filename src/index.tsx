@@ -12,7 +12,7 @@ const isMockServiceWorkerEnabled = () => {
 
 if (process.env.NODE_ENV === "development" && isMockServiceWorkerEnabled()) {
   // eslint-disable-next-line global-require
-  const { worker } = require("./msw/mocks/browser");
+  const { worker } = require("./msw/browser");
   worker.start();
   // eslint-disable-next-line no-console
   console.log(`%c[MSW] active handlers ⬇️ `, "color: #4ea6e9");

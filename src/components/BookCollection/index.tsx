@@ -11,7 +11,7 @@ const BookCollection = () => {
   }, []);
 
   return (
-    <div className="all-books">
+    <div className="all-books" data-testid="all-books">
       {books.map((book) => {
         return (
           <BookCard
