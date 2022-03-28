@@ -39,7 +39,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-# Deployment guide
+## Deployment guide
 
 To deploy the react app you need a Compute Engine instance configured. (Persistent disk storage and HTTP traffic enabled are needed)
 
@@ -54,7 +54,7 @@ One time configuration steps :
 - curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash - (add NodeSource repo)
 - sudo apt-get install -y nodejs (installing node js)
 
-## These steps are repeated everytime rbc-library-ui main branch is updated :
+### These steps are repeated everytime rbc-library-ui main branch is updated:
 
 - git clone [repo-url] (clone the repo)
 
@@ -66,7 +66,7 @@ One time configuration steps :
 
 - sudo service nginx reload (restart nginx to preview changes)
 
-### Nginx config file that needs to be created
+#### Nginx config file that needs to be created
 
 File path /etc/nginx/conf.d/react.conf
 
@@ -93,4 +93,4 @@ in the nginx.conf file, in order to show the React app.
 
 The module `mock service worker` (https://github.com/mswjs/msw) is configured and allows us to mock specific fetch requests used in `rbc-library-ui`.
 To activate it for local development you have to enable the environment variable `REACT_APP_MSW_MOCKING_ENABLED`.
-The configuration of specific fetch request mocks have to be registered in `msw/handlers.ts`.
+The configuration of specific fetch request mocks is structured in `msw/handlers.ts`.
