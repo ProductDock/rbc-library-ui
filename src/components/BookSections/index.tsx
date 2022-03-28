@@ -6,7 +6,7 @@ const BookSections = () => {
   const { books } = useBooksContext();
 
   return (
-    <Section title="All books" numberOfBooks={books.length}>
+    <Section title="Catalog" numberOfBooks={books.length}>
       <BookCollection />
     </Section>
   );
