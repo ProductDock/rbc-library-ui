@@ -88,3 +88,9 @@ If a default nginx page is displayed, comment out the line
 ```
 
 in the nginx.conf file, in order to show the React app.
+
+## Mocking of fetch requests for local development
+
+The module `mock service worker` (https://github.com/mswjs/msw) is configured and allows us to mock specific fetch requests used in `rbc-library-ui`.
+To activate it for local development you have to enable the environment variable `REACT_APP_MSW_MOCKING_ENABLED`.
+The configuration of specific fetch request mocks have to be registered in `msw/handlers.ts`.
