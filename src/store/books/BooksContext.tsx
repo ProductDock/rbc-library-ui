@@ -6,6 +6,7 @@ import { IBooksContext } from "./Types";
 
 const initialState = {
   books: [],
+  allBooksCount: 0,
   loading: false,
   error: null,
 };
@@ -27,6 +28,15 @@ const BooksContextProvider = (props: any) => {
     setLoading(false);
   };
 
+  const countAllBooks = async () => {
+    await bookService
+      .countAllBooks()
+      .then((resp) =>
+        dispatch({ type: actions.SET_ALL_BOOKS_COUNT, payload: resp.data })
+      )
+      .catch(() => setError("Error while fetching data"));
+  };
+
   return (
     <BooksContext.Provider
       value={{
@@ -34,6 +44,7 @@ const BooksContextProvider = (props: any) => {
         loading,
         error,
         findAllBooks,
+        countAllBooks,
       }}
     >
       {props.children}

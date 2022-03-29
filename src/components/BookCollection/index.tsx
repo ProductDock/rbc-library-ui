@@ -4,10 +4,11 @@ import BookCard from "../BookCard";
 import "./BookCollection.css";
 
 const BookCollection = () => {
-  const { books, findAllBooks } = useBooksContext();
+  const { books, findAllBooks, countAllBooks } = useBooksContext();
 
   useEffect(() => {
     findAllBooks?.();
+    countAllBooks?.();
   }, []);
 
   return (
