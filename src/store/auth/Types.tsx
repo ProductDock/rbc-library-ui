@@ -2,6 +2,7 @@ export type UserProfile = {
   name: string;
   imageUrl: string;
   email: string;
+  googleAccessToken: string;
 };
 
 export interface IAuthContext {
