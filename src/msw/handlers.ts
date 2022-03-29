@@ -4,14 +4,8 @@ import { BooksFixture } from "./fixtures";
 export const BOOKS_URL = `*/books`;
 
 export const handlers = [
-  // Fetch books
-  rest.get(BOOKS_URL, (req, res, ctx) => {
-    // Respond with a 200 status code
-    return res(ctx.status(200, "Mocked status"), ctx.json(BooksFixture));
-  }),
 
-  rest.get(`${BOOKS_URL}/count`, (req, res, ctx) => {
-    // Respond with a 200 status code
-    return res(ctx.status(200, "Mocked status"), ctx.json(15));
-  }),
+  rest.get(BOOKS_URL, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json(BooksFixture))),
+
+  rest.get(`${BOOKS_URL}/count`, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json(15))),
 ];
