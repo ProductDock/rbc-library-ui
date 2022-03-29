@@ -10,7 +10,7 @@ type Props = {
 
 const BookCard = ({ title, author, cover }: Props) => {
   return (
-    <div className="book-box">
+    <div className="book-box" data-testid="book-box">
       <BookCover imageUrl={cover} />
       <div className="text-box">
         <p className="title-box">
