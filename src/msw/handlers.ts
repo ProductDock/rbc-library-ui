@@ -9,4 +9,9 @@ export const handlers = [
     // Respond with a 200 status code
     return res(ctx.status(200, "Mocked status"), ctx.json(BooksFixture));
   }),
+
+  rest.get(`${BOOKS_URL}/count`, (req, res, ctx) => {
+    // Respond with a 200 status code
+    return res(ctx.status(200, "Mocked status"), ctx.json(15));
+  }),
 ];
