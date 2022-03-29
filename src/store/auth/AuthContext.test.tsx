@@ -29,6 +29,8 @@ describe("Test authentication context", () => {
       userProfile: null,
     }));
 
+    render(<App />);
+
     const allBooks = screen.queryByText("All books (1)");
 
     act(() => {
