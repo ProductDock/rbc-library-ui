@@ -36,7 +36,7 @@ const AuthContextProvider = (props: any) => {
   const signOut = async () => {
     return googleService
       .revokeOauth2Token(authState.userProfile?.googleAccessToken)
-      .then(() => {
+      .finally(() => {
         dispatch({ type: actions.REMOVE_LOGGED_USER });
         TokenStorage.removeAccessToken();
       });
