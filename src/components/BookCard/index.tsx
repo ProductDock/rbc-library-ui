@@ -14,7 +14,9 @@ const BookCard = ({ title, author, cover }: Props) => {
       <BookCover imageUrl={cover} />
       <div className="text-box">
         <span className="title-box">
-          <Typography>{title}</Typography>
+          <Tooltip title={title}>
+            <Typography>{title}</Typography>
+          </Tooltip>
         </span>
         <span className="author-box">
           <Tooltip title={author}>
