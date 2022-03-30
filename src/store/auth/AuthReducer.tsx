@@ -14,6 +14,12 @@ const reducer = (state: IAuthContext, action: any) => {
         ...state,
         isLoggedIn: action.payload,
       };
+    case actions.REMOVE_LOGGED_USER:
+      return {
+        ...state,
+        isLoggedIn: null,
+        userProfile: null,
+      };
     default:
       return state;
   }
