@@ -13,18 +13,6 @@ const BookCollection = () => {
 
   return (
     <div className="all-books">
-      <BookCard key={1} title="Title" author="Author" cover="" />
-      <BookCard key={1} title="Title" author="Author" cover="" />
-      <BookCard key={1} title="Title" author="Author" cover="" />
-      <BookCard key={1} title="Title" author="Author" cover="" />
-      <BookCard key={1} title="Title" author="Author" cover="" />
-      <BookCard key={1} title="Title" author="Author" cover="" />
-      <BookCard key={1} title="Title" author="Author" cover="" />
-      <BookCard key={1} title="Title" author="Author" cover="" />
-      <BookCard key={1} title="Title" author="Author" cover="" />
-      <BookCard key={1} title="Title" author="Author" cover="" />
-      <BookCard key={1} title="Title" author="Author" cover="" />
-      <BookCard key={1} title="Title" author="Author" cover="" />
       {books.map((book) => {
         return <BookCard key={book.id} title={book.title} author={book.author} cover={book.cover} />;
       })}
