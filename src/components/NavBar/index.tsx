@@ -11,12 +11,12 @@ const NavBar = () => {
         <div className="navbar-info">
           <img src={logo} alt="logo" className="logo" />
           <div className="navbar-text">
-            <p className="navbar-company">
+            <span className="navbar-company">
               <Typography>ProductDock</Typography>
-            </p>
-            <p className="navbar-title">
+            </span>
+            <span className="navbar-title">
               <Typography>Library</Typography>
-            </p>
+            </span>
           </div>
         </div>
         <div className="account-avatar">
