@@ -39,7 +39,13 @@ const BookCollection = () => {
             </p>
             <LinearProgress variant="determinate" value={(books.length / allBooksCount) * 100} />
           </div>
-          <LoadingButton variant="outlined" className="pagination-button" loading={loading} onClick={findBooks}>
+          <LoadingButton
+            variant="outlined"
+            className="pagination-button"
+            loading={loading}
+            onClick={findBooks}
+            data-testid="pagination-button"
+          >
             Show More
           </LoadingButton>
         </div>
