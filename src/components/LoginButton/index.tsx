@@ -1,14 +1,17 @@
+import { Typography } from "@mui/material";
 import { useAuthContext } from "../../store/auth/AuthContext";
-import "./loginButton.css";
+import "./LoginButton.css";
 
 const LoginButton = () => {
   const { signIn } = useAuthContext();
 
   return (
     <button onClick={signIn} className="login-button" type="button">
-      <img src="icons/google.svg" alt="google login" className="icon" />
+      <div className="button-container">
+        <img src="icons/google.svg" alt="google login" className="icon" />
 
-      <span className="login-buttonText">Sign in </span>
+        <Typography>Sign in with Google</Typography>
+      </div>
     </button>
   );
 };
