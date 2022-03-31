@@ -14,6 +14,7 @@ beforeEach(() => {
       name: "test",
       imageUrl: "http://test.com",
       email: "test@test.com",
+      googleAccessToken: "1234567",
     },
   }));
 });
