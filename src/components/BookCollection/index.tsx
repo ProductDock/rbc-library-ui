@@ -6,22 +6,22 @@ import BookCard from "../BookCard";
 import "./BookCollection.css";
 
 const BookCollection = () => {
-  const { books, allBooksCount, findAllBooks, countAllBooks } = useBooksContext();
+  const { books, allBooksCount, findBooks, countAllBooks } = useBooksContext();
   const [pageNumber, setPageNumber] = useState(1);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    findAllBooks?.(0);
+    findBooks?.(0);
     countAllBooks?.();
   }, []);
 
-  const findBooks = () => {
+  const loadBooks = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
     }, 2000);
     setPageNumber(pageNumber + 1);
-    findAllBooks?.(pageNumber);
+    findBooks?.(pageNumber);
   };
 
   return (
@@ -43,7 +43,7 @@ const BookCollection = () => {
             variant="outlined"
             className="pagination-button"
             loading={loading}
-            onClick={findBooks}
+            onClick={loadBooks}
             data-testid="pagination-button"
           >
             Show More
