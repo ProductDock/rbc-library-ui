@@ -11,6 +11,6 @@ export interface IBooksContext {
   allBooksCount: number;
   loading: boolean;
   error: string | null;
-  findAllBooks?: (pageNumber?: any) => void;
+  findBooks?: (pageNumber?: number) => void;
   countAllBooks?: () => void;
 }

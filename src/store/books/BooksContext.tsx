@@ -19,10 +19,10 @@ const BooksContextProvider = (props: any) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const findAllBooks = async (pageNumber?: any) => {
+  const findBooks = async (pageNumber?: number) => {
     setLoading(true);
     await bookService
-      .fetchAllBooks(pageNumber)
+      .fetchAllBooks(pageNumber as number)
       .then((resp) => dispatch({ type: actions.SET_BOOKS, payload: resp.data }))
       .catch(() => setError("Error while fetching data"));
     setLoading(false);
@@ -41,7 +41,7 @@ const BooksContextProvider = (props: any) => {
         ...booksState,
         loading,
         error,
-        findAllBooks,
+        findBooks,
         countAllBooks,
       }}
     >
