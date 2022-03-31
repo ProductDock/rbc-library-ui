@@ -14,14 +14,7 @@ const BookCollection = () => {
   return (
     <div className="all-books">
       {books.map((book) => {
-        return (
-          <BookCard
-            key={book.id}
-            title={book.title}
-            author={book.author}
-            cover={book.cover}
-          />
-        );
+        return <BookCard key={book.id} title={book.title} author={book.author} cover={book.cover} />;
       })}
     </div>
   );
