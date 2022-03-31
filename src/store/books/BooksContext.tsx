@@ -22,7 +22,7 @@ const BooksContextProvider = (props: any) => {
   const findBooks = async (pageNumber?: number) => {
     setLoading(true);
     await bookService
-      .fetchAllBooks(pageNumber as number)
+      .fetchBooks(pageNumber as number)
       .then((resp) => dispatch({ type: actions.SET_BOOKS, payload: resp.data }))
       .catch(() => setError("Error while fetching data"));
     setLoading(false);
