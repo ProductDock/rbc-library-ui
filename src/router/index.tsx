@@ -4,7 +4,7 @@ import { routes } from "../constants/routes";
 import HomePage from "../pages/HomePage";
 import { useAuthContext } from "../store/auth/AuthContext";
 import ProtectedRouter from "./ProtectedRouter";
-import LandingPage from "../components/LandingPage";
+import LandingPage from "../pages/LandingPage";
 
 const PageRouter = () => {
   const { loaded } = useAuthContext();
