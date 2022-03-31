@@ -6,9 +6,8 @@ import BookCard from "../BookCard";
 import "./BookCollection.css";
 
 const BookCollection = () => {
-  const { books, allBooksCount, findBooks, countAllBooks } = useBooksContext();
+  const { books, allBooksCount, findBooks, countAllBooks, loading } = useBooksContext();
   const [pageNumber, setPageNumber] = useState(1);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     findBooks?.(0);
@@ -16,10 +15,6 @@ const BookCollection = () => {
   }, []);
 
   const loadBooks = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
     setPageNumber(pageNumber + 1);
     findBooks?.(pageNumber);
   };
