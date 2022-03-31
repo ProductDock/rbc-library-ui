@@ -1,7 +1,8 @@
 .all-books {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(204px, 1fr));
-  grid-gap: 1vw;
+  column-gap: 1vw;
+  row-gap: 2vw;
   flex-direction: column;
 }
 
