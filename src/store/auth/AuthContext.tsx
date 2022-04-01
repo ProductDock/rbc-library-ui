@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useReducer } from "react";
 import { useGoogleLogin } from "react-google-login";
+import { gapi } from "gapi-script";
 import { actions } from "./authActions";
 import reducer from "./AuthReducer";
 import { TokenStorage } from "./TokenStorage";
 import { IAuthContext } from "./Types";
-import * as googleService from "../../services/GoogleService";
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID || "";
 
@@ -34,12 +34,13 @@ const AuthContextProvider = (props: any) => {
   };
 
   const signOut = async () => {
-    return googleService
-      .revokeOauth2Token(authState.userProfile?.googleAccessToken)
-      .finally(() => {
-        dispatch({ type: actions.REMOVE_LOGGED_USER });
-        TokenStorage.removeAccessToken();
-      });
+    const auth2 = gapi.auth2.getAuthInstance();
+    return auth2?.signOut().then(
+      auth2
+        .disconnect()
+        .then(dispatch({ type: actions.REMOVE_LOGGED_USER }))
+        .then(TokenStorage.removeAccessToken())
+    );
   };
 
   useEffect(() => {
