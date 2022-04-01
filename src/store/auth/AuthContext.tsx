@@ -20,8 +20,6 @@ const AuthContextProvider = (props: any) => {
 
   const onSuccess = (res: any) => {
     const { accessToken } = res;
-    console.log(accessToken);
-
     const { name, email, imageUrl } = res.profileObj;
     dispatch({
       type: actions.SET_LOGGED_USER,
@@ -40,7 +38,6 @@ const AuthContextProvider = (props: any) => {
     return auth2?.signOut().then(
       auth2
         .disconnect()
-        .then(console.log("LOGOUT SUCCESSFUL"))
         .then(dispatch({ type: actions.REMOVE_LOGGED_USER }))
         .then(TokenStorage.removeAccessToken())
     );
