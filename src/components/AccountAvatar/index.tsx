@@ -8,11 +8,14 @@ import Tooltip from "@mui/material/Tooltip";
 import Logout from "@mui/icons-material/Logout";
 import { Typography } from "@mui/material";
 import "./AccountAvatar.css";
+import { useNavigate } from "react-router";
 import { useAuthContext } from "../../store/auth/AuthContext";
+import { routes } from "../../constants/routes";
 
 const AccountAvatar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const { userProfile, signOut } = useAuthContext();
+  const navigate = useNavigate();
 
   const open = Boolean(anchorEl);
 
@@ -25,7 +28,9 @@ const AccountAvatar = () => {
   };
 
   const handleSignOut = () => {
-    signOut?.();
+    signOut?.()
+      .then(() => navigate(routes.WELCOME))
+      .then(() => handleClose());
   };
 
   return userProfile ? (

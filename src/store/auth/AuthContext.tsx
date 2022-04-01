@@ -37,11 +37,13 @@ const AuthContextProvider = (props: any) => {
 
   const signOut = async () => {
     const auth2 = gapi.auth2.getAuthInstance();
-    if (auth2 != null) {
+    return auth2?.signOut().then(
       auth2
-        .signOut()
-        .then(auth2.disconnect().then(console.log("LOGOUT SUCCESSFUL")));
-    }
+        .disconnect()
+        .then(console.log("LOGOUT SUCCESSFUL"))
+        .then(dispatch({ type: actions.REMOVE_LOGGED_USER }))
+        .then(TokenStorage.removeAccessToken())
+    );
   };
 
   useEffect(() => {
