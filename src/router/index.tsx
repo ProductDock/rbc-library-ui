@@ -17,7 +17,6 @@ const PageRouter = () => {
       <Route path={routes.HOME} element={<ProtectedRouter />}>
         <Route path={routes.HOME} element={<HomePage />} />
       </Route>
-
       <Route path={routes.WELCOME} element={<LandingPage />} />
     </Routes>
   );

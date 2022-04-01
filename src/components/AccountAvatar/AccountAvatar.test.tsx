@@ -43,7 +43,7 @@ describe("AccountAvatar component", () => {
 
     expect(signOutMock).toBeCalledTimes(1);
 
-    const landingText = await screen.findByText("Landing page");
+    const landingText = await screen.findByText("Welcome to");
     expect(landingText).toBeTruthy();
   });
 });

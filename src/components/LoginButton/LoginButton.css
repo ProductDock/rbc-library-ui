@@ -1,0 +1,28 @@
+.login-button {
+  cursor: pointer;
+  display: block;
+  margin: 0px auto;
+  border-radius: 20px;
+  border-color: transparent;
+  background-color: #f7f7f9;
+  width: 25%;
+  position: relative;
+  height: 40px;
+}
+
+.login-button .button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button-container .MuiTypography-root {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 32px;
+}
+
+.icon {
+  height: 18px;
+  width: 18px;
+  margin: 0px 10px;
+}
