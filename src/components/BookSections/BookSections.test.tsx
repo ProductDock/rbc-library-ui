@@ -5,7 +5,7 @@ describe("Test book number in section", () => {
   test("should show number of books returned from server when number is provided", async () => {
     render(<App />);
 
-    const sectionTitle = await screen.findByText(`Catalog (15)`);
+    const sectionTitle = await screen.findByText(`Catalog (25)`);
 
     await act(async () => {
       expect(sectionTitle).toBeTruthy();

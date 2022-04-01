@@ -60,7 +60,7 @@ One time configuration steps :
 
 - npm i (install node modules)
 
-- npm run build (build the react app)
+- npm run build:prod (build the react app)
 
 - make the app-deploy folder in the root directory and copy contents of the build folder to it
 
