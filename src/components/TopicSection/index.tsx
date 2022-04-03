@@ -1,21 +1,34 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import "./TopicSection.css";
 
 const TopicSection = () => {
   return (
     <div className="topic-container">
-      <div className="topi-text">
-        <span>Find your favorites</span>
-        <span>
+      <div className="topic-text">
+        <Typography className="bolded-text">
+          <b>Find your favorites</b>
+        </Typography>
+        <Typography className="description-text">
           Filter books by listed topics to easily find titles in your area of
           interest
-        </span>
+        </Typography>
       </div>
       <div className="topic-buttons">
-        <Button variant="outlined">Software development</Button>
-        <Button variant="outlined">Marketing</Button>
-        <Button variant="outlined">Product Management</Button>
-        <Button variant="outlined">Design</Button>
-        <Button variant="outlined">Psychology</Button>
+        <Button className="topic-button">
+          <Typography>SOFTWARE DEVELOPMENT</Typography>
+        </Button>
+        <Button className="topic-button" variant="outlined">
+          <Typography>PRODUCT MANAGEMENT</Typography>
+        </Button>
+        <Button className="topic-button" variant="outlined">
+          <Typography>MARKETING</Typography>
+        </Button>
+        <Button className="topic-button" variant="outlined">
+          <Typography>DESIGN</Typography>
+        </Button>
+        <Button className="topic-button" variant="outlined">
+          <Typography>PSYCHOLOGY</Typography>
+        </Button>
       </div>
     </div>
   );
