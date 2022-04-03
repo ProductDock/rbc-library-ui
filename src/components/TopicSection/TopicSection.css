@@ -1,3 +1,10 @@
+.topic-container {
+  position: sticky;
+  top: -22px;
+  background-color: whitesmoke;
+  z-index: 1000;
+}
+
 .topic-text {
   display: flex;
   flex-direction: column;
