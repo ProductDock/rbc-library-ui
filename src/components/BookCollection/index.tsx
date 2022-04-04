@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 import { LoadingButton } from "@mui/lab";
 import { LinearProgress } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -6,7 +7,8 @@ import BookCard from "../BookCard";
 import "./BookCollection.css";
 
 const BookCollection = () => {
-  const { books, allBooksCount, findBooks, countAllBooks, loading } = useBooksContext();
+  const { books, allBooksCount, findBooks, countAllBooks, loading } =
+    useBooksContext();
   const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
@@ -23,7 +25,14 @@ const BookCollection = () => {
     <div>
       <div className="all-books">
         {books.map((book) => {
-          return <BookCard key={book.id} title={book.title} author={book.author} cover={book.cover} />;
+          return (
+            <BookCard
+              key={book.id}
+              title={book.title}
+              author={book.author}
+              cover={book.cover}
+            />
+          );
         })}
       </div>
       <div className="pagination-div">
@@ -32,17 +41,22 @@ const BookCollection = () => {
             <p>
               Showing {books.length} of {allBooksCount}
             </p>
-            <LinearProgress variant="determinate" value={(books.length / allBooksCount) * 100} />
+            <LinearProgress
+              variant="determinate"
+              value={(books.length / allBooksCount) * 100}
+            />
           </div>
-          <LoadingButton
-            variant="outlined"
-            className="pagination-button"
-            loading={loading}
-            onClick={loadBooks}
-            data-testid="pagination-button"
-          >
-            Show More
-          </LoadingButton>
+          {books.length < allBooksCount && (
+            <LoadingButton
+              variant="outlined"
+              className="pagination-button"
+              loading={loading}
+              onClick={loadBooks}
+              data-testid="pagination-button"
+            >
+              Show More
+            </LoadingButton>
+          )}
         </div>
       </div>
     </div>
