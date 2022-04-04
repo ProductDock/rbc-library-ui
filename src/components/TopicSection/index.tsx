@@ -1,8 +1,26 @@
-import { Button, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useState } from "react";
+import TopicButton from "./TopicButton";
 import "./TopicSection.css";
 
 const TopicSection = () => {
+  const buttons = [
+    {
+      name: "SOFTWARE DEVELOPMENT",
+    },
+    {
+      name: "PRODUCT MANAGEMENT",
+    },
+    {
+      name: "MARKETING",
+    },
+    {
+      name: "DESIGN",
+    },
+    {
+      name: "PSYCHOLOGY",
+    },
+  ];
   const [topics, setTopics] = useState<string[]>([]);
 
   const toggleButton = (topic: string) => {
@@ -12,6 +30,8 @@ const TopicSection = () => {
       setTopics([...topics, topic]);
     }
   };
+
+  const isSelected = (name: string) => topics.includes(name);
 
   return (
     <div className="topic-container">
@@ -25,50 +45,17 @@ const TopicSection = () => {
         </Typography>
       </div>
       <div className="topic-buttons">
-        <Button
-          className={
-            topics.includes("software_development")
-              ? "selected-button"
-              : "topic-button"
-          }
-          onClick={() => toggleButton("software_development")}
-        >
-          <Typography>SOFTWARE DEVELOPMENT</Typography>
-        </Button>
-        <Button
-          className={
-            topics.includes("product_management")
-              ? "selected-button"
-              : "topic-button"
-          }
-          onClick={() => toggleButton("product_management")}
-        >
-          <Typography>PRODUCT MANAGEMENT</Typography>
-        </Button>
-        <Button
-          className={
-            topics.includes("marketing") ? "selected-button" : "topic-button"
-          }
-          onClick={() => toggleButton("marketing")}
-        >
-          <Typography>MARKETING</Typography>
-        </Button>
-        <Button
-          className={
-            topics.includes("design") ? "selected-button" : "topic-button"
-          }
-          onClick={() => toggleButton("design")}
-        >
-          <Typography>DESIGN</Typography>
-        </Button>
-        <Button
-          className={
-            topics.includes("psychology") ? "selected-button" : "topic-button"
-          }
-          onClick={() => toggleButton("psychology")}
-        >
-          <Typography>PSYCHOLOGY</Typography>
-        </Button>
+        {buttons.map((button) => {
+          return (
+            <TopicButton
+              key={button.name}
+              name={button.name}
+              data-testid={button.name}
+              selected={isSelected(button.name)}
+              handleClick={toggleButton}
+            />
+          );
+        })}
       </div>
     </div>
   );
