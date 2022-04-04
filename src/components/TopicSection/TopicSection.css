@@ -40,3 +40,10 @@
   font-size: 12px;
   line-height: 18px;
 }
+
+.topic-buttons .selected-button {
+  margin-right: 10px;
+  width: auto;
+  color: #00609A;
+  border-color: #00609A;
+}
