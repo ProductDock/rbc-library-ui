@@ -1,19 +1,11 @@
-import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
+import LandingPage from "../pages/LandingPage";
 import { useAuthContext } from "../store/auth/AuthContext";
 
 const ProtectedRouter = () => {
-  const { signIn, loaded, isLoggedIn } = useAuthContext();
+  const { isLoggedIn } = useAuthContext();
 
-  const isNotAuthenticated = () => loaded && isLoggedIn === false;
-
-  useEffect(() => {
-    if (isNotAuthenticated()) {
-      signIn?.();
-    }
-  }, [isLoggedIn]);
-
-  return isLoggedIn ? <Outlet /> : null;
+  return isLoggedIn ? <Outlet /> : <LandingPage />;
 };
 
 export default ProtectedRouter;
