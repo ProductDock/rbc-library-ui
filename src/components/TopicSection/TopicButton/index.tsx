@@ -7,11 +7,12 @@ type Props = {
   handleClick: (topic: string) => void;
 };
 
-const TopicButton = ({ handleClick, name, selected }: Props) => {
+const TopicButton = ({ handleClick, name, selected, ...rest }: Props) => {
   return (
     <Button
       className={selected ? "selected-button" : "topic-button"}
       onClick={() => handleClick(name)}
+      {...rest}
     >
       <Typography>{name}</Typography>
     </Button>
