@@ -45,17 +45,15 @@ const TopicSection = () => {
         </Typography>
       </div>
       <div className="topic-buttons">
-        {buttons.map((button) => {
-          return (
-            <TopicButton
-              key={button.name}
-              name={button.name}
-              data-testid={button.name}
-              selected={isSelected(button.name)}
-              handleClick={toggleButton}
-            />
-          );
-        })}
+        {buttons.map((button) => (
+          <TopicButton
+            key={button.name}
+            name={button.name}
+            data-testid={button.name}
+            selected={isSelected(button.name)}
+            handleClick={toggleButton}
+          />
+        ))}
       </div>
     </div>
   );
