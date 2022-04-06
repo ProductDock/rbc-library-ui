@@ -1,10 +1,9 @@
-/* eslint-disable no-unused-vars */
 import { Button, Typography } from "@material-ui/core";
 
 type Props = {
   name: string;
   selected: boolean;
-  handleClick: (topic: string) => void;
+  handleClick: Function;
 };
 
 const TopicButton = ({ handleClick, name, selected, ...rest }: Props) => {
