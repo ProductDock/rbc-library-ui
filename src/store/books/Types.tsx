@@ -12,6 +12,8 @@ export interface IBooksContext {
   loading: boolean;
   error: string | null;
   page: number;
+  topics: string[];
   setPage?: (pageNumber: number) => void;
+  setTopicFilter?: (topics: string[]) => void;
   countAllBooks?: () => void;
 }

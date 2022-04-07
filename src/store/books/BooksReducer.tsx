@@ -28,6 +28,7 @@ const reducer = (state: IBooksContext, action: any) => {
         ...state,
         page: 0,
         topics: action.payload,
+        books: [],
       };
     default:
       return state;

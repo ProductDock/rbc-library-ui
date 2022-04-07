@@ -9,7 +9,6 @@ import "./BookCollection.css";
 const BookCollection = () => {
   const { books, allBooksCount, countAllBooks, loading, page, setPage } =
     useBooksContext();
-  // const [pageNumber, setPageNumber] = useState(1);
 
   useEffect(() => {
     countAllBooks?.();
@@ -17,7 +16,6 @@ const BookCollection = () => {
 
   const loadBooks = () => {
     setPage?.(page + 1);
-    // findBooks?.(pageNumber);
   };
 
   return (
