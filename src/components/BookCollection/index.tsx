@@ -1,18 +1,11 @@
-/* eslint-disable operator-linebreak */
 import { LoadingButton } from "@mui/lab";
 import { LinearProgress } from "@mui/material";
-import { useEffect } from "react";
 import { useBooksContext } from "../../store/books/BooksContext";
 import BookCard from "../BookCard";
 import "./BookCollection.css";
 
 const BookCollection = () => {
-  const { books, allBooksCount, countAllBooks, loading, page, setPage } =
-    useBooksContext();
-
-  useEffect(() => {
-    countAllBooks?.();
-  }, []);
+  const { books, allBooksCount, loading, page, setPage } = useBooksContext();
 
   const loadBooks = () => {
     setPage?.(page + 1);
