@@ -1,4 +1,4 @@
-import React, { useContext, useReducer, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import * as bookService from "../../services/BookService";
 import reducer from "./BooksReducer";
 import { actions } from "./BooksActions";
@@ -9,20 +9,23 @@ const initialState = {
   allBooksCount: 0,
   loading: false,
   error: null,
+  page: 0,
+  topics: [],
 };
 
 export const BooksContext = React.createContext<IBooksContext>(initialState);
 
 const BooksContextProvider = (props: any) => {
   const [booksState, dispatch] = useReducer(reducer, initialState);
+  const { page, topics } = booksState;
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const findBooks = async (pageNumber?: number) => {
+  const findBooks = async () => {
     setLoading(true);
     await bookService
-      .fetchBooks(pageNumber as number)
+      .fetchBooks({ page, topics })
       .then((resp) => dispatch({ type: actions.SET_BOOKS, payload: resp.data }))
       .catch(() => setError("Error while fetching data"));
     setLoading(false);
@@ -31,9 +34,27 @@ const BooksContextProvider = (props: any) => {
   const countAllBooks = async () => {
     await bookService
       .countAllBooks()
-      .then((resp) => dispatch({ type: actions.SET_ALL_BOOKS_COUNT, payload: resp.data }))
+      .then((resp) =>
+        dispatch({ type: actions.SET_ALL_BOOKS_COUNT, payload: resp.data })
+      )
       .catch(() => setError("Error while fetching data"));
   };
+
+  const setPage = (pageNumber: number) => {
+    dispatch({ type: actions.SET_PAGE, payload: pageNumber });
+  };
+
+  const setTopicFilter = (topicFilter: string[]) => {
+    dispatch({ type: actions.SET_TOPICS, payload: topicFilter });
+  };
+
+  useEffect(() => {
+    findBooks?.();
+  }, [page, topics]);
+
+  useEffect(() => {
+    countAllBooks?.();
+  }, []);
 
   return (
     <BooksContext.Provider
@@ -41,8 +62,8 @@ const BooksContextProvider = (props: any) => {
         ...booksState,
         loading,
         error,
-        findBooks,
-        countAllBooks,
+        setPage,
+        setTopicFilter,
       }}
     >
       {props.children}

@@ -1,6 +1,6 @@
 .topic-container {
   position: sticky;
-  top: -22px;
+  top: -48px;
   background-color: whitesmoke;
   z-index: 1000;
 }
@@ -41,6 +41,6 @@
 .topic-buttons .selected-button {
   margin-right: 10px;
   width: auto;
-  color: #00609A;
-  border-color: #00609A;
+  color: #00609a;
+  border-color: #00609a;
 }

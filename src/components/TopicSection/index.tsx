@@ -1,9 +1,10 @@
 import { Typography } from "@mui/material";
-import { useState } from "react";
+import { useBooksContext } from "../../store/books/BooksContext";
 import TopicButton from "./TopicButton";
 import "./TopicSection.css";
 
 const TopicSection = () => {
+  const { topics, setTopicFilter } = useBooksContext();
   const buttons = [
     {
       name: "SOFTWARE DEVELOPMENT",
@@ -21,13 +22,12 @@ const TopicSection = () => {
       name: "PSYCHOLOGY",
     },
   ];
-  const [topics, setTopics] = useState<string[]>([]);
 
   const toggleButton = (topic: string) => {
     if (topics.includes(topic)) {
-      setTopics(topics.filter((item) => item !== topic));
+      setTopicFilter?.(topics.filter((item) => item !== topic));
     } else {
-      setTopics([...topics, topic]);
+      setTopicFilter?.([...topics, topic]);
     }
   };
 

@@ -6,8 +6,8 @@ import "./HomePage.css";
 const HomePage = () => {
   return (
     <div className="main-container">
-      <TopicSection />
       <BooksContexProvider>
+        <TopicSection />
         <BookSections />
       </BooksContexProvider>
     </div>

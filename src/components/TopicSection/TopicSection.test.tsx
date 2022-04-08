@@ -1,5 +1,7 @@
 import { act, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import App from "../../App";
+import * as bookService from "../../services/BookService";
 
 describe("Test topic buttons", () => {
   test("should render topic buttons", async () => {
@@ -38,6 +40,20 @@ describe("Test topic buttons", () => {
     topicButton.click();
     await act(async () => {
       expect(topicButton).toHaveClass("topic-button");
+    });
+  });
+
+  test("should make api call when selected", async () => {
+    const mockFetchBooks = jest.spyOn(bookService, "fetchBooks");
+
+    render(<App />);
+
+    const topicButton = await screen.findByTestId("MARKETING");
+    userEvent.click(topicButton);
+
+    expect(mockFetchBooks).toHaveBeenLastCalledWith({
+      page: 0,
+      topics: ["MARKETING"],
     });
   });
 });
