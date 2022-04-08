@@ -1,0 +1,42 @@
+.topic-container {
+  position: sticky;
+  background-color: whitesmoke;
+  z-index: 1000;
+  top: 4em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.topic-buttons {
+  margin-left: 1vw;
+}
+.topic-container .side-text {
+  font-size: 14px;
+}
+
+.topic-container .clear-all-button {
+  font-weight: 400;
+  color: #00609a;
+  margin-left: 1vw;
+  cursor: pointer;
+}
+
+.topic-container .topic-button {
+  margin-right: 10px;
+  width: auto;
+  border-color: lightgray;
+}
+
+.topic-buttons .MuiTypography-root {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.topic-buttons .selected-button {
+  margin-right: 10px;
+  width: auto;
+  color: #00609a;
+  border-color: #00609a;
+}
