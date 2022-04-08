@@ -1,4 +1,6 @@
-import { Typography } from "@mui/material";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { useCallback } from "react";
+import { Typography, Link } from "@mui/material";
 import { useBooksContext } from "../../store/books/BooksContext";
 import TopicButton from "./TopicButton";
 import "./TopicSection.css";
@@ -23,27 +25,27 @@ const TopicSection = () => {
     },
   ];
 
-  const toggleButton = (topic: string) => {
-    if (topics.includes(topic)) {
-      setTopicFilter?.(topics.filter((item) => item !== topic));
-    } else {
-      setTopicFilter?.([...topics, topic]);
-    }
-  };
+  const toggleButton = useCallback(
+    (topic: string) => {
+      if (topics.includes(topic)) {
+        setTopicFilter?.(topics.filter((item) => item !== topic));
+      } else {
+        setTopicFilter?.([...topics, topic]);
+      }
+    },
+    [topics]
+  );
 
-  const isSelected = (name: string) => topics.includes(name);
+  const clearAllTopics = () => setTopicFilter?.([]);
+
+  const isSelected = useCallback(
+    (name: string) => topics.includes(name),
+    [topics]
+  );
 
   return (
     <div className="topic-container">
-      <div className="topic-text">
-        <Typography className="bolded-text">
-          <b>Find your favorites</b>
-        </Typography>
-        <Typography className="description-text">
-          Filter books by listed topics to easily find titles in your area of
-          interest
-        </Typography>
-      </div>
+      <Typography className="side-text">Categories</Typography>
       <div className="topic-buttons">
         {buttons.map((button) => (
           <TopicButton
@@ -55,6 +57,16 @@ const TopicSection = () => {
           />
         ))}
       </div>
+      {topics.length > 0 && (
+        <Link
+          className="clear-all-button side-text"
+          underline="none"
+          onClick={clearAllTopics}
+          data-testid="clear-all-button"
+        >
+          Clear all
+        </Link>
+      )}
     </div>
   );
 };
