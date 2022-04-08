@@ -10,7 +10,9 @@ const SectionTitle = ({ title, numberOfBooks }: Props) => {
   return (
     <div className="title">
       <Typography>
-        {title} ({numberOfBooks})
+        <b>
+          {title} ({numberOfBooks})
+        </b>
       </Typography>
     </div>
   );
