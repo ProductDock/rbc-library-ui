@@ -1,5 +1,10 @@
-import { act, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import App from "../../App";
 import * as bookService from "../../services/BookService";
 
@@ -16,6 +21,12 @@ const PSYCHOLOGY = "PSYCHOLOGY";
 const DEFAULT_TOPIC_BUTTON_CLASS = "topic-button";
 const SELECTED_TOPIC_BUTTON_CLASS = "selected-button";
 const CLEAR_ALL_TOPIC_BUTTON_CLASS = "clear-all-button";
+
+const filterButtonsToBeEnabled = async () => {
+  await waitFor(() => {
+    expect(screen.queryByTestId(MARKETING)).not.toBeDisabled();
+  });
+};
 
 describe("Test topic buttons", () => {
   test("should render topic buttons", async () => {
@@ -42,11 +53,13 @@ describe("Test topic buttons", () => {
     const topicButton = await screen.findByTestId(MARKETING);
 
     expect(topicButton).toBeTruthy();
+    await filterButtonsToBeEnabled();
 
     topicButton.click();
     await act(async () => {
       expect(topicButton).toHaveClass(SELECTED_TOPIC_BUTTON_CLASS);
     });
+    await filterButtonsToBeEnabled();
 
     topicButton.click();
     await act(async () => {
@@ -59,8 +72,9 @@ describe("Test topic buttons", () => {
 
     render(<App />);
 
+    await filterButtonsToBeEnabled();
     const topicButton = await screen.findByTestId(MARKETING);
-    userEvent.click(topicButton);
+    fireEvent.click(topicButton);
 
     expect(mockFetchBooks).toHaveBeenLastCalledWith({
       page: 0,
@@ -74,6 +88,8 @@ describe("Test clear all button", () => {
     render(<App />);
 
     expect(screen.queryByTestId(CLEAR_ALL_TOPIC_BUTTON_CLASS)).toBeFalsy();
+
+    await filterButtonsToBeEnabled();
 
     const marketingTopicButton = await screen.findByTestId(MARKETING);
     marketingTopicButton.click();
