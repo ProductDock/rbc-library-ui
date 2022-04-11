@@ -12,7 +12,7 @@ const BookCollection = () => {
   };
 
   return (
-    <div>
+    <div className="book-collection-main-div">
       <div className="all-books">
         {books.map((book) => {
           return (
