@@ -5,12 +5,12 @@ import "./HomePage.css";
 
 const HomePage = () => {
   return (
-    <div className="main-container">
-      <BooksContexProvider>
-        <TopicSection />
+    <BooksContexProvider>
+      <TopicSection />
+      <div className="main-container">
         <BookSections />
-      </BooksContexProvider>
-    </div>
+      </div>
+    </BooksContexProvider>
   );
 };
 
