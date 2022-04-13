@@ -1,5 +1,4 @@
-import { act, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import App from "../../App";
 import * as bookService from "../../services/BookService";
 
@@ -16,6 +15,18 @@ const PSYCHOLOGY = "PSYCHOLOGY";
 const DEFAULT_TOPIC_BUTTON_CLASS = "topic-button";
 const SELECTED_TOPIC_BUTTON_CLASS = "selected-button";
 const CLEAR_ALL_TOPIC_BUTTON_CLASS = "clear-all-button";
+
+const filterButtonsToBeEnabled = async (topicName: string) =>
+  waitFor(() => {
+    expect(screen.queryByTestId(topicName)).not.toBeDisabled();
+  });
+
+const clickOnTopicButtonWhenEnabled = async (topicName: string) => {
+  await filterButtonsToBeEnabled(topicName);
+  const topicButton = await screen.findByTestId(topicName);
+  expect(topicButton).toBeTruthy();
+  topicButton.click();
+};
 
 describe("Test topic buttons", () => {
   test("should render topic buttons", async () => {
@@ -39,16 +50,15 @@ describe("Test topic buttons", () => {
   test("selected button should have correct styling", async () => {
     render(<App />);
 
-    const topicButton = await screen.findByTestId(MARKETING);
+    await clickOnTopicButtonWhenEnabled(MARKETING);
+    const topicButton = screen.getByTestId(MARKETING);
 
-    expect(topicButton).toBeTruthy();
-
-    topicButton.click();
     await act(async () => {
       expect(topicButton).toHaveClass(SELECTED_TOPIC_BUTTON_CLASS);
     });
 
-    topicButton.click();
+    await clickOnTopicButtonWhenEnabled(MARKETING);
+
     await act(async () => {
       expect(topicButton).toHaveClass(DEFAULT_TOPIC_BUTTON_CLASS);
     });
@@ -59,13 +69,18 @@ describe("Test topic buttons", () => {
 
     render(<App />);
 
-    const topicButton = await screen.findByTestId(MARKETING);
-    userEvent.click(topicButton);
+    await clickOnTopicButtonWhenEnabled(MARKETING);
 
     expect(mockFetchBooks).toHaveBeenLastCalledWith({
       page: 0,
       topics: [MARKETING],
     });
+  });
+
+  test("should make topics button disabled until results are loaded", async () => {
+    render(<App />);
+    const topicButton = screen.getByTestId(MARKETING);
+    expect(topicButton).toBeDisabled();
   });
 });
 
@@ -75,8 +90,9 @@ describe("Test clear all button", () => {
 
     expect(screen.queryByTestId(CLEAR_ALL_TOPIC_BUTTON_CLASS)).toBeFalsy();
 
-    const marketingTopicButton = await screen.findByTestId(MARKETING);
-    marketingTopicButton.click();
+    await clickOnTopicButtonWhenEnabled(MARKETING);
+
+    const marketingTopicButton = screen.getByTestId(MARKETING);
     const designTopicButton = screen.getByTestId(DESIGN);
     designTopicButton.click();
 

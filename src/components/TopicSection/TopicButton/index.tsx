@@ -1,4 +1,5 @@
 import { Button, Typography } from "@mui/material";
+import { useBooksContext } from "../../../store/books/BooksContext";
 
 type Props = {
   name: string;
@@ -7,8 +8,11 @@ type Props = {
 };
 
 const TopicButton = ({ handleClick, name, selected, ...rest }: Props) => {
+  const { loading } = useBooksContext();
+
   return (
     <Button
+      disabled={loading}
       className={selected ? "selected-button" : "topic-button"}
       onClick={() => handleClick(name)}
       {...rest}
