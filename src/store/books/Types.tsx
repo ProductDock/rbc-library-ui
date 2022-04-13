@@ -17,5 +17,5 @@ export interface IBooksContext {
   topics: string[];
   setPage?: (pageNumber: number) => void;
   setTopicFilter?: (topics: string[]) => void;
-  setBookId?: (bookId: number) => void;
+  setBookId?: (bookIdParam: number) => void;
 }

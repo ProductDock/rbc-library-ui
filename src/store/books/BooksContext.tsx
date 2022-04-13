@@ -34,7 +34,10 @@ const BooksContextProvider = (props: any) => {
   };
 
   const findBook = async () => {
+    console.log("usao u findBook");
+    console.log(bookId);
     setLoading(true);
+    await bookService.getBook(bookId).then((resp) => console.log(resp.data));
     await bookService
       .getBook(bookId)
       .then((resp) => dispatch({ type: actions.SET_BOOK, payload: resp.data }))
@@ -60,6 +63,7 @@ const BooksContextProvider = (props: any) => {
   };
 
   const setBookId = (bookIdParam: number) => {
+    console.log("Usao u setBookId");
     console.log(bookIdParam);
     dispatch({ type: actions.SET_BOOK_ID, payload: bookIdParam });
   };
