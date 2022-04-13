@@ -76,6 +76,12 @@ describe("Test topic buttons", () => {
       topics: [MARKETING],
     });
   });
+
+  test("should make topics button disabled until results are loaded", async () => {
+    render(<App />);
+    const topicButton = screen.getByTestId(MARKETING);
+    expect(topicButton).toBeDisabled();
+  });
 });
 
 describe("Test clear all button", () => {
