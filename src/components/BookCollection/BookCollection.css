@@ -1,9 +1,15 @@
+.book-collection-main-div {
+  min-height: 81.5vh;
+  position: relative;
+}
+
 .all-books {
   display: grid;
   grid-template-columns: repeat(auto-fit, 204px);
   column-gap: 1vw;
   row-gap: 2vw;
   flex-direction: column;
+  padding-bottom: 110px;
 }
 
 .card {
@@ -18,6 +24,9 @@
   margin-top: 60px;
   display: flex;
   justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 .pagination-box {
