@@ -9,3 +9,5 @@ export const fetchBooks = async (params: any) =>
   });
 
 export const countAllBooks = async () => client.get("/books/count");
+
+export const getBook = async (bookId: number) => client.get(`/books/${bookId}`);

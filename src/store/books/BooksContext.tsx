@@ -7,6 +7,8 @@ import { IBooksContext } from "./Types";
 const initialState = {
   books: [],
   allBooksCount: 0,
+  book: null,
+  bookId: 0,
   loading: false,
   error: null,
   page: 0,
@@ -17,7 +19,7 @@ export const BooksContext = React.createContext<IBooksContext>(initialState);
 
 const BooksContextProvider = (props: any) => {
   const [booksState, dispatch] = useReducer(reducer, initialState);
-  const { page, topics } = booksState;
+  const { page, topics, bookId } = booksState;
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -27,6 +29,15 @@ const BooksContextProvider = (props: any) => {
     await bookService
       .fetchBooks({ page, topics })
       .then((resp) => dispatch({ type: actions.SET_BOOKS, payload: resp.data }))
+      .catch(() => setError("Error while fetching data"));
+    setLoading(false);
+  };
+
+  const findBook = async () => {
+    setLoading(true);
+    await bookService
+      .getBook(bookId)
+      .then((resp) => dispatch({ type: actions.SET_BOOK, payload: resp.data }))
       .catch(() => setError("Error while fetching data"));
     setLoading(false);
   };
@@ -48,9 +59,18 @@ const BooksContextProvider = (props: any) => {
     dispatch({ type: actions.SET_TOPICS, payload: topicFilter });
   };
 
+  const setBookId = (bookIdParam: number) => {
+    console.log(bookIdParam);
+    dispatch({ type: actions.SET_BOOK_ID, payload: bookIdParam });
+  };
+
   useEffect(() => {
     findBooks?.();
   }, [page, topics]);
+
+  useEffect(() => {
+    findBook?.();
+  }, [bookId]);
 
   useEffect(() => {
     countAllBooks?.();
@@ -64,6 +84,7 @@ const BooksContextProvider = (props: any) => {
         error,
         setPage,
         setTopicFilter,
+        setBookId,
       }}
     >
       {props.children}
