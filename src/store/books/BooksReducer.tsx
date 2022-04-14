@@ -6,17 +6,13 @@ const reducer = (state: IBooksContext, action: any) => {
     case actions.SET_BOOKS:
       return {
         ...state,
-        books: [...state.books, ...action.payload],
+        books: [...state.books, ...action.payload.books],
+        allBooksCount: action.payload.count,
       };
     case actions.ADD_BOOK:
       return {
         ...state,
         books: [...state.books, action.payload],
-      };
-    case actions.SET_ALL_BOOKS_COUNT:
-      return {
-        ...state,
-        allBooksCount: action.payload,
       };
     case actions.SET_PAGE:
       return {
