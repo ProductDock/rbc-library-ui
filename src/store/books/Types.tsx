@@ -10,7 +10,7 @@ export interface IBooksContext {
   books: Book[];
   allBooksCount: number;
   book: Book | null;
-  bookId: number;
+  bookId: number | null;
   loading: boolean;
   error: string | null;
   page: number;

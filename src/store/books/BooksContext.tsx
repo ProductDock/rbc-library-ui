@@ -8,7 +8,7 @@ const initialState = {
   books: [],
   allBooksCount: 0,
   book: null,
-  bookId: 0,
+  bookId: null,
   loading: false,
   error: null,
   page: 0,
@@ -34,8 +34,6 @@ const BooksContextProvider = (props: any) => {
   };
 
   const findBook = async () => {
-    console.log("usao u findBook");
-    console.log(bookId);
     setLoading(true);
     await bookService.getBook(bookId).then((resp) => console.log(resp.data));
     await bookService
@@ -45,14 +43,14 @@ const BooksContextProvider = (props: any) => {
     setLoading(false);
   };
 
-  const countAllBooks = async () => {
-    await bookService
-      .countAllBooks()
-      .then((resp) =>
-        dispatch({ type: actions.SET_ALL_BOOKS_COUNT, payload: resp.data })
-      )
-      .catch(() => setError("Error while fetching data"));
-  };
+  // const countAllBooks = async () => {
+  //   await bookService
+  //     .countAllBooks()
+  //     .then((resp) =>
+  //       dispatch({ type: actions.SET_ALL_BOOKS_COUNT, payload: resp.data })
+  //     )
+  //     .catch(() => setError("Error while fetching data"));
+  // };
 
   const setPage = (pageNumber: number) => {
     dispatch({ type: actions.SET_PAGE, payload: pageNumber });
@@ -63,8 +61,6 @@ const BooksContextProvider = (props: any) => {
   };
 
   const setBookId = (bookIdParam: number) => {
-    console.log("Usao u setBookId");
-    console.log(bookIdParam);
     dispatch({ type: actions.SET_BOOK_ID, payload: bookIdParam });
   };
 
@@ -73,12 +69,12 @@ const BooksContextProvider = (props: any) => {
   }, [page, topics]);
 
   useEffect(() => {
-    findBook?.();
+    if (bookId) findBook?.();
   }, [bookId]);
 
-  useEffect(() => {
-    countAllBooks?.();
-  }, []);
+  // useEffect(() => {
+  //   countAllBooks?.();
+  // }, []);
 
   return (
     <BooksContext.Provider
