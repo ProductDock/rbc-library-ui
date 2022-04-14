@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { useEffect } from "react";
-import { useBooksContext } from "../../store/books/catalog/BooksContext";
+import { useBookDetailsContext } from "../../store/books/details/BookDetailsContext";
 import BookCover from "../BookCover";
 import "./BookDetails.css";
 
@@ -9,7 +9,7 @@ type Props = {
 };
 
 const BookDetails = ({ bookId }: Props) => {
-  const { book, setBookId } = useBooksContext();
+  const { book, setBookId } = useBookDetailsContext();
 
   useEffect(() => {
     setBookId?.(parseInt(bookId!, 10));
