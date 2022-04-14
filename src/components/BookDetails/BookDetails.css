@@ -1,7 +1,30 @@
 .book-details {
-  height: 500px;
+  height: 100vh;
+  background-color: #F7F7F9;
+}
+
+.bd-cover {
+  display: flex;
+  flex-direction: column;
+  height: 17em;
+  padding-top: 3vh;
+  align-items: center;
+  margin-right: 28px;
 }
 
 .bd-text-box {
-  padding-top: 300px;
+  padding: 2em;
+}
+
+#bd-title {
+font-weight: 300;
+font-size: 16px;
+line-height: 24px;
+}
+
+#bd-author {
+font-weight: 300;
+font-size: 14px;
+line-height: 18px;
+margin-top: 1vh;
 }

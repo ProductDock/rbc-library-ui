@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { Typography } from "@mui/material";
 import { useEffect } from "react";
 import { useBooksContext } from "../../store/books/BooksContext";
@@ -12,22 +11,20 @@ type Props = {
 const BookDetails = ({ bookId }: Props) => {
   const { book, setBookId } = useBooksContext();
 
-  //   if (bookId) {
-  //     console.log("uzeo id ");
-  //     console.log(bookId);
-  //     setBookId?.(parseInt(bookId, 10));
-  //   }
-
   useEffect(() => {
     setBookId?.(parseInt(bookId!, 10));
   }, []);
 
   return (
     <div className="book-details">
-      <BookCover imageUrl={book?.cover} />
+      <div className="bd-cover">
+        <BookCover imageUrl={book?.cover} />
+      </div>
       <div className="bd-text-box">
-        <p>{book?.title}</p>
-        <p>{book?.author}</p>
+        <Typography id="bd-title">
+          <b> {book?.title} </b>
+        </Typography>
+        <Typography id="bd-author"> {book?.author} </Typography>
       </div>
     </div>
   );
