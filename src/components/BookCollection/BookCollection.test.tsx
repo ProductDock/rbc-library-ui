@@ -38,7 +38,7 @@ test("should not render load more button when number of showed books is equal to
   const books = BooksFixture;
   server.use(
     rest.get(BOOKS_URL, (req, res, ctx) =>
-      res(ctx.status(200, "Mocked status"), ctx.json(books.slice(0, 2)))
+      res(ctx.status(200, "Mocked status"), ctx.json(books.books.slice(0, 2)))
     ),
 
     rest.get(`${BOOKS_URL}/count`, (req, res, ctx) =>
