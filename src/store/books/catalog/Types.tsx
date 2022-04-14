@@ -9,13 +9,10 @@ export type Book = {
 export interface IBooksContext {
   books: Book[];
   allBooksCount: number;
-  book: Book | null;
-  bookId: number | null;
   loading: boolean;
   error: string | null;
   page: number;
   topics: string[];
   setPage?: (pageNumber: number) => void;
   setTopicFilter?: (topics: string[]) => void;
-  setBookId?: (bookIdParam: number) => void;
 }
