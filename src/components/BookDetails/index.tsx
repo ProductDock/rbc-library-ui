@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { useEffect } from "react";
-import { useBooksContext } from "../../store/books/BooksContext";
+import { useBooksContext } from "../../store/books/catalog/BooksContext";
 import BookCover from "../BookCover";
 import "./BookDetails.css";
 

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useReducer, useState } from "react";
-import * as bookService from "../../services/BookService";
+import * as bookService from "../../../services/BookService";
 import reducer from "./BooksReducer";
-import { actions } from "./BooksActions";
+import { actions } from "../BooksActions";
 import { IBooksContext } from "./Types";
 
 const initialState = {

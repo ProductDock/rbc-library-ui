@@ -1,5 +1,5 @@
 import { IBooksContext } from "./Types";
-import { actions } from "./BooksActions";
+import { actions } from "../BooksActions";
 
 const reducer = (state: IBooksContext, action: any) => {
   switch (action.type) {

@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import BookDetails from "../components/BookDetails";
-import BooksContexProvider from "../store/books/BooksContext";
+import BooksContexProvider from "../store/books/catalog/BooksContext";
 
 const BookDetailsPage = () => {
   const { id } = useParams();

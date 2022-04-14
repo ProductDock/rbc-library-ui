@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import { useBooksContext } from "../../../store/books/BooksContext";
+import { useBooksContext } from "../../../store/books/catalog/BooksContext";
 
 type Props = {
   name: string;
