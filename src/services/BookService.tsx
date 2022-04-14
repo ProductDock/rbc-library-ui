@@ -8,6 +8,4 @@ export const fetchBooks = async (params: any) =>
       qs.stringify(param, { arrayFormat: "repeat" }),
   });
 
-export const countAllBooks = async () => client.get("/books/count");
-
 export const getBook = async (bookId: number) => client.get(`/books/${bookId}`);
