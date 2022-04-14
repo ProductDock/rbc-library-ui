@@ -24,7 +24,6 @@ const BookDetailsContextProvider = (props: any) => {
 
   const findBook = async () => {
     setLoading(true);
-    await bookService.getBook(bookId).then((resp) => console.log(resp.data));
     await bookService
       .getBook(bookId)
       .then((resp) => dispatch({ type: actions.SET_BOOK, payload: resp.data }))
