@@ -7,5 +7,3 @@ export const fetchBooks = async (params: any) =>
     paramsSerializer: (param: any) =>
       qs.stringify(param, { arrayFormat: "repeat" }),
   });
-
-export const countAllBooks = async () => client.get("/books/count");
