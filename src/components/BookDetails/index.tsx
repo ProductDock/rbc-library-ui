@@ -1,18 +1,16 @@
 import { Typography } from "@mui/material";
 import { useEffect } from "react";
+import { useParams } from "react-router";
 import { useBookDetailsContext } from "../../store/books/details/BookDetailsContext";
 import BookCover from "../BookCover";
 import "./BookDetails.css";
 
-type Props = {
-  bookId: string | undefined;
-};
-
-const BookDetails = ({ bookId }: Props) => {
+const BookDetails = () => {
   const { book, setBookId } = useBookDetailsContext();
+  const { id } = useParams();
 
   useEffect(() => {
-    setBookId?.(parseInt(bookId!, 10));
+    setBookId?.(parseInt(id!, 10));
   }, []);
 
   return (
