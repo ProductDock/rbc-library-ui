@@ -6,18 +6,20 @@ import { IBookDetailsContext } from "./Types";
 
 const initialState = {
   book: null,
-  bookId: null,
   loading: false,
   error: null,
 };
 
-// eslint-disable-next-line operator-linebreak
+type Props = {
+  bookId: number;
+  children: any;
+};
+
 export const BookDetailsContext =
   React.createContext<IBookDetailsContext>(initialState);
 
-const BookDetailsContextProvider = (props: any) => {
+const BookDetailsContextProvider = ({ bookId, children }: Props) => {
   const [bookState, dispatch] = useReducer(reducer, initialState);
-  const { bookId } = bookState;
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -31,13 +33,9 @@ const BookDetailsContextProvider = (props: any) => {
     setLoading(false);
   };
 
-  const setBookId = (bookIdParam: number) => {
-    dispatch({ type: actions.SET_BOOK_ID, payload: bookIdParam });
-  };
-
   useEffect(() => {
-    if (bookId) findBook?.();
-  }, [bookId]);
+    findBook?.();
+  }, []);
 
   return (
     <BookDetailsContext.Provider
@@ -45,10 +43,9 @@ const BookDetailsContextProvider = (props: any) => {
         ...bookState,
         loading,
         error,
-        setBookId,
       }}
     >
-      {props.children}
+      {children}
     </BookDetailsContext.Provider>
   );
 };

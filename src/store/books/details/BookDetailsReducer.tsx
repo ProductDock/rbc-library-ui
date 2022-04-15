@@ -8,11 +8,6 @@ const reducer = (state: IBookDetailsContext, action: any) => {
         ...state,
         book: action.payload,
       };
-    case actions.SET_BOOK_ID:
-      return {
-        ...state,
-        bookId: action.payload,
-      };
     default:
       return state;
   }
