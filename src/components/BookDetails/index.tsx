@@ -14,7 +14,7 @@ const BookDetails = () => {
   }, []);
 
   return (
-    <div className="book-details">
+    <div className="book-details" data-testid="book-details">
       <div className="bd-cover">
         <BookCover imageUrl={book?.cover} />
       </div>
