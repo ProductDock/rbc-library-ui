@@ -1,4 +1,4 @@
-import { useBooksContext } from "../../store/books/BooksContext";
+import { useBooksContext } from "../../store/books/catalog/BooksContext";
 import BookCollection from "../BookCollection";
 import Section from "../Section";
 

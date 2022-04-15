@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useCallback } from "react";
 import { Typography, Link } from "@mui/material";
-import { useBooksContext } from "../../store/books/BooksContext";
+import { useBooksContext } from "../../store/books/catalog/BooksContext";
 import TopicButton from "./TopicButton";
 import "./TopicSection.css";
 

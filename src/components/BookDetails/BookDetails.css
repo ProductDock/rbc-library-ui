@@ -1,0 +1,30 @@
+.book-details {
+  height: 100vh;
+  background-color: #f7f7f9;
+}
+
+.bd-cover {
+  display: flex;
+  flex-direction: column;
+  height: 17em;
+  padding-top: 3vh;
+  align-items: center;
+  margin-right: 28px;
+}
+
+.bd-text-box {
+  padding: 2em;
+}
+
+.MuiTypography-root.bd-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.MuiTypography-root.bd-author {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 1vh;
+}

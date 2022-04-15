@@ -35,13 +35,12 @@ test("should render load more button", async () => {
 });
 
 test("should not render load more button when number of showed books is equal total number of books", async () => {
-  const mockedBooks = BooksFixture;
+  const { books } = BooksFixture;
   server.use(
     rest.get(BOOKS_URL, (req, res, ctx) =>
       res(
         ctx.status(200, "Mocked status"),
-        ctx.json(mockedBooks.books.slice(0, 2)),
-        ctx.json({ mockedBooks: { count: 2 } })
+        ctx.json({ books: books.slice(0, 2), count: 2 })
       )
     )
   );

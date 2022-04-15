@@ -1,6 +1,6 @@
 import BookSections from "../components/BookSections";
 import TopicSection from "../components/TopicSection";
-import BooksContexProvider from "../store/books/BooksContext";
+import BooksContexProvider from "../store/books/catalog/BooksContext";
 import "./HomePage.css";
 
 const HomePage = () => {
