@@ -1,6 +1,6 @@
 .book-details {
   height: 100vh;
-  background-color: #F7F7F9;
+  background-color: #f7f7f9;
 }
 
 .bd-cover {
@@ -16,15 +16,15 @@
   padding: 2em;
 }
 
-#bd-title {
-font-weight: 300;
-font-size: 16px;
-line-height: 24px;
+.MuiTypography-root.bd-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
 }
 
-#bd-author {
-font-weight: 300;
-font-size: 14px;
-line-height: 18px;
-margin-top: 1vh;
+.MuiTypography-root.bd-author {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 1vh;
 }
