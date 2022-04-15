@@ -49,12 +49,12 @@ jobs:
 
       - name: "Build docker image with Version tag"
         run: |-
-          docker build --tag "$DOCKER_IMAGE_NAME:$VERSION" .
+          docker build --tag "$DOCKER_IMAGE_NAME:rbc-library-ui" .
 
       - name: "Publish docker image"
         run: |-
-          docker push "$DOCKER_IMAGE_NAME:$VERSION"
+          docker push "$DOCKER_IMAGE_NAME:rbc-library-ui"
 
       - name: "Deploy Docker image to Compute engine"
         run: |-
-          gcloud compute ssh --project=prod-pd-library --zone=$GCE_INSTANCE_ZONE --ssh-key-expire-after=5m --command="bash /home/pd-library/update-frontend-image.sh $VERSION" $GCE_INSTANCE
+          gcloud compute ssh --project=prod-pd-library --zone=$GCE_INSTANCE_ZONE --ssh-key-expire-after=5m --command="bash /home/pd-library/update-frontend-image.sh rbc-library-ui" $GCE_INSTANCE
