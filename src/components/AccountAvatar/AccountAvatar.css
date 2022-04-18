@@ -41,8 +41,8 @@
 }
 
 .MuiButtonBase-root.MuiMenuItem-root:first-child {
-  background-color: #00609a;
-  color: #ffffff;
+  background-color: #eeeeee;
+  color: #000000;
   padding: 16px;
   pointer-events: none;
 }
