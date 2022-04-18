@@ -5,7 +5,7 @@
 
 .all-books {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 204px);
+  grid-template-columns: repeat(auto-fit, minmax(204px, 206.6px));
   column-gap: 1vw;
   row-gap: 2vw;
   flex-direction: column;
