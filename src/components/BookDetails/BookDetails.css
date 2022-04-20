@@ -28,3 +28,28 @@
   line-height: 18px;
   margin-top: 1vh;
 }
+
+.book-status-icon {
+  width: 8px;
+  height: 12px;
+  background-color: #00609a;
+  border-radius: 50%;
+  border-width: 0;
+  pointer-events: none;
+  margin-top: 2px;
+}
+
+.book-status {
+  padding: 3px 12px 3px 6px;
+  margin-bottom: 8px;
+  display: flex;
+  background-color: #f5fbff;
+  width: 80px;
+}
+
+.book-status-text.MuiTypography-root {
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 4px;
+  color: #00609a;
+}

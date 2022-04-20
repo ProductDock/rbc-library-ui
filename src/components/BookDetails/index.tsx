@@ -13,6 +13,12 @@ const BookDetails = () => {
         <BookCover imageUrl={book?.cover} />
       </div>
       <div className="bd-text-box">
+        <div className="book-status">
+          <button className="book-status-icon" type="button">
+            {" "}
+          </button>
+          <Typography className="book-status-text">Reserved</Typography>
+        </div>
         <Typography className="bd-title">{book?.title}</Typography>
         <Typography className="bd-author"> {book?.author} </Typography>
         <BookActionButton />
