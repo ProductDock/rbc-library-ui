@@ -45,3 +45,32 @@
 .landing-text .welcome-text {
   margin-bottom: 4%;
 }
+
+@media only screen and (max-width: 570px) {
+  .landing-container {
+    height: 100vh;
+  }
+  .img-div {
+    display:none;
+  }
+  .content-div {
+    justify-content: start;
+    margin-top: 55%;
+  }
+  .content-div > img {
+    height: 42px;
+  }
+  .content-div .landing-text {
+    margin-top: 25px;
+    margin-bottom: 22px;
+  }
+  .landing-text .welcome-text {
+    margin-bottom: 12%;
+  }
+  .welcome-text .small-font {
+    margin-bottom: 4px;
+  }
+  .content-div .login-button {
+    width: 65%;
+  }
+}
