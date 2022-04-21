@@ -4,7 +4,7 @@ import App from "../../App";
 import { server } from "../../msw/server";
 import { BooksFixture } from "../../msw/fixtures";
 
-export const BOOKS_URL = `*/books`;
+export const BOOKS_URL = `*/search`;
 
 describe("Test find all book", () => {
   test("should render book collection when book service returns list of books", async () => {
