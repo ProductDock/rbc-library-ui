@@ -46,7 +46,7 @@
   margin-bottom: 4%;
 }
 
-@media only screen and (max-width: 570px) {
+@media only screen and (max-width: 760px) {
   .landing-container {
     height: 100vh;
   }
@@ -55,7 +55,7 @@
   }
   .content-div {
     justify-content: start;
-    margin-top: 55%;
+    margin-top: 23vh;
   }
   .content-div > img {
     height: 42px;
@@ -65,12 +65,9 @@
     margin-bottom: 22px;
   }
   .landing-text .welcome-text {
-    margin-bottom: 12%;
+    margin-bottom: 5vh;
   }
   .welcome-text .small-font {
     margin-bottom: 4px;
-  }
-  .content-div .login-button {
-    width: 65%;
   }
 }
