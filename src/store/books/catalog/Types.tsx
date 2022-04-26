@@ -1,9 +1,14 @@
 /* eslint-disable no-unused-vars */
+export type BookRentData = {
+  user: string;
+};
+
 export type Book = {
   id?: number;
   title: string;
   author: string;
   cover: string;
+  rents: BookRentData[];
 };
 
 export interface IBooksContext {

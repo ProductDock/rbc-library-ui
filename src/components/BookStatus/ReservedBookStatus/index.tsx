@@ -6,7 +6,7 @@ const ReservedBookStatus = () => {
   return (
     <div className="book-status">
       <img src={status} alt="" />
-      <Typography className="book-status-text">Reserved</Typography>
+      <Typography className="book-status-reserved-text">Reserved</Typography>
     </div>
   );
 };
