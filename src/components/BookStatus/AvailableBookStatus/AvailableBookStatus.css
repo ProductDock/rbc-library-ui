@@ -7,11 +7,9 @@
 
 .book-status {
   padding: 0.2em 0.7em 0.3em 0.375em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0px;
   display: flex;
   background-color: #f7fcf4;
   width: 4em;
-  position: absolute;
-  margin-top: 350px;
   border-radius: 8px;
 }

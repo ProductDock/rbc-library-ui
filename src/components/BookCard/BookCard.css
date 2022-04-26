@@ -88,3 +88,8 @@
 
   color: #000000;
 }
+
+.book-status-homepage {
+  position: absolute;
+  margin-top: 350px;
+}

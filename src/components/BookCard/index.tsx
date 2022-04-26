@@ -25,7 +25,9 @@ const BookCard = ({ title, author, cover }: Props) => {
           </Tooltip>
         </span>
       </div>
-      <BookStatus />
+      <div className="book-status-homepage">
+        <BookStatus />
+      </div>
     </div>
   );
 };
