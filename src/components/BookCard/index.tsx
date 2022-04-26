@@ -1,5 +1,6 @@
 import { Tooltip, Typography } from "@mui/material";
 import BookCover from "../BookCover";
+import BookStatus from "../BookStatus";
 import "./BookCard.css";
 
 type Props = {
@@ -24,6 +25,7 @@ const BookCard = ({ title, author, cover }: Props) => {
           </Tooltip>
         </span>
       </div>
+      <BookStatus />
     </div>
   );
 };
