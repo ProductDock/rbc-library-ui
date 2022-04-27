@@ -3,6 +3,8 @@ export type Book = {
   title: string;
   author: string;
   cover: string;
+  rentals: string[];
+  numberOfCopies: number;
 };
 
 export interface IBookDetailsContext {

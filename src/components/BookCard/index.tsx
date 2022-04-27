@@ -1,4 +1,5 @@
 import { Tooltip, Typography } from "@mui/material";
+import { Record } from "../../store/books/catalog/Types";
 import BookCover from "../BookCover";
 import BookStatus from "../BookStatus";
 import "./BookCard.css";
@@ -7,9 +8,11 @@ type Props = {
   title: string;
   author: string;
   cover: string;
+  records?: Record[];
+  numberOfCopies: number;
 };
 
-const BookCard = ({ title, author, cover }: Props) => {
+const BookCard = ({ title, author, cover, records, numberOfCopies }: Props) => {
   return (
     <div className="book-box" data-testid="book-box">
       <BookCover imageUrl={cover} />
@@ -26,7 +29,7 @@ const BookCard = ({ title, author, cover }: Props) => {
         </span>
       </div>
       <div className="book-status-homepage">
-        <BookStatus />
+        <BookStatus records={records} numberOfCopies={numberOfCopies} />
       </div>
     </div>
   );

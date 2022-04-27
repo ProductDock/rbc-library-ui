@@ -2,7 +2,7 @@ import qs from "qs";
 import client from "./client";
 
 export const fetchBooks = async (params: any) =>
-  client.get(`/catalog/books`, {
+  client.get(`/search`, {
     params,
     paramsSerializer: (param: any) =>
       qs.stringify(param, { arrayFormat: "repeat" }),

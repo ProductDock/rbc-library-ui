@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
-export type BookRentData = {
-  user: string;
+export type Record = {
+  email: string;
+  status: string;
 };
 
 export type Book = {
@@ -8,7 +9,8 @@ export type Book = {
   title: string;
   author: string;
   cover: string;
-  rents: BookRentData[];
+  records: Record[];
+  numberOfCopies: number;
 };
 
 export interface IBooksContext {

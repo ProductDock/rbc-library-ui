@@ -3,7 +3,15 @@ import { render, screen } from "@testing-library/react";
 import BookCard from ".";
 
 test("renders test page and finds title", async () => {
-  render(<BookCard title="Book2" author="John Doe" cover="Cover" />);
+  render(
+    <BookCard
+      title="Book2"
+      author="John Doe"
+      cover="Cover"
+      records={[{ email: "ok", status: "ok" }]}
+      numberOfCopies={0}
+    />
+  );
   const bookTitle = screen.getByText("Book2");
   expect(bookTitle).toBeInTheDocument();
 
