@@ -1,9 +1,14 @@
+export type Record = {
+  email: string;
+  status: string;
+};
+
 export type Book = {
   id?: number;
   title: string;
   author: string;
   cover: string;
-  rentals: string[];
+  records: Record[];
   numberOfCopies: number;
 };
 

@@ -12,31 +12,28 @@ type Props = {
 const BookStatus = ({ records, numberOfCopies }: Props) => {
   const { userProfile } = useAuthContext();
   const [isBookAvailable, setIsBookAvailable] = useState(true);
-  const [bookRentedByYou, setBookRentedByYou] = useState(false);
+  const [bookRentedByLoggedInUser, setBookRentedByLoggedInUser] =
+    useState(false);
 
   useEffect(() => {
-    let rents = 0;
     if (records && userProfile) {
-      for (let i = 0; i < records.length; i += 1) {
-        if (records[i].status === "RENTED") {
-          rents += 1;
-          if (records[i].email === userProfile.email) {
-            setIsBookAvailable(false);
-            setBookRentedByYou(true);
-            break;
-          }
-        }
+      const rentals = records.filter((record) => record.status === "RENTED");
+      if (
+        rentals.filter((rental) => rental.email === userProfile.email).length >
+        0
+      ) {
+        setBookRentedByLoggedInUser(true);
+        setIsBookAvailable(false);
+      } else if (rentals.length === numberOfCopies) {
+        setIsBookAvailable(false);
       }
-    }
-    if (rents === numberOfCopies) {
-      setIsBookAvailable(false);
     }
   });
 
   return isBookAvailable ? (
     <AvailableBookStatus />
   ) : (
-    <RentedBookStatus bookRentedByYou={bookRentedByYou} />
+    <RentedBookStatus bookRentedByLoggedInUser={bookRentedByLoggedInUser} />
   );
 };
 

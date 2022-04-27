@@ -12,7 +12,10 @@ const BookDetails = () => {
       <div className="bd-cover">
         <BookCover imageUrl={book?.cover} />
       </div>
-      <BookStatus records={[]} numberOfCopies={book?.numberOfCopies} />
+      <BookStatus
+        records={book?.records}
+        numberOfCopies={book?.numberOfCopies}
+      />
       <div className="bd-text-box">
         <Typography className="bd-title">{book?.title}</Typography>
         <Typography className="bd-author"> {book?.author} </Typography>

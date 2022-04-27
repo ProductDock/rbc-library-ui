@@ -5,4 +5,6 @@ export const actions = {
   SET_TOPICS: "setTopics",
   SET_PAGE: "setPage",
   ADD_BOOK: "addBook",
+  SET_BOOK_STATUS: "setBookStatus",
+  SET_RENTED_BY_LOGGED_IN_USER: "setRentedByLoggedInUser",
 } as const;
