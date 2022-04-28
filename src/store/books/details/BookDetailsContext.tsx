@@ -8,6 +8,7 @@ const initialState = {
   book: null,
   loading: false,
   error: null,
+  showedConfirmationModal: false,
 };
 
 type Props = {
@@ -21,6 +22,8 @@ export const BookDetailsContext =
 const BookDetailsContextProvider = ({ bookId, children }: Props) => {
   const [bookState, dispatch] = useReducer(reducer, initialState);
 
+  const [showedConfirmationModal, setShowedConfirmationModal] =
+    useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -33,6 +36,12 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     setLoading(false);
   };
 
+  const rentABook = () => {
+    if (!showedConfirmationModal) setShowedConfirmationModal(true);
+  };
+
+  const hideConfirmationModal = () => setShowedConfirmationModal(false);
+
   useEffect(() => {
     findBook?.();
   }, []);
@@ -43,6 +52,9 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
         ...bookState,
         loading,
         error,
+        showedConfirmationModal,
+        hideConfirmationModal,
+        rentABook,
       }}
     >
       {children}
