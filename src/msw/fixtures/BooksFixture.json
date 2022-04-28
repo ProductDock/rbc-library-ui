@@ -7,17 +7,16 @@
       "cover": "Cover",
       "title": "Book title",
       "records": [
-        { "email": "nenad.becanovic@productdock.com", "status": "RENTED" }
-      ],
-      "numberOfCopies": 2
+        { "email": "nenad.becanovic@productdock.com", "status": "RENTED" },
+        { "email": "", "status": "AVAILABLE" }
+      ]
     },
     {
       "id": 2,
       "author": "Nikola Peric",
       "cover": "Cover1",
       "title": "Book title1",
-      "records": [],
-      "numberOfCopies": 1
+      "records": [{ "email": "", "status": "AVAILABLE" }]
     },
     {
       "id": 3,
@@ -26,9 +25,8 @@
       "title": "Book title2",
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
-        { "email": "nenad.becanovic@productdock.com", "status": "RENTED" }
-      ],
-      "numberOfCopies": 3
+        { "email": "", "status": "AVAILABLE" }
+      ]
     },
     {
       "id": 4,
@@ -37,8 +35,7 @@
       "title": "Book title3",
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" }
-      ],
-      "numberOfCopies": 1
+      ]
     },
     {
       "id": 5,
@@ -46,113 +43,124 @@
       "cover": "Cover1",
       "title": "Book title1",
       "records": [
-        { "email": "dusan.petrovic@productdock.com", "status": "RENTED" }
-      ],
-      "numberOfCopies": 2
+        { "email": "nenad.becanovic@productdock.com", "status": "RENTED" },
+        { "email": "dusan.petrovic@productdock.com", "status": "AVAILABLE" }
+      ]
     },
     {
       "id": 6,
       "author": "Milan Peric",
       "cover": "Cover2",
       "title": "Book title2",
-      "records": [],
-      "numberOfCopies": 2
+      "records": [{ "email": "", "status": "AVAILABLE" }]
     },
     {
       "id": 7,
       "author": "Petar Peric",
       "cover": "Cover3",
       "title": "Book title3",
-      "records": [],
-      "numberOfCopies": 2
+      "records": [{ "email": "", "status": "AVAILABLE" }]
     },
     {
       "id": 8,
       "author": "Nikola Peric",
       "cover": "Cover1",
       "title": "Book title1",
-      "records": [],
-      "numberOfCopies": 2
+      "records": [{ "email": "", "status": "AVAILABLE" }]
     },
     {
       "id": 9,
       "author": "Milan Peric",
       "cover": "Cover2",
       "title": "Book title2",
-      "records": [],
-      "numberOfCopies": 2
+      "records": [{ "email": "", "status": "AVAILABLE" }]
     },
     {
       "id": 10,
       "author": "Petar Peric",
       "cover": "Cover3",
       "title": "Book title3",
-      "records": [],
-      "numberOfCopies": 2
+      "records": [{ "email": "", "status": "AVAILABLE" }]
     },
     {
       "id": 11,
       "author": "Nikola Peric",
       "cover": "Cover1",
       "title": "Book title1",
-      "records": [],
-      "numberOfCopies": 2
+      "records": [
+        { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+        { "email": "", "status": "AVAILABLE" }
+      ]
     },
     {
       "id": 12,
       "author": "Milan Peric",
       "cover": "Cover2",
       "title": "Book title2",
-      "records": [],
-      "numberOfCopies": 2
+      "records": [
+        { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+        { "email": "", "status": "AVAILABLE" }
+      ]
     },
     {
       "id": 13,
       "author": "Petar Peric",
       "cover": "Cover3",
       "title": "Book title3",
-      "records": [],
-      "numberOfCopies": 2
+      "records": [
+        { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+        { "email": "", "status": "AVAILABLE" }
+      ]
     },
     {
       "id": 14,
       "author": "Nikola Peric",
       "cover": "Cover1",
       "title": "Book title1",
-      "records": [],
-      "numberOfCopies": 2
+      "records": [
+        { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+        { "email": "", "status": "AVAILABLE" }
+      ]
     },
     {
       "id": 15,
       "author": "Milan Peric",
       "cover": "Cover2",
       "title": "Book title2",
-      "records": [],
-      "numberOfCopies": 2
+      "records": [
+        { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+        { "email": "", "status": "AVAILABLE" }
+      ]
     },
     {
       "id": 16,
       "author": "Petar Peric",
       "cover": "Cover3",
       "title": "Book title3",
-      "records": [],
-      "numberOfCopies": 2
+      "records": [
+        { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+        { "email": "", "status": "AVAILABLE" }
+      ]
     },
     {
       "id": 17,
       "author": "Nikola Peric",
       "cover": "Cover1",
       "title": "Book title1",
-      "records": [],
-      "numberOfCopies": 2
+      "records": [
+        { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+        { "email": "", "status": "AVAILABLE" }
+      ]
     },
     {
       "id": 18,
       "author": "Milan Peric",
       "cover": "Cover2",
       "title": "Book title2",
-      "records": [],
-      "numberOfCopies": 1
+      "records": [
+        { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+        { "email": "", "status": "AVAILABLE" }
+      ]
     }
   ]
 }

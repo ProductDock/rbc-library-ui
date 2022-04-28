@@ -1,16 +1,19 @@
+/* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
-export type Record = {
-  email: string;
-  status: string;
-};
+import { Record } from "../catalog/Types";
 
-export interface IBookStatusContext {
-  records: Record[];
-  numberOfCopies: number;
-  isBookAvailable: boolean;
-  bookRentedByLoggedInUser: boolean;
-  loading: boolean;
-  error: string | null;
-  setIsBookAvailable?: (isBookAvailable: boolean) => void;
-  setBookRentedByLoggedInUser?: (bookRentedByLoggedInUser: boolean) => void;
+export interface Rule {
+  applies(records: Record[]): boolean;
+}
+
+export interface LoggedInUserPerspective {
+  showStatus(records: Record[]): string;
+}
+
+export enum BookStatus {
+  AVAILABLE = "AVAILABLE",
+  RENTED = "RENTED",
+  RESERVED = "RESERVED",
+  // RENTED_BY_YOU = "RENTED_BY_YOU",
+  // RESERVED_BY_YOU = "RESERVED_BY_YOU",
 }

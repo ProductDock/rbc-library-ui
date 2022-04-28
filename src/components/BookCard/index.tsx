@@ -9,10 +9,9 @@ type Props = {
   author: string;
   cover: string;
   records?: Record[];
-  numberOfCopies: number;
 };
 
-const BookCard = ({ title, author, cover, records, numberOfCopies }: Props) => {
+const BookCard = ({ title, author, cover, records }: Props) => {
   return (
     <div className="book-box" data-testid="book-box">
       <BookCover imageUrl={cover} />
@@ -29,7 +28,7 @@ const BookCard = ({ title, author, cover, records, numberOfCopies }: Props) => {
         </span>
       </div>
       <div className="book-status-homepage">
-        <BookStatus records={records} numberOfCopies={numberOfCopies} />
+        <BookStatus records={records} />
       </div>
     </div>
   );

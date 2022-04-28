@@ -1,39 +1,42 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../store/auth/AuthContext";
 import { Record } from "../../store/books/catalog/Types";
+import BookStatusCalculator from "../../store/books/status/BookStatusCalculator";
+import AvailableBookRule from "../../store/books/status/BookStatusRules/AvailableBookRule";
 import AvailableBookStatus from "./AvailableBookStatus";
 import RentedBookStatus from "./RentedBookStatus";
+import RentedByYouBookStatus from "./RentedByYouBookStatus";
 
 type Props = {
   records?: Record[];
-  numberOfCopies?: number;
 };
 
-const BookStatus = ({ records, numberOfCopies }: Props) => {
+const BookStatus = ({ records }: Props) => {
   const { userProfile } = useAuthContext();
-  const [isBookAvailable, setIsBookAvailable] = useState(true);
-  const [bookRentedByLoggedInUser, setBookRentedByLoggedInUser] =
-    useState(false);
+  const [getBookStatus, setBookStatus] = useState("AVAILBLE");
 
   useEffect(() => {
-    if (records && userProfile) {
-      const rentals = records.filter((record) => record.status === "RENTED");
-      if (
-        rentals.filter((rental) => rental.email === userProfile.email).length >
-        0
-      ) {
-        setBookRentedByLoggedInUser(true);
-        setIsBookAvailable(false);
-      } else if (rentals.length === numberOfCopies) {
-        setIsBookAvailable(false);
-      }
+    if (!records || !userProfile) {
+      return;
     }
+    const bookStatus = BookStatusCalculator.calculateBookStatus(
+      records,
+      userProfile.email
+    );
+    setBookStatus(bookStatus);
   });
 
-  return isBookAvailable ? (
-    <AvailableBookStatus />
-  ) : (
-    <RentedBookStatus bookRentedByLoggedInUser={bookRentedByLoggedInUser} />
+  return (
+    <div>
+      {
+        {
+          AVAILABLE: <AvailableBookStatus />,
+          RENTED: <RentedBookStatus />,
+          RENTED_BY_YOU: <RentedByYouBookStatus />,
+        }[getBookStatus]
+      }
+    </div>
   );
 };
 

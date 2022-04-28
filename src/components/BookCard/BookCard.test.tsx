@@ -9,7 +9,6 @@ test("renders test page and finds title", async () => {
       author="John Doe"
       cover="Cover"
       records={[{ email: "ok", status: "ok" }]}
-      numberOfCopies={0}
     />
   );
   const bookTitle = screen.getByText("Book2");

@@ -22,7 +22,6 @@ const BookCollection = () => {
               author={book.author}
               cover={book.cover}
               records={book.records}
-              numberOfCopies={book.numberOfCopies}
             />
           );
         })}
