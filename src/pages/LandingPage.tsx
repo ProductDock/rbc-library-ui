@@ -3,6 +3,7 @@ import { Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
 import logo from "../img/pd-logo.svg";
+import landingCover from "../img/landing-cover.png";
 import LoginButton from "../components/LoginButton";
 import { useAuthContext } from "../store/auth/AuthContext";
 import { routes } from "../constants/routes";
@@ -20,7 +21,7 @@ const LandingPage = () => {
   return (
     <div className="landing-container">
       <div className="img-div">
-        <img className="landing-img" src="images/landing-cover.png" alt="" />
+        <img className="landing-img" src={landingCover} alt="" />
       </div>
       <div className="content-div">
         <img src={logo} alt="logo" />
