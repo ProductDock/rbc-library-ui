@@ -10,6 +10,7 @@ export interface IBookDetailsContext {
   loading: boolean;
   error: string | null;
   showedConfirmationModal: boolean;
+  showedSuccessMessage: boolean;
   rentABook?: () => void;
   hideConfirmationModal?: () => void;
 }

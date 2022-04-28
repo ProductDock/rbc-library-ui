@@ -8,6 +8,7 @@ const initialState = {
   book: null,
   loading: false,
   error: null,
+  showedSuccessMessage: false,
   showedConfirmationModal: false,
 };
 
@@ -24,6 +25,8 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
 
   const [showedConfirmationModal, setShowedConfirmationModal] =
     useState<boolean>(false);
+  const [showedSuccessMessage, setShowedSuccessMessage] =
+    useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -36,11 +39,21 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     setLoading(false);
   };
 
+  const hideConfirmationModal = () => setShowedConfirmationModal(false);
+
   const rentABook = () => {
     if (!showedConfirmationModal) setShowedConfirmationModal(true);
+    else {
+      hideConfirmationModal();
+      setShowedSuccessMessage(true);
+    }
   };
 
-  const hideConfirmationModal = () => setShowedConfirmationModal(false);
+  useEffect(() => {
+    if (showedSuccessMessage) {
+      setTimeout(() => setShowedSuccessMessage(false), 2000);
+    }
+  }, [showedSuccessMessage]);
 
   useEffect(() => {
     findBook?.();
@@ -53,6 +66,7 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
         loading,
         error,
         showedConfirmationModal,
+        showedSuccessMessage,
         hideConfirmationModal,
         rentABook,
       }}
