@@ -1,10 +1,10 @@
 import { Record } from "../catalog/Types";
 import BookStatusRecords from "./BookStatusRecords";
-import AvailableBookRule from "./BookStatusRules/AvailableBookRule";
-import RentedBookRule from "./BookStatusRules/RentedBookRule";
-import RentedByYouBookRule from "./BookStatusRules/RentedByYouBookRule";
-import ReservedBookRule from "./BookStatusRules/ReservedBookRule";
-import ReservedByYouBookRule from "./BookStatusRules/ReservedByYouBookRule";
+import AvailableBookRule from "./rules/AvailableBookRule/AvailableBookRule";
+import RentedBookRule from "./rules/RentedBookRule/RentedBookRule";
+import RentedByYouBookRule from "./rules/RentedByYouBookRule/RentedByYouBookRule";
+import ReservedBookRule from "./rules/ReservedBookRule/ReservedBookRule";
+import ReservedByYouBookRule from "./rules/ReservedByYouBookRule/ReservedByYouBookRule";
 import { Rule } from "./Types";
 
 export default class BookRuleFactory {

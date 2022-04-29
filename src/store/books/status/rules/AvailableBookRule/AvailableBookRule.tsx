@@ -1,5 +1,5 @@
-import BookStatusRecords from "../BookStatusRecords";
-import { BookStatus, Rule } from "../Types";
+import BookStatusRecords from "../../BookStatusRecords";
+import { BookStatus, Rule } from "../../Types";
 
 export default class AvailableBookRule implements Rule {
   bookStatusRecords: BookStatusRecords;
