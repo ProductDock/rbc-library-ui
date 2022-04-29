@@ -1,15 +1,24 @@
-/* eslint-disable class-methods-use-this */
-import { Record } from "../../catalog/Types";
-import { Rule } from "../Types";
+import BookStatusRecords from "../BookStatusRecords";
+import { BookStatus, Rule } from "../Types";
 
 export default class RentedBookRule implements Rule {
-  public applies(records: Record[]): boolean {
-    const rentals = records.filter(
-      (record) => record.status === "RENTED"
-    ).length;
-    if (rentals === records.length) {
+  bookStatusRecords: BookStatusRecords;
+
+  constructor(bookStatusRecords: BookStatusRecords) {
+    this.bookStatusRecords = bookStatusRecords;
+  }
+
+  public applies(): boolean {
+    if (
+      this.getNumberOfRentedRecords() ===
+      this.bookStatusRecords.getNumberOfAllBookRecords()
+    ) {
       return true;
     }
     return false;
+  }
+
+  private getNumberOfRentedRecords() {
+    return this.bookStatusRecords.getNumberOfRecordsByStatus(BookStatus.RENTED);
   }
 }

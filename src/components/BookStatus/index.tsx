@@ -1,12 +1,12 @@
-/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../store/auth/AuthContext";
 import { Record } from "../../store/books/catalog/Types";
 import BookStatusCalculator from "../../store/books/status/BookStatusCalculator";
-import AvailableBookRule from "../../store/books/status/BookStatusRules/AvailableBookRule";
 import AvailableBookStatus from "./AvailableBookStatus";
 import RentedBookStatus from "./RentedBookStatus";
 import RentedByYouBookStatus from "./RentedByYouBookStatus";
+import ReservedBookStatus from "./ReservedBookStatus";
+import ReservedByYouBookStatus from "./ReservedByYouBookStatus";
 
 type Props = {
   records?: Record[];
@@ -14,7 +14,7 @@ type Props = {
 
 const BookStatus = ({ records }: Props) => {
   const { userProfile } = useAuthContext();
-  const [getBookStatus, setBookStatus] = useState("AVAILBLE");
+  const [getBookStatus, setBookStatus] = useState("AVAILABLE");
 
   useEffect(() => {
     if (!records || !userProfile) {
@@ -34,6 +34,8 @@ const BookStatus = ({ records }: Props) => {
           AVAILABLE: <AvailableBookStatus />,
           RENTED: <RentedBookStatus />,
           RENTED_BY_YOU: <RentedByYouBookStatus />,
+          RESERVED: <ReservedBookStatus />,
+          RESERVED_BY_YOU: <ReservedByYouBookStatus />,
         }[getBookStatus]
       }
     </div>

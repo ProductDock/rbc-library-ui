@@ -4,7 +4,7 @@ import status from "../StatusIcons/rented.svg";
 
 const RentedByYouBookStatus = () => {
   return (
-    <div className="book-status">
+    <div className="book-status-rented-by-you">
       <img src={status} alt="" />
       <Typography className="book-status-rented-text">Rented by you</Typography>
     </div>

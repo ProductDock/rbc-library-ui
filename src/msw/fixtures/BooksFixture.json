@@ -7,7 +7,7 @@
       "cover": "Cover",
       "title": "Book title",
       "records": [
-        { "email": "nenad.becanovic@productdock.com", "status": "RENTED" },
+        { "email": "nenad.becanovic@productdock.com", "status": "RESERVED" },
         { "email": "", "status": "AVAILABLE" }
       ]
     },
@@ -16,7 +16,7 @@
       "author": "Nikola Peric",
       "cover": "Cover1",
       "title": "Book title1",
-      "records": [{ "email": "", "status": "AVAILABLE" }]
+      "records": [{ "email": "ok", "status": "RESERVED" }]
     },
     {
       "id": 3,

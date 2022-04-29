@@ -5,7 +5,7 @@
   color: #ea592a;
 }
 
-.book-status {
+.book-status-rented-by-you {
   padding: 0.2em 0.7em 0.3em 0.375em;
   margin-bottom: 0.5em;
   display: flex;

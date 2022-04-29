@@ -1,18 +1,32 @@
-/* eslint-disable class-methods-use-this */
-import { Record } from "../../catalog/Types";
-import { Rule } from "../Types";
+import BookStatusRecords from "../BookStatusRecords";
+import { BookStatus, Rule } from "../Types";
 
 export default class ReservedBookRule implements Rule {
-  public applies(records: Record[]): boolean {
-    const reservations = records.filter(
-      (record) => record.status === "RESERVED"
-    );
-    const availableBooks = records.filter(
-      (record) => record.status === "AVAILABLE"
-    ).length;
-    if (reservations.length > 0 && availableBooks === 0) {
+  bookStatusRecords: BookStatusRecords;
+
+  constructor(bookStatusRecords: BookStatusRecords) {
+    this.bookStatusRecords = bookStatusRecords;
+  }
+
+  public applies(): boolean {
+    if (
+      this.getNumberOfReservedRecords() > 0 &&
+      this.getNumberOfAvailableRecords() === 0
+    ) {
       return true;
     }
     return false;
+  }
+
+  private getNumberOfAvailableRecords() {
+    return this.bookStatusRecords.getNumberOfRecordsByStatus(
+      BookStatus.AVAILABLE
+    );
+  }
+
+  private getNumberOfReservedRecords() {
+    return this.bookStatusRecords.getNumberOfRecordsByStatus(
+      BookStatus.RESERVED
+    );
   }
 }

@@ -5,11 +5,11 @@
   color: #00609a;
 }
 
-.book-status {
+.book-status-reserved-by-you {
   padding: 0.2em 0.7em 0.3em 0.375em;
-  margin-bottom: 0px;
+  margin-bottom: 0.5em;
   display: flex;
   background-color: #f5fbff;
-  width: 4em;
+  width: 7em;
   border-radius: 8px;
 }
