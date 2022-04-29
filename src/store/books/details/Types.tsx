@@ -9,8 +9,15 @@ export interface IBookDetailsContext {
   book: Book | null;
   loading: boolean;
   error: string | null;
+  status: string;
   showedConfirmationModal: boolean;
   showedSuccessMessage: boolean;
-  rentABook?: () => void;
+  successMessage: string | null;
+  performAction?: () => void;
   hideConfirmationModal?: () => void;
 }
+
+export type BookActionModal = {
+  title: string;
+  description: string;
+};

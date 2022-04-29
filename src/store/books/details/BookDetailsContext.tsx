@@ -8,8 +8,10 @@ const initialState = {
   book: null,
   loading: false,
   error: null,
+  status: "available",
   showedSuccessMessage: false,
   showedConfirmationModal: false,
+  successMessage: null,
 };
 
 type Props = {
@@ -41,11 +43,16 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
 
   const hideConfirmationModal = () => setShowedConfirmationModal(false);
 
-  const rentABook = () => {
+  const performAction = () => {
+    let actionType: string = actions.RENT_BOOK;
+    const { status } = bookState;
+    if (status === "rented") actionType = actions.RETURN_BOOK;
+
     if (!showedConfirmationModal) setShowedConfirmationModal(true);
     else {
-      hideConfirmationModal();
+      dispatch({ type: actionType });
       setShowedSuccessMessage(true);
+      setShowedConfirmationModal(false);
     }
   };
 
@@ -68,7 +75,7 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
         showedConfirmationModal,
         showedSuccessMessage,
         hideConfirmationModal,
-        rentABook,
+        performAction,
       }}
     >
       {children}

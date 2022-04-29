@@ -3,10 +3,10 @@ import { useBookDetailsContext } from "../../../store/books/details/BookDetailsC
 import "./BookRentButton.css";
 
 const BookRentButton = () => {
-  const { rentABook } = useBookDetailsContext();
+  const { performAction } = useBookDetailsContext();
 
   return (
-    <button type="button" className="rent-button" onClick={rentABook}>
+    <button type="button" className="rent-button" onClick={performAction}>
       <Typography>Rent a book</Typography>
     </button>
   );
