@@ -1,0 +1,15 @@
+.book-status-reserved-text.MuiTypography-root {
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 0.3em;
+  color: #00609a;
+}
+
+.book-status-reserved-by-you {
+  padding: 0.2em 0.7em 0.3em 0.375em;
+  margin-bottom: 0.5em;
+  display: flex;
+  background-color: #f5fbff;
+  width: 7em;
+  border-radius: 8px;
+}

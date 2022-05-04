@@ -1,0 +1,15 @@
+.book-status-rented-text.MuiTypography-root {
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 0.3em;
+  color: #ea592a;
+}
+
+.rented-book-status {
+  padding: 0.2em 0.7em 0.3em 0.375em;
+  margin-bottom: 0.5em;
+  display: flex;
+  background-color: #fef6f4;
+  width: 4em;
+  border-radius: 8px;
+}
