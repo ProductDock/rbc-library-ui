@@ -4,7 +4,7 @@ import status from "../../../img/book-status/available.svg";
 
 const AvailableBookStatus = () => {
   return (
-    <div className="book-status">
+    <div className="available-book-status">
       <img src={status} alt="" />
       <Typography className="book-status-text">Available</Typography>
     </div>
