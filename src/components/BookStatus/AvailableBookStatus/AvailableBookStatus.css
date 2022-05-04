@@ -1,0 +1,15 @@
+.book-status-text.MuiTypography-root {
+  font-size: 12px;
+  font-weight: 400;
+  margin-left: 0.3em;
+  color: #65b32e;
+}
+
+.available-book-status {
+  padding: 0.2em 0.7em 0.3em 0.375em;
+  margin-bottom: 0px;
+  display: flex;
+  background-color: #f7fcf4;
+  width: 4em;
+  border-radius: 8px;
+}

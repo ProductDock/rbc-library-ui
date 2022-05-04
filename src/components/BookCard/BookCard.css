@@ -1,5 +1,5 @@
 .book-box {
-  height: 372px;
+  height: 386px;
   width: 204px;
 }
 
@@ -87,4 +87,9 @@
   -webkit-box-orient: vertical;
 
   color: #000000;
+}
+
+.book-status-homepage {
+  position: absolute;
+  margin-top: 350px;
 }

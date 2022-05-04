@@ -21,6 +21,7 @@ const BookCollection = () => {
               title={book.title}
               author={book.author}
               cover={book.cover}
+              records={book.records}
             />
           );
         })}

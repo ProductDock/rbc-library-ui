@@ -13,7 +13,7 @@
 }
 
 .bd-text-box {
-  padding: 2em;
+  padding: 0.7em 2em 2em 2em;
 }
 
 .MuiTypography-root.bd-title {
@@ -27,4 +27,8 @@
   font-size: 14px;
   line-height: 18px;
   margin-top: 1vh;
+}
+
+.book-details .book-status {
+  margin-left: 2.2em;
 }
