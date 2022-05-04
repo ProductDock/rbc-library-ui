@@ -3,7 +3,7 @@ import BookRuleFactory from "./BookRuleFactory";
 import { BookStatus, Rule } from "./Types";
 
 export default class BookStatusCalculator {
-  public static calculateBookStatus(
+  public static calculate(
     records: Record[],
     loggedInUserEmail: string
   ): string {

@@ -20,7 +20,7 @@ const BookStatus = ({ records }: Props) => {
     if (!records || !userProfile) {
       return;
     }
-    const bookStatus = BookStatusCalculator.calculateBookStatus(
+    const bookStatus = BookStatusCalculator.calculate(
       records,
       userProfile.email
     );
