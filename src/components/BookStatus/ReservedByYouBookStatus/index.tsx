@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import "./ReservedByYouBookStatus.css";
-import status from "../StatusIcons/reserved.svg";
+import status from "../../../img/book-status/reserved.svg";
 
 const ReservedByYouBookStatus = () => {
   return (
