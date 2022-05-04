@@ -22,10 +22,12 @@ describe("Test book details page", () => {
 
     const bookTitle = await screen.findByText(testBook.title);
     const bookAuthor = screen.getByText(testBook.author);
+    const bookStatus = screen.getByText("Available");
 
     await act(async () => {
       expect(bookTitle).toBeTruthy();
       expect(bookAuthor).toBeTruthy();
+      expect(bookStatus).toBeTruthy();
     });
   });
 });

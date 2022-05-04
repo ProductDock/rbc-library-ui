@@ -1,80 +1,52 @@
-import BookStatusRecords from "../../BookStatusRecords";
-import { BookStatus } from "../../Types";
+import BookStatusRecordsMock from "../mocks/BookStatusRecordsMock";
 import AvailableBookRule from "./AvailableBookRule";
 
-const setupMock = () => {
-  const bookStatusRecords: jest.Mocked<BookStatusRecords> = {
-    getNumberOfRecordsByStatus: jest.fn(),
-    records: [],
-    loggedInUserEmail: "example@productdock.com",
-    getNumberOfAllBookRecords: jest.fn().mockImplementation(() => {
-      return 2;
-    }),
-  };
-  return bookStatusRecords;
-};
-
 describe("AvailableBookRule", () => {
-  test("should check is book status AVAILABLE", async () => {
-    const bookStatusRecords = setupMock();
+  test("should check is book status AVAILABLE when all books are available", async () => {
+    const availableRecordsCount = 2;
+    const rentedRecordsCount = 0;
+    const reservedRecordsCount = 0;
+    const bookStatusRecords = BookStatusRecordsMock();
     bookStatusRecords.getNumberOfRecordsByStatus
-      .mockReturnValueOnce(1)
-      .mockReturnValueOnce(0)
-      .mockReturnValueOnce(0);
-
+      .mockReturnValueOnce(availableRecordsCount)
+      .mockReturnValueOnce(rentedRecordsCount)
+      .mockReturnValueOnce(reservedRecordsCount);
     const rule = new AvailableBookRule(bookStatusRecords);
+
     const applies = rule.applies();
-    expect(bookStatusRecords.getNumberOfRecordsByStatus).toHaveBeenCalledWith(
-      BookStatus.AVAILABLE
-    );
-    expect(bookStatusRecords.getNumberOfRecordsByStatus).toHaveBeenCalledWith(
-      BookStatus.RENTED_BY_YOU
-    );
-    expect(bookStatusRecords.getNumberOfRecordsByStatus).toHaveBeenCalledWith(
-      BookStatus.RESERVED_BY_YOU
-    );
+
     expect(applies).toEqual(true);
   });
 
-  test("should check that book status is not AVAILABLE when book is available and rented by logged in user", async () => {
-    const bookStatusRecords = setupMock();
+  test("should check that book status is not AVAILABLE when book is AVAILABLE and RENTED by logged in user", async () => {
+    const availableRecordsCount = 1;
+    const rentedRecordsCount = 1;
+    const reservedRecordsCount = 0;
+    const bookStatusRecords = BookStatusRecordsMock();
     bookStatusRecords.getNumberOfRecordsByStatus
-      .mockReturnValueOnce(1)
-      .mockReturnValueOnce(1)
-      .mockReturnValueOnce(0);
-
+      .mockReturnValueOnce(availableRecordsCount)
+      .mockReturnValueOnce(rentedRecordsCount)
+      .mockReturnValueOnce(reservedRecordsCount);
     const rule = new AvailableBookRule(bookStatusRecords);
+
     const applies = rule.applies();
-    expect(bookStatusRecords.getNumberOfRecordsByStatus).toHaveBeenCalledWith(
-      BookStatus.AVAILABLE
-    );
-    expect(bookStatusRecords.getNumberOfRecordsByStatus).toHaveBeenCalledWith(
-      BookStatus.RENTED_BY_YOU
-    );
-    expect(
-      bookStatusRecords.getNumberOfRecordsByStatus
-    ).not.toHaveBeenCalledWith(BookStatus.RESERVED_BY_YOU);
+
     expect(applies).toEqual(false);
   });
 
-  test("should check that book status is not AVAILABLE when book is rented by logged in user", async () => {
-    const bookStatusRecords = setupMock();
+  test("should check that book status is not AVAILABLE when number of books with status AVAILABLE is 0", async () => {
+    const availableRecordsCount = 0;
+    const rentedRecordsCount = 1;
+    const reservedRecordsCount = 0;
+    const bookStatusRecords = BookStatusRecordsMock();
     bookStatusRecords.getNumberOfRecordsByStatus
-      .mockReturnValueOnce(0)
-      .mockReturnValueOnce(1)
-      .mockReturnValueOnce(0);
-
+      .mockReturnValueOnce(availableRecordsCount)
+      .mockReturnValueOnce(rentedRecordsCount)
+      .mockReturnValueOnce(reservedRecordsCount);
     const rule = new AvailableBookRule(bookStatusRecords);
+
     const applies = rule.applies();
-    expect(bookStatusRecords.getNumberOfRecordsByStatus).toHaveBeenCalledWith(
-      BookStatus.AVAILABLE
-    );
-    expect(
-      bookStatusRecords.getNumberOfRecordsByStatus
-    ).not.toHaveBeenCalledWith(BookStatus.RENTED_BY_YOU);
-    expect(
-      bookStatusRecords.getNumberOfRecordsByStatus
-    ).not.toHaveBeenCalledWith(BookStatus.RESERVED_BY_YOU);
+
     expect(applies).toEqual(false);
   });
 });

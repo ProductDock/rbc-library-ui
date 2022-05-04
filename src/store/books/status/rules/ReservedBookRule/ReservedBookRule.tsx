@@ -10,8 +10,8 @@ export default class ReservedBookRule implements Rule {
 
   public applies(): boolean {
     if (
-      this.getNumberOfReservedRecords() > 0 &&
-      this.getNumberOfAvailableRecords() === 0
+      this.getNumberOfAvailableRecords() === 0 &&
+      this.getNumberOfReservedRecords() > 0
     ) {
       return true;
     }

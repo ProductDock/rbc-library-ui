@@ -16,7 +16,7 @@
       "author": "Nikola Peric",
       "cover": "Cover1",
       "title": "Book title1",
-      "records": [{ "email": "ok", "status": "RESERVED" }]
+      "records": [{ "email": "example@productdock.com", "status": "AVAILABLE" }]
     },
     {
       "id": 3,
