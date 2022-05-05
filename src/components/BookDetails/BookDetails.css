@@ -29,6 +29,22 @@
   margin-top: 1vh;
 }
 
-.book-details .book-status {
+.book-details .available-book-status {
+  margin-left: 2.2em;
+}
+
+.book-details .rented-book-status {
+  margin-left: 2.2em;
+}
+
+.book-details .reserved-book-status {
+  margin-left: 2.2em;
+}
+
+.book-details .book-status-reserved-by-you {
+  margin-left: 2.2em;
+}
+
+.book-details .book-status-rented-by-you {
   margin-left: 2.2em;
 }
