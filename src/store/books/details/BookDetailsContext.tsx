@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useReducer, useState } from "react";
 import * as bookService from "../../../services/BookService";
 import reducer from "./BookDetailsReducer";
 import { actions } from "../BooksActions";
-import { IBookDetailsContext } from "./Types";
+import { IBookDetailsContext, RentalRequest } from "./Types";
 
 const initialState = {
   book: null,
   loading: false,
   error: null,
-  status: "available",
+  status: "AVAILABLE",
   showedSuccessMessage: false,
   showedConfirmationModal: false,
   successMessage: null,
@@ -46,7 +46,7 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
   const performAction = () => {
     let actionType: string = actions.RENT_BOOK;
     const { status } = bookState;
-    if (status === "rented") actionType = actions.RETURN_BOOK;
+    if (status === "RENTED") actionType = actions.RETURN_BOOK;
 
     if (!showedConfirmationModal) setShowedConfirmationModal(true);
     else {
@@ -56,9 +56,18 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     }
   };
 
+  const sendRentalRequest = async (rentalRequest: RentalRequest) => {
+    await bookService.postRentalRequest(rentalRequest);
+  };
+
   useEffect(() => {
     if (showedSuccessMessage) {
+      sendRentalRequest({
+        bookId: bookId.toString(),
+        requestedStatus: bookState.status,
+      });
       setTimeout(() => setShowedSuccessMessage(false), 2000);
+      findBook?.();
     }
   }, [showedSuccessMessage]);
 

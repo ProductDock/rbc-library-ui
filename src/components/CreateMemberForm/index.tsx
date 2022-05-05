@@ -4,8 +4,20 @@ import DynamicForm from "../Form";
 import { FieldProps } from "../Form/inputField";
 
 const formFields: FieldProps[] = [
-  { name: "firstName", description: "First name", type: "text", as: "input", disabled: false },
-  { name: "lastName", description: "Last name", type: "text", as: "input", disabled: false },
+  {
+    name: "firstName",
+    description: "First name",
+    type: "text",
+    as: "input",
+    disabled: false,
+  },
+  {
+    name: "lastName",
+    description: "Last name",
+    type: "text",
+    as: "input",
+    disabled: false,
+  },
 ];
 
 const CreateMemberForm = () => {

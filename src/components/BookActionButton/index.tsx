@@ -11,14 +11,14 @@ const confirmReturnModalTitle = "Please confirm book return";
 const confirmReturnModalDescription =
   "After confirmation, you will receive an email with confirmation of book return";
 
-const BookActionButton = () => {
-  const {
-    status,
-    showedConfirmationModal,
-    hideConfirmationModal,
-    performAction,
-  } = useBookDetailsContext();
-  if (status === "available") {
+type Props = {
+  status?: string;
+};
+
+const BookActionButton = ({ status }: Props) => {
+  const { showedConfirmationModal, hideConfirmationModal, performAction } =
+    useBookDetailsContext();
+  if (status === "AVAILABLE") {
     return (
       <>
         <BookRentButton />

@@ -24,7 +24,7 @@
       "cover": "Cover2",
       "title": "Book title2",
       "records": [
-        { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+        { "email": "vladimir.vukoman@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
       ]
     },

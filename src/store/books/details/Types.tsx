@@ -28,3 +28,8 @@ export type BookActionModal = {
   title: string;
   description: string;
 };
+
+export type RentalRequest = {
+  bookId: string;
+  requestedStatus: string;
+};

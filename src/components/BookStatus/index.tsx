@@ -10,9 +10,10 @@ import ReservedByYouBookStatus from "./ReservedByYouBookStatus";
 
 type Props = {
   records?: Record[];
+  setStatus?: Function;
 };
 
-const BookStatus = ({ records }: Props) => {
+const BookStatus = ({ records, setStatus }: Props) => {
   const { userProfile } = useAuthContext();
   const [getBookStatus, setBookStatus] = useState("AVAILABLE");
 
@@ -25,6 +26,7 @@ const BookStatus = ({ records }: Props) => {
       userProfile.email
     );
     setBookStatus(bookStatus);
+    setStatus?.(bookStatus);
   });
 
   return (
