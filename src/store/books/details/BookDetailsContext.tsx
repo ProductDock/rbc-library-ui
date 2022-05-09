@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useReducer, useState } from "react";
 import * as bookService from "../../../services/BookService";
 import reducer from "./BookDetailsReducer";
 import { actions } from "../BooksActions";
-import { IBookDetailsContext, RentalRequest } from "./Types";
+import { IBookDetailsContext } from "./Types";
 
 const initialState = {
   book: null,
@@ -44,6 +44,19 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
 
   const hideConfirmationModal = () => setShowedConfirmationModal(false);
 
+  const showSuccessScreen = () => {
+    setShowedSuccessMessage(true);
+    setShowedConfirmationModal(false);
+    setTimeout(() => setShowedSuccessMessage(false), 2000);
+  };
+
+  const sendRentalRequest = async () => {
+    await bookService.postRentalRequest({
+      bookId: bookId.toString(),
+      requestedStatus: bookStatus,
+    });
+  };
+
   const performAction = () => {
     if (!showedConfirmationModal) setShowedConfirmationModal(true);
     else {
@@ -53,25 +66,13 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
       if (bookStatus === "RENTED_BY_YOU") actionType = actions.RETURN_BOOK;
 
       dispatch({ type: actionType });
-      setShowedSuccessMessage(true);
-      setShowedConfirmationModal(false);
-    }
-  };
 
-  const sendRentalRequest = async (rentalRequest: RentalRequest) => {
-    await bookService.postRentalRequest(rentalRequest);
-  };
-
-  useEffect(() => {
-    if (showedSuccessMessage) {
-      sendRentalRequest({
-        bookId: bookId.toString(),
-        requestedStatus: bookStatus,
+      sendRentalRequest().then(() => {
+        showSuccessScreen();
+        findBook?.();
       });
-      setTimeout(() => setShowedSuccessMessage(false), 2000);
-      findBook?.();
     }
-  }, [showedSuccessMessage]);
+  };
 
   useEffect(() => {
     findBook?.();
