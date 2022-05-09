@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type Record = {
   email: string;
   status: string;
@@ -16,10 +18,11 @@ export interface IBookDetailsContext {
   book: Book | null;
   loading: boolean;
   error: string | null;
-  status: string;
+  bookStatus: string;
   showedConfirmationModal: boolean;
   showedSuccessMessage: boolean;
   successMessage: string | null;
+  setBookStatus?: Dispatch<SetStateAction<string>>;
   performAction?: () => void;
   hideConfirmationModal?: () => void;
 }

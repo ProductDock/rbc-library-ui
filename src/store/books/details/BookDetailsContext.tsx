@@ -8,7 +8,7 @@ const initialState = {
   book: null,
   loading: false,
   error: null,
-  status: "AVAILABLE",
+  bookStatus: "",
   showedSuccessMessage: false,
   showedConfirmationModal: false,
   successMessage: null,
@@ -31,6 +31,7 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [bookStatus, setBookStatus] = useState("");
 
   const findBook = async () => {
     setLoading(true);
@@ -44,12 +45,13 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
   const hideConfirmationModal = () => setShowedConfirmationModal(false);
 
   const performAction = () => {
-    let actionType: string = actions.RENT_BOOK;
-    const { status } = bookState;
-    if (status === "RENTED") actionType = actions.RETURN_BOOK;
-
     if (!showedConfirmationModal) setShowedConfirmationModal(true);
     else {
+      let actionType: string = "";
+
+      if (bookStatus === "AVAILABLE") actionType = actions.RENT_BOOK;
+      if (bookStatus === "RENTED_BY_YOU") actionType = actions.RETURN_BOOK;
+
       dispatch({ type: actionType });
       setShowedSuccessMessage(true);
       setShowedConfirmationModal(false);
@@ -64,7 +66,7 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     if (showedSuccessMessage) {
       sendRentalRequest({
         bookId: bookId.toString(),
-        requestedStatus: bookState.status,
+        requestedStatus: bookStatus,
       });
       setTimeout(() => setShowedSuccessMessage(false), 2000);
       findBook?.();
@@ -81,8 +83,10 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
         ...bookState,
         loading,
         error,
+        bookStatus,
         showedConfirmationModal,
         showedSuccessMessage,
+        setBookStatus,
         hideConfirmationModal,
         performAction,
       }}

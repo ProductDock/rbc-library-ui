@@ -6,7 +6,12 @@ const BookRentButton = () => {
   const { performAction } = useBookDetailsContext();
 
   return (
-    <button type="button" className="rent-button" onClick={performAction}>
+    <button
+      type="button"
+      className="rent-button"
+      onClick={performAction}
+      data-testid="rent-book-button"
+    >
       <Typography>Rent a book</Typography>
     </button>
   );

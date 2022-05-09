@@ -16,7 +16,7 @@
       "author": "Nikola Peric",
       "cover": "Cover1",
       "title": "Book title1",
-      "records": [{ "email": "example@productdock.com", "status": "AVAILABLE" }]
+      "records": [{ "email": "", "status": "AVAILABLE" }]
     },
     {
       "id": 3,
@@ -24,8 +24,7 @@
       "cover": "Cover2",
       "title": "Book title2",
       "records": [
-        { "email": "vladimir.vukoman@productdock.com", "status": "RENTED" },
-        { "email": "", "status": "AVAILABLE" }
+        { "email": "test1@test.com", "status": "RENTED" }
       ]
     },
     {
@@ -34,7 +33,7 @@
       "cover": "Cover3",
       "title": "Book title3",
       "records": [
-        { "email": "dusan.petrovic@productdock.com", "status": "RENTED" }
+        { "email": "test@test.com", "status": "RENTED" }
       ]
     },
     {

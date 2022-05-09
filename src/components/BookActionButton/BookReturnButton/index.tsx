@@ -6,7 +6,12 @@ const BookReturnButton = () => {
   const { performAction } = useBookDetailsContext();
 
   return (
-    <button type="button" className="return-button" onClick={performAction}>
+    <button
+      type="button"
+      className="return-button"
+      onClick={performAction}
+      data-testid="return-book-button"
+    >
       <Typography>Return the book</Typography>
     </button>
   );

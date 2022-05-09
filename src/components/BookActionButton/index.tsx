@@ -32,18 +32,22 @@ const BookActionButton = ({ status }: Props) => {
       </>
     );
   }
-  return (
-    <>
-      <ConfirmationModal
-        title={confirmReturnModalTitle}
-        description={confirmReturnModalDescription}
-        showed={showedConfirmationModal}
-        hideModal={hideConfirmationModal}
-        handleConfirm={performAction}
-      />
-      <BookReturnButton />
-    </>
-  );
+  if (status === "RENTED_BY_YOU") {
+    return (
+      <>
+        <ConfirmationModal
+          title={confirmReturnModalTitle}
+          description={confirmReturnModalDescription}
+          showed={showedConfirmationModal}
+          hideModal={hideConfirmationModal}
+          handleConfirm={performAction}
+        />
+        <BookReturnButton />
+      </>
+    );
+  }
+
+  return null;
 };
 
 export default BookActionButton;

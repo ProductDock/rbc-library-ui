@@ -22,7 +22,12 @@ const ModalActionButton = ({ variant, handleClick }: Props) => {
     variant === Variant.cancelButton ? "cancel-button" : "confirm-button";
 
   return (
-    <Button type="button" className={buttonClassname()} onClick={handleClick}>
+    <Button
+      type="button"
+      className={buttonClassname()}
+      onClick={handleClick}
+      data-testid={buttonClassname()}
+    >
       <Typography className="modal-action-button-text">
         {buttonText()}
       </Typography>

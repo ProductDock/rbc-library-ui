@@ -11,13 +11,11 @@ const reducer = (state: IBookDetailsContext, action: any) => {
     case actions.RENT_BOOK:
       return {
         ...state,
-        status: "RENTED",
         successMessage: "You have successfully rented a book",
       };
     case actions.RETURN_BOOK:
       return {
         ...state,
-        status: "AVAILABLE",
         successMessage: "You have successfully returned a book",
       };
     default:

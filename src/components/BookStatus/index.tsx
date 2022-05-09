@@ -15,7 +15,7 @@ type Props = {
 
 const BookStatus = ({ records, setStatus }: Props) => {
   const { userProfile } = useAuthContext();
-  const [getBookStatus, setBookStatus] = useState("AVAILABLE");
+  const [getBookStatus, setBookStatus] = useState("");
 
   useEffect(() => {
     if (!records || !userProfile) {

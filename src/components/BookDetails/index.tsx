@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import { useState } from "react";
 import { useBookDetailsContext } from "../../store/books/details/BookDetailsContext";
 import BookActionButton from "../BookActionButton";
 import BookCover from "../BookCover";
@@ -8,10 +7,13 @@ import BookStatus from "../BookStatus";
 import "./BookDetails.css";
 
 const BookDetails = () => {
-  const { book, showedSuccessMessage, successMessage } =
-    useBookDetailsContext();
-
-  const [bookStatus, setBookStatus] = useState();
+  const {
+    book,
+    bookStatus,
+    setBookStatus,
+    showedSuccessMessage,
+    successMessage,
+  } = useBookDetailsContext();
 
   return showedSuccessMessage ? (
     <SuccessPage successMessage={successMessage} />
@@ -24,7 +26,7 @@ const BookDetails = () => {
       <div className="bd-text-box">
         <Typography className="bd-title">{book?.title}</Typography>
         <Typography className="bd-author"> {book?.author} </Typography>
-        <BookActionButton status={bookStatus} data-testid="status-button" />
+        <BookActionButton status={bookStatus} />
       </div>
     </div>
   );
