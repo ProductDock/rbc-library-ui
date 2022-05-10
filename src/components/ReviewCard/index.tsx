@@ -4,18 +4,13 @@ import userAvatar from "../../img/userAvatar.png";
 import "./ReviewCard.css";
 
 type Props = {
-  userFullName: string;
+  reviewer: string;
   rating: number;
   recommendation: string[];
   comment: string;
 };
 
-const ReviewCard = ({
-  userFullName,
-  rating,
-  recommendation,
-  comment,
-}: Props) => {
+const ReviewCard = ({ reviewer, rating, recommendation, comment }: Props) => {
   const recommendationString = recommendation.join(", ");
   return (
     <div className="review-card-div" data-testid="review-card">
@@ -25,7 +20,7 @@ const ReviewCard = ({
       <div className="review-card-info">
         <div className="review-card-info-header">
           <div className="review-card-user-name">
-            <Typography>{userFullName}</Typography>
+            <Typography>{reviewer}</Typography>
           </div>
           <div className="review-card-rating">
             <StarIcon />

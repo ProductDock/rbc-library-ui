@@ -13,7 +13,7 @@ const ReviewCollection = ({ reviews }: Props) => {
         return (
           <div key={review.id}>
             <ReviewCard
-              userFullName={review.userFullName}
+              reviewer={review.userFullName}
               rating={review.rating}
               recommendation={review.recommendation}
               comment={review.comment}
