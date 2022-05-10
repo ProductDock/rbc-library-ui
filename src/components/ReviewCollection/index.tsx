@@ -11,15 +11,16 @@ const ReviewCollection = ({ reviews }: Props) => {
     <div className="review-collection">
       {reviews?.map((review) => {
         return (
-          <div>
+          <div key={review.id}>
             <ReviewCard
-              key={review.id}
               userFullName={review.userFullName}
               rating={review.rating}
               recommendation={review.recommendation}
               comment={review.comment}
             />
-            {reviews?.length > 1 && <hr className="separator-line" />}
+            {reviews.indexOf(review) + 1 !== reviews?.length && (
+              <hr className="separator-line" />
+            )}
           </div>
         );
       })}

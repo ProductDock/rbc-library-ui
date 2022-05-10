@@ -6,6 +6,6 @@
   font-weight: 300px;
 }
 
-.review-section .separator-line {
-  margin: 0.5em;
+.review-section > div > .separator-line {
+  margin: 0.7em 0 0.5em 0;
 }

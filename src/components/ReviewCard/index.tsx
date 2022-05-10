@@ -19,22 +19,24 @@ const ReviewCard = ({
 }: Props) => {
   const recommendationString = recommendation.join(", ");
   return (
-    <div className="review-card-div">
+    <div className="review-card-div" data-testid="review-card">
       <div className="review-card-avatar">
         <img src={userAvatar} alt="" />
       </div>
       <div className="review-card-info">
-        <div className="review-card-user-name">
-          <Typography>{userFullName}</Typography>
-        </div>
-        <div className="review-card-rating">
-          <StarIcon />
-          <Typography fontSize={16} fontWeight={500}>
-            {rating}
-          </Typography>
-          <Typography fontSize={12} fontWeight={300}>
-            /5
-          </Typography>
+        <div className="review-card-info-header">
+          <div className="review-card-user-name">
+            <Typography>{userFullName}</Typography>
+          </div>
+          <div className="review-card-rating">
+            <StarIcon />
+            <Typography fontSize={16} fontWeight={500}>
+              {rating}
+            </Typography>
+            <Typography fontSize={12} fontWeight={300}>
+              /5
+            </Typography>
+          </div>
         </div>
         <div className="review-card-comment">
           <Typography fontSize={14} fontWeight={300}>
