@@ -1,14 +1,17 @@
+/* eslint-disable curly */
+/* eslint-disable nonblock-statement-body-position */
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import * as bookService from "../../../services/BookService";
 import reducer from "./BookDetailsReducer";
 import { actions } from "../BooksActions";
 import { IBookDetailsContext } from "./Types";
+import { BookStatus } from "../status/Types";
 
 const initialState = {
   book: null,
   loading: false,
   error: null,
-  bookStatus: "",
+  bookStatus: null,
   showedSuccessMessage: false,
   showedConfirmationModal: false,
   successMessage: null,
@@ -31,7 +34,7 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [bookStatus, setBookStatus] = useState("");
+  const [bookStatus, setBookStatus] = useState<BookStatus | null>(null);
 
   const findBook = async () => {
     setLoading(true);
@@ -62,8 +65,9 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     else {
       let actionType: string = "";
 
-      if (bookStatus === "AVAILABLE") actionType = actions.RENT_BOOK;
-      if (bookStatus === "RENTED_BY_YOU") actionType = actions.RETURN_BOOK;
+      if (bookStatus === BookStatus.AVAILABLE) actionType = actions.RENT_BOOK;
+      if (bookStatus === BookStatus.RENTED_BY_YOU)
+        actionType = actions.RETURN_BOOK;
 
       dispatch({ type: actionType });
 

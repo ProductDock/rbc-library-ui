@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { BookStatus } from "../status/Types";
 
 export type Record = {
   email: string;
@@ -18,11 +18,11 @@ export interface IBookDetailsContext {
   book: Book | null;
   loading: boolean;
   error: string | null;
-  bookStatus: string;
+  bookStatus: BookStatus | null;
   showedConfirmationModal: boolean;
   showedSuccessMessage: boolean;
   successMessage: string | null;
-  setBookStatus?: Dispatch<SetStateAction<string>>;
+  setBookStatus?: Function;
   performAction?: () => void;
   hideConfirmationModal?: () => void;
 }
@@ -34,5 +34,5 @@ export type BookActionModal = {
 
 export type RentalRequest = {
   bookId: string;
-  requestedStatus: string;
+  requestedStatus: BookStatus | null;
 };

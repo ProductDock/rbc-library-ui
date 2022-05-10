@@ -3,7 +3,7 @@ import BookRentAction from "./BookRentAction";
 import BookReturnAction from "./BookReturnAction";
 
 type Props = {
-  bookStatus?: string;
+  bookStatus: BookStatus | null;
 };
 
 const BookAction = ({ bookStatus }: Props) => {
