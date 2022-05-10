@@ -1,10 +1,10 @@
 import { Typography } from "@mui/material";
 import { useBookDetailsContext } from "../../store/books/details/BookDetailsContext";
-import BookActionButton from "../BookActionButton";
 import BookCover from "../BookCover";
 import SuccessPage from "../Messages/Success/SuccessPage";
 import BookStatus from "../BookStatus";
 import "./BookDetails.css";
+import BookAction from "../BookAction";
 
 const BookDetails = () => {
   const {
@@ -26,7 +26,7 @@ const BookDetails = () => {
       <div className="bd-text-box">
         <Typography className="bd-title">{book?.title}</Typography>
         <Typography className="bd-author"> {book?.author} </Typography>
-        <BookActionButton status={bookStatus} />
+        <BookAction bookStatus={bookStatus} />
       </div>
     </div>
   );
