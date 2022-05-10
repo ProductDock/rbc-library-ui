@@ -12,7 +12,7 @@ import SuccessPage, {
 
 const title = "Return the book";
 const description = "Are you sure you want to return the book?";
-const successMessage = "You have successfully returned a book";
+const successMessage = "You have successfully returned the book";
 
 const BookReturnAction = () => {
   const { returnABook, reloadBook } = useBookDetailsContext();

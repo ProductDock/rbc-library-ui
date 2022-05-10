@@ -85,7 +85,9 @@ describe("Test book details page", () => {
 
     statusButton.click();
 
-    const messageBox = await screen.findByText("Please confirm book rental");
+    const messageBox = await screen.findByText(
+      "Please confirm your book rental and enjoy reading the book."
+    );
     const confirmButton = screen.getByTestId("confirm-button");
 
     expect(messageBox).toBeInTheDocument();

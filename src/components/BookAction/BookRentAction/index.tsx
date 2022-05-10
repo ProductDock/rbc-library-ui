@@ -8,9 +8,10 @@ import SuccessPage, {
   SuccessPageRefObject,
 } from "../../Messages/Success/SuccessPage";
 
-const title = "Rent a book";
-const description = "Please confirm your book rental and enjoy reading a book.";
-const successMessage = "You have successfully rented a book";
+const title = "Rent the book";
+const description =
+  "Please confirm your book rental and enjoy reading the book.";
+const successMessage = "You have successfully rented the book";
 
 const BookRentAction = () => {
   const { rentABook, reloadBook } = useBookDetailsContext();
