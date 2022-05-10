@@ -19,13 +19,11 @@ export interface IBookDetailsContext {
   loading: boolean;
   error: string | null;
   bookStatus: BookStatus | null;
-  showedConfirmationModal: boolean;
   showedSuccessMessage: boolean;
   successMessage: string | null;
   setBookStatus?: Function;
   performAction?: Function;
-  openConfirmationModal?: () => void;
-  hideConfirmationModal?: () => void;
+  showSuccessScreen?: () => void;
 }
 
 export type BookActionModal = {

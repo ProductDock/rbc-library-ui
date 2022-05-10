@@ -13,7 +13,6 @@ const initialState = {
   error: null,
   bookStatus: null,
   showedSuccessMessage: false,
-  showedConfirmationModal: false,
   successMessage: null,
 };
 
@@ -28,11 +27,11 @@ export const BookDetailsContext =
 const BookDetailsContextProvider = ({ bookId, children }: Props) => {
   const [bookState, dispatch] = useReducer(reducer, initialState);
 
-  const [showedConfirmationModal, setShowedConfirmationModal] =
-    useState<boolean>(false);
   const [showedSuccessMessage, setShowedSuccessMessage] =
     useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [bookReload, setBookReload] = useState<boolean>(false);
+
   const [error, setError] = useState<string | null>(null);
   const [bookStatus, setBookStatus] = useState<BookStatus | null>(null);
 
@@ -45,11 +44,9 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     setLoading(false);
   };
 
-  const hideConfirmationModal = () => setShowedConfirmationModal(false);
-
   const showSuccessScreen = () => {
     setShowedSuccessMessage(true);
-    setShowedConfirmationModal(false);
+    setBookReload(!bookReload);
     setTimeout(() => setShowedSuccessMessage(false), 2000);
   };
 
@@ -60,20 +57,18 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     });
   };
 
-  const openConfirmationModal = () => setShowedConfirmationModal(true);
-
-  const performAction = (action: string) => {
+  const performAction = async (
+    action: string,
+    onSuccessHandler: () => void
+  ) => {
     dispatch({ type: action });
 
-    sendRentalRequest().then(() => {
-      showSuccessScreen();
-      findBook?.();
-    });
+    return sendRentalRequest().then(onSuccessHandler);
   };
 
   useEffect(() => {
     findBook?.();
-  }, []);
+  }, [bookReload]);
 
   return (
     <BookDetailsContext.Provider
@@ -82,11 +77,9 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
         loading,
         error,
         bookStatus,
-        showedConfirmationModal,
         showedSuccessMessage,
         setBookStatus,
-        hideConfirmationModal,
-        openConfirmationModal,
+        showSuccessScreen,
         performAction,
       }}
     >
