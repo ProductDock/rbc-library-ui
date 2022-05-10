@@ -9,14 +9,34 @@
       "records": [
         { "email": "nenad.becanovic@productdock.com", "status": "RESERVED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "reviews": [{"id": "1", 
+        "userFullName": "Dummy user", 
+        "rating": 4, 
+        "recommendation": ["Medior", "Senior"], 
+        "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"},
+      {"id": "2", 
+        "userFullName": "Dummy user", 
+        "rating": 4, 
+        "recommendation": ["Medior", "Senior"], 
+        "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"}]
     },
     {
       "id": 2,
       "author": "Nikola Peric",
       "cover": "Cover1",
       "title": "Book title1",
-      "records": [{ "email": "example@productdock.com", "status": "AVAILABLE" }]
+      "records": [{ "email": "example@productdock.com", "status": "AVAILABLE" }],
+      "reviews": [{"id": "1", 
+                    "userFullName": "Dummy user", 
+                    "rating": 4, 
+                    "recommendation": ["Medior", "Senior"], 
+                    "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"},
+                  {"id": "2", 
+                    "userFullName": "Dummyuser2", 
+                    "rating": 2, 
+                    "recommendation": ["Medior", "Junior"], 
+                    "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"}]
     },
     {
       "id": 3,
