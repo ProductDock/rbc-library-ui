@@ -3,9 +3,9 @@ import BookRentButton from "./BookRentButton";
 import ConfirmationModal from "../../Modals/ConfirmationModal";
 import { actions } from "../../../store/books/BooksActions";
 
-const confirmRentingModalTitle = "Please confirm book rental";
+const confirmRentingModalTitle = "Rent a book";
 const confirmRentingModalDescription =
-  "After confirmation, you will receive an email with details of the book rental";
+  "Please confirm your book rental and enjoy reading a book.";
 
 const BookRentAction = () => {
   const {

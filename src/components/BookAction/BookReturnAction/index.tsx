@@ -3,9 +3,9 @@ import BookReturnButton from "./BookReturnButton";
 import ConfirmationModal from "../../Modals/ConfirmationModal";
 import { actions } from "../../../store/books/BooksActions";
 
-const confirmReturnModalTitle = "Please confirm book return";
+const confirmReturnModalTitle = "Return the book";
 const confirmReturnModalDescription =
-  "After confirmation, you will receive an email with confirmation of book return";
+  "Are you sure you want to return the book?";
 
 const BookReturnAction = () => {
   const {
