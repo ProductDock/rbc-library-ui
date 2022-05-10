@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { Typography } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import userAvatar from "../../img/userAvatar.png";
