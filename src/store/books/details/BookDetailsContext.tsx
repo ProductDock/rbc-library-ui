@@ -60,22 +60,15 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     });
   };
 
-  const performAction = () => {
-    if (!showedConfirmationModal) setShowedConfirmationModal(true);
-    else {
-      let actionType: string = "";
+  const openConfirmationModal = () => setShowedConfirmationModal(true);
 
-      if (bookStatus === BookStatus.AVAILABLE) actionType = actions.RENT_BOOK;
-      if (bookStatus === BookStatus.RENTED_BY_YOU)
-        actionType = actions.RETURN_BOOK;
+  const performAction = (action: string) => {
+    dispatch({ type: action });
 
-      dispatch({ type: actionType });
-
-      sendRentalRequest().then(() => {
-        showSuccessScreen();
-        findBook?.();
-      });
-    }
+    sendRentalRequest().then(() => {
+      showSuccessScreen();
+      findBook?.();
+    });
   };
 
   useEffect(() => {
@@ -93,6 +86,7 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
         showedSuccessMessage,
         setBookStatus,
         hideConfirmationModal,
+        openConfirmationModal,
         performAction,
       }}
     >

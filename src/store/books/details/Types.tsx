@@ -23,7 +23,8 @@ export interface IBookDetailsContext {
   showedSuccessMessage: boolean;
   successMessage: string | null;
   setBookStatus?: Function;
-  performAction?: () => void;
+  performAction?: Function;
+  openConfirmationModal?: () => void;
   hideConfirmationModal?: () => void;
 }
 

@@ -1,15 +1,16 @@
 import { Typography } from "@mui/material";
-import { useBookDetailsContext } from "../../../store/books/details/BookDetailsContext";
 import "./BookReturnButton.css";
 
-const BookReturnButton = () => {
-  const { performAction } = useBookDetailsContext();
+type Props = {
+  onClick?: () => void;
+};
 
+const BookReturnButton = ({ onClick }: Props) => {
   return (
     <button
       type="button"
       className="return-button"
-      onClick={performAction}
+      onClick={onClick}
       data-testid="return-book-button"
     >
       <Typography>Return the book</Typography>
