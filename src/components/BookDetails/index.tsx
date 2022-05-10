@@ -22,7 +22,10 @@ const BookDetails = () => {
       <div className="bd-cover">
         <BookCover imageUrl={book?.cover} />
       </div>
-      <BookStatus records={book?.records} setStatus={setBookStatus} />
+      <BookStatus
+        records={book?.records}
+        statusChangeCallback={setBookStatus}
+      />
       <div className="bd-text-box">
         <Typography className="bd-title">{book?.title}</Typography>
         <Typography className="bd-author"> {book?.author} </Typography>
