@@ -1,23 +1,14 @@
 import { Typography } from "@mui/material";
 import { useBookDetailsContext } from "../../store/books/details/BookDetailsContext";
 import BookCover from "../BookCover";
-import SuccessPage from "../Messages/Success/SuccessPage";
 import BookStatus from "../BookStatus";
 import "./BookDetails.css";
 import BookAction from "../BookAction";
 
 const BookDetails = () => {
-  const {
-    book,
-    bookStatus,
-    setBookStatus,
-    showedSuccessMessage,
-    successMessage,
-  } = useBookDetailsContext();
+  const { book, bookStatus, setBookStatus } = useBookDetailsContext();
 
-  return showedSuccessMessage ? (
-    <SuccessPage successMessage={successMessage} />
-  ) : (
+  return (
     <div className="book-details" data-testid="book-details">
       <div className="bd-cover">
         <BookCover imageUrl={book?.cover} />

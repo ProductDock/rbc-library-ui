@@ -5,15 +5,11 @@ import * as bookService from "../../../services/BookService";
 import reducer from "./BookDetailsReducer";
 import { actions } from "../BooksActions";
 import { IBookDetailsContext } from "./Types";
-import { BookStatus } from "../status/Types";
+import { BookActions, BookStatus } from "../status/Types";
 
 const initialState = {
   book: null,
-  loading: false,
-  error: null,
   bookStatus: null,
-  showedSuccessMessage: false,
-  successMessage: null,
 };
 
 type Props = {
@@ -27,44 +23,27 @@ export const BookDetailsContext =
 const BookDetailsContextProvider = ({ bookId, children }: Props) => {
   const [bookState, dispatch] = useReducer(reducer, initialState);
 
-  const [showedSuccessMessage, setShowedSuccessMessage] =
-    useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
   const [bookReload, setBookReload] = useState<boolean>(false);
-
-  const [error, setError] = useState<string | null>(null);
   const [bookStatus, setBookStatus] = useState<BookStatus | null>(null);
 
-  const findBook = async () => {
-    setLoading(true);
-    await bookService
+  const findBook = async () =>
+    bookService
       .getBook(bookId)
-      .then((resp) => dispatch({ type: actions.SET_BOOK, payload: resp.data }))
-      .catch(() => setError("Error while fetching data"));
-    setLoading(false);
-  };
+      .then((resp) => dispatch({ type: actions.SET_BOOK, payload: resp.data }));
 
-  const showSuccessScreen = () => {
-    setShowedSuccessMessage(true);
-    setBookReload(!bookReload);
-    setTimeout(() => setShowedSuccessMessage(false), 2000);
-  };
+  const reloadBook = () => setBookReload(!bookReload);
 
-  const sendRentalRequest = async () => {
-    await bookService.postRentalRequest({
+  const sendRentalRequest = async (requestedStatus: BookActions) =>
+    bookService.postRentalRequest({
       bookId: bookId.toString(),
-      requestedStatus: bookStatus,
+      requestedStatus,
     });
-  };
 
-  const performAction = async (
-    action: string,
-    onSuccessHandler: () => void
-  ) => {
-    dispatch({ type: action });
+  const rentABook = async (onSuccessHandler: () => void) =>
+    sendRentalRequest(BookActions.RENTED).then(onSuccessHandler);
 
-    return sendRentalRequest().then(onSuccessHandler);
-  };
+  const returnABook = async (onSuccessHandler: () => void) =>
+    sendRentalRequest(BookActions.RETURNED).then(onSuccessHandler);
 
   useEffect(() => {
     findBook?.();
@@ -74,13 +53,11 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     <BookDetailsContext.Provider
       value={{
         ...bookState,
-        loading,
-        error,
         bookStatus,
-        showedSuccessMessage,
+        reloadBook,
         setBookStatus,
-        showSuccessScreen,
-        performAction,
+        rentABook,
+        returnABook,
       }}
     >
       {children}

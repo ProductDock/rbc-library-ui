@@ -1,4 +1,4 @@
-import { BookStatus } from "../status/Types";
+import { BookActions, BookStatus } from "../status/Types";
 
 export type Record = {
   email: string;
@@ -16,13 +16,11 @@ export type Book = {
 
 export interface IBookDetailsContext {
   book: Book | null;
-  loading: boolean;
-  error: string | null;
   bookStatus: BookStatus | null;
-  showedSuccessMessage: boolean;
-  successMessage: string | null;
+  reloadBook?: () => void;
   setBookStatus?: Function;
-  performAction?: Function;
+  returnABook?: Function;
+  rentABook?: Function;
   showSuccessScreen?: () => void;
 }
 
@@ -33,5 +31,5 @@ export type BookActionModal = {
 
 export type RentalRequest = {
   bookId: string;
-  requestedStatus: BookStatus | null;
+  requestedStatus: BookActions | null;
 };
