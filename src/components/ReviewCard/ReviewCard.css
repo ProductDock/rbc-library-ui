@@ -1,0 +1,48 @@
+.review-card-div {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.review-card-avatar {
+  width: 13%;
+  margin-right: 20px;
+}
+
+.review-card-avatar img {
+  width: 41px;
+}
+
+.review-card-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.review-card-user-name .MuiTypography-root {
+  width: 158px;
+  font-size: 12px;
+}
+
+.review-card-rating {
+  height: 24px;
+  width: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.review-card-rating .MuiSvgIcon-root {
+  width: 16px;
+  float: right;
+  color: yellow;
+  margin-right: 10px;
+}
+
+.review-card-rating .MuiTypography-root {
+  float: right;
+}
+
+.review-card-comment {
+  width: 228px;
+  margin: 4px 0;
+}

@@ -3,16 +3,14 @@ import "./SectionTitle.css";
 
 type Props = {
   title: string;
-  numberOfBooks: number;
+  numberOfItems?: number;
 };
 
-const SectionTitle = ({ title, numberOfBooks }: Props) => {
+const SectionTitle = ({ title, numberOfItems }: Props) => {
   return (
     <div className="title">
       <Typography>
-        <b>
-          {title} ({numberOfBooks})
-        </b>
+        {title} ({numberOfItems})
       </Typography>
     </div>
   );
