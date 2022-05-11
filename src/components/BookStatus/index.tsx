@@ -10,22 +10,25 @@ import ReservedByYouBookStatus from "./ReservedByYouBookStatus";
 
 type Props = {
   records?: Record[];
+  statusChangeCallback?: Function;
 };
 
-const BookStatus = ({ records }: Props) => {
+const BookStatus = ({ records, statusChangeCallback }: Props) => {
   const { userProfile } = useAuthContext();
-  const [getBookStatus, setBookStatus] = useState("AVAILABLE");
+  const [bookStatus, setBookStatus] = useState("");
 
   useEffect(() => {
     if (!records || !userProfile) {
       return;
     }
-    const bookStatus = BookStatusCalculator.calculate(
+    const calculatedBookStatus = BookStatusCalculator.calculate(
       records,
       userProfile.email
     );
-    setBookStatus(bookStatus);
+    setBookStatus(calculatedBookStatus);
   });
+
+  useEffect(() => statusChangeCallback?.(bookStatus), [bookStatus]);
 
   return (
     <div>
@@ -36,7 +39,7 @@ const BookStatus = ({ records }: Props) => {
           RENTED_BY_YOU: <RentedByYouBookStatus />,
           RESERVED: <ReservedBookStatus />,
           RESERVED_BY_YOU: <ReservedByYouBookStatus />,
-        }[getBookStatus]
+        }[bookStatus]
       }
     </div>
   );

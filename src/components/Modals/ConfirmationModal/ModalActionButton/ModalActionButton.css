@@ -1,0 +1,25 @@
+.cancel-button.MuiButtonBase-root.MuiButton-root {
+  background-color: white;
+  color: black;
+  border-radius: 20px;
+  border-color: #eeeeee;
+  border: 1px;
+  width: 50%;
+  height: 40px;
+}
+
+.confirm-button.MuiButtonBase-root.MuiButton-root {
+  background-color: #00609a;
+  color: white;
+  border-radius: 20px;
+  border-color: #eeeeee;
+  border-width: 1px;
+  width: 50%;
+  height: 40px;
+}
+
+.modal-action-button-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}

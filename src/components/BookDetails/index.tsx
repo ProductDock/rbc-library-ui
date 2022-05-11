@@ -4,19 +4,24 @@ import BookCover from "../BookCover";
 import BookStatus from "../BookStatus";
 import ReviewSection from "../ReviewSection";
 import "./BookDetails.css";
+import BookAction from "../BookAction";
 
 const BookDetails = () => {
-  const { book } = useBookDetailsContext();
+  const { book, bookStatus, setBookStatus } = useBookDetailsContext();
 
   return (
     <div className="book-details" data-testid="book-details">
       <div className="bd-cover">
         <BookCover imageUrl={book?.cover} />
       </div>
-      <BookStatus records={book?.records} />
+      <BookStatus
+        records={book?.records}
+        statusChangeCallback={setBookStatus}
+      />
       <div className="bd-text-box">
         <Typography className="bd-title">{book?.title}</Typography>
         <Typography className="bd-author"> {book?.author} </Typography>
+        <BookAction bookStatus={bookStatus} />
       </div>
       <ReviewSection reviews={book?.reviews} />
     </div>

@@ -1,5 +1,19 @@
 import { act, render, screen } from "@testing-library/react";
+import Router from "react-router-dom";
 import BookDetailsPage from "../../pages/BookDetailsPage";
+
+const BOOK_ID_WITH_REVIEWS = "1";
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useParams: jest.fn(),
+}));
+
+beforeEach(() => {
+  jest
+    .spyOn(Router, "useParams")
+    .mockReturnValue({ bookId: BOOK_ID_WITH_REVIEWS });
+});
 
 describe("Test if reviews are loaded properly", () => {
   test("should render book details with 2 reviews", async () => {

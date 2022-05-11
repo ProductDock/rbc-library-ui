@@ -6,7 +6,7 @@ const BookDetailsPage = () => {
   const { bookId } = useParams();
 
   return (
-    <div className="book-details-container">
+    <div>
       <BookDetailsContexProvider bookId={parseInt(bookId || "0", 10)}>
         <BookDetails />
       </BookDetailsContexProvider>
