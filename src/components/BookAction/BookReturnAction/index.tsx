@@ -1,11 +1,9 @@
-/* eslint-disable no-unused-vars */
 import { useRef } from "react";
 import { useBookDetailsContext } from "../../../store/books/details/BookDetailsContext";
 import BookReturnButton from "./BookReturnButton";
 import ConfirmationModal, {
   ConfirmationRefObject,
 } from "../../Modals/ConfirmationModal";
-import { actions } from "../../../store/books/BooksActions";
 import SuccessPage, {
   SuccessPageRefObject,
 } from "../../Messages/Success/SuccessPage";
