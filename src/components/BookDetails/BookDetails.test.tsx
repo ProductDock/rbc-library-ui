@@ -10,6 +10,8 @@ const AVAILABLE_BOOK_ID = "1";
 const RENTED_BOOK_ID = "2";
 const RENTED_BY_YOU_BOOK_ID = "3";
 
+const SUCCESS_DISAPPEAR_AFTER = 2000;
+
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useParams: jest.fn(),
@@ -85,19 +87,17 @@ describe("Test book details page", () => {
       expect(screen.queryByTestId("rent-book-button")).toBeTruthy()
     );
 
-    const statusButton = screen.getByTestId("rent-book-button");
-    statusButton?.click();
+    const rentButton = screen.getByTestId("rent-book-button");
+    rentButton?.click();
 
-    const messageBox = await screen.findByText(
-      "Please confirm your book rental and enjoy reading the book."
-    );
-    const confirmButton = screen.getByTestId("confirm-button");
-
-    expect(messageBox).toBeInTheDocument();
-    expect(confirmButton).toBeInTheDocument();
-
+    const confirmButton = await screen.findByTestId("confirm-button");
     confirmButton.click();
+
     const successText = await screen.findByText("Success!");
     expect(successText).toBeInTheDocument();
+
+    await waitFor(() => expect(screen.queryByText("Success!")).toBeFalsy(), {
+      timeout: SUCCESS_DISAPPEAR_AFTER,
+    });
   });
 });
