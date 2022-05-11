@@ -18,6 +18,8 @@
 }
 
 .book-review-form-footer {
+  z-index: 1298;
+  background-color: #f7f7f9;
   padding: 0 1.5em;
   box-sizing: border-box;
   position: fixed;

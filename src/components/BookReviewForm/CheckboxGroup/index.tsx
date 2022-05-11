@@ -4,13 +4,13 @@ import SetUtil from "../../../util/setUtil";
 import BookReviewCheckboxLabel from "./CheckboxLabel";
 
 export type CheckboxProps = {
-  values: string[];
+  values: any[];
   label: string;
 };
 
 type Props = {
   checkboxes: CheckboxProps[];
-  checkedValues: string[];
+  checkedValues: any[];
   setCheckedValues: Function;
 };
 
@@ -19,10 +19,10 @@ const CheckboxGroup = ({
   checkedValues,
   setCheckedValues,
 }: Props) => {
-  const isChecked = (...values: string[]) =>
+  const isChecked = (...values: any[]) =>
     SetUtil.isSubset(values, checkedValues);
 
-  const toggleValues = (values: string[]) => {
+  const toggleValues = (values: any[]) => {
     if (isChecked(...values)) {
       setCheckedValues(SetUtil.setDifference(checkedValues, values));
     } else {

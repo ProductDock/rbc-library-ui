@@ -6,6 +6,10 @@
   width: 100%;
   height: 40px;
 }
+.submit-review-button.MuiButton-root:hover {
+  background-color: #00609a;
+  border: 0;
+}
 
 .submit-review-button.MuiButton-root:disabled {
   background-color: #eeeeee;

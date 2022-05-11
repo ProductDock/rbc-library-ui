@@ -3,10 +3,6 @@
   background-color: #f7f7f9;
 }
 
-.book-review-container {
-  padding: 1.5em 1.5em 0 1.5em;
-}
-
 .bd-cover {
   display: flex;
   flex-direction: column;

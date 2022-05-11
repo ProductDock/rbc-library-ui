@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
 import { BookActions, BookStatus } from "../status/Types";
 
 export type Record = {
@@ -23,16 +25,6 @@ export type Book = {
   reviews: Review[];
 };
 
-export interface IBookDetailsContext {
-  book: Book | null;
-  bookStatus: BookStatus | null;
-  reloadBook?: () => void;
-  setBookStatus?: Function;
-  returnABook?: Function;
-  rentABook?: Function;
-  showSuccessScreen?: () => void;
-}
-
 export type BookActionModal = {
   title: string;
   description: string;
@@ -42,3 +34,24 @@ export type RentalRequest = {
   bookId: string;
   requestedStatus: BookActions | null;
 };
+
+export enum BookRecommendations {
+  JUNIOR = "JUNIOR",
+  MEDIOR = "MEDIOR",
+  SENIOR = "SENIOR",
+}
+
+export type BookReview = {
+  comment: string;
+  rating: number | null;
+  recommendation: BookRecommendations[];
+};
+export interface IBookDetailsContext {
+  book: Book | null;
+  bookStatus: BookStatus | null;
+  reloadBook?: () => void;
+  setBookStatus?: Function;
+  returnABook?: Function;
+  rentABook?: Function;
+  reviewBook?: (review: BookReview) => Promise<any>;
+}

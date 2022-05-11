@@ -6,26 +6,48 @@ import BookReviewTextArea from "./TextArea";
 import SubmitReviewButton from "./SubmitReviewButton";
 import SkipReviewButton from "./SkipReviewButton";
 import CheckboxGroup, { CheckboxProps } from "./CheckboxGroup";
+import { BookRecommendations } from "../../store/books/details/Types";
+import { useBookDetailsContext } from "../../store/books/details/BookDetailsContext";
 
 const checkboxes: CheckboxProps[] = [
-  { values: ["JUNIOR", "MEDIOR", "SENIOR"], label: "Select all" },
-  { values: ["JUNIOR"], label: "Junior" },
-  { values: ["MEDIOR"], label: "Medior" },
-  { values: ["SENIOR"], label: "Senior" },
+  {
+    values: [
+      BookRecommendations.JUNIOR,
+      BookRecommendations.MEDIOR,
+      BookRecommendations.SENIOR,
+    ],
+    label: "Select all",
+  },
+  { values: [BookRecommendations.JUNIOR], label: "Junior" },
+  { values: [BookRecommendations.MEDIOR], label: "Medior" },
+  { values: [BookRecommendations.SENIOR], label: "Senior" },
 ];
 
-const BookReviewForm = () => {
-  const [description, setDescription] = useState<string>("");
-  const [rating, setRating] = useState<number | null>();
-  const [checkedSeniority, setCheckedSeniority] = useState<string[]>([]);
+type Props = {
+  onSkip: () => void;
+  onSuccessCallback?: () => void;
+};
 
-  const handleSubmit = () => {};
+const BookReviewForm = ({ onSkip, onSuccessCallback }: Props) => {
+  const { reviewBook } = useBookDetailsContext();
 
-  const handleSkip = () => {};
+  const [comment, setComment] = useState<string>("");
+  const [rating, setRating] = useState<number | null>(0);
+  const [recommendation, setRecommendation] = useState<BookRecommendations[]>(
+    []
+  );
+
+  const handleSubmit = () => {
+    reviewBook?.({
+      comment,
+      rating,
+      recommendation,
+    }).then(() => onSuccessCallback?.());
+  };
 
   const isSubmitEnabled = useCallback(() => {
-    return rating || checkedSeniority.length > 0 || description.length > 0;
-  }, [checkedSeniority, rating, description]);
+    return rating || recommendation.length > 0 || comment.length > 0;
+  }, [recommendation, rating, comment]);
 
   return (
     <>
@@ -45,14 +67,14 @@ const BookReviewForm = () => {
       </Typography>
       <CheckboxGroup
         checkboxes={checkboxes}
-        setCheckedValues={setCheckedSeniority}
-        checkedValues={checkedSeniority}
+        setCheckedValues={setRecommendation}
+        checkedValues={recommendation}
       />
-      <Typography className="book-review-field-title">Description</Typography>
+      <Typography className="book-review-field-title">Comment</Typography>
       <BookReviewTextArea
         maxLentgth={500}
-        text={description}
-        setText={setDescription}
+        text={comment}
+        setText={setComment}
       />
 
       <div className="book-review-form-footer">
@@ -60,7 +82,7 @@ const BookReviewForm = () => {
           disabled={!isSubmitEnabled()}
           onClick={handleSubmit}
         />
-        <SkipReviewButton text="Skip" onClick={handleSkip} />
+        <SkipReviewButton text="Skip" onClick={onSkip} />
       </div>
     </>
   );

@@ -4,8 +4,8 @@ import React, { useContext, useEffect, useReducer, useState } from "react";
 import * as bookService from "../../../services/BookService";
 import reducer from "./BookDetailsReducer";
 import { actions } from "../BooksActions";
-import { IBookDetailsContext } from "./Types";
 import { BookActions, BookStatus } from "../status/Types";
+import { BookReview, IBookDetailsContext } from "./Types";
 
 const initialState = {
   book: null,
@@ -45,6 +45,9 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
   const returnABook = async (onSuccessHandler: () => void) =>
     sendRentalRequest(BookActions.RETURNED).then(onSuccessHandler);
 
+  const reviewBook = async (bookReview: BookReview) =>
+    bookService.reviewBook(bookId, bookReview);
+
   useEffect(() => {
     findBook?.();
   }, [bookReload]);
@@ -58,6 +61,7 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
         setBookStatus,
         rentABook,
         returnABook,
+        reviewBook,
       }}
     >
       {children}
