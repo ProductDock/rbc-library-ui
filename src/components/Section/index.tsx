@@ -3,14 +3,14 @@ import "./Section.css";
 
 type Props = {
   title: string;
-  numberOfBooks: number;
+  numberOfItems?: number;
   children?: any;
 };
 
-const Section = ({ children, title, numberOfBooks }: Props) => {
+const Section = ({ children, title, numberOfItems }: Props) => {
   return (
     <div>
-      <SectionTitle title={title} numberOfBooks={numberOfBooks} />
+      <SectionTitle title={title} numberOfItems={numberOfItems} />
       <hr className="separator-line" />
       {children}
     </div>

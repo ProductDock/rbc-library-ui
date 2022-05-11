@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import { useBookDetailsContext } from "../../store/books/details/BookDetailsContext";
 import BookCover from "../BookCover";
 import BookStatus from "../BookStatus";
+import ReviewSection from "../ReviewSection";
 import "./BookDetails.css";
 import BookAction from "../BookAction";
 
@@ -22,6 +23,7 @@ const BookDetails = () => {
         <Typography className="bd-author"> {book?.author} </Typography>
         <BookAction bookStatus={bookStatus} />
       </div>
+      <ReviewSection reviews={book?.reviews} />
     </div>
   );
 };

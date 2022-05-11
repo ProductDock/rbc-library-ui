@@ -32,7 +32,7 @@ describe("Test book details page", () => {
     });
   });
 
-  test("should find correct title and author name when api returns book", async () => {
+  test("should find correct title, author name and book status when api returns book", async () => {
     render(<BookDetailsPage />);
 
     const bookTitle = await screen.findByText(testBook.title);
