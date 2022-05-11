@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import Router from "react-router-dom";
 import { BooksFixture } from "../../msw/fixtures";
@@ -81,9 +81,12 @@ describe("Test book details page", () => {
   test("should show success page when book successfully rented", async () => {
     render(<BookDetailsPage />);
 
-    const statusButton = await screen.findByTestId("rent-book-button");
+    await waitFor(() =>
+      expect(screen.queryByTestId("rent-book-button")).toBeTruthy()
+    );
 
-    statusButton.click();
+    const statusButton = screen.getByTestId("rent-book-button");
+    statusButton?.click();
 
     const messageBox = await screen.findByText(
       "Please confirm your book rental and enjoy reading the book."
