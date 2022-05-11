@@ -23,6 +23,10 @@ beforeEach(() => {
     .mockReturnValue({ bookId: AVAILABLE_BOOK_ID });
 });
 
+afterEach(() => {
+  jest.restoreAllMocks();
+});
+
 describe("Test book details page", () => {
   test("should render book details", async () => {
     render(<BookDetailsPage />);
