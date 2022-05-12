@@ -5,23 +5,10 @@ import "./BookReviewForm.css";
 import TextArea from "./TextArea";
 import SubmitReviewButton from "./SubmitReviewButton";
 import SkipReviewButton from "./SkipReviewButton";
-import CheckboxGroup, { CheckboxProps } from "./CheckboxGroup";
+import CheckboxGroup from "./CheckboxGroup";
 import { BookRecommendations } from "../../store/books/details/Types";
 import { useBookDetailsContext } from "../../store/books/details/BookDetailsContext";
-
-const checkboxes: CheckboxProps[] = [
-  {
-    values: [
-      BookRecommendations.JUNIOR,
-      BookRecommendations.MEDIOR,
-      BookRecommendations.SENIOR,
-    ],
-    label: "Select all",
-  },
-  { values: [BookRecommendations.JUNIOR], label: "Junior" },
-  { values: [BookRecommendations.MEDIOR], label: "Medior" },
-  { values: [BookRecommendations.SENIOR], label: "Senior" },
-];
+import RecommendationCheckboxValues from "./util/RecomendationCheckoxValues";
 
 type Props = {
   onSkip: () => void;
@@ -65,7 +52,7 @@ const BookReviewForm = ({ onSkip, onSuccessCallback }: Props) => {
         To whom would you recommend this book?
       </Typography>
       <CheckboxGroup
-        checkboxes={checkboxes}
+        checkboxes={RecommendationCheckboxValues.get()}
         setCheckedValues={setRecommendation}
         checkedValues={recommendation}
       />
