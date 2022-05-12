@@ -15,5 +15,5 @@ export const getBook = async (bookId: number) =>
 export const postRentalRequest = async (rentalRequest: RentalRequest) =>
   client.post("/rental/record", rentalRequest);
 
-export const reviewBook = async (bookId: number, review: BookReview) =>
+export const postBookReview = async (bookId: number, review: BookReview) =>
   client.post(`/catalog/books/${bookId}/reviews`, review);

@@ -46,7 +46,7 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     sendRentalRequest(BookActions.RETURNED).then(onSuccessHandler);
 
   const reviewBook = async (bookReview: BookReview) =>
-    bookService.reviewBook(bookId, bookReview);
+    bookService.postBookReview(bookId, bookReview);
 
   useEffect(() => {
     findBook?.();

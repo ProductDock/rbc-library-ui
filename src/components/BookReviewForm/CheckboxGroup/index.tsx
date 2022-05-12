@@ -24,10 +24,10 @@ const CheckboxGroup = ({
 
   const toggleValues = (values: any[]) => {
     if (isChecked(...values)) {
-      setCheckedValues(SetUtil.setDifference(checkedValues, values));
+      setCheckedValues(SetUtil.difference(checkedValues, values));
     } else {
       setCheckedValues([
-        ...SetUtil.setDifference(checkedValues, values),
+        ...SetUtil.difference(checkedValues, values),
         ...values,
       ]);
     }
