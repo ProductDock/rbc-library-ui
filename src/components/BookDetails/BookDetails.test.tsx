@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import Router from "react-router-dom";
 import { BooksFixture } from "../../msw/fixtures";
@@ -9,8 +9,6 @@ const testBook = books[1];
 const AVAILABLE_BOOK_ID = "1";
 const RENTED_BOOK_ID = "2";
 const RENTED_BY_YOU_BOOK_ID = "3";
-
-const SUCCESS_DISAPPEAR_AFTER = 2000;
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
@@ -81,27 +79,6 @@ describe("Test book details page", () => {
     await act(async () => {
       expect(rentButton).toBeFalsy();
       expect(returnButton).toBeFalsy();
-    });
-  });
-
-  test("should show success page when book successfully rented", async () => {
-    render(<BookDetailsPage />);
-
-    await waitFor(() =>
-      expect(screen.queryByTestId("rent-book-button")).toBeTruthy()
-    );
-
-    const rentButton = screen.getByTestId("rent-book-button");
-    rentButton?.click();
-
-    const confirmButton = await screen.findByTestId("confirm-button");
-    confirmButton.click();
-
-    const successText = await screen.findByText("Success!");
-    expect(successText).toBeInTheDocument();
-
-    await waitFor(() => expect(screen.queryByText("Success!")).toBeFalsy(), {
-      timeout: SUCCESS_DISAPPEAR_AFTER,
     });
   });
 });

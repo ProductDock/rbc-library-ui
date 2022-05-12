@@ -2,7 +2,7 @@ import { Typography, Rating } from "@mui/material";
 import { useCallback, useState } from "react";
 import BookReviewFormTitle from "./FormTitle";
 import "./BookReviewForm.css";
-import BookReviewTextArea from "./TextArea";
+import TextArea from "./TextArea";
 import SubmitReviewButton from "./SubmitReviewButton";
 import SkipReviewButton from "./SkipReviewButton";
 import CheckboxGroup, { CheckboxProps } from "./CheckboxGroup";
@@ -56,11 +56,10 @@ const BookReviewForm = ({ onSkip, onSuccessCallback }: Props) => {
         How would you rate your experience with this book?
       </Typography>
       <Rating
+        data-testid="book-review-rating"
         className="book-review-field"
         value={rating}
-        onChange={(event, newValue) => {
-          setRating(newValue);
-        }}
+        onChange={(event, newValue) => setRating(newValue)}
       />
       <Typography className="book-review-field-title">
         To whom would you recommend this book?
@@ -71,11 +70,7 @@ const BookReviewForm = ({ onSkip, onSuccessCallback }: Props) => {
         checkedValues={recommendation}
       />
       <Typography className="book-review-field-title">Comment</Typography>
-      <BookReviewTextArea
-        maxLentgth={500}
-        text={comment}
-        setText={setComment}
-      />
+      <TextArea maxLentgth={500} text={comment} setText={setComment} />
 
       <div className="book-review-form-footer">
         <SubmitReviewButton

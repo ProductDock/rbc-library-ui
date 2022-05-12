@@ -7,11 +7,12 @@ type Props = {
   setText: Function;
 };
 
-const BookReviewTextArea = ({ maxLentgth, text, setText }: Props) => {
+const TextArea = ({ maxLentgth, text, setText }: Props) => {
   return (
     <>
       <TextareaAutosize
-        maxLength={500}
+        data-testid="review-comment-textarea"
+        maxLength={maxLentgth}
         minRows={5}
         className="css-ahj2mt-MuiTypography-root description-text-area"
         onChange={(e) => setText(e.target.value)}
@@ -27,4 +28,4 @@ const BookReviewTextArea = ({ maxLentgth, text, setText }: Props) => {
   );
 };
 
-export default BookReviewTextArea;
+export default TextArea;

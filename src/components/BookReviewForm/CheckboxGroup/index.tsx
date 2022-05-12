@@ -34,12 +34,17 @@ const CheckboxGroup = ({
   };
 
   return (
-    <FormGroup className="book-review-field">
+    <FormGroup
+      data-testid="book-review-checkboxes"
+      className="book-review-field"
+    >
       {checkboxes.map((checkbox) => (
         <FormControlLabel
+          key={checkbox.label}
           className="book-review-checkbox-field"
           control={
             <Checkbox
+              data-testid="book-recommendation-checkbox"
               checked={isChecked(...checkbox.values)}
               onChange={() => toggleValues(checkbox.values)}
             />

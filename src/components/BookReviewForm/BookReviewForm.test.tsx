@@ -1,0 +1,75 @@
+import { fireEvent, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import BookReviewForm from ".";
+
+describe("Test book review form", () => {
+  test("should show review form fields", async () => {
+    render(<BookReviewForm onSkip={jest.fn()} />);
+
+    const formTitle = await screen.findByTestId("book-review-form-title");
+    const rating = screen.getByTestId("book-review-rating");
+    const checkboxes = screen.getByTestId("book-review-checkboxes");
+    const textarea = screen.getByTestId("review-comment-textarea");
+    const submitReviewButton = screen.getByTestId("submit-review-button");
+    const skipReviewButton = screen.getByTestId("skip-review-button");
+
+    expect(formTitle).toBeInTheDocument();
+    expect(rating).toBeInTheDocument();
+    expect(checkboxes).toBeInTheDocument();
+    expect(textarea).toBeInTheDocument();
+    expect(submitReviewButton).toBeInTheDocument();
+    expect(skipReviewButton).toBeInTheDocument();
+  });
+
+  test("should disable submit review button when review fields not provided", async () => {
+    render(<BookReviewForm onSkip={jest.fn()} />);
+
+    const submitReviewButton = await screen.findByTestId(
+      "submit-review-button"
+    );
+    expect(submitReviewButton).toBeDisabled();
+  });
+
+  test("should enable submit review button when review comment present", async () => {
+    render(<BookReviewForm onSkip={jest.fn()} />);
+
+    const reviewCommentTextArea = await screen.findByTestId(
+      "review-comment-textarea"
+    );
+    userEvent.type(reviewCommentTextArea, "Test review comment");
+
+    const submitReviewButton = await screen.findByTestId(
+      "submit-review-button"
+    );
+    expect(submitReviewButton).toBeEnabled();
+  });
+
+  test("should enable submit review button when review star is selected", async () => {
+    render(<BookReviewForm onSkip={jest.fn()} />);
+
+    const bookReview = await screen.findByTestId("book-review-rating");
+    const firstStar = bookReview.firstElementChild;
+
+    fireEvent.click(firstStar!!);
+
+    const submitReviewButton = await screen.findByTestId(
+      "submit-review-button"
+    );
+    expect(submitReviewButton).toBeEnabled();
+  });
+
+  test("should enable submit review button when recommendation is selected", async () => {
+    render(<BookReviewForm onSkip={jest.fn()} />);
+
+    const recommendation = await screen.findAllByTestId(
+      "book-recommendation-checkbox"
+    );
+
+    userEvent.click(recommendation.at(0)!!);
+
+    const submitReviewButton = await screen.findByTestId(
+      "submit-review-button"
+    );
+    expect(submitReviewButton).toBeEnabled();
+  });
+});

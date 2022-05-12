@@ -15,6 +15,7 @@
 
 .css-ahj2mt-MuiTypography-root.description-text-area {
   width: 100%;
+  resize: none;
   box-sizing: border-box;
   margin-top: 0.7em;
   padding: 11px;

@@ -8,7 +8,11 @@ type Props = {
 
 const SkipReviewButton = ({ text, onClick }: Props) => {
   return (
-    <Button className="skip-review-button" onClick={onClick}>
+    <Button
+      className="skip-review-button"
+      onClick={onClick}
+      data-testid="skip-review-button"
+    >
       <Typography className="skip-review-button-text">{text}</Typography>
     </Button>
   );

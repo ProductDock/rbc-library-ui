@@ -15,6 +15,7 @@ const SubmitReviewButton = ({ onClick, disabled }: Props) => {
 
   return (
     <Button
+      data-testid="submit-review-button"
       disabled={disabled}
       className="submit-review-button"
       onClick={onClick}
