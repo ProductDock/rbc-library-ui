@@ -9,3 +9,8 @@
 .review-section > div > .separator-line {
   margin: 0.7em 0 0.5em 0;
 }
+
+.review-section-message.MuiTypography-root {
+  margin-top: 1em;
+  font-weight: 300;
+}
