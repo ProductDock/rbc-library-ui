@@ -1,5 +1,5 @@
 import qs from "qs";
-import { RentalRequest } from "../store/books/details/Types";
+import { RentalRequest, BookReview } from "../store/books/details/Types";
 import client from "./client";
 
 export const fetchBooks = async (params: any) =>
@@ -14,3 +14,6 @@ export const getBook = async (bookId: number) =>
 
 export const postRentalRequest = async (rentalRequest: RentalRequest) =>
   client.post("/rental/record", rentalRequest);
+
+export const postBookReview = async (bookId: number, review: BookReview) =>
+  client.post(`/catalog/books/${bookId}/reviews`, review);

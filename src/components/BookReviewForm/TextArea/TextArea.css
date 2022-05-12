@@ -1,0 +1,36 @@
+.text-area-characters-num-container {
+  margin-top: 0.7em;
+  text-align: end;
+}
+
+.text-area-characters-num.MuiTypography-root {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.text-area-characters-num .max-length {
+  color: #979797;
+}
+
+.css-ahj2mt-MuiTypography-root.description-text-area {
+  width: 100%;
+  resize: none;
+  box-sizing: border-box;
+  margin-top: 0.7em;
+  padding: 11px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 18px;
+  border: 1px solid #cccccc;
+  border-radius: 0.3em;
+}
+
+.description-text-area:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+.description-text-area::placeholder {
+  color: #979797;
+}

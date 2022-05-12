@@ -1,0 +1,30 @@
+.MuiTypography-root.book-review-field-title {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 1.5em;
+}
+
+.book-review-field {
+  margin-top: 0.7em;
+}
+
+.book-review-checkbox-field.MuiFormControlLabel-root {
+  margin-left: 0;
+}
+
+.MuiButtonBase-root.MuiCheckbox-root.Mui-checked {
+  color: #266095;
+}
+
+.book-review-form-footer {
+  z-index: 1298;
+  background-color: #f7f7f9;
+  padding: 0 1.5em;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}

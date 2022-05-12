@@ -1,0 +1,8 @@
+.book-review-form-container {
+  background-color: #f7f7f9;
+  position: absolute;
+  z-index: 1298;
+  top: 64px;
+  left: 0;
+  padding: 1.5em 1.5em 1.5em 1.5em;
+}
