@@ -4,7 +4,7 @@
   z-index: 1298;
   height: calc(100vh - 64px);
   top: 64px;
-  width: 100vw;
+  width: 100%;
   left: 0;
 }
 
