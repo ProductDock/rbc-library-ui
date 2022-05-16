@@ -7,4 +7,5 @@ export const actions = {
   ADD_BOOK: "addBook",
   RENT_BOOK: "rentBook",
   RETURN_BOOK: "returnBook",
+  RELOAD_BOOK: "reloadBook",
 } as const;
