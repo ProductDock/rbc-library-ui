@@ -8,7 +8,6 @@ export type Record = {
 };
 
 export type Review = {
-  id: string;
   userFullName: string;
   rating: number;
   recommendation: string[];

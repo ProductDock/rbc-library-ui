@@ -11,7 +11,7 @@ const ReviewCollection = ({ reviews }: Props) => {
     <div className="review-collection">
       {reviews?.map((review) => {
         return (
-          <div key={review.id}>
+          <div key={review.userFullName}>
             <ReviewCard
               reviewer={review.userFullName}
               rating={review.rating}

@@ -2,7 +2,7 @@ import { rest } from "msw";
 import { BooksFixture } from "./fixtures";
 
 export const BOOKS_URL = `*/search`;
-export const BOOK_DETAILS_URL = `*/catalog/books`;
+export const BOOK_DETAILS_URL = `*/books`;
 export const RENTAL_RECORD_URL = `*/rental/record`;
 export const BOOK_REVIEW_URL = `*/catalog/books/*/reviews`;
 
