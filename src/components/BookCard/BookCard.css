@@ -51,10 +51,10 @@
 }
 
 .title-box p {
-  height: 36px;
+  max-height: 36px;
   width: 204px;
   margin-top: 44px;
-  position: absolute;
+  position: relative;
 
   font-style: normal;
   font-weight: 400;
@@ -76,8 +76,8 @@
 .author-box p {
   height: 18px;
   width: 204px;
-  margin-top: 70px;
-  position: absolute;
+  margin-top: 7px;
+  position: relative;
 
   font-style: normal;
   font-weight: 300;
@@ -97,5 +97,5 @@
 
 .book-status-homepage {
   position: absolute;
-  margin-top: 340px;
+  margin-top: 350px;
 }
