@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
-
 .text-area-characters-num-container {
   margin-top: 0.7em;
   text-align: end;
@@ -26,7 +24,7 @@
   line-height: 18px;
   border: 1px solid #cccccc;
   border-radius: 0.3em;
-  font-family: "Roboto", sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 .description-text-area:focus {
