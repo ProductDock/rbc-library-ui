@@ -21,6 +21,7 @@
 .navbar-info {
   display: flex;
   flex-direction: row;
+  cursor: pointer;
 }
 
 .logo {
