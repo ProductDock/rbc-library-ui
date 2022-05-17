@@ -4,9 +4,7 @@ import BookRentButton from "./BookRentButton";
 import ConfirmationModal, {
   ConfirmationRefObject,
 } from "../../Modals/ConfirmationModal";
-import SuccessPage, {
-  SuccessPageRefObject,
-} from "../../Messages/Success/SuccessPage";
+import { useSuccessScreenContext } from "../../../store/success/SuccessScreenContext";
 
 const title = "Rent the book";
 const description =
@@ -15,17 +13,17 @@ const successMessage = "You have successfully rented the book";
 
 const BookRentAction = () => {
   const { rentABook, reloadBook } = useBookDetailsContext();
+  const { showSuccessScreen } = useSuccessScreenContext();
 
   const modal = useRef<ConfirmationRefObject>(null);
-  const successPage = useRef<SuccessPageRefObject>(null);
 
   const showModal = () => modal?.current?.showModal?.();
   const hideModal = () => modal?.current?.hideModal?.();
-  const showSuccessScreen = () => successPage?.current?.show?.();
 
   const onSuccessHandler = () => {
     hideModal();
-    showSuccessScreen?.();
+    reloadBook?.();
+    showSuccessScreen?.(successMessage);
   };
 
   return (
@@ -36,11 +34,6 @@ const BookRentAction = () => {
         title={title}
         description={description}
         onConfirmation={() => rentABook?.(onSuccessHandler)}
-      />
-      <SuccessPage
-        ref={successPage}
-        successMessage={successMessage}
-        onSuccessDisappear={reloadBook}
       />
     </>
   );
