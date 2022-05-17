@@ -6,7 +6,10 @@ import TextArea from "./TextArea";
 import SubmitReviewButton from "./SubmitReviewButton";
 import SkipReviewButton from "./SkipReviewButton";
 import CheckboxGroup from "./CheckboxGroup";
-import { BookRecommendations } from "../../store/books/details/Types";
+import {
+  BookRecommendations,
+  BookReview,
+} from "../../store/books/details/Types";
 import { useBookDetailsContext } from "../../store/books/details/BookDetailsContext";
 import RecommendationCheckboxValues from "./util/RecomendationCheckoxValues";
 
@@ -24,12 +27,17 @@ const BookReviewForm = ({ onSkip, onSuccessCallback }: Props) => {
     []
   );
 
+  const createReview = (): BookReview => {
+    const review: BookReview = { comment, rating, recommendation };
+
+    if (!comment) review.comment = null;
+    if (!rating) review.rating = null;
+
+    return review;
+  };
+
   const handleSubmit = () => {
-    reviewBook?.({
-      comment,
-      rating,
-      recommendation,
-    }).then(() => onSuccessCallback?.());
+    reviewBook?.(createReview()).then(() => onSuccessCallback?.());
   };
 
   const isSubmitEnabled = useCallback(() => {

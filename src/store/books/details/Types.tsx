@@ -41,7 +41,7 @@ export enum BookRecommendations {
 }
 
 export type BookReview = {
-  comment: string;
+  comment: string | null;
   rating: number | null;
   recommendation: BookRecommendations[];
 };
