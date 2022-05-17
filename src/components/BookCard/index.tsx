@@ -26,8 +26,8 @@ const BookCard = ({
     <div className="book-box" data-testid="book-box">
       <BookCover imageUrl={cover} />
       <BookStarRating
-        rating={rating || 0}
-        ratingsCount={ratingsCount || 0}
+        rating={rating}
+        ratingsCount={ratingsCount}
         ratingsCountShow
       />
       <div className="text-box">
