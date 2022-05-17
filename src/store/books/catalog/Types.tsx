@@ -4,6 +4,11 @@ export type Record = {
   status: string;
 };
 
+export type Rating = {
+  score: number | undefined;
+  count: number | undefined;
+};
+
 export type Book = {
   id?: number;
   title: string;
@@ -11,6 +16,7 @@ export type Book = {
   cover: string;
   records: Record[];
   numberOfCopies: number;
+  rating: Rating;
 };
 
 export interface IBooksContext {

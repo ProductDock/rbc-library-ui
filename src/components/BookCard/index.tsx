@@ -1,6 +1,7 @@
 import { Tooltip, Typography } from "@mui/material";
 import { Record } from "../../store/books/catalog/Types";
 import BookCover from "../BookCover";
+import BookStarRating from "../BookStarRating";
 import BookStatus from "../BookStatus";
 import "./BookCard.css";
 
@@ -9,12 +10,26 @@ type Props = {
   author: string;
   cover: string;
   records?: Record[];
+  rating?: number;
+  ratingsCount?: number;
 };
 
-const BookCard = ({ title, author, cover, records }: Props) => {
+const BookCard = ({
+  title,
+  author,
+  cover,
+  records,
+  rating,
+  ratingsCount,
+}: Props) => {
   return (
     <div className="book-box" data-testid="book-box">
       <BookCover imageUrl={cover} />
+      <BookStarRating
+        rating={rating || 0}
+        ratingsCount={ratingsCount || 0}
+        ratingsCountShow
+      />
       <div className="text-box">
         <span className="title-box">
           <Tooltip title={title}>

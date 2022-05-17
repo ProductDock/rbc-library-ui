@@ -9,7 +9,13 @@
   height: 17em;
   padding-top: 3vh;
   align-items: center;
-  margin-right: 28px;
+}
+
+.rating-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3.5vh;
 }
 
 .bd-text-box {

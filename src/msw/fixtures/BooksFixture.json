@@ -25,7 +25,11 @@
           "recommendation": ["Medior", "Senior"],
           "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
         }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 2,
@@ -44,11 +48,13 @@
         {
           "id": "2",
           "userFullName": "Dummyuser2",
-          "rating": 2,
-          "recommendation": ["Medior", "Junior"],
           "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
         }
-      ]
+      ],
+      "rating": {
+        "score": 3.5,
+        "count": 3
+      }
     },
     {
       "id": 3,

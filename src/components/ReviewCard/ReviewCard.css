@@ -30,24 +30,6 @@
   font-size: 12px;
 }
 
-.review-card-rating {
-  height: 24px;
-  width: 70px;
-  display: flex;
-  align-items: center;
-}
-
-.review-card-rating .MuiSvgIcon-root {
-  width: 1em;
-  float: right;
-  color: yellow;
-  margin-right: 10px;
-}
-
-.review-card-rating .MuiTypography-root {
-  float: right;
-}
-
 .review-card-comment {
   width: 14em;
   margin: 4px 0;

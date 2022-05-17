@@ -17,6 +17,7 @@ const ReviewCollection = ({ reviews }: Props) => {
               rating={review.rating}
               recommendation={review.recommendation}
               comment={review.comment}
+              ratingsCount={reviews?.length}
             />
             {reviews.indexOf(review) + 1 !== reviews?.length && (
               <hr className="separator-line" />
