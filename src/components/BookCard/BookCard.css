@@ -36,6 +36,12 @@
   border-radius: 16px;
 }
 
+.book-box > .star-rating {
+  margin-top: 252px;
+  position: absolute;
+  transform: scale(0.9);
+}
+
 .text-box {
   height: 132px;
   width: 204px;
@@ -47,7 +53,7 @@
 .title-box p {
   height: 36px;
   width: 204px;
-  margin-top: 32px;
+  margin-top: 44px;
   position: absolute;
 
   font-style: normal;
@@ -70,7 +76,7 @@
 .author-box p {
   height: 18px;
   width: 204px;
-  margin-top: 76px;
+  margin-top: 70px;
   position: absolute;
 
   font-style: normal;
@@ -91,5 +97,5 @@
 
 .book-status-homepage {
   position: absolute;
-  margin-top: 350px;
+  margin-top: 340px;
 }

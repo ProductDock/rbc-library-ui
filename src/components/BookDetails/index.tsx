@@ -7,6 +7,7 @@ import BookStatus from "../BookStatus";
 import ReviewSection from "../ReviewSection";
 import "./BookDetails.css";
 import BookAction from "../BookAction";
+import BookStarRating from "../BookStarRating";
 
 const BookDetails = () => {
   const { book, bookStatus, setBookStatus } = useBookDetailsContext();
@@ -15,6 +16,13 @@ const BookDetails = () => {
     <div className="book-details" data-testid="book-details">
       <div className="bd-cover">
         <BookCover imageUrl={book?.cover} />
+      </div>
+      <div className="rating-div">
+        <BookStarRating
+          rating={book?.rating?.score || 0}
+          ratingsCount={book?.rating?.count || 0}
+          ratingsCountShow
+        />
       </div>
       <BookStatus
         records={book?.records}

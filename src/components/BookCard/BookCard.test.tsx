@@ -9,6 +9,8 @@ test("renders test page and finds title", async () => {
       author="John Doe"
       cover="Cover"
       records={[{ email: "example@productdock.com", status: "AVAILABLE" }]}
+      rating={3.5}
+      ratingsCount={3}
     />
   );
   const bookTitle = screen.getByText("Book2");
@@ -19,4 +21,10 @@ test("renders test page and finds title", async () => {
 
   const bookStatus = screen.getByText("Available");
   expect(bookStatus).toBeInTheDocument();
+
+  const bookRating = screen.getByText("3.5");
+  expect(bookRating).toBeInTheDocument();
+
+  const bookRatingCount = screen.getByText("(3 ratings)");
+  expect(bookRatingCount).toBeInTheDocument();
 });

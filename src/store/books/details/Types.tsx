@@ -7,6 +7,11 @@ export type Record = {
   status: string;
 };
 
+export type Rating = {
+  score: number | undefined;
+  count: number | undefined;
+};
+
 export type Review = {
   userFullName: string;
   rating: number;
@@ -22,6 +27,7 @@ export type Book = {
   records: Record[];
   numberOfCopies: number;
   reviews: Review[];
+  rating: Rating | undefined;
 };
 
 export type BookActionModal = {

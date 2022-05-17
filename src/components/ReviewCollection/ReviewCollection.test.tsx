@@ -48,7 +48,7 @@ describe("Test if reviews are loaded properly", () => {
     render(<BookDetailsPage />);
 
     const recommendations = await screen.findByText(
-      "Recommended to - Medior, Junior"
+      "Recommended to - Medior, Senior"
     );
 
     await act(async () => {
