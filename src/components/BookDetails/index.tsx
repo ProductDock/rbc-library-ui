@@ -19,8 +19,8 @@ const BookDetails = () => {
       </div>
       <div className="rating-div">
         <BookStarRating
-          rating={book?.rating?.score || 0}
-          ratingsCount={book?.rating?.count || 0}
+          rating={book?.rating?.score}
+          ratingsCount={book?.rating?.count}
           ratingsCountShow
         />
       </div>

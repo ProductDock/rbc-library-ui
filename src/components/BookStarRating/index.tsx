@@ -14,14 +14,14 @@ const BookStarRating = ({ rating, ratingsCount, ratingsCountShow }: Props) => {
     <div className="star-rating">
       <StarIcon />
       <Typography fontSize={16} fontWeight={500}>
-        {rating}
+        {rating || 0}
       </Typography>
       <Typography className="max-rating" fontSize={12} fontWeight={300}>
         /5
       </Typography>
       {ratingsCountShow && (
         <Typography className="ratings-count" fontSize={12} fontWeight={300}>
-          ({ratingsCount} ratings)
+          ({ratingsCount || 0} ratings)
         </Typography>
       )}
     </div>
