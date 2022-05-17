@@ -2,26 +2,26 @@ import { TextareaAutosize, Typography } from "@mui/material";
 import "./TextArea.css";
 
 type Props = {
-  maxLentgth: number;
+  maxLength: number;
   text: string;
   setText: Function;
 };
 
-const TextArea = ({ maxLentgth, text, setText }: Props) => {
+const TextArea = ({ maxLength, text, setText }: Props) => {
   return (
     <>
       <TextareaAutosize
         data-testid="review-comment-textarea"
-        maxLength={maxLentgth}
+        maxLength={maxLength}
         minRows={5}
-        className="css-ahj2mt-MuiTypography-root description-text-area"
+        className="description-text-area"
         onChange={(e) => setText(e.target.value)}
         placeholder="Please be as detailed as possible"
       />
       <div className="text-area-characters-num-container">
         <Typography className="text-area-characters-num">
           {text.length}
-          <span className="max-length">/{maxLentgth}</span>
+          <span className="max-length">/{maxLength}</span>
         </Typography>
       </div>
     </>

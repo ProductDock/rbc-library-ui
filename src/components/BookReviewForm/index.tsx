@@ -57,7 +57,7 @@ const BookReviewForm = ({ onSkip, onSuccessCallback }: Props) => {
         checkedValues={recommendation}
       />
       <Typography className="book-review-field-title">Comment</Typography>
-      <TextArea maxLentgth={500} text={comment} setText={setComment} />
+      <TextArea maxLength={500} text={comment} setText={setComment} />
 
       <div className="book-review-form-footer">
         <SubmitReviewButton
