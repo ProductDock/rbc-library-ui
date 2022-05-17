@@ -1,5 +1,3 @@
-/* eslint-disable curly */
-/* eslint-disable nonblock-statement-body-position */
 import React, { useContext, useEffect, useReducer } from "react";
 import { actions } from "./SuccessScreenActions";
 import { ISuccessScreenContext } from "./Types";
