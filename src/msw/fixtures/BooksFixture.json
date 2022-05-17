@@ -5,7 +5,7 @@
       "id": 1,
       "author": "Pera Peric",
       "cover": "Cover",
-      "title": "Book title",
+      "title": "Book titleBook titleBook titleBook titleBook titleBook titleBook titleBook titleBook titleBook titleBook titleBook title",
       "records": [
         { "email": "nenad.becanovic@productdock.com", "status": "RESERVED" },
         { "email": "", "status": "AVAILABLE" }
