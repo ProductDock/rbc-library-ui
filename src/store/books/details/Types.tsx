@@ -27,7 +27,7 @@ export type Book = {
   records: Record[];
   numberOfCopies: number;
   reviews: Review[];
-  rating: Rating | undefined;
+  rating: Rating;
 };
 
 export type BookActionModal = {
