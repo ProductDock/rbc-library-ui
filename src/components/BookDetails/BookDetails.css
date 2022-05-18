@@ -38,9 +38,9 @@
   margin: 0.6em 0;
 }
 
-.book-details-status > div {
+.book-details-status > div > div {
   transform: scale(1.1);
-  margin-left: 2.2em;
+  margin-left: 0.4em;
 }
 
 .bd-text-box {
@@ -117,8 +117,9 @@
   width: auto;
 }
 
-.book-details-right > .review-card-avatar {
-  height: auto;
+.book-details-right .review-card-avatar {
+  width: auto;
+  margin-right: 2em;
 }
 
 @media only screen and (max-width: 800px) {
@@ -180,6 +181,11 @@
   .book-details-right .review-card-div {
     justify-content: space-between;
     padding-bottom: 26px;
+  }
+
+  .book-details-right .review-card-avatar {
+    width: 13%;
+    margin-right: 1.2em;
   }
 
   .book-details-right .review-card-info-header {
