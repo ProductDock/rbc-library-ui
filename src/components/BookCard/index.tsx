@@ -1,4 +1,6 @@
 import { Tooltip, Typography } from "@mui/material";
+import { useNavigate } from "react-router";
+import { routes } from "../../constants/routes";
 import { Record } from "../../store/books/catalog/Types";
 import BookCover from "../BookCover";
 import BookStarRating from "../BookStarRating";
@@ -6,6 +8,7 @@ import BookStatus from "../BookStatus";
 import "./BookCard.css";
 
 type Props = {
+  bookId?: number;
   title: string;
   author: string;
   cover: string;
@@ -15,6 +18,7 @@ type Props = {
 };
 
 const BookCard = ({
+  bookId,
   title,
   author,
   cover,
@@ -22,9 +26,14 @@ const BookCard = ({
   rating,
   ratingsCount,
 }: Props) => {
+  const navigate = useNavigate();
+
+  const navigateToBookDetails = () =>
+    navigate(`${routes.BOOK_DETAILS_PATH}/${bookId}`);
+
   return (
     <div className="book-box" data-testid="book-box">
-      <BookCover imageUrl={cover} />
+      <BookCover imageUrl={cover} onClick={navigateToBookDetails} />
       <BookStarRating
         rating={rating}
         ratingsCount={ratingsCount}
@@ -33,7 +42,12 @@ const BookCard = ({
       <div className="text-box">
         <span className="title-box">
           <Tooltip title={title}>
-            <Typography>{title}</Typography>
+            <Typography
+              onClick={navigateToBookDetails}
+              className="title-clickable"
+            >
+              {title}
+            </Typography>
           </Tooltip>
         </span>
         <span className="author-box">

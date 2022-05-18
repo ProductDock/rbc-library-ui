@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-shadow */
-/* eslint-disable no-confusing-arrow */
 import { Button, Typography } from "@mui/material";
 import "./ModalActionButton.css";
 

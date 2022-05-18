@@ -1,4 +1,3 @@
-/* eslint-disable no-confusing-arrow */
 import { Button, Typography } from "@mui/material";
 import "./SubmitReviewButton.css";
 

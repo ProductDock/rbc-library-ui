@@ -1,17 +1,20 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter as Router } from "react-router-dom";
 import BookCard from ".";
 
 test("renders test page and finds title", async () => {
   render(
-    <BookCard
-      title="Book2"
-      author="John Doe"
-      cover="Cover"
-      records={[{ email: "example@productdock.com", status: "AVAILABLE" }]}
-      rating={3.5}
-      ratingsCount={3}
-    />
+    <Router>
+      <BookCard
+        title="Book2"
+        author="John Doe"
+        cover="Cover"
+        records={[{ email: "example@productdock.com", status: "AVAILABLE" }]}
+        rating={3.5}
+        ratingsCount={3}
+      />
+    </Router>
   );
   const bookTitle = screen.getByText("Book2");
   expect(bookTitle).toBeInTheDocument();
