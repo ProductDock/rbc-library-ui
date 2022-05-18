@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import CategoryItem from "../CategoryItem";
 import "./CategoriesSection.css";
 
 type Props = {
@@ -11,9 +12,15 @@ const CategoriesSection = ({ categories }: Props) => {
       <Typography fontWeight={400} fontSize={14}>
         Categories
       </Typography>
-      <Typography fontWeight={300} fontSize={14}>
-        {categories}
-      </Typography>
+      <div className="categories-list">
+        {categories?.map((category) => {
+          return (
+            <div key={category}>
+              <CategoryItem category={category} />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -1,3 +1,7 @@
-.categories-section p {
-  margin-bottom: 0.7em;
+.categories-section > p {
+  margin-bottom: 0.9em;
+}
+
+.categories-list {
+  display: flex;
 }
