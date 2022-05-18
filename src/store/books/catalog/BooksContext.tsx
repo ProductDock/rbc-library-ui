@@ -3,6 +3,7 @@ import * as bookService from "../../../services/BookService";
 import reducer from "./BooksReducer";
 import { actions } from "../BooksActions";
 import { IBooksContext } from "./Types";
+import { useQueryParam } from "../../../router/useQueryParam";
 
 const initialState = {
   books: [],
@@ -18,6 +19,9 @@ export const BooksContext = React.createContext<IBooksContext>(initialState);
 const BooksContextProvider = (props: any) => {
   const [booksState, dispatch] = useReducer(reducer, initialState);
   const { page, topics } = booksState;
+
+  const [topicQueryParam, setTopicQueryParam] = useQueryParam("topics");
+  const [stateReady, setStateReady] = useState<boolean>(false);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -42,8 +46,16 @@ const BooksContextProvider = (props: any) => {
   };
 
   useEffect(() => {
-    findBooks?.();
-  }, [page, topics]);
+    if (stateReady) {
+      setTopicQueryParam(topics);
+      findBooks?.();
+    }
+  }, [page, topics, stateReady]);
+
+  useEffect(() => {
+    setTopicFilter(topicQueryParam);
+    setStateReady(true);
+  }, []);
 
   return (
     <BooksContext.Provider

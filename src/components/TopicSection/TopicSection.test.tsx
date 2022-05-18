@@ -1,5 +1,8 @@
 import { act, render, screen, waitFor } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import App from "../../App";
+import { routes } from "../../constants/routes";
+import HomePage from "../../pages/HomePage";
 import * as bookService from "../../services/BookService";
 
 afterEach(() => {
@@ -77,6 +80,26 @@ describe("Test topic buttons", () => {
     });
   });
 
+  test("should select topic buttons when topic filter present in url", async () => {
+    render(
+      <MemoryRouter
+        initialEntries={[
+          {
+            pathname: routes.HOME,
+            search: `?topics=${MARKETING}&topics=${DESIGN}`,
+          },
+        ]}
+      >
+        <HomePage />
+      </MemoryRouter>
+    );
+    const marketingTopicButton = await screen.findByTestId(MARKETING);
+    const designTopicButton = screen.getByTestId(DESIGN);
+
+    expect(marketingTopicButton).toHaveClass(SELECTED_TOPIC_BUTTON_CLASS);
+    expect(designTopicButton).toHaveClass(SELECTED_TOPIC_BUTTON_CLASS);
+  });
+
   test("should make topics button disabled until results are loaded", async () => {
     render(<App />);
     const topicButton = screen.getByTestId(MARKETING);
@@ -88,24 +111,25 @@ describe("Test clear all button", () => {
   test("should disable filters ", async () => {
     render(<App />);
 
-    expect(screen.queryByTestId(CLEAR_ALL_TOPIC_BUTTON_CLASS)).toBeFalsy();
+    waitFor(() => {
+      expect(screen.queryByTestId(CLEAR_ALL_TOPIC_BUTTON_CLASS)).toBeFalsy();
+    });
 
     await clickOnTopicButtonWhenEnabled(MARKETING);
+    await clickOnTopicButtonWhenEnabled(DESIGN);
 
-    const marketingTopicButton = screen.getByTestId(MARKETING);
-    const designTopicButton = screen.getByTestId(DESIGN);
-    designTopicButton.click();
-
-    const clearAllTopicButton = screen.getByTestId(
+    const clearAllTopicButton = await screen.findByTestId(
       CLEAR_ALL_TOPIC_BUTTON_CLASS
     );
-    expect(clearAllTopicButton).toBeTruthy();
-
     clearAllTopicButton.click();
 
     await act(async () => {
-      expect(marketingTopicButton).toHaveClass(DEFAULT_TOPIC_BUTTON_CLASS);
-      expect(designTopicButton).toHaveClass(DEFAULT_TOPIC_BUTTON_CLASS);
+      expect(screen.queryByTestId(MARKETING)).toHaveClass(
+        DEFAULT_TOPIC_BUTTON_CLASS
+      );
+      expect(screen.queryByTestId(DESIGN)).toHaveClass(
+        DEFAULT_TOPIC_BUTTON_CLASS
+      );
     });
   });
 });
