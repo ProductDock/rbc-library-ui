@@ -81,10 +81,6 @@
   display: none;
 }
 
-.book-details-right .review-section > div > .separator-line {
-  margin: 1.1em 0;
-}
-
 .book-details-right > .review-section .title .MuiTypography-root {
   font-weight: 400;
   font-size: 14px;
