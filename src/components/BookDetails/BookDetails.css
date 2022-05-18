@@ -1,25 +1,46 @@
 .book-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   min-height: 93.5vh;
+  padding: 3.5vh 4.5vw;
   background-color: #f7f7f9;
+}
+
+.book-details-left {
+  width: 14.5em;
+  height: 93.5vh;
 }
 
 .bd-cover {
   display: flex;
   flex-direction: column;
-  height: 17em;
-  padding-top: 3vh;
-  align-items: center;
+  height: 16em;
+  padding-top: 0;
+  align-items: left;
 }
 
 .rating-div {
   width: 100%;
   display: flex;
-  justify-content: center;
-  margin-bottom: 3.5vh;
+  justify-content: left;
+  margin-left: 1em;
+  transform: scale(0.85);
+}
+
+.book-details-right {
+  width: 70vw;
+}
+
+.book-details-status {
+  width: 80%;
+  height: 30px;
+  margin: 0.6em 0;
 }
 
 .bd-text-box {
-  padding: 0.7em 2em 2em 2em;
+  width: 80%;
+  padding: 0;
 }
 
 .MuiTypography-root.bd-title {
@@ -32,25 +53,159 @@
   font-weight: 300;
   font-size: 14px;
   line-height: 18px;
+  margin-top: 0.6em;
+}
+
+.bd-text-box > .rent-button {
+  display: none;
+}
+
+.description-section {
+  margin-top: 1em;
+}
+
+.categories-section {
+  margin-top: 1.2em;
+}
+
+.book-details-right > .review-section {
+  padding: 0;
+}
+
+.book-details-right .review-collection .separator-line {
+  display: none;
+}
+
+.book-details-right > .review-section .title .MuiTypography-root {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
   margin-top: 1vh;
 }
 
-.book-details .available-book-status {
-  margin-left: 2.2em;
+.book-details-right .review-card-div {
+  justify-content: left;
+  padding-bottom: 30px;
 }
 
-.book-details .rented-book-status {
-  margin-left: 2.2em;
+.book-details-right .review-card-info {
+  width: 87%;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
-.book-details .reserved-book-status {
-  margin-left: 2.2em;
+.book-details-right .review-card-info-header {
+  flex-wrap: wrap;
+  width: 12em;
 }
 
-.book-details .book-status-reserved-by-you {
-  margin-left: 2.2em;
+.book-details-right .star-rating {
+  margin-top: 0.5em;
+  transform: scale(0.85);
 }
 
-.book-details .book-status-rented-by-you {
-  margin-left: 2.2em;
+.book-details-right .review-card-comment {
+  width: auto;
+}
+
+.book-details-right .review-card-recommend {
+  width: auto;
+}
+
+.book-details-right > .review-card-avatar {
+  height: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .book-details {
+    display: block;
+    min-height: 93.5vh;
+    padding: 0;
+  }
+
+  .book-details-left {
+    width: auto;
+    height: auto;
+  }
+
+  .bd-cover {
+    display: flex;
+    flex-direction: column;
+    height: 17em;
+    padding-top: 3vh;
+    align-items: center;
+  }
+
+  .rating-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3.5vh;
+    margin-left: 0;
+    transform: scale(1);
+  }
+
+  .book-details-right {
+    width: auto;
+    height: auto;
+  }
+
+  .bd-text-box {
+    padding: 0.7em 2em 2em 2em;
+  }
+
+  .book-details-status {
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
+
+  .description-section {
+    display: none;
+  }
+
+  .categories-section {
+    display: none;
+  }
+
+  .bd-text-box > .rent-button {
+    display: block;
+  }
+
+  .book-details-right .review-card-div {
+    justify-content: space-between;
+    padding-bottom: 26px;
+  }
+
+  .book-details-right .review-card-info-header {
+    width: auto;
+  }
+
+  .book-details-right .review-collection .separator-line {
+    display: block;
+  }
+
+  .book-details-right > .review-section {
+    padding: 0.7em 2em 0em 2em;
+  }
+
+  .book-details .available-book-status {
+    margin-left: 2.2em;
+  }
+
+  .book-details .rented-book-status {
+    margin-left: 2.2em;
+  }
+
+  .book-details .reserved-book-status {
+    margin-left: 2.2em;
+  }
+
+  .book-details .book-status-reserved-by-you {
+    margin-left: 2.2em;
+  }
+
+  .book-details .book-status-rented-by-you {
+    margin-left: 2.2em;
+  }
 }
