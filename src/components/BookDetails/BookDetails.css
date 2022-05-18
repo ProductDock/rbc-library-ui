@@ -2,14 +2,14 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  min-height: 93.5vh;
+  min-height: 86vh;
   padding: 3.5vh 4.5vw;
   background-color: #f7f7f9;
 }
 
 .book-details-left {
   width: 14.5em;
-  height: 93.5vh;
+  height: 86vh;
 }
 
 .bd-cover {
