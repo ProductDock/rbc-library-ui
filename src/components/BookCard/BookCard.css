@@ -73,6 +73,10 @@
   color: #000000;
 }
 
+.title-clickable {
+  cursor: pointer;
+}
+
 .author-box p {
   height: 18px;
   width: 204px;

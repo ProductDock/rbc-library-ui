@@ -18,6 +18,7 @@ const BookCollection = () => {
           return (
             <BookCard
               key={book.id}
+              bookId={book.id}
               title={book.title}
               author={book.author}
               cover={book.cover}

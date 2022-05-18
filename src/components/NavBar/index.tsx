@@ -1,6 +1,4 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { AppBar, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import { routes } from "../../constants/routes";

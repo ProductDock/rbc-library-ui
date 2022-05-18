@@ -4,6 +4,13 @@
   position: absolute;
 }
 
+.image-box-clickable {
+  height: 240px;
+  width: 176px;
+  position: absolute;
+  cursor: pointer;
+}
+
 .main-box {
   height: 212px;
   width: 148px;
