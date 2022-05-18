@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { AppBar, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import { routes } from "../../constants/routes";

@@ -1,5 +1,3 @@
-/* eslint-disable no-confusing-arrow */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import "./BookCover.css";
 
 type Props = {
