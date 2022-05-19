@@ -41,7 +41,7 @@ const BookDetails = () => {
           <BookAction bookStatus={bookStatus} />
         </div>
         <DescriptionSection description={book?.description} />
-        <CategoriesSection categories={book?.categories} />
+        <CategoriesSection categories={book?.topics} />
         <ReviewSection reviews={book?.reviews} />
       </div>
     </div>
