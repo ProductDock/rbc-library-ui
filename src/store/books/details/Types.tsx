@@ -29,7 +29,7 @@ export type Book = {
   reviews: Review[];
   rating: Rating;
   description: string;
-  categories: string[];
+  topics: string[];
 };
 
 export type BookActionModal = {
