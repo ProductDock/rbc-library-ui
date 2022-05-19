@@ -73,7 +73,7 @@
       "author": "Petar Peric",
       "cover": "Cover3",
       "title": "Book title3",
-      "records": [{ "email": "test@test.com", "status": "RENTED" }]
+      "records": [{ "email": "vladimir.vukoman@productdock.com", "status": "RENTED" }]
     },
     {
       "id": 5,
