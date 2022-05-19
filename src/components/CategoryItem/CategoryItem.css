@@ -1,0 +1,15 @@
+.category-item {
+  width: auto;
+  height: auto;
+  background-color: #eeeeee;
+  text-align: center;
+  padding: 5px 12px;
+  margin-right: 6px;
+  opacity: 0.94;
+  border-radius: 8px;
+}
+
+.category-item p {
+  line-height: 18px;
+  margin: 0;
+}

@@ -1,13 +1,9 @@
-.review-section {
-  padding: 0.7em 2em 0em 2em;
-}
-
 .review-section .title .MuiTypography-root {
   font-weight: 300px;
 }
 
 .review-section > div > .separator-line {
-  margin: 0.7em 0 0.5em 0;
+  margin: 1.1em 0;
 }
 
 .review-section-message.MuiTypography-root {

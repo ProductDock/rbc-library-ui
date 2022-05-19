@@ -28,6 +28,8 @@ export type Book = {
   numberOfCopies: number;
   reviews: Review[];
   rating: Rating;
+  description: string;
+  categories: string[];
 };
 
 export type BookActionModal = {
