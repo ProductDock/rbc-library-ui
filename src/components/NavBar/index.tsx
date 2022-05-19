@@ -2,7 +2,7 @@ import { AppBar, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import { routes } from "../../constants/routes";
 import logo from "../../img/pd-logo.svg";
-import AccountAvatar from "../AccountAvatar";
+import AccountAvatar from "./AccountAvatar";
 
 import "./NavBar.css";
 

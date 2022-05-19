@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import LandingPage from "../pages/LandingPage";
+import LandingPage from "../pages/LandingPage/LandingPage";
 import { useAuthContext } from "../store/auth/AuthContext";
 
 const ProtectedRouter = () => {
