@@ -11,7 +11,7 @@ const SectionHeader = ({ title, numberOfItems, action }: Props) => {
   return (
     <div className="header-container">
       <SectionTitle title={title} numberOfItems={numberOfItems} />
-      <div className="section-header-element-container">{action}</div>
+      <div className="action-container">{action}</div>
     </div>
   );
 };
