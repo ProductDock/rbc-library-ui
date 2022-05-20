@@ -2,7 +2,6 @@
   /* All books (72) */
   /*position: absolute;*/
   position: relative;
-  width: 100%;
   font-style: normal;
   font-size: 16px;
   font-weight: bold;
@@ -11,14 +10,4 @@
   align-items: center;
   color: #000000;
   margin-top: 1.5em;
-}
-
-.title-container {
-  justify-content: space-between;
-}
-
-@media only screen and (max-width: 800px) {
-  .title-container {
-    justify-content: flex-start;
-  }
 }

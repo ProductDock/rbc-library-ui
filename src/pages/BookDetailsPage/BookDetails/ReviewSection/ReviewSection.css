@@ -27,20 +27,20 @@
   font-size: 14px;
 }
 
-.review-section .write-a-button {
+.review-section .write-a-review-button {
   font-weight: 400;
   color: #00609a;
   margin-left: 1vw;
   cursor: pointer;
 }
 
-.review-section .write-a-button-icon {
+.review-section .write-a-review-button-icon {
   vertical-align: middle;
   margin-left: 0.5em;
 }
 
 @media only screen and (max-width: 800px) {
-  .review-section .write-a-button-icon {
+  .review-section .write-a-review-button-icon {
     display: none;
   }
 }

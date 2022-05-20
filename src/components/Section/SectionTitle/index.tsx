@@ -4,16 +4,14 @@ import "./SectionTitle.css";
 type Props = {
   title: string;
   numberOfItems?: number;
-  sectionTitleElement?: JSX.Element;
 };
 
-const SectionTitle = ({ title, numberOfItems, sectionTitleElement }: Props) => {
+const SectionTitle = ({ title, numberOfItems }: Props) => {
   return (
-    <div className="title title-container">
+    <div className="title">
       <Typography>
         {title} ({numberOfItems})
       </Typography>
-      {sectionTitleElement}
     </div>
   );
 };

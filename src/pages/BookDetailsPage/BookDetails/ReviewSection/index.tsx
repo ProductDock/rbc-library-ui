@@ -38,18 +38,18 @@ const ReviewSection = ({ reviews }: Props) => {
         <Section
           title="Reviews"
           numberOfItems={reviews?.length || 0}
-          sectionTitleElement={
+          sectionHeaderElement={
             <Link
-              className="write-a-button side-text"
+              className="write-a-review-button side-text"
               underline="none"
               onClick={showReviewForm}
-              data-testid="write-a-button"
+              data-testid="write-a-review-button"
             >
               Write a review
               <img
                 src={plusIcon}
                 alt="plusIcon"
-                className="write-a-button-icon"
+                className="write-a-review-button-icon"
               />
             </Link>
           }

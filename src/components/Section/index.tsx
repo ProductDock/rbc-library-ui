@@ -1,25 +1,25 @@
-import SectionTitle from "./SectionTitle";
 import "./Section.css";
+import SectionHeader from "./SectionHeader";
 
 type Props = {
   title: string;
   numberOfItems?: number;
   children?: any;
-  sectionTitleElement?: JSX.Element;
+  sectionHeaderElement?: JSX.Element;
 };
 
 const Section = ({
   children,
   title,
   numberOfItems,
-  sectionTitleElement,
+  sectionHeaderElement,
 }: Props) => {
   return (
     <div>
-      <SectionTitle
+      <SectionHeader
         title={title}
         numberOfItems={numberOfItems}
-        sectionTitleElement={sectionTitleElement}
+        sectionHeaderElement={sectionHeaderElement}
       />
       <hr className="separator-line" />
       {children}
