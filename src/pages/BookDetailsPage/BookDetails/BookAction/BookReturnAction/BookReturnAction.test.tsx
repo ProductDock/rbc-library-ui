@@ -5,6 +5,7 @@ import BookDetailsPage from "../../../BookDetailsPage";
 
 const RENTED_BY_YOU_BOOK_ID = "3";
 const SUCCESS_DISAPPEAR_AFTER = 2000;
+const BUTTON_LOADED_AFTER = 2000;
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
@@ -44,12 +45,12 @@ describe("Test book return action", () => {
 
     render(<BookDetailsPage />);
 
-    await waitFor(async () =>
-      expect(screen.queryByTestId("return-book-button")).toBeTruthy()
+    const returnButton = await screen.findByTestId(
+      "return-book-button",
+      {},
+      { timeout: BUTTON_LOADED_AFTER }
     );
-
-    const rentButton = screen.getByTestId("return-book-button");
-    rentButton?.click();
+    returnButton?.click();
 
     const confirmButton = await screen.findByTestId("confirm-button");
     confirmButton.click();

@@ -9,7 +9,7 @@ jest.mock("react-router-dom", () => ({
   useParams: jest.fn(),
 }));
 
-describe("Test review count and title", () => {
+describe("Test review section", () => {
   test("should find Reviews section title when api returns book", async () => {
     jest
       .spyOn(Router, "useParams")
@@ -21,6 +21,20 @@ describe("Test review count and title", () => {
 
     await act(async () => {
       expect(reviewsSectionTitle).toBeTruthy();
+    });
+  });
+
+  test("should render write a review button", async () => {
+    jest
+      .spyOn(Router, "useParams")
+      .mockReturnValue({ bookId: BOOK_ID_WITH_REVIEWS });
+
+    render(<BookDetailsPage />);
+
+    const writeAReviewButton = await screen.findByText(`Write a review`);
+
+    await act(async () => {
+      expect(writeAReviewButton).toBeTruthy();
     });
   });
 });
