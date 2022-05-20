@@ -1,7 +1,7 @@
 .book-review-form-container {
   background-color: #f7f7f9;
-  position: absolute;
-  z-index: 1298;
+  position: fixed;
+  z-index: 1299;
   top: 7.5vh;
   height: calc(100vh - 7.5vh);
   left: 0;
