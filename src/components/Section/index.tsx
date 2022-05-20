@@ -5,21 +5,16 @@ type Props = {
   title: string;
   numberOfItems?: number;
   children?: any;
-  sectionHeaderElement?: JSX.Element;
+  action?: JSX.Element;
 };
 
-const Section = ({
-  children,
-  title,
-  numberOfItems,
-  sectionHeaderElement,
-}: Props) => {
+const Section = ({ children, title, numberOfItems, action }: Props) => {
   return (
     <div>
       <SectionHeader
         title={title}
         numberOfItems={numberOfItems}
-        sectionHeaderElement={sectionHeaderElement}
+        action={action}
       />
       <hr className="separator-line" />
       {children}

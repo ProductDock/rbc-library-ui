@@ -38,7 +38,7 @@ const ReviewSection = ({ reviews }: Props) => {
         <Section
           title="Reviews"
           numberOfItems={reviews?.length || 0}
-          sectionHeaderElement={
+          action={
             <Link
               className="write-a-review-button side-text"
               underline="none"

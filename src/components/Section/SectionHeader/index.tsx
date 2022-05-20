@@ -4,20 +4,14 @@ import "./SectionHeader.css";
 type Props = {
   title: string;
   numberOfItems?: number;
-  sectionHeaderElement?: JSX.Element;
+  action?: JSX.Element;
 };
 
-const SectionHeader = ({
-  title,
-  numberOfItems,
-  sectionHeaderElement,
-}: Props) => {
+const SectionHeader = ({ title, numberOfItems, action }: Props) => {
   return (
     <div className="header-container">
       <SectionTitle title={title} numberOfItems={numberOfItems} />
-      <div className="section-header-element-container">
-        {sectionHeaderElement}
-      </div>
+      <div className="section-header-element-container">{action}</div>
     </div>
   );
 };
