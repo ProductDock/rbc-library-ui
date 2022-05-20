@@ -11,3 +11,36 @@
   font-weight: 300;
   font-size: 14px;
 }
+
+.book-review-form-container {
+  background-color: #f7f7f9;
+  position: absolute;
+  z-index: 1298;
+  top: 7.5vh;
+  height: calc(100vh - 7.5vh);
+  left: 0;
+  width: 88vw;
+  padding: 1.5em 1.5em 1.5em 1.5em;
+}
+
+.review-section .side-text {
+  font-size: 14px;
+}
+
+.review-section .write-a-button {
+  font-weight: 400;
+  color: #00609a;
+  margin-left: 1vw;
+  cursor: pointer;
+}
+
+.review-section .write-a-button-icon {
+  vertical-align: middle;
+  margin-left: 0.5em;
+}
+
+@media only screen and (max-width: 800px) {
+  .review-section .write-a-button-icon {
+    display: none;
+  }
+}
