@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import userAvatar from "../../../../../../img/userAvatar.png";
+import userAvatar from "../../../../../../img/userAvatar.svg";
 import "./ReviewCard.css";
 import BookStarRating from "../../../../../../components/BookStarRating";
 
