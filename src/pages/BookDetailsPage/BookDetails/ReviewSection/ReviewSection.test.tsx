@@ -17,7 +17,7 @@ describe("Test review section", () => {
 
     render(<BookDetailsPage />);
 
-    const reviewsSectionTitle = await screen.findByText(`Reviews (2)`);
+    const reviewsSectionTitle = await screen.findByText(`Reviews (3)`);
 
     await act(async () => {
       expect(reviewsSectionTitle).toBeTruthy();

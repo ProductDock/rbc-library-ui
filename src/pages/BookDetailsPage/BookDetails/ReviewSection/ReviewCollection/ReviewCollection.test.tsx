@@ -16,12 +16,12 @@ beforeEach(() => {
 });
 
 describe("Test if reviews are loaded properly", () => {
-  test("should render book details with 2 reviews", async () => {
+  test("should render book details with 3 reviews", async () => {
     render(<BookDetailsPage />);
 
     const reviews = await screen.findAllByTestId("review-card");
 
-    expect(reviews).toHaveLength(2);
+    expect(reviews).toHaveLength(3);
   });
 
   test("should render book details with review rating", async () => {

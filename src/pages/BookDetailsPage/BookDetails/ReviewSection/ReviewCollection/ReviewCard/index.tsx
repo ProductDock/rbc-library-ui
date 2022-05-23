@@ -42,7 +42,7 @@ const ReviewCard = ({
             {comment}
           </Typography>
         </div>
-        {recommendation && (
+        {recommendation && recommendation.length > 0 && (
           <div className="review-card-recommended">
             <Typography fontSize={14}>
               Recommended to - {recommendationString}
