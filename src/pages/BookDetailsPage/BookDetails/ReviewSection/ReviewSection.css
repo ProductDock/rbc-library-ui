@@ -14,10 +14,10 @@
 
 .book-review-form-container {
   background-color: #f7f7f9;
-  position: absolute;
+  position: fixed;
   z-index: 1298;
-  top: 7.5vh;
-  height: calc(100vh - 7.5vh);
+  top: 3em;
+  height: 50em;
   left: 0;
   width: 88vw;
   padding: 1.5em 1.5em 1.5em 1.5em;
