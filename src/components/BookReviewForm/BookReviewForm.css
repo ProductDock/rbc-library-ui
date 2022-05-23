@@ -28,3 +28,8 @@
   width: 100%;
   text-align: center;
 }
+
+.field-container {
+  height: calc(82vh - 9em);
+  overflow-y: scroll;
+}
