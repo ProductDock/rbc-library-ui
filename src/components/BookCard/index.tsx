@@ -1,10 +1,10 @@
 import { Tooltip, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
-import { routes } from "../../../../../constants/routes";
-import { Record } from "../../../../../store/books/catalog/Types";
-import BookCover from "../../../../../components/BookCover";
-import BookStarRating from "../../../../../components/BookStarRating";
-import BookStatus from "../../../../../components/BookStatus";
+import { routes } from "../../constants/routes";
+import { Record } from "../../store/books/catalog/Types";
+import BookCover from "../BookCover";
+import BookStarRating from "../BookStarRating";
+import BookStatus from "../BookStatus";
 import "./BookCard.css";
 
 type Props = {

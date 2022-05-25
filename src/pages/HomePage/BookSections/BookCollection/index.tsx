@@ -1,7 +1,7 @@
 import { LoadingButton } from "@mui/lab";
 import { LinearProgress } from "@mui/material";
 import { useBooksContext } from "../../../../store/books/catalog/BooksContext";
-import BookCard from "./BookCard";
+import BookCard from "../../../../components/BookCard";
 import "./BookCollection.css";
 
 const BookCollection = () => {
