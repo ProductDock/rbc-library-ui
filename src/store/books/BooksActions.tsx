@@ -1,5 +1,6 @@
 export const actions = {
   SET_BOOKS: "setBooks",
+  SET_RECOMMENDED_BOOKS: "setRecommendedBooks",
   SET_BOOK: "setBook",
   SET_BOOK_ID: "setBookId",
   SET_TOPICS: "setTopics",

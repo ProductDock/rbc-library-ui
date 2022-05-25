@@ -6,6 +6,8 @@ import { IBooksContext } from "./Types";
 import { useQueryParam } from "../../../router/useQueryParam";
 
 const initialState = {
+  recommendedBooks: [],
+  recommendedBooksCount: 0,
   books: [],
   allBooksCount: 0,
   loading: false,
@@ -26,12 +28,14 @@ const BooksContextProvider = (props: any) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  const findBooks = async () => {
+  const findBooks = async (recommended?: boolean) => {
     setLoading(true);
     await bookService
-      .fetchBooks({ page, topics })
+      .fetchBooks({ page, topics, recommended })
       .then((resp) => {
-        dispatch({ type: actions.SET_BOOKS, payload: resp.data });
+        if (recommended) {
+          dispatch({ type: actions.SET_RECOMMENDED_BOOKS, payload: resp.data });
+        } else dispatch({ type: actions.SET_BOOKS, payload: resp.data });
       })
       .catch(() => setError("Error while fetching data"));
     setLoading(false);
@@ -51,6 +55,12 @@ const BooksContextProvider = (props: any) => {
       findBooks?.();
     }
   }, [page, topics, stateReady]);
+
+  useEffect(() => {
+    if (stateReady) {
+      findBooks?.(true);
+    }
+  }, [topics, stateReady]);
 
   useEffect(() => {
     setTopicFilter(topicQueryParam);

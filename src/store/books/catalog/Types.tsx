@@ -15,11 +15,12 @@ export type Book = {
   author: string;
   cover: string;
   records: Record[];
-  numberOfCopies: number;
   rating: Rating;
 };
 
 export interface IBooksContext {
+  recommendedBooks: Book[];
+  recommendedBooksCount: number;
   books: Book[];
   allBooksCount: number;
   loading: boolean;

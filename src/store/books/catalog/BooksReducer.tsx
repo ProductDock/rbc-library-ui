@@ -9,6 +9,12 @@ const reducer = (state: IBooksContext, action: any) => {
         books: [...state.books, ...action.payload.books],
         allBooksCount: action.payload.count,
       };
+    case actions.SET_RECOMMENDED_BOOKS:
+      return {
+        ...state,
+        recommendedBooks: [...state.books, ...action.payload.books],
+        recommendedBooksCount: action.payload.count,
+      };
     case actions.ADD_BOOK:
       return {
         ...state,

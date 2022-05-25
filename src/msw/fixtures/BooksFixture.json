@@ -55,10 +55,7 @@
         "score": 3.5,
         "count": 3
       },
-      "topics": [
-        "Marketing",
-        "Software Development"
-      ],
+      "topics": ["Marketing", "Software Development"],
       "description": "Why are we sometimes blind to the minds of others, treating them like objects or animals instead? Why do we talk to our cars, or the stars, as if there is a mind that can hear us? Why do we so routinely believe that others think, feel, and want what we do when, in fact, they do not? And why do we think we understand our spouses, family, and friends so much better than we actually do? In this illuminating book, leading social psychologist Nicholas Epley introduces us to what scientists have learned about our ability to understand the most complicated puzzle on the planet—other people—and the surprising mistakes we so routinely make. Mindwise will not turn others into open books, but it will give you the wisdom to revolutionize how you think about them—and yourself."
     },
     {
@@ -66,14 +63,22 @@
       "author": "Milan Peric",
       "cover": "Cover2",
       "title": "Book title2",
-      "records": [{ "email": "test1@test.com", "status": "RENTED" }]
+      "records": [{ "email": "test1@test.com", "status": "RENTED" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 4,
       "author": "Petar Peric",
       "cover": "Cover3",
       "title": "Book title3",
-      "records": [{ "email": "test@test.com", "status": "RENTED" }]
+      "records": [{ "email": "test@test.com", "status": "RENTED" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 5,
@@ -83,42 +88,66 @@
       "records": [
         { "email": "nenad.becanovic@productdock.com", "status": "RENTED" },
         { "email": "dusan.petrovic@productdock.com", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 6,
       "author": "Milan Peric",
       "cover": "Cover2",
       "title": "Book title2",
-      "records": [{ "email": "", "status": "AVAILABLE" }]
+      "records": [{ "email": "", "status": "AVAILABLE" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 7,
       "author": "Petar Peric",
       "cover": "Cover3",
       "title": "Book title3",
-      "records": [{ "email": "", "status": "AVAILABLE" }]
+      "records": [{ "email": "", "status": "AVAILABLE" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 8,
       "author": "Nikola Peric",
       "cover": "Cover1",
       "title": "Book title1",
-      "records": [{ "email": "", "status": "AVAILABLE" }]
+      "records": [{ "email": "", "status": "AVAILABLE" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 9,
       "author": "Milan Peric",
       "cover": "Cover2",
       "title": "Book title2",
-      "records": [{ "email": "", "status": "AVAILABLE" }]
+      "records": [{ "email": "", "status": "AVAILABLE" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 10,
       "author": "Petar Peric",
       "cover": "Cover3",
       "title": "Book title3",
-      "records": [{ "email": "", "status": "AVAILABLE" }]
+      "records": [{ "email": "", "status": "AVAILABLE" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 11,
@@ -128,7 +157,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 12,
@@ -138,7 +171,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 13,
@@ -148,7 +185,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 14,
@@ -158,7 +199,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 2
+      }
     },
     {
       "id": 15,
@@ -168,7 +213,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 2
+      }
     },
     {
       "id": 16,
@@ -178,7 +227,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 2
+      }
     },
     {
       "id": 17,
@@ -188,7 +241,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 2
+      }
     },
     {
       "id": 18,
@@ -198,7 +255,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 2.5,
+        "count": 2
+      }
     }
   ]
 }
