@@ -69,14 +69,22 @@
       "author": "Milan Peric",
       "cover": "Cover2",
       "title": "Book title2",
-      "records": [{ "email": "test1@test.com", "status": "RENTED" }]
+      "records": [{ "email": "test1@test.com", "status": "RENTED" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 4,
       "author": "Petar Peric",
       "cover": "Cover3",
       "title": "Book title3",
-      "records": [{ "email": "test@test.com", "status": "RENTED" }]
+      "records": [{ "email": "test@test.com", "status": "RENTED" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 5,
@@ -86,42 +94,66 @@
       "records": [
         { "email": "nenad.becanovic@productdock.com", "status": "RENTED" },
         { "email": "dusan.petrovic@productdock.com", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 6,
       "author": "Milan Peric",
       "cover": "Cover2",
       "title": "Book title2",
-      "records": [{ "email": "", "status": "AVAILABLE" }]
+      "records": [{ "email": "", "status": "AVAILABLE" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 7,
       "author": "Petar Peric",
       "cover": "Cover3",
       "title": "Book title3",
-      "records": [{ "email": "", "status": "AVAILABLE" }]
+      "records": [{ "email": "", "status": "AVAILABLE" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 8,
       "author": "Nikola Peric",
       "cover": "Cover1",
       "title": "Book title1",
-      "records": [{ "email": "", "status": "AVAILABLE" }]
+      "records": [{ "email": "", "status": "AVAILABLE" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 9,
       "author": "Milan Peric",
       "cover": "Cover2",
       "title": "Book title2",
-      "records": [{ "email": "", "status": "AVAILABLE" }]
+      "records": [{ "email": "", "status": "AVAILABLE" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 10,
       "author": "Petar Peric",
       "cover": "Cover3",
       "title": "Book title3",
-      "records": [{ "email": "", "status": "AVAILABLE" }]
+      "records": [{ "email": "", "status": "AVAILABLE" }],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 11,
@@ -131,7 +163,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 12,
@@ -141,7 +177,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 13,
@@ -151,7 +191,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 7
+      }
     },
     {
       "id": 14,
@@ -161,7 +205,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 2
+      }
     },
     {
       "id": 15,
@@ -171,7 +219,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 2
+      }
     },
     {
       "id": 16,
@@ -181,7 +233,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 2
+      }
     },
     {
       "id": 17,
@@ -191,7 +247,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 1.5,
+        "count": 2
+      }
     },
     {
       "id": 18,
@@ -201,7 +261,11 @@
       "records": [
         { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
-      ]
+      ],
+      "rating": {
+        "score": 2.5,
+        "count": 2
+      }
     }
   ]
 }

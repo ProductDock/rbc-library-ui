@@ -1,0 +1,49 @@
+.carousel-padding .react-multiple-carousel__arrow--left {
+  left: calc(4% + 30px);
+}
+
+.carousel-padding .react-multiple-carousel__arrow {
+  border: 1.5px solid black;
+  background: transparent;
+}
+
+.carousel-padding .react-multiple-carousel__arrow:hover {
+  background: black;
+}
+
+.carousel-padding .react-multiple-carousel__arrow::before {
+  color: black;
+}
+
+.carousel-padding .react-multiple-carousel__arrow:disabled {
+  border: 1.5px solid #cccccc;
+  background: transparent;
+}
+
+.carousel-padding .react-multiple-carousel__arrow:disabled::before {
+  color: #cccccc;
+}
+.carousel-padding .react-multiple-carousel__arrow:disabled:hover:before {
+  color: #cccccc;
+}
+
+.carousel-padding .react-multiple-carousel__arrow:hover::before {
+  color: white;
+}
+
+.carousel-padding .react-multiple-carousel__arrow--right {
+  right: calc(4% + 30px);
+}
+
+.carousel-padding {
+  padding: 0 100px;
+}
+
+.carousel-container.react-multi-carousel-list {
+  position: static;
+}
+@media only screen and (max-width: 800px) {
+  .carousel-padding {
+    padding: 0;
+  }
+}

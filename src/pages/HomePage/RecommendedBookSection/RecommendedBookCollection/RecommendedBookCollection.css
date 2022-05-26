@@ -1,0 +1,12 @@
+.no-recommendations-message-heading.MuiTypography-root {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.no-recommendations-message-text.MuiTypography-root {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 300;
+  margin-top: 1em;
+}

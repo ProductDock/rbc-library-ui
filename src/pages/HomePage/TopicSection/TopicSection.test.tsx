@@ -74,9 +74,16 @@ describe("Test topic buttons", () => {
 
     await clickOnTopicButtonWhenEnabled(MARKETING);
 
-    expect(mockFetchBooks).toHaveBeenLastCalledWith({
+    expect(mockFetchBooks).toBeCalledWith({
       page: 0,
       topics: [MARKETING],
+      recommended: undefined,
+    });
+
+    expect(mockFetchBooks).toBeCalledWith({
+      page: 0,
+      topics: [MARKETING],
+      recommended: true,
     });
   });
 

@@ -2,20 +2,11 @@ import { act, render, screen } from "@testing-library/react";
 import App from "../../App";
 import * as AuthContext from "./AuthContext";
 
-jest.mock("../../components/Section/SectionTitle", () => {
-  return {
-    __esModule: true,
-    default: () => {
-      return <div>All books (1)</div>;
-    },
-  };
-});
-
 describe("Test authentication context", () => {
   test("should display home page with books if user is logged in", async () => {
     render(<App />);
 
-    const allBooks = await screen.findByText("All books (1)");
+    const allBooks = await screen.findByText("Catalog (25)");
 
     await act(async () => {
       expect(allBooks).toBeInTheDocument();
@@ -31,7 +22,7 @@ describe("Test authentication context", () => {
 
     render(<App />);
 
-    const allBooks = screen.queryByText("All books (1)");
+    const allBooks = screen.queryByText("Catalog (25)");
 
     act(() => {
       expect(allBooks).not.toBeInTheDocument();
