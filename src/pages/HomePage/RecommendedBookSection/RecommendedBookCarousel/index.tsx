@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import Carousel from "react-multi-carousel";
 import { useBooksContext } from "../../../../store/books/catalog/BooksContext";
 import BookCard from "../../../../components/BookCard";
@@ -32,11 +33,18 @@ const responsive = {
 };
 
 const RecommendedBookCarousel = () => {
-  const { recommendedBooks } = useBooksContext();
+  const { recommendedBooks, topics } = useBooksContext();
+
+  const carouselRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (carouselRef?.current?.previous) carouselRef.current.goToSlide(0);
+  }, [topics]);
 
   return (
     <div className="carousel-padding" data-testid="recommendation-carousel">
       <Carousel
+        ref={carouselRef}
         containerClass="carousel-container"
         partialVisible
         shouldResetAutoplay={false}

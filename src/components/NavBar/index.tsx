@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-curly-newline */
 import { AppBar, Typography } from "@mui/material";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import { routes } from "../../constants/routes";
 import logo from "../../img/pd-logo.svg";
 import AccountAvatar from "./AccountAvatar";
@@ -7,12 +9,27 @@ import AccountAvatar from "./AccountAvatar";
 import "./NavBar.css";
 
 const NavBar = () => {
+  const location = useLocation();
   const navigate = useNavigate();
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const reloadHomePage = () => {
+    setSearchParams("");
+    navigate(0);
+  };
 
   return (
     <AppBar className="navbar">
       <div className="navbar-div">
-        <div className="navbar-info" onClick={() => navigate(routes.HOME)}>
+        <div
+          className="navbar-info"
+          onClick={() =>
+            location.pathname === routes.HOME
+              ? reloadHomePage()
+              : navigate(routes.HOME)
+          }
+        >
           <img src={logo} alt="logo" className="logo" />
           <div className="navbar-text">
             <span className="navbar-company">
