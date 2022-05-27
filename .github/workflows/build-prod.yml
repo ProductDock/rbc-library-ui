@@ -39,6 +39,7 @@ jobs:
         with:
           workload_identity_provider: "projects/817921738258/locations/global/workloadIdentityPools/rbc-github-pool/providers/rbc-github-action-provider"
           service_account: "prod-pd-library-vm@prod-pd-library.iam.gserviceaccount.com"
+          audience: ${{ secrets.WORKLOAD_IDENTITY_AUD }}
 
       - name: "Set up Cloud SDK"
         uses: google-github-actions/setup-gcloud@v0
