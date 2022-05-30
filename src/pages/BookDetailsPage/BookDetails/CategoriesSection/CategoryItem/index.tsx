@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import { capitalizeFirstLetter } from "../../../../../utils/stringUtil";
 import "./CategoryItem.css";
 
 type Props = {
@@ -6,10 +7,11 @@ type Props = {
 };
 
 const CategoryItem = ({ category }: Props) => {
+  const lowerCaseCategory = category.toLowerCase();
   return (
     <div className="category-item">
       <Typography fontWeight={400} fontSize={14}>
-        {category}
+        {capitalizeFirstLetter(lowerCaseCategory)}
       </Typography>
     </div>
   );
