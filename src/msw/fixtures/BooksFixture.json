@@ -69,22 +69,14 @@
       "author": "Milan Peric",
       "cover": "Cover2",
       "title": "Book title2",
-      "records": [{ "email": "test1@test.com", "status": "RENTED" }],
-      "rating": {
-        "score": 1.5,
-        "count": 7
-      }
+      "records": [{ "email": "test1@test.com", "status": "RENTED" }]
     },
     {
       "id": 4,
       "author": "Petar Peric",
       "cover": "Cover3",
       "title": "Book title3",
-      "records": [{ "email": "test@test.com", "status": "RENTED" }],
-      "rating": {
-        "score": 1.5,
-        "count": 7
-      }
+      "records": [{ "email": "test@test.com", "status": "RENTED" }]
     },
     {
       "id": 5,

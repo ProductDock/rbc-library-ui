@@ -14,11 +14,16 @@
   color: darkslategray;
 }
 
-.star-rating .MuiSvgIcon-root {
+.star-rating .yellow-icon.MuiSvgIcon-root {
   width: 1em;
   float: right;
   color: #f3e110;
   margin-right: 10px;
+}
+
+.star-rating .outlined-icon.MuiSvgIcon-root {
+  width: 1em;
+  color: #979797;
 }
 
 .star-rating .MuiTypography-root {
