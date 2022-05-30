@@ -18,18 +18,32 @@
 }
 
 .book-review-form-footer {
-  z-index: 1298;
-  background-color: #f7f7f9;
-  padding: 0 1.5em;
-  box-sizing: border-box;
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  float: right;
   width: 100%;
-  text-align: center;
+  vertical-align: middle;
+  direction: rtl;
+  margin-top: 1.5em;
 }
 
 .field-container {
-  height: calc(82vh - 9em);
-  overflow-y: scroll;
+  height: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .book-review-form-footer {
+    z-index: 1298;
+    background-color: #f7f7f9;
+    padding: 0 1.5em;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .field-container {
+    height: calc(82vh - 9em);
+    overflow-y: scroll;
+  }
 }

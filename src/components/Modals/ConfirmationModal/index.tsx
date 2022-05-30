@@ -42,7 +42,12 @@ const ConfirmationModal = forwardRef(
           <Typography className="modal-title">
             <b> {title}</b>
           </Typography>
-          <img src={closeIcon} alt="closeIcon" onClick={hideModal} />
+          <img
+            src={closeIcon}
+            alt="closeIcon"
+            onClick={hideModal}
+            className="close-icon"
+          />
         </DialogTitle>
         <DialogContent className="modal-content">
           <Typography className="modal-description">{description}</Typography>

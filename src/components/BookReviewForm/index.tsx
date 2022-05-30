@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { Typography, Rating } from "@mui/material";
 import { useCallback, useState } from "react";
 import BookReviewFormTitle from "./FormTitle";
@@ -16,9 +17,14 @@ import RecommendationCheckboxValues from "./util/RecomendationCheckoxValues";
 type Props = {
   onSkip: () => void;
   onSuccessCallback?: () => void;
+  skipReviewButtonText?: string;
 };
 
-const BookReviewForm = ({ onSkip, onSuccessCallback }: Props) => {
+const BookReviewForm = ({
+  onSkip,
+  onSuccessCallback,
+  skipReviewButtonText,
+}: Props) => {
   const { reviewBook } = useBookDetailsContext();
 
   const [comment, setComment] = useState<string>("");
@@ -47,7 +53,7 @@ const BookReviewForm = ({ onSkip, onSuccessCallback }: Props) => {
   return (
     <>
       <div className="field-container">
-        <BookReviewFormTitle />
+        <BookReviewFormTitle onSkip={onSkip} />
         <Typography className="book-review-field-title">
           How would you rate your experience with this book?
         </Typography>
@@ -74,7 +80,10 @@ const BookReviewForm = ({ onSkip, onSuccessCallback }: Props) => {
           disabled={!isSubmitEnabled()}
           onClick={handleSubmit}
         />
-        <SkipReviewButton text="Skip" onClick={onSkip} />
+        <SkipReviewButton
+          text={skipReviewButtonText || "Skip"}
+          onClick={onSkip}
+        />
       </div>
     </>
   );
