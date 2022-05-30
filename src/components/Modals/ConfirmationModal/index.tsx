@@ -46,7 +46,7 @@ const ConfirmationModal = forwardRef(
             src={closeIcon}
             alt="closeIcon"
             onClick={hideModal}
-            className="close-icon"
+            className="close-icon-modal"
           />
         </DialogTitle>
         <DialogContent className="modal-content">
