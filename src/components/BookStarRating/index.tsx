@@ -36,7 +36,7 @@ const BookStarRating = ({ rating, ratingsCount, ratingsCountShow }: Props) => {
           </Typography>
         ) : (
           <Typography className="ratings-count" fontSize={12} fontWeight={300}>
-            (No ratings)
+            (no ratings)
           </Typography>
         ))}
     </div>
