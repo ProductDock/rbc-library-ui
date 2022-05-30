@@ -12,14 +12,25 @@
   font-size: 14px;
 }
 
+.book-review-form-wrapper {
+  background-color: #000000;
+  position: fixed;
+  z-index: 1300;
+  opacity: 0.1;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
 .book-review-form-container {
   background-color: #f7f7f9;
   position: fixed;
-  z-index: 1298;
-  top: 3em;
-  height: 50em;
-  left: 0;
-  width: 88vw;
+  z-index: 1301;
+  top: 0;
+  height: 100vh;
+  right: 0;
+  width: 25vw;
   padding: 1.5em 1.5em 1.5em 1.5em;
 }
 
@@ -41,6 +52,21 @@
 
 @media only screen and (max-width: 800px) {
   .review-section .write-a-review-button-icon {
+    display: none;
+  }
+
+  .book-review-form-container {
+    background-color: #f7f7f9;
+    position: fixed;
+    z-index: 1298;
+    top: 3em;
+    height: 50em;
+    left: 0;
+    width: 88vw;
+    padding: 1.5em 1.5em 1.5em 1.5em;
+  }
+
+  .book-review-form-wrapper {
     display: none;
   }
 }

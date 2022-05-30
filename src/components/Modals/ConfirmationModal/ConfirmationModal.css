@@ -28,3 +28,6 @@
   font-size: 16px;
   line-height: 24px;
 }
+.close-icon-modal {
+  cursor: pointer;
+}

@@ -64,12 +64,16 @@ const ReviewSection = ({ reviews }: Props) => {
         </Section>
       </div>
       {showedReviewForm && (
-        <div className="book-review-form-container">
-          <BookReviewForm
-            onSkip={hideReviewForm}
-            onSuccessCallback={endReview}
-          />
-        </div>
+        <>
+          <div className="book-review-form-wrapper" onClick={hideReviewForm} />
+          <div className="book-review-form-container">
+            <BookReviewForm
+              onSkip={hideReviewForm}
+              onSuccessCallback={endReview}
+              skipReviewButtonText="Cancel"
+            />
+          </div>
+        </>
       )}
     </>
   );

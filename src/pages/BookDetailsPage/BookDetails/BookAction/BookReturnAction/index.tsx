@@ -54,7 +54,11 @@ const BookReturnAction = () => {
       />
       {showedReviewForm && (
         <div className="book-review-form-container">
-          <BookReviewForm onSkip={endReview} onSuccessCallback={endReview} />
+          <BookReviewForm
+            onSkip={endReview}
+            onSuccessCallback={endReview}
+            skipReviewButtonText="Skip"
+          />
         </div>
       )}
     </>
