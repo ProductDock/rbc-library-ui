@@ -24,8 +24,9 @@
   width: 100%;
   display: flex;
   justify-content: left;
-  margin-left: 1em;
-  transform: scale(0.85);
+  margin-left: 2.2em;
+  transform: scale(1.1);
+  transform-origin: left;
 }
 
 .book-details-right {
