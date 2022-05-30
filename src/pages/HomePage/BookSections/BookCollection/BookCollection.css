@@ -12,14 +12,6 @@
   padding-bottom: 110px;
 }
 
-.card {
-  width: 204px;
-  height: 372px;
-  color: black;
-  border: black;
-  border-style: solid;
-}
-
 .pagination-div {
   margin-top: 60px;
   display: flex;
@@ -86,4 +78,35 @@
 
 .MuiButtonBase-root.MuiButton-root:hover {
   border: 1px solid #000000;
+}
+
+@media only screen and (max-width: 800px) {
+  .all-books .book-box {
+    width: 380px;
+    height: 180px;
+  }
+
+  .all-books .image-box-clickable {
+    position: absolute;
+    margin: 0;
+    transform: scale(0.7);
+    transform-origin: top left;
+  }
+
+  .all-books .star-rating {
+    position: absolute;
+    margin: 26px 0 0 136px;
+    transform: scale(0.9);
+  }
+
+  .all-books .text-box {
+    position: absolute;
+    margin: 16px 0 0 140px;
+  }
+
+  .all-books .book-status-homepage {
+    position: absolute;
+    margin: 128px 0 0 142px;
+    transform: scale(0.9);
+  }
 }
