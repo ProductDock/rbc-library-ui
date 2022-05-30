@@ -46,4 +46,30 @@
   .carousel-padding {
     padding: 0;
   }
+
+  .carousel-padding .book-box {
+    width: 380px;
+    height: 230px;
+  }
+
+  .carousel-padding .image-box-clickable {
+    position: absolute;
+    margin: 0;
+    transform: scale(0.7);
+    transform-origin: top left;
+  }
+
+  .carousel-padding .text-box {
+    display: block;
+  }
+
+  .carousel-padding .book-status-homepage {
+    margin-top: 210px;
+    transform: scale(0.9);
+  }
+
+  .carousel-padding .star-rating {
+    margin-top: 180px;
+    transform: scale(0.9);
+  }
 }
