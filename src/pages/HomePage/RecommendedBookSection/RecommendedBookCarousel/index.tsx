@@ -6,17 +6,11 @@ import "react-multi-carousel/lib/styles.css";
 import "./RecommendedBookCarousel.css";
 
 const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 6,
-    slidesToSlide: 5,
-    partialVisibilityGutter: 20,
-  },
   desktop: {
-    breakpoint: { max: 3000, min: 1424 },
+    breakpoint: { max: 4000, min: 1424 },
     items: 5,
     slidesToSlide: 5,
-    partialVisibilityGutter: 20,
+    partialVisibilityGutter: -20,
   },
   tablet: {
     breakpoint: { max: 1424, min: 800 },
