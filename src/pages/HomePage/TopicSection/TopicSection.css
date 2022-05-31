@@ -67,10 +67,11 @@
   .topic-container {
     overflow-x: scroll;
     overflow-y: auto;
+    background-color: #f7f7f9;
   }
 
   .topic-container .side-text {
-    margin-top: 1.5em;
+    padding-top: 1em;
   }
 
   .inner-topic-container .topic-buttons-container {
@@ -79,6 +80,7 @@
 
   .inner-topic-container {
     display: block;
+    width: 100%;
   }
 
   .topic-buttons {

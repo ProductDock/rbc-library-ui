@@ -42,9 +42,18 @@
 .carousel-container.react-multi-carousel-list {
   position: static;
 }
+
+.carousel-container .react-multi-carousel-track {
+  padding-left: 40px;
+}
+
 @media only screen and (max-width: 800px) {
   .carousel-padding {
     padding: 0;
+  }
+
+  .carousel-container .react-multi-carousel-track {
+    padding-left: 0;
   }
 
   .carousel-padding .book-box {
