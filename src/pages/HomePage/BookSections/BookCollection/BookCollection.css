@@ -76,7 +76,7 @@
   margin: 24px 0px;
 }
 
-.MuiButtonBase-root.MuiButton-root:hover {
+.book-collection-main-div .MuiButtonBase-root.MuiButton-root:hover {
   border: 1px solid #000000;
 }
 

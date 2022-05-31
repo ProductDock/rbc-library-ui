@@ -10,13 +10,13 @@ const responsive = {
     breakpoint: { max: 4000, min: 1424 },
     items: 5,
     slidesToSlide: 5,
-    partialVisibilityGutter: -20,
+    partialVisibilityGutter: 0,
   },
   tablet: {
     breakpoint: { max: 1424, min: 800 },
-    items: 3,
-    slidesToSlide: 1,
-    partialVisibilityGutter: 10,
+    items: 4,
+    slidesToSlide: 2,
+    partialVisibilityGutter: 0,
   },
   mobile: {
     breakpoint: { max: 800, min: 0 },
