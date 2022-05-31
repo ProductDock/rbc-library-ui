@@ -17,6 +17,7 @@
 .topic-buttons {
   margin-left: 1vw;
 }
+
 .topic-container .side-text {
   font-size: 14px;
 }
@@ -33,6 +34,14 @@
   margin-right: 10px;
   width: auto;
   border-color: lightgray;
+}
+
+.topic-container .topic-button.MuiButton-root:hover {
+  border-color: lightgray;
+}
+
+.topic-container .topic-button.MuiButton-root:hover::after {
+  border: 0;
 }
 
 .topic-buttons .MuiTypography-root {
@@ -77,8 +86,8 @@
   }
 
   .topic-container .clear-all-button {
-    margin-right: 1vw;
-    margin-bottom: 1em;
+    margin-bottom: 1.3em;
+    min-width: 20vw;
   }
 
   .topic-buttons .selected-button {
