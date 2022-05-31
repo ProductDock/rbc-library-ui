@@ -17,12 +17,14 @@
 .topic-buttons {
   margin-left: 1vw;
 }
+
 .topic-container .side-text {
   font-size: 14px;
 }
 
 .topic-container .clear-all-button {
   font-weight: 400;
+  font-size: 14px;
   color: #00609a;
   margin-left: 1vw;
   cursor: pointer;
@@ -32,6 +34,14 @@
   margin-right: 10px;
   width: auto;
   border-color: lightgray;
+}
+
+.topic-container .topic-button.MuiButton-root:hover {
+  border-color: lightgray;
+}
+
+.topic-container .topic-button.MuiButton-root:hover::after {
+  border: 0;
 }
 
 .topic-buttons .MuiTypography-root {
@@ -45,4 +55,46 @@
   width: auto;
   color: #00609a;
   border-color: #00609a;
+}
+
+.inner-topic-container .topic-buttons-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .topic-container {
+    overflow-x: scroll;
+    overflow-y: auto;
+  }
+
+  .topic-container .side-text {
+    margin-top: 1.5em;
+  }
+
+  .inner-topic-container .topic-buttons-container {
+    white-space: nowrap;
+  }
+
+  .inner-topic-container {
+    display: block;
+  }
+
+  .topic-buttons {
+    margin-left: 0;
+  }
+
+  .topic-container .clear-all-button {
+    margin-bottom: 1.3em;
+    min-width: 20vw;
+  }
+
+  .topic-buttons .selected-button {
+    margin-top: 0.5em;
+  }
+
+  .topic-container .topic-button {
+    margin-top: 0.5em;
+  }
 }

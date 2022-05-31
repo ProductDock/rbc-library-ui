@@ -47,27 +47,29 @@ const TopicSection = () => {
     <div className="topic-container">
       <div className="inner-topic-container">
         <Typography className="side-text">Categories</Typography>
-        <div className="topic-buttons">
-          {buttons.map((button) => (
-            <TopicButton
-              key={button.name}
-              name={button.name}
-              data-testid={button.name}
-              selected={isSelected(button.name)}
-              handleClick={toggleButton}
-            />
-          ))}
+        <div className="topic-buttons-container">
+          <div className="topic-buttons">
+            {buttons.map((button) => (
+              <TopicButton
+                key={button.name}
+                name={button.name}
+                data-testid={button.name}
+                selected={isSelected(button.name)}
+                handleClick={toggleButton}
+              />
+            ))}
+          </div>
+          {topics.length > 0 && (
+            <Link
+              className="clear-all-button"
+              underline="none"
+              onClick={clearAllTopics}
+              data-testid="clear-all-button"
+            >
+              Clear all
+            </Link>
+          )}
         </div>
-        {topics.length > 0 && (
-          <Link
-            className="clear-all-button side-text"
-            underline="none"
-            onClick={clearAllTopics}
-            data-testid="clear-all-button"
-          >
-            Clear all
-          </Link>
-        )}
       </div>
     </div>
   );
