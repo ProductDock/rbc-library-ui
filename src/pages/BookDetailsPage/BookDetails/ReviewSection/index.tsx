@@ -10,6 +10,7 @@ import BookReviewForm from "../../../../components/BookReviewForm";
 import { useSuccessScreenContext } from "../../../../store/books/success/SuccessScreenContext";
 import plusIcon from "../../../../img/icons/plus-icon.svg";
 import { useBookDetailsContext } from "../../../../store/books/details/BookDetailsContext";
+import { useAuthContext } from "../../../../store/auth/AuthContext";
 
 const successMessage = "You have successfully reviewed the book";
 
@@ -19,6 +20,7 @@ type Props = {
 
 const ReviewSection = ({ reviews }: Props) => {
   const { reloadBook } = useBookDetailsContext();
+  const { userProfile } = useAuthContext();
   const [showedReviewForm, setShowedReviewForm] = useState(false);
 
   const { showSuccessScreen } = useSuccessScreenContext();
@@ -39,19 +41,23 @@ const ReviewSection = ({ reviews }: Props) => {
           title="Reviews"
           numberOfItems={reviews?.length || 0}
           action={
-            <Link
-              className="write-a-review-button side-text"
-              underline="none"
-              onClick={showReviewForm}
-              data-testid="write-a-review-button"
-            >
-              Write a review
-              <img
-                src={plusIcon}
-                alt="plusIcon"
-                className="write-a-review-button-icon"
-              />
-            </Link>
+            reviews?.find(
+              (r) => r.userId === userProfile?.email
+            ) ? undefined : (
+              <Link
+                className="write-a-review-button side-text"
+                underline="none"
+                onClick={showReviewForm}
+                data-testid="write-a-review-button"
+              >
+                Write a review
+                <img
+                  src={plusIcon}
+                  alt="plusIcon"
+                  className="write-a-review-button-icon"
+                />
+              </Link>
+            )
           }
         >
           {reviews?.length ? (

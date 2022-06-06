@@ -14,6 +14,7 @@ export type Rating = {
 
 export type Review = {
   userFullName: string;
+  userId: string;
   rating: number;
   recommendation: string[];
   comment: string;
