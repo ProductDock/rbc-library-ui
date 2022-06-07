@@ -40,20 +40,22 @@
       "reviews": [
         {
           "id": "1",
-          "userFullName": "Dummy user",
+          "userFullName": "Dummyuser2",
+          "userId": "test@test.com",
           "rating": 4,
           "recommendation": ["Medior", "Senior"],
           "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
         },
         {
           "id": "2",
-          "userFullName": "Dummyuser2",
+          "userFullName": "Dummy user",
           "userId": "vladimir.vukoman@productdock.com",
           "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
         },
         {
           "id": "3",
           "userFullName": "Dummyuser2",
+          "userId": "dusan.petrovic@productdock.com",
           "recommendation": [],
           "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
         }

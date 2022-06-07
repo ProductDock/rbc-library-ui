@@ -2,9 +2,11 @@ import { Typography } from "@mui/material";
 import userAvatar from "../../../../../../img/userAvatar.svg";
 import "./ReviewCard.css";
 import BookStarRating from "../../../../../../components/BookStarRating";
+import { useAuthContext } from "../../../../../../store/auth/AuthContext";
 
 type Props = {
   reviewer: string;
+  reviewerId: string;
   rating: number;
   recommendation: string[];
   comment: string;
@@ -13,21 +15,33 @@ type Props = {
 
 const ReviewCard = ({
   reviewer,
+  reviewerId,
   rating,
   recommendation,
   comment,
   ratingsCount,
 }: Props) => {
+  const { userProfile } = useAuthContext();
   const recommendationString = recommendation?.join(", ");
+
+  const isYourReview = () => reviewerId === userProfile?.email;
+
   return (
-    <div className="review-card-div" data-testid="review-card">
+    <div
+      className={
+        isYourReview()
+          ? "your-review-card-div review-card-div"
+          : "review-card-div"
+      }
+      data-testid="review-card"
+    >
       <div className="review-card-avatar">
         <img src={userAvatar} alt="" />
       </div>
       <div className="review-card-info">
         <div className="review-card-info-header">
           <div className="review-card-user-name">
-            <Typography>{reviewer}</Typography>
+            <Typography>{isYourReview() ? "Your review" : reviewer}</Typography>
           </div>
           {rating && (
             <BookStarRating

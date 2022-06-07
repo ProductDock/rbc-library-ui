@@ -1,3 +1,6 @@
+/* eslint-disable no-unsafe-optional-chaining */
+import { useMemo } from "react";
+import { useAuthContext } from "../../../../../store/auth/AuthContext";
 import { Review } from "../../../../../store/books/details/Types";
 import ReviewCard from "./ReviewCard";
 import "./ReviewCollection.css";
@@ -7,19 +10,33 @@ type Props = {
 };
 
 const ReviewCollection = ({ reviews }: Props) => {
+  const { userProfile } = useAuthContext();
+
+  const isYourReview = (reviewerId: string) =>
+    reviewerId === userProfile?.email;
+
+  const sortedReviews = useMemo<Review[] | undefined>(() => {
+    const yourReviewIndex = reviews?.findIndex((review) =>
+      isYourReview(review.userId)
+    );
+    reviews?.push(...reviews?.splice(0, yourReviewIndex));
+    return reviews;
+  }, [reviews]);
+
   return (
     <div className="review-collection">
-      {reviews?.map((review) => {
+      {sortedReviews?.map((review) => {
         return (
           <div key={review.userFullName}>
             <ReviewCard
+              reviewerId={review.userId}
               reviewer={review.userFullName}
               rating={review.rating}
               recommendation={review.recommendation}
               comment={review.comment}
-              ratingsCount={reviews?.length}
+              ratingsCount={sortedReviews?.length}
             />
-            {reviews.indexOf(review) + 1 !== reviews?.length && (
+            {sortedReviews.indexOf(review) + 1 !== reviews?.length && (
               <hr className="separator-line" />
             )}
           </div>
