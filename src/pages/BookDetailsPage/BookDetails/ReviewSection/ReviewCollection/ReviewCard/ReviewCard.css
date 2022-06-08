@@ -1,5 +1,6 @@
 .review-card-div {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 12px 12px 26px 12px;
   border-radius: 8px;
@@ -41,4 +42,21 @@
 
 .review-card-recommended {
   width: 14em;
+}
+
+.review-action-container {
+  width: 100%;
+  padding: 0.8em 0 0 4em;
+}
+
+.review-action-container a {
+  padding: 0 1em 0 0.6em;
+}
+
+.review-action-container .edit-a-review-button {
+  border-right: 1px solid #cccccc;
+}
+
+.review-action-container .edit-a-review-button-icon {
+  height: 1em;
 }

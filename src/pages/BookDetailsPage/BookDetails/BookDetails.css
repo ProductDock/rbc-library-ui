@@ -91,10 +91,11 @@
 .book-details-right .review-card-div {
   justify-content: left;
   padding-bottom: 30px;
+  position: relative;
 }
 
 .book-details-right .review-card-info {
-  width: 87%;
+  width: 93%;
   flex-direction: column;
   flex-wrap: wrap;
 }
@@ -120,6 +121,14 @@
 .book-details-right .review-card-avatar {
   width: auto;
   margin-right: 2em;
+}
+
+.book-details-right .review-action-container {
+  position: absolute;
+  width: auto;
+  padding: 0;
+  top: 20%;
+  right: 4%;
 }
 
 @media only screen and (max-width: 800px) {

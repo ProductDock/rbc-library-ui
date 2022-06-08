@@ -6,6 +6,7 @@ import reducer from "./BookDetailsReducer";
 import { actions } from "../BooksActions";
 import { BookActions, BookStatus } from "../status/Types";
 import { BookReview, IBookDetailsContext } from "./Types";
+import { useAuthContext } from "../../auth/AuthContext";
 
 const initialState = {
   book: null,
@@ -22,6 +23,7 @@ export const BookDetailsContext =
 
 const BookDetailsContextProvider = ({ bookId, children }: Props) => {
   const [bookState, dispatch] = useReducer(reducer, initialState);
+  const { userProfile } = useAuthContext();
 
   const [bookReload, setBookReload] = useState<boolean>(false);
   const [bookStatus, setBookStatus] = useState<BookStatus | null>(null);
@@ -45,8 +47,11 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
   const returnABook = async (onSuccessHandler: () => void) =>
     sendRentalRequest(BookActions.RETURNED).then(onSuccessHandler);
 
-  const reviewBook = async (bookReview: BookReview) =>
+  const addBookReview = async (bookReview: BookReview) =>
     bookService.postBookReview(bookId, bookReview);
+
+  const editBookReview = async (bookReview: BookReview) =>
+    bookService.putBookReview(bookId, bookReview, userProfile?.email);
 
   useEffect(() => {
     findBook?.();
@@ -61,7 +66,8 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
         setBookStatus,
         rentABook,
         returnABook,
-        reviewBook,
+        addBookReview,
+        editBookReview,
       }}
     >
       {children}

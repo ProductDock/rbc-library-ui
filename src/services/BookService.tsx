@@ -16,3 +16,13 @@ export const postRentalRequest = async (rentalRequest: RentalRequest) =>
 
 export const postBookReview = async (bookId: number, review: BookReview) =>
   client.post(`/catalog/books/${bookId}/reviews`, review);
+
+export const putBookReview = async (
+  bookId: number,
+  review: BookReview,
+  userId?: string
+) =>
+  client.put(
+    `/catalog/books/${bookId}/reviews?k_book=${bookId}&k_user${userId}`,
+    review
+  );

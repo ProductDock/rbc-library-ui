@@ -1,16 +1,19 @@
+/* eslint-disable no-unused-vars */
 import { Typography } from "@mui/material";
 import userAvatar from "../../../../../../img/userAvatar.svg";
 import "./ReviewCard.css";
 import BookStarRating from "../../../../../../components/BookStarRating";
 import { useAuthContext } from "../../../../../../store/auth/AuthContext";
+import { capitalizeFirstLetter } from "../../../../../../utils/stringUtil";
 
 type Props = {
   reviewer: string;
   reviewerId: string;
-  rating: number;
+  rating?: number;
   recommendation: string[];
-  comment: string;
+  comment?: string;
   ratingsCount: number;
+  action?: JSX.Element;
 };
 
 const ReviewCard = ({
@@ -20,12 +23,15 @@ const ReviewCard = ({
   recommendation,
   comment,
   ratingsCount,
+  action,
 }: Props) => {
   const { userProfile } = useAuthContext();
-  const recommendationString = recommendation?.join(", ");
-
   const isYourReview = reviewerId === userProfile?.email;
-
+  const capitalCaseRecommendation = recommendation?.map((r) => {
+    const lowerCaseRecommendation = r.toLowerCase();
+    return capitalizeFirstLetter(lowerCaseRecommendation);
+  });
+  const recommendationString = capitalCaseRecommendation?.join(", ");
   return (
     <div
       className={
@@ -64,6 +70,7 @@ const ReviewCard = ({
           </div>
         )}
       </div>
+      <div className="review-action-container">{action}</div>
     </div>
   );
 };
