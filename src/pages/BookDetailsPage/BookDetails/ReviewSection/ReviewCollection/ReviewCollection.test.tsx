@@ -24,6 +24,23 @@ describe("Test if reviews are loaded properly", () => {
     expect(reviews).toHaveLength(3);
   });
 
+  test("should render your review", async () => {
+    render(<BookDetailsPage />);
+
+    const yourReview = await screen.findByText("Your review");
+
+    expect(yourReview).toBeTruthy();
+  });
+
+  test("should render your review first in the list", async () => {
+    render(<BookDetailsPage />);
+
+    const reviews = await screen.findAllByTestId("review-card");
+    const yourReview = reviews[0];
+
+    expect(yourReview).toHaveClass("your-review-card-div");
+  });
+
   test("should render book details with review rating", async () => {
     render(<BookDetailsPage />);
 
