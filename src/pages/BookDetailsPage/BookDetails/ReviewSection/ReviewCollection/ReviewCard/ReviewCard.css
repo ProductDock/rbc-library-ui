@@ -6,6 +6,10 @@
   border-radius: 8px;
 }
 
+.your-review-card-div {
+  background-color: #eeeeee;
+}
+
 .review-card-avatar {
   width: 13%;
   margin-right: 20px;
