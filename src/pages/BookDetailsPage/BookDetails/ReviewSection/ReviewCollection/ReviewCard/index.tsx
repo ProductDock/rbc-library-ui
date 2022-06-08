@@ -24,12 +24,12 @@ const ReviewCard = ({
   const { userProfile } = useAuthContext();
   const recommendationString = recommendation?.join(", ");
 
-  const isYourReview = () => reviewerId === userProfile?.email;
+  const isYourReview = reviewerId === userProfile?.email;
 
   return (
     <div
       className={
-        isYourReview()
+        isYourReview
           ? "your-review-card-div review-card-div"
           : "review-card-div"
       }
@@ -41,7 +41,7 @@ const ReviewCard = ({
       <div className="review-card-info">
         <div className="review-card-info-header">
           <div className="review-card-user-name">
-            <Typography>{isYourReview() ? "Your review" : reviewer}</Typography>
+            <Typography>{isYourReview ? "Your review" : reviewer}</Typography>
           </div>
           {rating && (
             <BookStarRating
