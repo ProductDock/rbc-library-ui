@@ -6,10 +6,6 @@
   border-radius: 8px;
 }
 
-.your-review-card-div {
-  background-color: #eeeeee;
-}
-
 .review-card-avatar {
   width: 13%;
   margin-right: 20px;
@@ -49,12 +45,16 @@
   padding: 0.8em 0 0 4em;
 }
 
+.review-action-container-edit {
+  border-right: 1px solid #cccccc;
+}
+
 .review-action-container a {
-  padding: 0 1em 0 0.6em;
+  margin: 0 1em 0 0.6em;
 }
 
 .review-action-container .edit-a-review-button {
-  border-right: 1px solid #cccccc;
+  cursor: pointer;
 }
 
 .review-action-container .edit-a-review-button-icon {

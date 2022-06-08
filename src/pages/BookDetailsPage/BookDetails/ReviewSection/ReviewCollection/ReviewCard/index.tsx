@@ -70,7 +70,9 @@ const ReviewCard = ({
           </div>
         )}
       </div>
-      <div className="review-action-container">{action}</div>
+      <div className="review-action-container">
+        <div className="review-action-container-edit">{action}</div>
+      </div>
     </div>
   );
 };
