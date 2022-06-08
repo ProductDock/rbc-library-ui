@@ -1,6 +1,7 @@
 .MuiPaper-root.MuiAlert-root {
   color: white;
   background-color: black;
+  border-radius: 0.75em;
 }
 
 .MuiPaper-root.MuiAlert-root .description-message {
