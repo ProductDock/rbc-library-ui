@@ -1,19 +1,26 @@
+/* eslint-disable react/jsx-curly-newline */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
-import { Typography } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 import userAvatar from "../../../../../../img/userAvatar.svg";
 import "./ReviewCard.css";
 import BookStarRating from "../../../../../../components/BookStarRating";
 import { useAuthContext } from "../../../../../../store/auth/AuthContext";
 import { capitalizeFirstLetter } from "../../../../../../utils/stringUtil";
+import {
+  BookRecommendations,
+  Review,
+} from "../../../../../../store/books/details/Types";
+import editIcon from "../../../../../../img/icons/edit-icon.svg";
 
 type Props = {
   reviewer: string;
   reviewerId: string;
-  rating?: number;
-  recommendation: string[];
-  comment?: string;
+  rating: number;
+  recommendation: BookRecommendations[];
+  comment: string;
   ratingsCount: number;
-  action?: JSX.Element;
+  actionOnClick: (review: Review) => void;
 };
 
 const ReviewCard = ({
@@ -23,7 +30,7 @@ const ReviewCard = ({
   recommendation,
   comment,
   ratingsCount,
-  action,
+  actionOnClick,
 }: Props) => {
   const { userProfile } = useAuthContext();
   const isYourReview = reviewerId === userProfile?.email;
@@ -71,7 +78,30 @@ const ReviewCard = ({
         )}
       </div>
       <div className="review-action-container">
-        <div className="review-action-container-edit">{action}</div>
+        <div className="review-action-container-edit">
+          {userProfile?.email === reviewerId ? (
+            <Link
+              className="edit-a-review-button"
+              underline="none"
+              data-testid="edit-a-review-button"
+              onClick={() =>
+                actionOnClick({
+                  userFullName: reviewer,
+                  userId: reviewerId,
+                  rating,
+                  recommendation,
+                  comment,
+                })
+              }
+            >
+              <img
+                src={editIcon}
+                alt="editIcon"
+                className="edit-a-review-button-icon"
+              />
+            </Link>
+          ) : undefined}
+        </div>
       </div>
     </div>
   );

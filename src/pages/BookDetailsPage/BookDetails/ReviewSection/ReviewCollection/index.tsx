@@ -8,7 +8,6 @@ import { Link } from "@mui/material";
 import { useAuthContext } from "../../../../../store/auth/AuthContext";
 import { Review } from "../../../../../store/books/details/Types";
 import ReviewCard from "./ReviewCard";
-import editIcon from "../../../../../img/icons/edit-icon.svg";
 import "./ReviewCollection.css";
 
 type Props = {
@@ -42,30 +41,7 @@ const ReviewCollection = ({ reviews, actionOnClick }: Props) => {
               recommendation={review.recommendation}
               comment={review.comment}
               ratingsCount={sortedReviews?.length}
-              action={
-                userProfile?.email === review.userId ? (
-                  <Link
-                    className="edit-a-review-button"
-                    underline="none"
-                    data-testid="edit-a-review-button"
-                    onClick={() =>
-                      actionOnClick({
-                        userFullName: review.userFullName,
-                        userId: review.userId,
-                        rating: review.rating,
-                        recommendation: review.recommendation,
-                        comment: review.comment,
-                      })
-                    }
-                  >
-                    <img
-                      src={editIcon}
-                      alt="editIcon"
-                      className="edit-a-review-button-icon"
-                    />
-                  </Link>
-                ) : undefined
-              }
+              actionOnClick={actionOnClick}
             />
             {sortedReviews.indexOf(review) + 1 !== reviews?.length && (
               <hr className="separator-line" />
