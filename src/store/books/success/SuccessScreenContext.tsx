@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useReducer } from "react";
+import { useMediaQuery } from "@mui/material";
 import { actions } from "./SuccessScreenActions";
 import { ISuccessScreenContext } from "./Types";
 import reducer from "./SuccessScreenReducer";
+import { MediaQueries } from "../../../constants/mediaQueries";
 
 const initialState = {
   successMessage: "",
@@ -17,6 +19,7 @@ export const SuccessScreenContext =
 
 const SuccessScreenContextProvider = ({ children }: Props) => {
   const [successState, dispatch] = useReducer(reducer, initialState);
+  const isLargeScreen = useMediaQuery(MediaQueries.LARGE);
 
   const showSuccessScreen = (successMessage: string) =>
     dispatch({ type: actions.SHOW_SUCCESS_SCREEN, payload: successMessage });
@@ -27,9 +30,12 @@ const SuccessScreenContextProvider = ({ children }: Props) => {
   useEffect(() => {
     const { showed } = successState;
     if (showed) {
-      setTimeout(() => {
-        hideSuccessScreen();
-      }, 2000);
+      setTimeout(
+        () => {
+          hideSuccessScreen();
+        },
+        isLargeScreen ? 5000 : 2000
+      );
     }
   }, [successState.showed]);
 
@@ -38,6 +44,7 @@ const SuccessScreenContextProvider = ({ children }: Props) => {
       value={{
         ...successState,
         showSuccessScreen,
+        hideSuccessScreen,
       }}
     >
       {children}
