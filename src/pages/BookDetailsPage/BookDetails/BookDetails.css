@@ -29,7 +29,7 @@
 }
 
 .book-details-right {
-  width: 70vw;
+  width: calc(80vw - 12.5em);
 }
 
 .book-details-status {
@@ -95,7 +95,7 @@
 }
 
 .book-details-right .review-card-info {
-  width: 93%;
+  width: 60vw;
   flex-direction: column;
   flex-wrap: wrap;
 }
@@ -127,7 +127,7 @@
   position: absolute;
   width: auto;
   padding: 0;
-  top: 20%;
+  top: 15%;
   right: 4%;
 }
 
@@ -189,7 +189,8 @@
 
   .book-details-right .review-card-div {
     justify-content: space-between;
-    padding-bottom: 26px;
+    padding-bottom: 16px;
+    margin-bottom: 10px;
   }
 
   .book-details-right .review-card-avatar {
@@ -216,5 +217,14 @@
   .book-details-status > div {
     margin-left: 2.2em;
     transform: scale(1);
+  }
+
+  .book-details-right .review-action-container {
+    position: relative;
+    width: auto;
+    padding: 0;
+    top: 0;
+    right: 0;
+    margin: 3% 0 0 22%;
   }
 }

@@ -23,6 +23,6 @@ export const putBookReview = async (
   userId?: string
 ) =>
   client.put(
-    `/catalog/books/${bookId}/reviews?k_book=${bookId}&k_user${userId}`,
+    `/catalog/books/${bookId}/reviews?k_book=${bookId}&k_user=${userId}`,
     review
   );
