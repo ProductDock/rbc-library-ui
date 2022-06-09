@@ -82,3 +82,13 @@
     transform: scale(0.9);
   }
 }
+
+@media only screen and (min-width: 800px) and (max-width: 900px) {
+  .carousel-padding {
+    padding: 0 210px;
+  }
+
+  .carousel-container .react-multi-carousel-track {
+    padding-left: 60px;
+  }
+}
