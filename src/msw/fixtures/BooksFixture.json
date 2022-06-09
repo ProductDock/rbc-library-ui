@@ -55,8 +55,9 @@
         {
           "id": "3",
           "userFullName": "Dummyuser2",
+          "rating": 3,
           "userId": "dusan.petrovic@productdock.com",
-          "recommendation": [],
+          "recommendation": ["JUNIOR"],
           "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
         }
       ],
@@ -79,7 +80,9 @@
       "author": "Petar Peric",
       "cover": "Cover3",
       "title": "Book title3",
-      "records": [{ "email": "test@test.com", "status": "RENTED" }]
+      "records": [
+        { "email": "dusan.petrovic@productdock.com", "status": "RENTED" }
+      ]
     },
     {
       "id": 5,

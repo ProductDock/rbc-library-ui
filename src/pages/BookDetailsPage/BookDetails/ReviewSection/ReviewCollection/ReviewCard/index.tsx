@@ -12,6 +12,8 @@ import {
   Review,
 } from "../../../../../../store/books/details/Types";
 import editIcon from "../../../../../../img/icons/edit-icon.svg";
+import { useBookReviewContext } from "../../../../../../store/books/reviews/BookReviewContext";
+import { BookReviewFormVariant } from "../../../../../../store/books/reviews/Types";
 
 type Props = {
   reviewer: string;
@@ -20,7 +22,6 @@ type Props = {
   recommendation: BookRecommendations[];
   comment: string;
   ratingsCount: number;
-  actionOnClick: (review: Review) => void;
 };
 
 const ReviewCard = ({
@@ -30,15 +31,28 @@ const ReviewCard = ({
   recommendation,
   comment,
   ratingsCount,
-  actionOnClick,
 }: Props) => {
   const { userProfile } = useAuthContext();
+  const { selectReview, showReviewForm } = useBookReviewContext();
+
   const isYourReview = reviewerId === userProfile?.email;
+
   const capitalCaseRecommendation = recommendation?.map((r) => {
     const lowerCaseRecommendation = r.toLowerCase();
     return capitalizeFirstLetter(lowerCaseRecommendation);
   });
+
   const recommendationString = capitalCaseRecommendation?.join(", ");
+
+  const handleEditReview = () => {
+    selectReview?.({
+      rating,
+      recommendation,
+      comment,
+    });
+    showReviewForm?.(BookReviewFormVariant.EDIT);
+  };
+
   return (
     <div
       className={
@@ -84,15 +98,7 @@ const ReviewCard = ({
               className="edit-a-review-button"
               underline="none"
               data-testid="edit-a-review-button"
-              onClick={() =>
-                actionOnClick({
-                  userFullName: reviewer,
-                  userId: reviewerId,
-                  rating,
-                  recommendation,
-                  comment,
-                })
-              }
+              onClick={handleEditReview}
             >
               <img
                 src={editIcon}

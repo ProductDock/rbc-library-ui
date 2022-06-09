@@ -9,4 +9,6 @@ export const actions = {
   RENT_BOOK: "rentBook",
   RETURN_BOOK: "returnBook",
   RELOAD_BOOK: "reloadBook",
+  SELECT_REVIEW_FOR_EDIT: "selectReviewForEdit",
+  SET_CURRENT_BOOK_ACTION: "setCurrentBookAction",
 } as const;

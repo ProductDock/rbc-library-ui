@@ -57,6 +57,7 @@ export type BookReview = {
 export interface IBookDetailsContext {
   book: Book | null;
   bookStatus: BookStatus | null;
+  currentAction: BookActions | null;
   reloadBook?: () => void;
   setBookStatus?: Function;
   returnABook?: Function;

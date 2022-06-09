@@ -8,6 +8,11 @@ const reducer = (state: IBookDetailsContext, action: any) => {
         ...state,
         book: action.payload,
       };
+    case actions.SET_CURRENT_BOOK_ACTION:
+      return {
+        ...state,
+        currentAction: action.payload,
+      };
     default:
       return state;
   }

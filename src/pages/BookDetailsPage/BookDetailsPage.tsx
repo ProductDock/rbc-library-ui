@@ -3,6 +3,7 @@ import BookDetails from "./BookDetails";
 import BookDetailsContexProvider from "../../store/books/details/BookDetailsContext";
 import SuccessScreenContextProvider from "../../store/books/success/SuccessScreenContext";
 import Notification from "./BookDetails/Notification";
+import BookReviewContextProvider from "../../store/books/reviews/BookReviewContext";
 
 const BookDetailsPage = () => {
   const { bookId } = useParams();
@@ -10,10 +11,12 @@ const BookDetailsPage = () => {
   return (
     <div>
       <BookDetailsContexProvider bookId={parseInt(bookId || "0", 10)}>
-        <SuccessScreenContextProvider>
-          <BookDetails />
-          <Notification />
-        </SuccessScreenContextProvider>
+        <BookReviewContextProvider>
+          <SuccessScreenContextProvider>
+            <BookDetails />
+            <Notification />
+          </SuccessScreenContextProvider>
+        </BookReviewContextProvider>
       </BookDetailsContexProvider>
     </div>
   );
