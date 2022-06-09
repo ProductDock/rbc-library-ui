@@ -22,6 +22,7 @@ const ReviewSection = ({ reviews }: Props) => {
   const { reloadBook } = useBookDetailsContext();
   const { userProfile } = useAuthContext();
   const [showedReviewForm, setShowedReviewForm] = useState(false);
+  const [selectedReview, setSelectedReview] = useState<Review>();
 
   const { showSuccessScreen } = useSuccessScreenContext();
 
@@ -32,6 +33,11 @@ const ReviewSection = ({ reviews }: Props) => {
     () => reviews?.find((r) => r.userId === userProfile?.email),
     [reviews]
   );
+
+  const showEditReviewForm = (review: Review) => {
+    setSelectedReview(review);
+    setShowedReviewForm(true);
+  };
 
   const endReview = () => {
     hideReviewForm();
@@ -64,7 +70,10 @@ const ReviewSection = ({ reviews }: Props) => {
           }
         >
           {reviews?.length ? (
-            <ReviewCollection reviews={reviews} />
+            <ReviewCollection
+              reviews={reviews}
+              actionOnClick={showEditReviewForm}
+            />
           ) : (
             <Typography className="review-section-message">
               There are no reviews for this book yet
@@ -79,7 +88,9 @@ const ReviewSection = ({ reviews }: Props) => {
             <BookReviewForm
               onSkip={hideReviewForm}
               onSuccessCallback={endReview}
+              submitReviewButtonText={selectedReview ? "Save" : "Confirm"}
               skipReviewButtonText="Cancel"
+              selectedReview={selectedReview}
             />
           </div>
         </>

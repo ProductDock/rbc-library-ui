@@ -1,16 +1,26 @@
-import { Typography } from "@mui/material";
+/* eslint-disable react/jsx-curly-newline */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-unused-vars */
+import { Link, Typography } from "@mui/material";
 import userAvatar from "../../../../../../img/userAvatar.svg";
 import "./ReviewCard.css";
 import BookStarRating from "../../../../../../components/BookStarRating";
 import { useAuthContext } from "../../../../../../store/auth/AuthContext";
+import { capitalizeFirstLetter } from "../../../../../../utils/stringUtil";
+import {
+  BookRecommendations,
+  Review,
+} from "../../../../../../store/books/details/Types";
+import editIcon from "../../../../../../img/icons/edit-icon.svg";
 
 type Props = {
   reviewer: string;
   reviewerId: string;
   rating: number;
-  recommendation: string[];
+  recommendation: BookRecommendations[];
   comment: string;
   ratingsCount: number;
+  actionOnClick: (review: Review) => void;
 };
 
 const ReviewCard = ({
@@ -20,12 +30,15 @@ const ReviewCard = ({
   recommendation,
   comment,
   ratingsCount,
+  actionOnClick,
 }: Props) => {
   const { userProfile } = useAuthContext();
-  const recommendationString = recommendation?.join(", ");
-
   const isYourReview = reviewerId === userProfile?.email;
-
+  const capitalCaseRecommendation = recommendation?.map((r) => {
+    const lowerCaseRecommendation = r.toLowerCase();
+    return capitalizeFirstLetter(lowerCaseRecommendation);
+  });
+  const recommendationString = capitalCaseRecommendation?.join(", ");
   return (
     <div
       className={
@@ -63,6 +76,32 @@ const ReviewCard = ({
             </Typography>
           </div>
         )}
+      </div>
+      <div className="review-action-container">
+        <div className="review-action-container-edit">
+          {userProfile?.email === reviewerId ? (
+            <Link
+              className="edit-a-review-button"
+              underline="none"
+              data-testid="edit-a-review-button"
+              onClick={() =>
+                actionOnClick({
+                  userFullName: reviewer,
+                  userId: reviewerId,
+                  rating,
+                  recommendation,
+                  comment,
+                })
+              }
+            >
+              <img
+                src={editIcon}
+                alt="editIcon"
+                className="edit-a-review-button-icon"
+              />
+            </Link>
+          ) : undefined}
+        </div>
       </div>
     </div>
   );

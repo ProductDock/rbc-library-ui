@@ -2,11 +2,12 @@ import { Button, Typography } from "@mui/material";
 import "./SubmitReviewButton.css";
 
 type Props = {
+  text?: string;
   onClick: () => void;
   disabled: boolean;
 };
 
-const SubmitReviewButton = ({ onClick, disabled }: Props) => {
+const SubmitReviewButton = ({ text, onClick, disabled }: Props) => {
   const buttonTextClass = () =>
     disabled
       ? "submit-review-button-text-disabled"
@@ -19,7 +20,7 @@ const SubmitReviewButton = ({ onClick, disabled }: Props) => {
       className="submit-review-button"
       onClick={onClick}
     >
-      <Typography className={buttonTextClass()}>Submit</Typography>
+      <Typography className={buttonTextClass()}>{text}</Typography>
     </Button>
   );
 };

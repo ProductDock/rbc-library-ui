@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { Typography, Rating } from "@mui/material";
 import { useCallback, useState } from "react";
@@ -18,23 +19,33 @@ type Props = {
   onSkip: () => void;
   onSuccessCallback?: () => void;
   skipReviewButtonText?: string;
+  submitReviewButtonText?: string;
+  selectedReview?: BookReview;
 };
 
 const BookReviewForm = ({
   onSkip,
   onSuccessCallback,
   skipReviewButtonText,
+  submitReviewButtonText,
+  selectedReview,
 }: Props) => {
-  const { reviewBook } = useBookDetailsContext();
+  const { addBookReview, editBookReview } = useBookDetailsContext();
 
-  const [comment, setComment] = useState<string>("");
-  const [rating, setRating] = useState<number | null>(0);
+  const [comment, setComment] = useState<string>(selectedReview?.comment || "");
+  const [rating, setRating] = useState<number | null>(
+    selectedReview?.rating || 0
+  );
   const [recommendation, setRecommendation] = useState<BookRecommendations[]>(
-    []
+    selectedReview?.recommendation || []
   );
 
   const createReview = (): BookReview => {
-    const review: BookReview = { comment, rating, recommendation };
+    const review: BookReview = {
+      comment,
+      rating,
+      recommendation,
+    };
 
     if (!comment) review.comment = null;
     if (!rating) review.rating = null;
@@ -43,7 +54,9 @@ const BookReviewForm = ({
   };
 
   const handleSubmit = () => {
-    reviewBook?.(createReview()).then(() => onSuccessCallback?.());
+    selectedReview
+      ? editBookReview?.(createReview()).then(() => onSuccessCallback?.())
+      : addBookReview?.(createReview()).then(() => onSuccessCallback?.());
   };
 
   const isSubmitEnabled = useCallback(() => {
@@ -77,6 +90,7 @@ const BookReviewForm = ({
 
       <div className="book-review-form-footer">
         <SubmitReviewButton
+          text={submitReviewButtonText}
           disabled={!isSubmitEnabled()}
           onClick={handleSubmit}
         />

@@ -43,7 +43,7 @@
           "userFullName": "Dummyuser2",
           "userId": "test@test.com",
           "rating": 4,
-          "recommendation": ["Medior", "Senior"],
+          "recommendation": ["MEDIOR", "SENIOR"],
           "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
         },
         {

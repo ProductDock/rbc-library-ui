@@ -17,6 +17,7 @@ const TextArea = ({ maxLength, text, setText }: Props) => {
         className="description-text-area"
         onChange={(e) => setText(e.target.value)}
         placeholder="Please be as detailed as possible"
+        defaultValue={text}
       />
       <div className="text-area-characters-num-container">
         <Typography className="text-area-characters-num">

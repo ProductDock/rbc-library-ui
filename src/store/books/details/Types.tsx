@@ -12,11 +12,17 @@ export type Rating = {
   count: number | undefined;
 };
 
+export enum BookRecommendations {
+  JUNIOR = "JUNIOR",
+  MEDIOR = "MEDIOR",
+  SENIOR = "SENIOR",
+}
+
 export type Review = {
   userFullName: string;
   userId: string;
   rating: number;
-  recommendation: string[];
+  recommendation: BookRecommendations[];
   comment: string;
 };
 
@@ -43,12 +49,6 @@ export type RentalRequest = {
   requestedStatus: BookActions | null;
 };
 
-export enum BookRecommendations {
-  JUNIOR = "JUNIOR",
-  MEDIOR = "MEDIOR",
-  SENIOR = "SENIOR",
-}
-
 export type BookReview = {
   comment: string | null;
   rating: number | null;
@@ -61,5 +61,6 @@ export interface IBookDetailsContext {
   setBookStatus?: Function;
   returnABook?: Function;
   rentABook?: Function;
-  reviewBook?: (review: BookReview) => Promise<any>;
+  addBookReview?: (review: BookReview) => Promise<any>;
+  editBookReview?: (review: BookReview) => Promise<any>;
 }
