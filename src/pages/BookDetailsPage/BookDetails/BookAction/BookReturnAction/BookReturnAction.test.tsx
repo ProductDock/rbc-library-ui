@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 import BookDetailsPage from "../../../BookDetailsPage";
 
 const RENTED_BY_YOU_BOOK_ID = "3";
+const RENTED_BY_YOU_BOOK_ID_WITH_REVIEW = "4";
 const SUCCESS_DISAPPEAR_AFTER = 2000;
 const BUTTON_LOADED_AFTER = 2000;
 
@@ -64,6 +65,27 @@ describe("Test book return action", () => {
     await waitFor(() => expect(screen.queryByText("Success!")).toBeFalsy(), {
       timeout: SUCCESS_DISAPPEAR_AFTER,
     });
+  });
+
+  test("should show edit book review form after successful book return, when user already reviewed book", async () => {
+    jest
+      .spyOn(Router, "useParams")
+      .mockReturnValue({ bookId: RENTED_BY_YOU_BOOK_ID_WITH_REVIEW });
+
+    render(<BookDetailsPage />);
+
+    const returnButton = await screen.findByTestId(
+      "return-book-button",
+      {},
+      { timeout: BUTTON_LOADED_AFTER }
+    );
+    returnButton?.click();
+
+    const confirmButton = await screen.findByTestId("confirm-button");
+    confirmButton.click();
+
+    const editReviewForm = await screen.findByText("Edit a review");
+    expect(editReviewForm).toBeTruthy();
   });
 
   test("should show success page when book review submitted after successful book return", async () => {
