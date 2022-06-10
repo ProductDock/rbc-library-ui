@@ -111,7 +111,11 @@ const BookReviewForm = () => {
           onClick={handleSubmit}
         />
         <SkipReviewButton
-          text={formVariant === BookReviewFormVariant.EDIT ? "Cancel" : "Skip"}
+          text={
+            formVariant === BookReviewFormVariant.EDIT || !currentAction
+              ? "Cancel"
+              : "Skip"
+          }
           onClick={endReview}
         />
       </div>

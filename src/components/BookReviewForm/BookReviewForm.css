@@ -18,11 +18,15 @@
 }
 
 .book-review-form-footer {
+  z-index: 1302;
   float: right;
   width: 100%;
   vertical-align: middle;
   direction: rtl;
-  margin-top: 1.5em;
+  bottom: 23em;
+  position: absolute;
+  right: 1.5em;
+  width: 25vw;
 }
 
 .field-container {
