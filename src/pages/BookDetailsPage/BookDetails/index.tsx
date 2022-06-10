@@ -62,9 +62,7 @@ const BookDetails = () => {
       {showedReviewForm && (
         <>
           <div className="book-review-form-wrapper" onClick={hideReviewForm} />
-          <div className="book-review-form-container">
-            <BookReviewForm />
-          </div>
+          <BookReviewForm />
         </>
       )}
     </>
