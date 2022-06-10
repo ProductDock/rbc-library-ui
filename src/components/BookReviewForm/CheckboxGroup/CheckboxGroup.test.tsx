@@ -4,7 +4,7 @@ import BookReviewForm from "..";
 
 describe("Test checkbox group", () => {
   test("should select all checkboxes when select all checked", async () => {
-    render(<BookReviewForm onSkip={jest.fn()} />);
+    render(<BookReviewForm />);
 
     const recommendationCheckbox = await screen.findAllByTestId(
       "book-recommendation-checkbox"
@@ -19,7 +19,7 @@ describe("Test checkbox group", () => {
   });
 
   test("should check select all checkbox when all checked", async () => {
-    render(<BookReviewForm onSkip={jest.fn()} />);
+    render(<BookReviewForm />);
 
     const recommendationCheckbox = await screen.findAllByTestId(
       "book-recommendation-checkbox"
@@ -35,7 +35,7 @@ describe("Test checkbox group", () => {
   });
 
   test("should uncheck select all checkbox when one checkbox unchecked", async () => {
-    render(<BookReviewForm onSkip={jest.fn()} />);
+    render(<BookReviewForm />);
 
     const recommendationCheckbox = await screen.findAllByTestId(
       "book-recommendation-checkbox"

@@ -38,12 +38,13 @@
     position: fixed;
     left: 0;
     bottom: 0;
+    height: 8em;
     width: 100%;
+    margin-top: 0;
     text-align: center;
   }
 
   .field-container {
-    height: calc(82vh - 9em);
-    overflow-y: scroll;
+    position: relative;
   }
 }

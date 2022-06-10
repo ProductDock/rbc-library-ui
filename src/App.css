@@ -70,7 +70,7 @@ div.container {
 .main-div {
   padding-top: 0;
   background-color: #f7f7f9;
-  min-height: 93.5vh;
+  min-height: 100%;
 }
 
 .account-avatar {

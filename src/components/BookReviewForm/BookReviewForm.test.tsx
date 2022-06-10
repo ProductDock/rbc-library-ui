@@ -4,7 +4,7 @@ import BookReviewForm from ".";
 
 describe("Test book review form", () => {
   test("should show review form fields", async () => {
-    render(<BookReviewForm onSkip={jest.fn()} />);
+    render(<BookReviewForm />);
 
     const formTitle = await screen.findByTestId("book-review-form-title");
     const rating = screen.getByTestId("book-review-rating");
@@ -22,7 +22,7 @@ describe("Test book review form", () => {
   });
 
   test("should disable submit review button when review fields not provided", async () => {
-    render(<BookReviewForm onSkip={jest.fn()} />);
+    render(<BookReviewForm />);
 
     const submitReviewButton = await screen.findByTestId(
       "submit-review-button"
@@ -31,7 +31,7 @@ describe("Test book review form", () => {
   });
 
   test("should enable submit review button when review comment present", async () => {
-    render(<BookReviewForm onSkip={jest.fn()} />);
+    render(<BookReviewForm />);
 
     const reviewCommentTextArea = await screen.findByTestId(
       "review-comment-textarea"
@@ -45,7 +45,7 @@ describe("Test book review form", () => {
   });
 
   test("should enable submit review button when review star is selected", async () => {
-    render(<BookReviewForm onSkip={jest.fn()} />);
+    render(<BookReviewForm />);
 
     const bookReview = await screen.findByTestId("book-review-rating");
     const firstStar = bookReview.firstElementChild;
@@ -59,7 +59,7 @@ describe("Test book review form", () => {
   });
 
   test("should enable submit review button when recommendation is selected", async () => {
-    render(<BookReviewForm onSkip={jest.fn()} />);
+    render(<BookReviewForm />);
 
     const recommendation = await screen.findAllByTestId(
       "book-recommendation-checkbox"

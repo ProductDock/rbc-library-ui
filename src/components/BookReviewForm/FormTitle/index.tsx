@@ -2,12 +2,16 @@
 import { Typography } from "@mui/material";
 import "./FormTitle.css";
 import closeIcon from "../../../img/icons/close-icon.svg";
+import { useBookReviewContext } from "../../../store/books/reviews/BookReviewContext";
+import { BookReviewFormVariant } from "../../../store/books/reviews/Types";
 
 type Props = {
   onSkip: () => void;
 };
 
 const BookReviewFormTitle = ({ onSkip }: Props) => {
+  const { formVariant } = useBookReviewContext();
+
   return (
     <>
       <div className="title-container">
@@ -15,7 +19,8 @@ const BookReviewFormTitle = ({ onSkip }: Props) => {
           data-testid="book-review-form-title"
           className="book-review-title"
         >
-          Write a review
+          {formVariant === BookReviewFormVariant.EDIT ? "Edit" : "Write"} a
+          review
         </Typography>
         <img
           src={closeIcon}

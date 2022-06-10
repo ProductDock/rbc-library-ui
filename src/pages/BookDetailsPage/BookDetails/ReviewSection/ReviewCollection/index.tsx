@@ -12,10 +12,9 @@ import "./ReviewCollection.css";
 
 type Props = {
   reviews?: Review[];
-  actionOnClick: (review: Review) => void;
 };
 
-const ReviewCollection = ({ reviews, actionOnClick }: Props) => {
+const ReviewCollection = ({ reviews }: Props) => {
   const { userProfile } = useAuthContext();
 
   const isYourReview = (reviewerId: string) =>
@@ -41,7 +40,6 @@ const ReviewCollection = ({ reviews, actionOnClick }: Props) => {
               recommendation={review.recommendation}
               comment={review.comment}
               ratingsCount={sortedReviews?.length}
-              actionOnClick={actionOnClick}
             />
             {sortedReviews.indexOf(review) + 1 !== reviews?.length && (
               <hr className="separator-line" />

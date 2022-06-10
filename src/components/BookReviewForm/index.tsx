@@ -14,23 +14,17 @@ import {
 } from "../../store/books/details/Types";
 import { useBookDetailsContext } from "../../store/books/details/BookDetailsContext";
 import RecommendationCheckboxValues from "./util/RecomendationCheckoxValues";
+import { useBookReviewContext } from "../../store/books/reviews/BookReviewContext";
+import { BookReviewFormVariant } from "../../store/books/reviews/Types";
+import { BookActions } from "../../store/books/status/Types";
+import { successMessages } from "../../constants/successMessages";
+import { useSuccessScreenContext } from "../../store/books/success/SuccessScreenContext";
 
-type Props = {
-  onSkip: () => void;
-  onSuccessCallback?: () => void;
-  skipReviewButtonText?: string;
-  submitReviewButtonText?: string;
-  selectedReview?: BookReview;
-};
-
-const BookReviewForm = ({
-  onSkip,
-  onSuccessCallback,
-  skipReviewButtonText,
-  submitReviewButtonText,
-  selectedReview,
-}: Props) => {
-  const { addBookReview, editBookReview } = useBookDetailsContext();
+const BookReviewForm = () => {
+  const { book, currentAction, reloadBook } = useBookDetailsContext();
+  const { addReview, editReview, formVariant, selectedReview, hideReviewForm } =
+    useBookReviewContext();
+  const { showSuccessScreen } = useSuccessScreenContext();
 
   const [comment, setComment] = useState<string>(selectedReview?.comment || "");
   const [rating, setRating] = useState<number | null>(
@@ -53,10 +47,31 @@ const BookReviewForm = ({
     return review;
   };
 
+  const endReview = () => {
+    hideReviewForm?.();
+    if (currentAction === BookActions.RETURNED) {
+      reloadBook?.();
+      showSuccessScreen?.(successMessages.RETURN_BOOK);
+    }
+  };
+
+  const onSuccessCallback = () => {
+    if (currentAction === BookActions.RETURNED) {
+      showSuccessScreen?.(successMessages.RETURN_BOOK);
+    } else showSuccessScreen?.(successMessages.REVIEW_BOOK);
+
+    hideReviewForm?.();
+    reloadBook?.();
+  };
+
   const handleSubmit = () => {
     selectedReview
-      ? editBookReview?.(createReview()).then(() => onSuccessCallback?.())
-      : addBookReview?.(createReview()).then(() => onSuccessCallback?.());
+      ? editReview?.(book?.id || 0, createReview()).then(() =>
+          onSuccessCallback()
+        )
+      : addReview?.(book?.id || 0, createReview()).then(() =>
+          onSuccessCallback()
+        );
   };
 
   const isSubmitEnabled = useCallback(() => {
@@ -66,7 +81,7 @@ const BookReviewForm = ({
   return (
     <>
       <div className="field-container">
-        <BookReviewFormTitle onSkip={onSkip} />
+        <BookReviewFormTitle onSkip={endReview} />
         <Typography className="book-review-field-title">
           How would you rate your experience with this book?
         </Typography>
@@ -90,13 +105,13 @@ const BookReviewForm = ({
 
       <div className="book-review-form-footer">
         <SubmitReviewButton
-          text={submitReviewButtonText}
+          text={formVariant === BookReviewFormVariant.EDIT ? "Save" : "Submit"}
           disabled={!isSubmitEnabled()}
           onClick={handleSubmit}
         />
         <SkipReviewButton
-          text={skipReviewButtonText || "Skip"}
-          onClick={onSkip}
+          text={formVariant === BookReviewFormVariant.EDIT ? "Cancel" : "Skip"}
+          onClick={endReview}
         />
       </div>
     </>

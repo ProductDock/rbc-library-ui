@@ -55,8 +55,9 @@
         {
           "id": "3",
           "userFullName": "Dummyuser2",
+          "rating": 3,
           "userId": "dusan.petrovic@productdock.com",
-          "recommendation": [],
+          "recommendation": ["JUNIOR"],
           "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
         }
       ],
@@ -86,9 +87,16 @@
       "author": "Nikola Peric",
       "cover": "Cover1",
       "title": "Book title1",
-      "records": [
-        { "email": "nenad.becanovic@productdock.com", "status": "RENTED" },
-        { "email": "dusan.petrovic@productdock.com", "status": "AVAILABLE" }
+      "records": [{ "email": "test@test.com", "status": "RENTED" }],
+      "reviews": [
+        {
+          "id": "1",
+          "userFullName": "Dummyuser2",
+          "userId": "test@test.com",
+          "rating": 4,
+          "recommendation": ["MEDIOR", "SENIOR"],
+          "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+        }
       ],
       "rating": {
         "score": 1.5,

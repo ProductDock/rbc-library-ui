@@ -11,6 +11,7 @@ import { useAuthContext } from "../../auth/AuthContext";
 const initialState = {
   book: null,
   bookStatus: null,
+  currentAction: null,
 };
 
 type Props = {
@@ -33,7 +34,13 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
       .getBook(bookId)
       .then((resp) => dispatch({ type: actions.SET_BOOK, payload: resp.data }));
 
-  const reloadBook = () => setBookReload(!bookReload);
+  const setBookAction = (action: BookActions | null) =>
+    dispatch({ type: actions.SET_CURRENT_BOOK_ACTION, payload: action });
+
+  const reloadBook = () => {
+    setBookReload(!bookReload);
+    setBookAction(null);
+  };
 
   const sendRentalRequest = async (requestedStatus: BookActions) =>
     bookService.postRentalRequest({
@@ -41,11 +48,15 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
       requestedStatus,
     });
 
-  const rentABook = async (onSuccessHandler: () => void) =>
+  const rentABook = async (onSuccessHandler: () => void) => {
+    setBookAction(BookActions.RENTED);
     sendRentalRequest(BookActions.RENTED).then(onSuccessHandler);
+  };
 
-  const returnABook = async (onSuccessHandler: () => void) =>
+  const returnABook = async (onSuccessHandler: () => void) => {
+    setBookAction(BookActions.RETURNED);
     sendRentalRequest(BookActions.RETURNED).then(onSuccessHandler);
+  };
 
   const addBookReview = async (bookReview: BookReview) =>
     bookService.postBookReview(bookId, bookReview);

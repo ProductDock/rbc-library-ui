@@ -17,6 +17,8 @@ export const handlers = [
 
   rest.get(`${BOOK_DETAILS_URL}/3`, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json(BooksFixture.books[3]))),
 
+  rest.get(`${BOOK_DETAILS_URL}/4`, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json(BooksFixture.books[4]))),
+
   rest.post(RENTAL_RECORD_URL, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
 
   rest.post(`${POST_BOOK_REVIEW_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),

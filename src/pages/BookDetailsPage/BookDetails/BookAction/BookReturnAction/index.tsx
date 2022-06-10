@@ -1,39 +1,42 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Typography } from "@mui/material";
 import { useBookDetailsContext } from "../../../../../store/books/details/BookDetailsContext";
 import ConfirmationModal, {
   ConfirmationRefObject,
 } from "../../../../../components/Modals/ConfirmationModal";
-import BookReviewForm from "../../../../../components/BookReviewForm";
 import "./BookReturnAction.css";
-import { useSuccessScreenContext } from "../../../../../store/books/success/SuccessScreenContext";
+import { useBookReviewContext } from "../../../../../store/books/reviews/BookReviewContext";
+import { BookReviewFormVariant } from "../../../../../store/books/reviews/Types";
+import { useAuthContext } from "../../../../../store/auth/AuthContext";
 
 const title = "Return the book";
 const description = "Are you sure you want to return the book?";
-const successMessage = "You have successfully returned the book";
 
 const BookReturnAction = () => {
-  const { returnABook, reloadBook } = useBookDetailsContext();
-  const { showSuccessScreen } = useSuccessScreenContext();
-
-  const [showedReviewForm, setShowedReviewForm] = useState(false);
+  const { userProfile } = useAuthContext();
+  const { returnABook, book } = useBookDetailsContext();
+  const { showReviewForm, selectReview } = useBookReviewContext();
 
   const modal = useRef<ConfirmationRefObject>(null);
 
   const showModal = () => modal?.current?.showModal?.();
   const hideModal = () => modal?.current?.hideModal?.();
-  const showReviewForm = () => setShowedReviewForm(true);
-  const hideReviewForm = () => setShowedReviewForm(false);
+
+  const findExistingReview = () =>
+    book?.reviews?.find((review) => review.userId === userProfile?.email);
 
   const onSuccessHandler = () => {
     hideModal();
-    showReviewForm();
-  };
+    const review = findExistingReview();
 
-  const endReview = () => {
-    hideReviewForm();
-    reloadBook?.();
-    showSuccessScreen?.(successMessage);
+    if (review) {
+      selectReview?.({
+        rating: review.rating,
+        recommendation: review.recommendation,
+        comment: review.comment,
+      });
+      showReviewForm?.(BookReviewFormVariant.EDIT);
+    } else showReviewForm?.(BookReviewFormVariant.CREATE);
   };
 
   return (
@@ -52,15 +55,6 @@ const BookReturnAction = () => {
         description={description}
         onConfirmation={() => returnABook?.(onSuccessHandler)}
       />
-      {showedReviewForm && (
-        <div className="book-review-form-container">
-          <BookReviewForm
-            onSkip={endReview}
-            onSuccessCallback={endReview}
-            skipReviewButtonText="Skip"
-          />
-        </div>
-      )}
     </>
   );
 };
