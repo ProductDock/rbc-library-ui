@@ -40,6 +40,7 @@
     padding: 0 1.5em;
     box-sizing: border-box;
     position: fixed;
+    top: auto;
     left: 0;
     bottom: 0;
     height: 8em;
