@@ -23,7 +23,7 @@
   width: 100%;
   vertical-align: middle;
   direction: rtl;
-  bottom: 23em;
+  top: 34em;
   position: absolute;
   right: 1.5em;
   width: 25vw;
@@ -40,6 +40,7 @@
     padding: 0 1.5em;
     box-sizing: border-box;
     position: fixed;
+    top: auto;
     left: 0;
     bottom: 0;
     height: 8em;

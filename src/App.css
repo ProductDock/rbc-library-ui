@@ -71,8 +71,16 @@ div.container {
   padding-top: 0;
   background-color: #f7f7f9;
   min-height: 100%;
+  position: relative;
 }
 
 .account-avatar {
   align-self: center;
+}
+
+@media only screen and (max-width: 800px) {
+  .main-div {
+    min-height: calc(100vh - 64px);
+    overflow-x: hidden;
+  }
 }
