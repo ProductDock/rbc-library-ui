@@ -18,6 +18,16 @@
   height: 40px;
 }
 
+.delete-button.MuiButtonBase-root.MuiButton-root {
+  background-color: #d94844;
+  color: white;
+  border-radius: 20px;
+  border-color: #eeeeee;
+  border-width: 1px;
+  width: 50%;
+  height: 40px;
+}
+
 .modal-action-button-text {
   font-weight: 400;
   font-size: 14px;

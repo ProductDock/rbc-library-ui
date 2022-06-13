@@ -17,6 +17,7 @@ type Props = {
   title: string;
   description: string;
   onConfirmation?: () => void;
+  isDeleteReview?: boolean;
 };
 
 export interface ConfirmationRefObject {
@@ -26,7 +27,7 @@ export interface ConfirmationRefObject {
 
 const ConfirmationModal = forwardRef(
   (
-    { onConfirmation, title, description }: Props,
+    { onConfirmation, title, description, isDeleteReview }: Props,
     ref: Ref<ConfirmationRefObject>
   ) => {
     const [showed, setShowed] = useState(false);
@@ -57,10 +58,17 @@ const ConfirmationModal = forwardRef(
             variant={Variant.cancelButton}
             handleClick={hideModal}
           />
-          <ModalActionButton
-            variant={Variant.confirmButton}
-            handleClick={onConfirmation}
-          />
+          {isDeleteReview ? (
+            <ModalActionButton
+              variant={Variant.deleteButton}
+              handleClick={onConfirmation}
+            />
+          ) : (
+            <ModalActionButton
+              variant={Variant.confirmButton}
+              handleClick={onConfirmation}
+            />
+          )}
         </DialogActions>
       </Dialog>
     );

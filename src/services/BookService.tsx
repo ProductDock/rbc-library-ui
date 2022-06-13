@@ -28,3 +28,10 @@ export const putBookReview = async (
     )}`,
     review
   );
+
+export const deleteBookReview = async (bookId: number, userId?: string) =>
+  client.delete(
+    `/catalog/books/${bookId}/reviews?k_book=${bookId}&k_user=${encodeURIComponent(
+      userId || ""
+    )}`
+  );

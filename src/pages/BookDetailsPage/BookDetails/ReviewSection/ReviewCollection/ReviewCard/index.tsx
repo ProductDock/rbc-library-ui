@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-curly-newline */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
+import { useRef } from "react";
 import { Link, Typography } from "@mui/material";
 import userAvatar from "../../../../../../img/userAvatar.svg";
 import "./ReviewCard.css";
@@ -12,8 +13,16 @@ import {
   Review,
 } from "../../../../../../store/books/details/Types";
 import editIcon from "../../../../../../img/icons/edit-icon.svg";
+import deleteIcon from "../../../../../../img/icons/delete-icon.svg";
 import { useBookReviewContext } from "../../../../../../store/books/reviews/BookReviewContext";
 import { BookReviewFormVariant } from "../../../../../../store/books/reviews/Types";
+import { useBookDetailsContext } from "../../../../../../store/books/details/BookDetailsContext";
+import ConfirmationModal, {
+  ConfirmationRefObject,
+} from "../../../../../../components/Modals/ConfirmationModal";
+
+const title = "Delete review";
+const description = "Are you sure you want to delete the review";
 
 type Props = {
   reviewer: string;
@@ -33,7 +42,11 @@ const ReviewCard = ({
   ratingsCount,
 }: Props) => {
   const { userProfile } = useAuthContext();
-  const { selectReview, showReviewForm } = useBookReviewContext();
+  const { selectReview, deleteReview, showReviewForm } = useBookReviewContext();
+  const { book } = useBookDetailsContext();
+  const modal = useRef<ConfirmationRefObject>(null);
+  const showModal = () => modal?.current?.showModal?.();
+  const hideModal = () => modal?.current?.hideModal?.();
 
   const isYourReview = reviewerId === userProfile?.email;
 
@@ -51,6 +64,14 @@ const ReviewCard = ({
       comment,
     });
     showReviewForm?.(BookReviewFormVariant.EDIT);
+  };
+
+  const handleDeleteReview = () => {
+    showModal();
+  };
+
+  const onSuccessHandler = () => {
+    hideModal();
   };
 
   return (
@@ -92,23 +113,46 @@ const ReviewCard = ({
         )}
       </div>
       <div className="review-action-container">
-        <div className="review-action-container-edit">
-          {userProfile?.email === reviewerId ? (
-            <Link
-              className="edit-a-review-button"
-              underline="none"
-              data-testid="edit-a-review-button"
-              onClick={handleEditReview}
-            >
-              <img
-                src={editIcon}
-                alt="editIcon"
-                className="edit-a-review-button-icon"
-              />
-            </Link>
-          ) : undefined}
-        </div>
+        {userProfile?.email === reviewerId ? (
+          <>
+            <div className="review-action-container-edit">
+              <Link
+                className="edit-a-review-button"
+                underline="none"
+                data-testid="edit-a-review-button"
+                onClick={handleEditReview}
+              >
+                <img
+                  src={editIcon}
+                  alt="editIcon"
+                  className="edit-a-review-button-icon"
+                />
+              </Link>
+            </div>
+            <div className="review-action-container-delete">
+              <Link
+                className="delete-a-review-button"
+                underline="none"
+                data-testid="delete-a-review-button"
+                onClick={handleDeleteReview}
+              >
+                <img
+                  src={deleteIcon}
+                  alt="deleteIcon"
+                  className="delete-a-review-button-icon"
+                />
+              </Link>
+            </div>
+          </>
+        ) : undefined}
       </div>
+      <ConfirmationModal
+        ref={modal}
+        title={title}
+        description={description}
+        onConfirmation={() => deleteReview?.(book?.id || 0, onSuccessHandler)}
+        isDeleteReview
+      />
     </div>
   );
 };

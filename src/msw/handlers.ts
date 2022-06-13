@@ -6,6 +6,7 @@ export const BOOK_DETAILS_URL = `*/books`;
 export const RENTAL_RECORD_URL = `*/rental/record`;
 export const POST_BOOK_REVIEW_URL = `*/catalog/books/*/reviews`;
 export const PUT_BOOK_REVIEW_URL = `*/catalog/books/*/reviews*`;
+export const DELETE_BOOK_REVIEW_URL = `*/catalog/books/*/reviews*`;
 
 export const handlers = [
 
@@ -24,4 +25,6 @@ export const handlers = [
   rest.post(`${POST_BOOK_REVIEW_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
 
   rest.put(`${PUT_BOOK_REVIEW_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
+
+  rest.delete(`${DELETE_BOOK_REVIEW_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
 ];

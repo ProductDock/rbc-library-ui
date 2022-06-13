@@ -25,6 +25,11 @@ const BookReviewContextProvider = (props: any) => {
   const editReview = async (bookId: number, bookReview: BookReview) =>
     bookService.putBookReview(bookId, bookReview, userProfile?.email);
 
+  const deleteReview = async (bookId: number, onSuccessHandler: () => void) =>
+    bookService
+      .deleteBookReview(bookId, userProfile?.email)
+      .then(onSuccessHandler);
+
   const selectReview = async (bookReview: BookReview) =>
     dispatch({ type: actions.SELECT_REVIEW_FOR_EDIT, payload: bookReview });
 
@@ -40,6 +45,7 @@ const BookReviewContextProvider = (props: any) => {
         ...reviewState,
         addReview,
         editReview,
+        deleteReview,
         selectReview,
         showReviewForm,
         hideReviewForm,
