@@ -12,10 +12,15 @@ import CategoriesSection from "./CategoriesSection";
 import { useBookReviewContext } from "../../../store/books/reviews/BookReviewContext";
 import { MediaQueries } from "../../../constants/mediaQueries";
 import BookReviewForm from "../../../components/BookReviewForm";
+import { BookActions } from "../../../store/books/status/Types";
+import { successMessages } from "../../../constants/successMessages";
+import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
 
 const BookDetails = () => {
-  const { book, bookStatus, setBookStatus } = useBookDetailsContext();
+  const { book, currentAction, bookStatus, setBookStatus, reloadBook } =
+    useBookDetailsContext();
   const { showedReviewForm, hideReviewForm } = useBookReviewContext();
+  const { showSuccessScreen } = useSuccessScreenContext();
   const isLargeScreen = useMediaQuery(MediaQueries.LARGE);
 
   const showingBookDetails = () => {
@@ -23,6 +28,14 @@ const BookDetails = () => {
     if (!showedReviewForm && !isLargeScreen) return true;
 
     return false;
+  };
+
+  const endReview = () => {
+    hideReviewForm?.();
+    if (currentAction === BookActions.RETURNED) {
+      reloadBook?.();
+      showSuccessScreen?.(successMessages.RETURN_BOOK);
+    }
   };
 
   return (
@@ -61,7 +74,7 @@ const BookDetails = () => {
       )}
       {showedReviewForm && (
         <>
-          <div className="book-review-form-wrapper" onClick={hideReviewForm} />
+          <div className="book-review-form-wrapper" onClick={endReview} />
           <BookReviewForm />
         </>
       )}
