@@ -62,6 +62,7 @@ export interface IBookDetailsContext {
   setBookStatus?: Function;
   returnABook?: Function;
   rentABook?: Function;
+  reserveABook?: Function;
   addBookReview?: (review: BookReview) => Promise<any>;
   editBookReview?: (review: BookReview) => Promise<any>;
 }
