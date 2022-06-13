@@ -19,9 +19,10 @@ const PageRouter = () => {
         <Route path={routes.HOME} element={<HomePage />} />
       </Route>
       <Route path={routes.WELCOME} element={<LandingPage />} />
-      <Route path={routes.BOOK_DETAILS} element={<ProtectedRouter />}>
+      <Route path={routes.BOOK_DETAILS} element={<BookDetailsPage />} />
+      {/* <Route path={routes.BOOK_DETAILS} element={<ProtectedRouter />}>
         <Route path={routes.BOOK_DETAILS} element={<BookDetailsPage />} />
-      </Route>
+      </Route> */}
     </Routes>
   );
 };
