@@ -44,7 +44,8 @@
 }
 
 .bd-text-box {
-  width: 80%;
+  position: relative;
+  width: 100%;
   padding: 0;
 }
 
@@ -62,7 +63,11 @@
 }
 
 .bd-text-box > button {
-  display: none;
+  position: absolute;
+  width: 216px;
+  right: 0;
+  bottom: 5.3vh;
+  cursor: pointer;
 }
 
 .description-section {
@@ -166,6 +171,7 @@
   }
 
   .bd-text-box {
+    width: 80%;
     padding: 0.7em 2em 2em 2em;
   }
 
@@ -184,6 +190,9 @@
   }
 
   .bd-text-box > button {
+    position: relative;
+    width: 100%;
+    bottom: 0;
     display: block;
   }
 

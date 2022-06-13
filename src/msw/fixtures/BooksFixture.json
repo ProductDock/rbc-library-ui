@@ -7,7 +7,7 @@
       "cover": "Cover",
       "title": "Book titleBook titleBook titleBook titleBook titleBook titleBook titleBook titleBook titleBook titleBook titleBook title",
       "records": [
-        { "email": "nenad.becanovic@productdock.com", "status": "RESERVED" },
+        { "email": "nenad.becanovic@productdock.com", "status": "RENTED" },
         { "email": "", "status": "AVAILABLE" }
       ],
       "reviews": [
