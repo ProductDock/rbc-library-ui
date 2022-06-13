@@ -1,6 +1,7 @@
 import { useMediaQuery } from "@mui/material";
 import { MediaQueries } from "../../../../constants/mediaQueries";
 import { BookStatus } from "../../../../store/books/status/Types";
+import BookCancelReservationAction from "./BookCancelReservationAction";
 import BookRentAction from "./BookRentAction";
 import BookReserveAction from "./BookReserveAction";
 import BookReturnAction from "./BookReturnAction";
@@ -16,7 +17,9 @@ const BookAction = ({ bookStatus }: Props) => {
   }
   if (bookStatus === BookStatus.AVAILABLE) return <BookRentAction />;
   if (bookStatus === BookStatus.RENTED_BY_YOU) return <BookReturnAction />;
-
+  if (bookStatus === BookStatus.RESERVED_BY_YOU) {
+    return <BookCancelReservationAction />;
+  }
   return null;
 };
 

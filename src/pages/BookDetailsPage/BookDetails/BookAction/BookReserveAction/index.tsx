@@ -35,7 +35,7 @@ const BookReserveAction = () => {
         type="button"
         className="reserve-button"
         onClick={showModal}
-        data-testid="rent-book-button"
+        data-testid="reserve-book-button"
       >
         <Typography>Reserve the book</Typography>
       </button>

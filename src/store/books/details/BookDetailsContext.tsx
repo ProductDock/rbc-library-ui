@@ -63,6 +63,11 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     sendRentalRequest(BookActions.RESERVED).then(onSuccessHandler);
   };
 
+  const cancelBookReservation = async (onSuccessHandler: () => void) => {
+    setBookAction(BookActions.CANCELED);
+    sendRentalRequest(BookActions.CANCELED).then(onSuccessHandler);
+  };
+
   const addBookReview = async (bookReview: BookReview) =>
     bookService.postBookReview(bookId, bookReview);
 
@@ -83,6 +88,7 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
         rentABook,
         returnABook,
         reserveABook,
+        cancelBookReservation,
         addBookReview,
         editBookReview,
       }}
