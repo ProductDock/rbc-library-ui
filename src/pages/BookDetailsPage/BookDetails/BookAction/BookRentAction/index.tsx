@@ -11,6 +11,7 @@ const title = "Rent the book";
 const description =
   "Please confirm your book rental and enjoy reading the book.";
 const successMessage = "You have successfully rented the book";
+const gratitudeMessage = "Thank you for using PD library";
 
 const BookRentAction = () => {
   const { rentABook, reloadBook } = useBookDetailsContext();
@@ -24,7 +25,7 @@ const BookRentAction = () => {
   const onSuccessHandler = () => {
     hideModal();
     reloadBook?.();
-    showSuccessScreen?.(successMessage);
+    showSuccessScreen?.(successMessage, gratitudeMessage);
   };
 
   return (

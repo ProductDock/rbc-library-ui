@@ -6,7 +6,7 @@ import { useSuccessScreenContext } from "../../../../store/books/success/Success
 import SnackbarAlert from "../../../../components/Snackbar";
 
 const Notification = () => {
-  const { showed, hideSuccessScreen, successMessage } =
+  const { showed, hideSuccessScreen, successMessage, gratitudeMessage } =
     useSuccessScreenContext();
   const isLargeScreen = useMediaQuery(MediaQueries.LARGE);
 
@@ -19,7 +19,7 @@ const Notification = () => {
           autoHideDuration={5000}
           title="Success!"
           description={successMessage}
-          innerMessage="Thank you for using PD library"
+          innerMessage={gratitudeMessage}
         />
       ) : (
         <SuccessScreen />

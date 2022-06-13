@@ -7,6 +7,7 @@ import { MediaQueries } from "../../../constants/mediaQueries";
 
 const initialState = {
   successMessage: "",
+  gratitudeMessage: "",
   showed: false,
 };
 
@@ -21,8 +22,14 @@ const SuccessScreenContextProvider = ({ children }: Props) => {
   const [successState, dispatch] = useReducer(reducer, initialState);
   const isLargeScreen = useMediaQuery(MediaQueries.LARGE);
 
-  const showSuccessScreen = (successMessage: string) =>
-    dispatch({ type: actions.SHOW_SUCCESS_SCREEN, payload: successMessage });
+  const showSuccessScreen = (
+    successMessage: string,
+    gratitudeMessage: string
+  ) =>
+    dispatch({
+      type: actions.SHOW_SUCCESS_SCREEN,
+      payload: { successMessage, gratitudeMessage },
+    });
 
   const hideSuccessScreen = () =>
     dispatch({ type: actions.HIDE_SUCCESS_SCREEN });

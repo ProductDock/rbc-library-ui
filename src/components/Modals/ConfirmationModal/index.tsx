@@ -16,6 +16,7 @@ import closeIcon from "../../../img/icons/close-icon.svg";
 type Props = {
   title: string;
   description: string;
+  children?: any;
   onConfirmation?: () => void;
 };
 
@@ -26,7 +27,7 @@ export interface ConfirmationRefObject {
 
 const ConfirmationModal = forwardRef(
   (
-    { onConfirmation, title, description }: Props,
+    { onConfirmation, title, description, children }: Props,
     ref: Ref<ConfirmationRefObject>
   ) => {
     const [showed, setShowed] = useState(false);
@@ -52,6 +53,7 @@ const ConfirmationModal = forwardRef(
         <DialogContent className="modal-content">
           <Typography className="modal-description">{description}</Typography>
         </DialogContent>
+        {children}
         <DialogActions className="action-container">
           <ModalActionButton
             variant={Variant.cancelButton}
