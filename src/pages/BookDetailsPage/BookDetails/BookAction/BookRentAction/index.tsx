@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Typography } from "@mui/material";
 import { useBookDetailsContext } from "../../../../../store/books/details/BookDetailsContext";
 import ConfirmationModal, {
+  ActionVariant,
   ConfirmationRefObject,
 } from "../../../../../components/Modals/ConfirmationModal";
 import { useSuccessScreenContext } from "../../../../../store/books/success/SuccessScreenContext";
@@ -43,6 +44,7 @@ const BookRentAction = () => {
         title={title}
         description={description}
         onConfirmation={() => rentABook?.(onSuccessHandler)}
+        variant={ActionVariant.confirm}
       />
     </>
   );

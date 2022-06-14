@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { Typography } from "@mui/material";
 import { useBookDetailsContext } from "../../../../../store/books/details/BookDetailsContext";
 import ConfirmationModal, {
+  ActionVariant,
   ConfirmationRefObject,
 } from "../../../../../components/Modals/ConfirmationModal";
 import "./BookCancelReservationAction.css";
@@ -37,6 +38,7 @@ const BookCancelReservationAction = () => {
         title={title}
         description={description}
         onConfirmation={() => cancelBookReservation?.(onSuccessHandler)}
+        variant={ActionVariant.confirm}
       />
     </>
   );

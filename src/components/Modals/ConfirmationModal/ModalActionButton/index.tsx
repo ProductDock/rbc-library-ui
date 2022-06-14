@@ -6,6 +6,7 @@ import "./ModalActionButton.css";
 export enum Variant {
   cancelButton,
   confirmButton,
+  deleteButton,
 }
 
 type Props = {
@@ -14,11 +15,31 @@ type Props = {
 };
 
 const ModalActionButton = ({ variant, handleClick }: Props) => {
-  const buttonText = () =>
-    variant === Variant.cancelButton ? "Cancel" : "Confirm";
+  const buttonText = () => {
+    switch (variant) {
+      case Variant.cancelButton:
+        return "Cancel";
+      case Variant.confirmButton:
+        return "Confirm";
+      case Variant.deleteButton:
+        return "Delete";
+      default:
+        return "";
+    }
+  };
 
-  const buttonClassname = () =>
-    variant === Variant.cancelButton ? "cancel-button" : "confirm-button";
+  const buttonClassname = () => {
+    switch (variant) {
+      case Variant.cancelButton:
+        return "cancel-button";
+      case Variant.confirmButton:
+        return "confirm-button";
+      case Variant.deleteButton:
+        return "delete-button";
+      default:
+        return "";
+    }
+  };
 
   return (
     <Button

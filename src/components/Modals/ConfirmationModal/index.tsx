@@ -13,11 +13,17 @@ import { forwardRef, Ref, useImperativeHandle, useState } from "react";
 import ModalActionButton, { Variant } from "./ModalActionButton";
 import closeIcon from "../../../img/icons/close-icon.svg";
 
+export enum ActionVariant {
+  confirm,
+  delete,
+}
+
 type Props = {
   title: string;
   description: any;
   children?: any;
   onConfirmation?: () => void;
+  variant: ActionVariant;
 };
 
 export interface ConfirmationRefObject {
@@ -27,7 +33,7 @@ export interface ConfirmationRefObject {
 
 const ConfirmationModal = forwardRef(
   (
-    { onConfirmation, title, description, children }: Props,
+    { onConfirmation, title, description, children, variant }: Props,
     ref: Ref<ConfirmationRefObject>
   ) => {
     const [showed, setShowed] = useState(false);
@@ -59,10 +65,17 @@ const ConfirmationModal = forwardRef(
             variant={Variant.cancelButton}
             handleClick={hideModal}
           />
-          <ModalActionButton
-            variant={Variant.confirmButton}
-            handleClick={onConfirmation}
-          />
+          {variant === ActionVariant.delete ? (
+            <ModalActionButton
+              variant={Variant.deleteButton}
+              handleClick={onConfirmation}
+            />
+          ) : (
+            <ModalActionButton
+              variant={Variant.confirmButton}
+              handleClick={onConfirmation}
+            />
+          )}
         </DialogActions>
       </Dialog>
     );

@@ -130,10 +130,10 @@
 
 .book-details-right .review-action-container {
   position: absolute;
-  width: auto;
+  width: 100px;
   padding: 0;
   top: 15%;
-  right: 4%;
+  right: 1%;
 }
 
 @media only screen and (max-width: 800px) {
