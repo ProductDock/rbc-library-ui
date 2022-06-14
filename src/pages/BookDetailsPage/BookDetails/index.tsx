@@ -15,6 +15,7 @@ import BookReviewForm from "../../../components/BookReviewForm";
 import { BookActions } from "../../../store/books/status/Types";
 import { successMessages } from "../../../constants/successMessages";
 import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
+import { gratitudeMessages } from "../../../constants/gratitudeMessages";
 
 const BookDetails = () => {
   const { book, currentAction, bookStatus, setBookStatus, reloadBook } =
@@ -34,7 +35,10 @@ const BookDetails = () => {
     hideReviewForm?.();
     if (currentAction === BookActions.RETURNED) {
       reloadBook?.();
-      showSuccessScreen?.(successMessages.RETURN_BOOK);
+      showSuccessScreen?.(
+        successMessages.RETURN_BOOK,
+        gratitudeMessages.THANK_YOU
+      );
     }
   };
 

@@ -6,16 +6,22 @@ import ConfirmationModal, {
   ConfirmationRefObject,
 } from "../../../../../components/Modals/ConfirmationModal";
 import { useSuccessScreenContext } from "../../../../../store/books/success/SuccessScreenContext";
-import "./BookRentAction.css";
+import "./BookReserveAction.css";
+import reserveDialog from "../../../../../img/modals/reserve-a-book-qr.png";
 
-const title = "Rent the book";
-const description =
-  "Please confirm your book rental and enjoy reading the book.";
-const successMessage = "You have successfully rented the book";
-const gratitudeMessage = "Thank you for using PD library";
+const title = "Reserve the book";
+const description = (
+  <>
+    After reservation, the book will wait for you for
+    <strong> 4 working days</strong>. Pick up the book in the office and
+    <strong> mark it as rented</strong> by using QR system.
+  </>
+);
+const successMessage = "The book has been successfully reserved";
+const gratitudeMessage = "You can go to the office to pick up the book";
 
-const BookRentAction = () => {
-  const { rentABook, reloadBook } = useBookDetailsContext();
+const BookReserveAction = () => {
+  const { reserveABook, reloadBook } = useBookDetailsContext();
   const { showSuccessScreen } = useSuccessScreenContext();
 
   const modal = useRef<ConfirmationRefObject>(null);
@@ -33,21 +39,27 @@ const BookRentAction = () => {
     <>
       <button
         type="button"
-        className="rent-button"
+        className="reserve-button"
         onClick={showModal}
-        data-testid="rent-book-button"
+        data-testid="reserve-book-button"
       >
-        <Typography>Rent a book</Typography>
+        <Typography>Reserve the book</Typography>
       </button>
       <ConfirmationModal
         ref={modal}
         title={title}
         description={description}
-        onConfirmation={() => rentABook?.(onSuccessHandler)}
+        onConfirmation={() => reserveABook?.(onSuccessHandler)}
         variant={ActionVariant.confirm}
-      />
+      >
+        <img
+          src={reserveDialog}
+          alt="reserve-a-book"
+          className="reserve-a-book-modal-img"
+        />
+      </ConfirmationModal>
     </>
   );
 };
 
-export default BookRentAction;
+export default BookReserveAction;

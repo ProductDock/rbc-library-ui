@@ -19,6 +19,7 @@ import { BookReviewFormVariant } from "../../store/books/reviews/Types";
 import { BookActions } from "../../store/books/status/Types";
 import { successMessages } from "../../constants/successMessages";
 import { useSuccessScreenContext } from "../../store/books/success/SuccessScreenContext";
+import { gratitudeMessages } from "../../constants/gratitudeMessages";
 
 const BookReviewForm = () => {
   const { book, currentAction, reloadBook } = useBookDetailsContext();
@@ -51,15 +52,25 @@ const BookReviewForm = () => {
     hideReviewForm?.();
     if (currentAction === BookActions.RETURNED) {
       reloadBook?.();
-      showSuccessScreen?.(successMessages.RETURN_BOOK);
+      showSuccessScreen?.(
+        successMessages.RETURN_BOOK,
+        gratitudeMessages.THANK_YOU
+      );
     }
   };
 
   const onSuccessCallback = () => {
     if (currentAction === BookActions.RETURNED) {
-      showSuccessScreen?.(successMessages.RETURN_BOOK);
-    } else showSuccessScreen?.(successMessages.REVIEW_BOOK);
-
+      showSuccessScreen?.(
+        successMessages.RETURN_BOOK,
+        gratitudeMessages.THANK_YOU
+      );
+    } else {
+      showSuccessScreen?.(
+        successMessages.REVIEW_BOOK,
+        gratitudeMessages.THANK_YOU
+      );
+    }
     hideReviewForm?.();
     reloadBook?.();
   };

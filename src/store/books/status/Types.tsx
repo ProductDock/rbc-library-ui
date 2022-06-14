@@ -17,4 +17,5 @@ export enum BookActions {
   RETURNED = "RETURNED",
   RENTED = "RENTED",
   RESERVED = "RESERVED",
+  CANCELED = "CANCELED",
 }

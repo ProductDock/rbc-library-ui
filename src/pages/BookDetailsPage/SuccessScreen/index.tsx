@@ -8,7 +8,8 @@ export interface SuccessScreenRefObject {
 }
 
 const SuccessScreen = () => {
-  const { showed, successMessage } = useSuccessScreenContext();
+  const { showed, successMessage, gratitudeMessage } =
+    useSuccessScreenContext();
 
   if (showed) {
     return (
@@ -18,7 +19,7 @@ const SuccessScreen = () => {
           <Typography className="success-text">Success!</Typography>
           <Typography className="success-message">{successMessage}</Typography>
           <Typography className="gratitude-message">
-            Thank you for using PD library
+            {gratitudeMessage}
           </Typography>
         </div>
       </div>

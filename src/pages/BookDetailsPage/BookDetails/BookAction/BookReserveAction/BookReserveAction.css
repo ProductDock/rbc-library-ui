@@ -1,0 +1,13 @@
+.reserve-button {
+  background-color: #65b32e;
+  color: white;
+  border-radius: 20px;
+  border-width: 0;
+  width: 100%;
+  height: 40px;
+  margin-top: 26px;
+}
+
+.reserve-a-book-modal-img {
+  padding: 0 1.5em;
+}

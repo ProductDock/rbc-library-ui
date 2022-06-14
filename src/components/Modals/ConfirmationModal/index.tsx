@@ -20,7 +20,8 @@ export enum ActionVariant {
 
 type Props = {
   title: string;
-  description: string;
+  description: any;
+  children?: any;
   onConfirmation?: () => void;
   variant: ActionVariant;
 };
@@ -32,7 +33,7 @@ export interface ConfirmationRefObject {
 
 const ConfirmationModal = forwardRef(
   (
-    { onConfirmation, title, description, variant }: Props,
+    { onConfirmation, title, description, children, variant }: Props,
     ref: Ref<ConfirmationRefObject>
   ) => {
     const [showed, setShowed] = useState(false);
@@ -58,6 +59,7 @@ const ConfirmationModal = forwardRef(
         <DialogContent className="modal-content">
           <Typography className="modal-description">{description}</Typography>
         </DialogContent>
+        {children}
         <DialogActions className="action-container">
           <ModalActionButton
             variant={Variant.cancelButton}
