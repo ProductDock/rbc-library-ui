@@ -18,6 +18,7 @@ import { useBookReviewContext } from "../../../../../../store/books/reviews/Book
 import { BookReviewFormVariant } from "../../../../../../store/books/reviews/Types";
 import { useBookDetailsContext } from "../../../../../../store/books/details/BookDetailsContext";
 import ConfirmationModal, {
+  ActionVariant,
   ConfirmationRefObject,
 } from "../../../../../../components/Modals/ConfirmationModal";
 
@@ -43,7 +44,7 @@ const ReviewCard = ({
 }: Props) => {
   const { userProfile } = useAuthContext();
   const { selectReview, deleteReview, showReviewForm } = useBookReviewContext();
-  const { book } = useBookDetailsContext();
+  const { book, reloadBook } = useBookDetailsContext();
   const modal = useRef<ConfirmationRefObject>(null);
   const showModal = () => modal?.current?.showModal?.();
   const hideModal = () => modal?.current?.hideModal?.();
@@ -72,6 +73,7 @@ const ReviewCard = ({
 
   const onSuccessHandler = () => {
     hideModal();
+    reloadBook();
   };
 
   return (
@@ -151,7 +153,7 @@ const ReviewCard = ({
         title={title}
         description={description}
         onConfirmation={() => deleteReview?.(book?.id || 0, onSuccessHandler)}
-        isDeleteReview
+        variant={ActionVariant.delete}
       />
     </div>
   );

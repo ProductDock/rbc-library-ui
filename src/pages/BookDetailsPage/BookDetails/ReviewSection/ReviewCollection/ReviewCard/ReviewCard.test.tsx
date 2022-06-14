@@ -119,9 +119,6 @@ describe("Test review card action buttons", () => {
 
     const usersReview = books[BOOK_ID_WITH_REVIEWS].reviews?.at(0);
 
-    // await waitFor(() =>
-    //   expect(screen.queryByText(usersReview?.comment)).toBeTruthy()
-    // );
     const recommendationCheckbox = await screen.findAllByTestId(
       "book-recommendation-checkbox"
     );
