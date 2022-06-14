@@ -15,11 +15,17 @@ const BookAction = ({ bookStatus }: Props) => {
   if (isLargeScreen && bookStatus === BookStatus.AVAILABLE) {
     return <BookReserveAction />;
   }
-  if (bookStatus === BookStatus.AVAILABLE) return <BookRentAction />;
-  if (bookStatus === BookStatus.RENTED_BY_YOU) return <BookReturnAction />;
-  if (bookStatus === BookStatus.RESERVED_BY_YOU) {
+  if (isLargeScreen && bookStatus === BookStatus.RESERVED_BY_YOU) {
     return <BookCancelReservationAction />;
   }
+  if (
+    bookStatus === BookStatus.AVAILABLE ||
+    bookStatus === BookStatus.RESERVED_BY_YOU
+  ) {
+    return <BookRentAction />;
+  }
+  if (bookStatus === BookStatus.RENTED_BY_YOU) return <BookReturnAction />;
+
   return null;
 };
 
