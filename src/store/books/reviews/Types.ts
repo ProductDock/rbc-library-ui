@@ -12,6 +12,7 @@ export interface IBookReviewContext {
     formVariant: BookReviewFormVariant;
     addReview?: (bookId: number, review: BookReview) => Promise<any>;
     editReview?: (bookId: number, review: BookReview) => Promise<any>;
+    deleteReview?: (bookId: number, onSuccessHandler: () => void) => Promise<any>;
     selectReview?: (review: BookReview) => void;
     hideReviewForm?: () => void;
     showReviewForm?: (formVariant: BookReviewFormVariant) => void;

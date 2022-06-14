@@ -45,8 +45,14 @@
 }
 
 .review-action-container {
+  display: flex;
   width: 100%;
   padding: 0.8em 0 0 4em;
+}
+
+.review-action-container div {
+  width: auto;
+  margin: 0;
 }
 
 .review-action-container-edit {
@@ -54,10 +60,14 @@
 }
 
 .review-action-container a {
-  margin: 0 1em 0 0.6em;
+  margin: 0 1em;
 }
 
 .review-action-container .edit-a-review-button {
+  cursor: pointer;
+}
+
+.review-action-container .delete-a-review-button {
   cursor: pointer;
 }
 
