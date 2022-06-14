@@ -73,7 +73,7 @@
       "author": "Milan Peric",
       "cover": "Cover2",
       "title": "Book title2",
-      "records": [{ "email": "test1@test.com", "status": "RESERVED" }]
+      "records": [{ "email": "test@test.com", "status": "RESERVED" }]
     },
     {
       "id": 4,
