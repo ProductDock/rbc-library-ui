@@ -4,7 +4,6 @@
   border-radius: 20px;
   border-color: #eeeeee;
   border: 1px;
-  width: 50%;
   height: 40px;
 }
 
@@ -14,7 +13,6 @@
   border-radius: 20px;
   border-color: #eeeeee;
   border-width: 1px;
-  width: 50%;
   height: 40px;
 }
 
@@ -24,7 +22,6 @@
   border-radius: 20px;
   border-color: #eeeeee;
   border-width: 1px;
-  width: 50%;
   height: 40px;
 }
 
@@ -32,4 +29,18 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
+}
+
+@media only screen and (max-width: 800px) {
+  .delete-button.MuiButtonBase-root.MuiButton-root {
+    width: 50%;
+  }
+
+  .cancel-button.MuiButtonBase-root.MuiButton-root {
+    width: 50%;
+  }
+
+  .confirm-button.MuiButtonBase-root.MuiButton-root {
+    width: 50%;
+  }
 }
