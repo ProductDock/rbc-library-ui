@@ -9,8 +9,13 @@ import "./BookReserveAction.css";
 import reserveDialog from "../../../../../img/modals/reserve-a-book-qr.png";
 
 const title = "Reserve the book";
-const description =
-  "After reservation, the book will wait for you for 4 working days. Pick up the book in the office and mark it as rented by using QR system.";
+const description = (
+  <>
+    After reservation, the book will wait for you for
+    <strong> 4 working days</strong>. Pick up the book in the office and
+    <strong> mark it as rented</strong> by using QR system.
+  </>
+);
 const successMessage = "The book has been successfully reserved";
 const gratitudeMessage = "You can go to the office to pick up the book";
 

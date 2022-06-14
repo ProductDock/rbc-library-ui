@@ -15,7 +15,7 @@ import closeIcon from "../../../img/icons/close-icon.svg";
 
 type Props = {
   title: string;
-  description: string;
+  description: any;
   children?: any;
   onConfirmation?: () => void;
 };
