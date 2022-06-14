@@ -73,7 +73,7 @@ const ReviewCard = ({
 
   const onSuccessHandler = () => {
     hideModal();
-    reloadBook();
+    reloadBook?.();
   };
 
   return (
