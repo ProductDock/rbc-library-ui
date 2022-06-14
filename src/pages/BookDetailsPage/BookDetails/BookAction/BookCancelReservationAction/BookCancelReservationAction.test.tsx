@@ -33,7 +33,7 @@ const initTest = (width: any) => {
 };
 
 describe("Test book rent action", () => {
-  test("should show success page when book successfully reserved", async () => {
+  test("should show success page when book reservation successfully canceled", async () => {
     initTest(SCREEN_WIDTH);
     jest
       .spyOn(Router, "useParams")
