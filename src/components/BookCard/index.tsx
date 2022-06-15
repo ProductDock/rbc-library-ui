@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Tooltip, Typography } from "@mui/material";
 import { useNavigate } from "react-router";
 import { routes } from "../../constants/routes";
