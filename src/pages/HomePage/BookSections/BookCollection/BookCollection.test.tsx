@@ -27,7 +27,7 @@ describe("Test find all book", () => {
     render(<App />);
 
     const noBooksInCatalogMessageHeader = await screen.findByText(
-      "There are no books in catalog for the applied search criteria"
+      "No books found"
     );
     const noBooksInCatalogMessage = screen.getAllByText(
       "Try to adjust your active filters or search text to get results"

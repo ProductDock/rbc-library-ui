@@ -18,7 +18,7 @@ describe("Test recommended books collection", () => {
     render(<App />);
 
     const noRecommendedBooksMessageHeader = await screen.findByText(
-      "There are no recommended books for the applied search criteria"
+      "No recommended books found"
     );
     const noRecommendedBooksMessage = screen.getAllByText(
       "Try to adjust your active filters or search text to get results"

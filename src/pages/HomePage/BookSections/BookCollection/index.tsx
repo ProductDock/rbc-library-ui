@@ -33,7 +33,7 @@ const BookCollection = () => {
       ) : (
         <div>
           <Typography className="no-books-in-catalog-message-heading">
-            There are no books in catalog for the applied search criteria
+            No books found
           </Typography>
           <Typography className="no-books-in-catalog-message-text">
             Try to adjust your active filters or search text to get results
