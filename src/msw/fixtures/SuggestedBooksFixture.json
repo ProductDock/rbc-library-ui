@@ -1,68 +1,68 @@
 [
-    {
-        "id": 1,
-        "author": "Pera Peric",
-        "title": "Title1",
-        "recommended": true
-    },
-    {
-        "id": 2,
-        "author": "Pera Peric",
-        "title": "Title2",
-        "recommended": false
-    },
-    {
-        "id": 3,
-        "author": "Dummy user 3",
-        "title": "Title3",
-        "recommended": true
-    },
-    {
-        "id": 4,
-        "author": "Dummy user 4",
-        "title": "Title4",
-        "recommended": false
-    },
-    {
-        "id": 5,
-        "author": "Pera Peric",
-        "title": "Title5",
-        "recommended": true
-    },
-    {
-        "id": 6,
-        "author": "Pera Peric",
-        "title": "Title6",
-        "recommended": false
-    },
-    {
-        "id": 7,
-        "author": "Dummy user 3",
-        "title": "Title7",
-        "recommended": false
-    },
-    {
-        "id": 8,
-        "author": "Dummy user 4",
-        "title": "Title8",
-        "recommended": false
-    },
-    {
-        "id": 9,
-        "author": "Pera Peric",
-        "title": "Title9",
-        "recommended": false
-    },
-    {
-        "id": 10,
-        "author": "Dummy user 3",
-        "title": "Title10",
-        "recommended": false
-    },
-    {
-        "id": 11,
-        "author": "Dummy user 4",
-        "title": "Title11",
-        "recommended": false
-    }
+  {
+    "id": 1,
+    "author": "Pera Peric",
+    "title": "Bitle1",
+    "recommended": true
+  },
+  {
+    "id": 2,
+    "author": "Pera Peric",
+    "title": "Title2",
+    "recommended": false
+  },
+  {
+    "id": 3,
+    "author": "Dummy user 3",
+    "title": "Title3",
+    "recommended": true
+  },
+  {
+    "id": 4,
+    "author": "Dummy user 4",
+    "title": "Title4",
+    "recommended": false
+  },
+  {
+    "id": 5,
+    "author": "Pera Peric",
+    "title": "Title5",
+    "recommended": true
+  },
+  {
+    "id": 6,
+    "author": "Pera Peric",
+    "title": "Title6",
+    "recommended": false
+  },
+  {
+    "id": 7,
+    "author": "Dummy user 3",
+    "title": "Title7",
+    "recommended": false
+  },
+  {
+    "id": 8,
+    "author": "Dummy user 4",
+    "title": "Title8",
+    "recommended": false
+  },
+  {
+    "id": 9,
+    "author": "Pera Peric",
+    "title": "Title9",
+    "recommended": false
+  },
+  {
+    "id": 10,
+    "author": "Dummy user 3",
+    "title": "Title10",
+    "recommended": false
+  },
+  {
+    "id": 11,
+    "author": "Dummy user 4",
+    "title": "Title11",
+    "recommended": false
+  }
 ]

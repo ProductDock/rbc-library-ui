@@ -1,5 +1,13 @@
-import { IBooksContext } from "./Types";
+import { IBooksContext, SuggestedBook } from "./Types";
 import { actions } from "../BooksActions";
+
+const NotFoundSuggestion: SuggestedBook = {
+  id: 0,
+  title: "",
+  author: "",
+  recommended: false,
+  notFound: true,
+};
 
 const reducer = (state: IBooksContext, action: any) => {
   switch (action.type) {
@@ -16,9 +24,11 @@ const reducer = (state: IBooksContext, action: any) => {
         recommendedBooksCount: action.payload.count,
       };
     case actions.SET_SUGGESTED_BOOKS:
+      console.log(action.payload);
       return {
         ...state,
-        suggestedBooks: action.payload,
+        suggestedBooks:
+          action.payload.length > 0 ? action.payload : [NotFoundSuggestion],
       };
     case actions.SET_SEARCH_TEXT:
       return {

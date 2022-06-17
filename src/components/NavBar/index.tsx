@@ -19,6 +19,39 @@ import AccountAvatar from "./AccountAvatar";
 
 import "./NavBar.css";
 
+type SuggestionProps = {
+  id?: number;
+  title: string;
+  author: string;
+  notFound?: boolean;
+  handleClick?: (id?: number) => void;
+};
+
+const SuggestionElement = ({
+  id,
+  title,
+  author,
+  notFound,
+  handleClick,
+}: SuggestionProps) => {
+  const handleElementClick = () => {
+    if (!notFound) handleClick?.(id);
+  };
+
+  return !notFound ? (
+    <div className="search-item" onClick={handleElementClick} key={id}>
+      <Typography fontSize={14}>{title}</Typography>
+      <Typography fontWeight={300} fontSize={12}>
+        {author}
+      </Typography>
+    </div>
+  ) : (
+    <Typography fontWeight={300} fontSize={12}>
+      Not found
+    </Typography>
+  );
+};
+
 const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -35,7 +68,7 @@ const NavBar = () => {
 
   const searchHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log(suggestedBooks);
-    findSuggestedBooks?.(event.target.value);
+    if (event.target.value !== "") findSuggestedBooks?.(event.target.value);
     console.log(suggestedBooks);
   };
 
@@ -48,10 +81,10 @@ const NavBar = () => {
   const navigateToBookDetails = (bookId: number | undefined) =>
     navigate(`${routes.BOOK_DETAILS_PATH}/${bookId}`);
 
-  const filterOptions = createFilterOptions({
-    matchFrom: "any",
-    stringify: (option: any) => option.title + option.author,
-  });
+  // const filterOptions = createFilterOptions({
+  //   matchFrom: "any",
+  //   stringify: (option: any) => option.title + option.author,
+  // });
 
   return (
     <AppBar className="navbar">
@@ -78,7 +111,8 @@ const NavBar = () => {
           <Autocomplete
             id="free-solo-demo"
             freeSolo
-            // filterOptions={filterOptions}
+            autoSelect
+            filterOptions={(x) => x}
             options={suggestedBooks.sort(
               (a, b) => Number(b.recommended) - Number(a.recommended)
             )}
@@ -88,16 +122,13 @@ const NavBar = () => {
                 : "Others";
             }}
             renderOption={(props, option, state) => (
-              <div
-                className="search-item"
-                onClick={() => navigateToBookDetails(option.id)}
-                key={option.id}
-              >
-                <Typography fontSize={14}>{option.title}</Typography>
-                <Typography fontWeight={300} fontSize={12}>
-                  {option.author}
-                </Typography>
-              </div>
+              <SuggestionElement
+                id={option.id}
+                author={option.author}
+                title={option.title}
+                notFound={option.notFound}
+                handleClick={navigateToBookDetails}
+              />
             )}
             onKeyDown={enterHandler}
             getOptionLabel={(option) => option.title || ""}

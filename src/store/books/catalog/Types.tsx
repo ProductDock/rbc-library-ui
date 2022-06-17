@@ -23,6 +23,7 @@ export type SuggestedBook = {
   title: string;
   author: string;
   recommended: boolean;
+  notFound?: boolean;
 };
 
 export interface IBooksContext {
