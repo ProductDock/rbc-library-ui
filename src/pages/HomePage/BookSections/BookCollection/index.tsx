@@ -1,8 +1,9 @@
 import { LoadingButton } from "@mui/lab";
-import { LinearProgress, Typography } from "@mui/material";
+import { LinearProgress } from "@mui/material";
 import { useBooksContext } from "../../../../store/books/catalog/BooksContext";
 import BookCard from "../../../../components/BookCard";
 import "./BookCollection.css";
+import NoBooksMessage from "../../../../components/NoBooksMessage";
 
 const BookCollection = () => {
   const { books, allBooksCount, loading, page, setPage } = useBooksContext();
@@ -31,14 +32,10 @@ const BookCollection = () => {
           })}
         </div>
       ) : (
-        <div>
-          <Typography className="no-books-in-catalog-message-heading">
-            No books found
-          </Typography>
-          <Typography className="no-books-in-catalog-message-text">
-            Try to adjust your active filters or search text to get results
-          </Typography>
-        </div>
+        <NoBooksMessage
+          message="No books found"
+          messageDescription="Try to adjust your active filters or search text to get results"
+        />
       )}
       <div className="pagination-div">
         <div className="pagination-box">

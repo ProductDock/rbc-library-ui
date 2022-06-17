@@ -80,19 +80,6 @@
   border: 1px solid #000000;
 }
 
-.no-books-in-catalog-message-heading.MuiTypography-root {
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 500;
-}
-
-.no-books-in-catalog-message-text.MuiTypography-root {
-  font-size: 12px;
-  line-height: 18px;
-  font-weight: 300;
-  margin-top: 1em;
-}
-
 @media only screen and (max-width: 800px) {
   .all-books {
     grid-template-columns: repeat(auto-fit, minmax(18em, 20em));

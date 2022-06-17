@@ -1,7 +1,6 @@
-import { Typography } from "@mui/material";
 import { useBooksContext } from "../../../../store/books/catalog/BooksContext";
-import "./RecommendedBookCollection.css";
 import RecommendedBookCarousel from "../RecommendedBookCarousel";
+import NoBooksMessage from "../../../../components/NoBooksMessage";
 
 const RecommendedBookCollection = () => {
   const { recommendedBooksCount } = useBooksContext();
@@ -10,14 +9,10 @@ const RecommendedBookCollection = () => {
     <>
       <RecommendedBookCarousel />
       {recommendedBooksCount === 0 && (
-        <div>
-          <Typography className="no-recommendations-message-heading">
-            No recommended books found
-          </Typography>
-          <Typography className="no-recommendations-message-text">
-            Try to adjust your active filters or search text to get results
-          </Typography>
-        </div>
+        <NoBooksMessage
+          message="No recommended books found"
+          messageDescription="Try to adjust your active filters or search text to get results"
+        />
       )}
     </>
   );
