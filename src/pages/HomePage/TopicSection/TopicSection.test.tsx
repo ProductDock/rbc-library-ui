@@ -78,12 +78,14 @@ describe("Test topic buttons", () => {
       page: 0,
       topics: [MARKETING],
       recommended: undefined,
+      searchText: "",
     });
 
     expect(mockFetchBooks).toBeCalledWith({
       page: 0,
       topics: [MARKETING],
       recommended: true,
+      searchText: "",
     });
   });
 

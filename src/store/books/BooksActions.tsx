@@ -1,6 +1,8 @@
 export const actions = {
   SET_BOOKS: "setBooks",
   SET_RECOMMENDED_BOOKS: "setRecommendedBooks",
+  SET_SUGGESTED_BOOKS: "setSuggestedBooks",
+  SET_SEARCH_TEXT: "setSearchText",
   SET_BOOK: "setBook",
   SET_BOOK_ID: "setBookId",
   SET_TOPICS: "setTopics",

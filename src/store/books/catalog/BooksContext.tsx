@@ -9,18 +9,20 @@ const initialState = {
   recommendedBooks: [],
   recommendedBooksCount: 0,
   books: [],
+  suggestedBooks: [],
   allBooksCount: 0,
   loading: false,
   error: null,
   page: 0,
   topics: [],
+  searchText: "",
 };
 
 export const BooksContext = React.createContext<IBooksContext>(initialState);
 
 const BooksContextProvider = (props: any) => {
   const [booksState, dispatch] = useReducer(reducer, initialState);
-  const { page, topics } = booksState;
+  const { page, topics, searchText } = booksState;
 
   const [topicQueryParam, setTopicQueryParam] = useQueryParam("topics");
   const [stateReady, setStateReady] = useState<boolean>(false);
@@ -31,7 +33,7 @@ const BooksContextProvider = (props: any) => {
   const findBooks = async (recommended?: boolean) => {
     setLoading(true);
     await bookService
-      .fetchBooks({ page, topics, recommended })
+      .fetchBooks({ page, topics, recommended, searchText })
       .then((resp) => {
         if (recommended) {
           dispatch({ type: actions.SET_RECOMMENDED_BOOKS, payload: resp.data });
@@ -39,6 +41,15 @@ const BooksContextProvider = (props: any) => {
       })
       .catch(() => setError("Error while fetching data"));
     setLoading(false);
+  };
+
+  const findSuggestedBooks = async (searchText: string) => {
+    await bookService
+      .fetchSuggestedBooks(searchText)
+      .then((resp) => {
+        dispatch({ type: actions.SET_SUGGESTED_BOOKS, payload: resp.data });
+      })
+      .catch(() => setError("Error while fetching data"));
   };
 
   const setPage = (pageNumber: number) => {
@@ -49,18 +60,22 @@ const BooksContextProvider = (props: any) => {
     dispatch({ type: actions.SET_TOPICS, payload: topicFilter });
   };
 
+  const setSearchText = (searchText: string) => {
+    dispatch({ type: actions.SET_SEARCH_TEXT, payload: searchText });
+  };
+
   useEffect(() => {
     if (stateReady) {
       setTopicQueryParam(topics);
       findBooks?.();
     }
-  }, [page, topics, stateReady]);
+  }, [page, topics, stateReady, searchText]);
 
   useEffect(() => {
     if (stateReady) {
       findBooks?.(true);
     }
-  }, [topics, stateReady]);
+  }, [topics, stateReady, searchText]);
 
   useEffect(() => {
     setTopicFilter(topicQueryParam);
@@ -75,6 +90,8 @@ const BooksContextProvider = (props: any) => {
         error,
         setPage,
         setTopicFilter,
+        findSuggestedBooks,
+        setSearchText,
       }}
     >
       {props.children}

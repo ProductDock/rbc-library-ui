@@ -9,6 +9,9 @@ export const fetchBooks = async (params: any) =>
       qs.stringify(param, { arrayFormat: "repeat" }),
   });
 
+export const fetchSuggestedBooks = async (searchText: string) =>
+  client.get(`/search/suggestions?searchText=${searchText}`);
+
 export const getBook = async (bookId: number) => client.get(`/books/${bookId}`);
 
 export const postRentalRequest = async (rentalRequest: RentalRequest) =>

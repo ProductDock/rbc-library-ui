@@ -18,15 +18,26 @@ export type Book = {
   rating: Rating;
 };
 
+export type SuggestedBook = {
+  id?: number;
+  title: string;
+  author: string;
+  recommended: boolean;
+};
+
 export interface IBooksContext {
   recommendedBooks: Book[];
   recommendedBooksCount: number;
   books: Book[];
+  suggestedBooks: SuggestedBook[];
   allBooksCount: number;
   loading: boolean;
   error: string | null;
   page: number;
   topics: string[];
+  searchText: string;
   setPage?: (pageNumber: number) => void;
+  findSuggestedBooks?: (searchText: string) => void;
+  setSearchText?: (searchText: string) => void;
   setTopicFilter?: (topics: string[]) => void;
 }

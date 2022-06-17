@@ -3,12 +3,15 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import PageRouter from "./router";
 import AuthContextProvider from "./store/auth/AuthContext";
+import BooksContextProvider from "./store/books/catalog/BooksContext";
 
 function App() {
   return (
     <AuthContextProvider>
       <Router>
-        <NavBar />
+        <BooksContextProvider>
+          <NavBar />
+        </BooksContextProvider>
         <div className="main-div">
           <PageRouter />
         </div>
