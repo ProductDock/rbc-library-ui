@@ -20,7 +20,7 @@ describe("Test recommended books collection", () => {
     const noRecommendedBooksMessageHeader = await screen.findByText(
       "There are no recommended books for the applied search criteria"
     );
-    const noRecommendedBooksMessage = screen.getByText(
+    const noRecommendedBooksMessage = screen.getAllByText(
       "Try to adjust your active filters or search text to get results"
     );
 

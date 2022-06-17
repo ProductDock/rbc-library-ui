@@ -7,6 +7,10 @@ import * as BooksContext from "../../../../store/books/catalog/BooksContext";
 
 export const BOOKS_URL = `*/search`;
 
+afterEach(() => {
+  jest.restoreAllMocks();
+});
+
 describe("Test find all book", () => {
   test("should show message when no recommended books are present", async () => {
     jest.spyOn(BooksContext, "useBooksContext").mockImplementation(() => ({
@@ -25,7 +29,7 @@ describe("Test find all book", () => {
     const noBooksInCatalogMessageHeader = await screen.findByText(
       "There are no books in catalog for the applied search criteria"
     );
-    const noBooksInCatalogMessage = screen.getByText(
+    const noBooksInCatalogMessage = screen.getAllByText(
       "Try to adjust your active filters or search text to get results"
     );
 
