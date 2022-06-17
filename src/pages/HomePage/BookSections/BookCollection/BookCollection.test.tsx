@@ -12,7 +12,7 @@ afterEach(() => {
 });
 
 describe("Test find all book", () => {
-  test("should show message when no recommended books are present", async () => {
+  test("should show message when no books in catalog are present", async () => {
     jest.spyOn(BooksContext, "useBooksContext").mockImplementation(() => ({
       recommendedBooks: [],
       recommendedBooksCount: 0,
