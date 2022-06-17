@@ -1,5 +1,5 @@
 import { LoadingButton } from "@mui/lab";
-import { LinearProgress } from "@mui/material";
+import { LinearProgress, Typography } from "@mui/material";
 import { useBooksContext } from "../../../../store/books/catalog/BooksContext";
 import BookCard from "../../../../components/BookCard";
 import "./BookCollection.css";
@@ -13,22 +13,33 @@ const BookCollection = () => {
 
   return (
     <div className="book-collection-main-div">
-      <div className="all-books">
-        {books.map((book) => {
-          return (
-            <BookCard
-              key={book.id}
-              bookId={book.id}
-              title={book.title}
-              author={book.author}
-              cover={book.cover}
-              records={book.records}
-              rating={book.rating?.score}
-              ratingsCount={book.rating?.count}
-            />
-          );
-        })}
-      </div>
+      {allBooksCount > 0 ? (
+        <div className="all-books">
+          {books.map((book) => {
+            return (
+              <BookCard
+                key={book.id}
+                bookId={book.id}
+                title={book.title}
+                author={book.author}
+                cover={book.cover}
+                records={book.records}
+                rating={book.rating?.score}
+                ratingsCount={book.rating?.count}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <div>
+          <Typography className="no-books-in-catalog-message-heading">
+            There are no books in catalog for the applied search criteria
+          </Typography>
+          <Typography className="no-books-in-catalog-message-text">
+            Try to adjust your active filters or search text to get results
+          </Typography>
+        </div>
+      )}
       <div className="pagination-div">
         <div className="pagination-box">
           <div className="pagination-progress">

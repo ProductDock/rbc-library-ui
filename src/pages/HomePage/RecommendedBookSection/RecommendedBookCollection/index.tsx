@@ -12,10 +12,10 @@ const RecommendedBookCollection = () => {
       {recommendedBooksCount === 0 && (
         <div>
           <Typography className="no-recommendations-message-heading">
-            There are no recommended books with the applied filters
+            There are no recommended books for the applied search criteria
           </Typography>
           <Typography className="no-recommendations-message-text">
-            Try to adjust your active filters to get results
+            Try to adjust your active filters or search text to get results
           </Typography>
         </div>
       )}
