@@ -33,9 +33,13 @@ describe("Test navbar", () => {
 
     userEvent.type(searchTextArea, "Dum");
 
-    const searchResults = await screen.findByText("Title2");
+    // const searchResults = await screen.findByText("Title2");
 
-    expect(searchResults).toBeTruthy();
+    // expect(searchResults).toBeTruthy();
+
+    waitFor(() => {
+      expect(screen.queryByText("Title2")).toBeTruthy();
+    });
   });
 
   test("shouldn't render book suggestions in the dropdown when text with less than 3 characters is typed", async () => {
