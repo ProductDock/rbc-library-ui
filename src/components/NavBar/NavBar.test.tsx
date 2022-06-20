@@ -29,7 +29,7 @@ describe("Test navbar", () => {
   test("should render book suggestions in the dropdown when text is typed", async () => {
     render(<App />);
 
-    const searchTextArea = await screen.findByTestId("search-textfield");
+    const searchTextArea = await screen.findByTestId("search-autocomplete");
 
     userEvent.type(searchTextArea, "Dum");
 
@@ -41,7 +41,7 @@ describe("Test navbar", () => {
   test("shouldn't render book suggestions in the dropdown when text with less than 3 characters is typed", async () => {
     render(<App />);
 
-    const searchTextArea = await screen.findByTestId("search-textfield");
+    const searchTextArea = await screen.findByTestId("search-autocomplete");
 
     userEvent.type(searchTextArea, "D");
 
@@ -53,7 +53,7 @@ describe("Test navbar", () => {
   test("should make an api call when text is typed", async () => {
     render(<App />);
 
-    const searchTextArea = await screen.findByTestId("search-textfield");
+    const searchTextArea = await screen.findByTestId("search-autocomplete");
 
     const mockFetchSuggestedBooks = jest.spyOn(
       bookService,
@@ -68,7 +68,7 @@ describe("Test navbar", () => {
   test("should make an api call when text is typed and enter is pressed", async () => {
     render(<App />);
 
-    const searchTextArea = await screen.findByTestId("search-textfield");
+    const searchTextArea = await screen.findByTestId("search-autocomplete");
 
     const mockFetchBooks = jest.spyOn(bookService, "fetchBooks");
 
