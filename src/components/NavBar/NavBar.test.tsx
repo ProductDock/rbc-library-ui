@@ -33,8 +33,8 @@ describe("Test navbar", () => {
 
     userEvent.type(searchTextArea, "Dum");
 
-    waitFor(() => {
-      expect(screen.findByText("Title2")).toBeTruthy();
+    await waitFor(() => {
+      expect(screen.queryByText("Title2")).toBeTruthy();
     });
   });
 
@@ -45,7 +45,7 @@ describe("Test navbar", () => {
 
     userEvent.type(searchTextArea, "D");
 
-    waitFor(() => {
+    await waitFor(() => {
       expect(screen.queryByText("Title2")).toBeFalsy();
     });
   });
