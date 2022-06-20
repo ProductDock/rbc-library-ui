@@ -33,12 +33,8 @@ describe("Test navbar", () => {
 
     userEvent.type(searchTextArea, "Dum");
 
-    // const searchResults = await screen.findByText("Title2");
-
-    // expect(searchResults).toBeTruthy();
-
     waitFor(() => {
-      expect(screen.queryByText("Title2")).toBeTruthy();
+      expect(screen.findByText("Title2")).toBeTruthy();
     });
   });
 
