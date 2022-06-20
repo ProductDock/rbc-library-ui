@@ -33,6 +33,9 @@ const reducer = (state: IBooksContext, action: any) => {
       return {
         ...state,
         searchText: action.payload,
+        page: 0,
+        topics: [],
+        books: [],
       };
     case actions.ADD_BOOK:
       return {

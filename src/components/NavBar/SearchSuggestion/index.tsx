@@ -29,9 +29,11 @@ const SearchSuggestion = ({
       </Typography>
     </div>
   ) : (
-    <Typography className="search-item" fontWeight={300} fontSize={12}>
-      Not found
-    </Typography>
+    <div className="search-not-found">
+      <Typography fontWeight={300} fontSize={12}>
+        No books found
+      </Typography>
+    </div>
   );
 };
 

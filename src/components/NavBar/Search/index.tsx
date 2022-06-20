@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-unused-vars */
 import { Autocomplete, debounce, TextField } from "@mui/material";
 import { useCallback, useMemo } from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { routes } from "../../../constants/routes";
 import { searchSections } from "../../../constants/searchSections";
 import { useBooksContext } from "../../../store/books/catalog/BooksContext";
@@ -11,6 +12,7 @@ import "./Search.css";
 
 const Search = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const {
     suggestedBooks,
@@ -50,7 +52,10 @@ const Search = () => {
   const renderGroup = () => recommendedSuggestion || !otherSuggestion;
 
   const enterHandler = (event: any) => {
-    if (event.key === "Enter") setSearchText?.(event.target.value || undefined);
+    if (event.key === "Enter") {
+      location.pathname !== routes.HOME && navigate(routes.HOME);
+      setSearchText?.(event.target.value || undefined);
+    }
   };
 
   return (

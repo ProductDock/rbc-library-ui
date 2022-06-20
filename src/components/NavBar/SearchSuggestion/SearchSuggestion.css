@@ -10,3 +10,10 @@
 .search-item p {
   margin-bottom: 2px;
 }
+
+.search-not-found {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
