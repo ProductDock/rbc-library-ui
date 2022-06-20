@@ -23,9 +23,7 @@ export const putBookReview = async (
   userId?: string
 ) =>
   client.put(
-    `/catalog/books/${bookId}/reviews?k_book=${bookId}&k_user=${encodeURIComponent(
-      userId || ""
-    )}`,
+    `/catalog/books/${bookId}/reviews/${encodeURIComponent(userId || "")}`,
     review
   );
 
