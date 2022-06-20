@@ -29,7 +29,5 @@ export const putBookReview = async (
 
 export const deleteBookReview = async (bookId: number, userId?: string) =>
   client.delete(
-    `/catalog/books/${bookId}/reviews?k_book=${bookId}&k_user=${encodeURIComponent(
-      userId || ""
-    )}`
+    `/catalog/books/${bookId}/reviews/${encodeURIComponent(userId || "")}`
   );
