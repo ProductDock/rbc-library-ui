@@ -12,8 +12,12 @@ import "./Search.css";
 const Search = () => {
   const navigate = useNavigate();
 
-  const { suggestedBooks, findSuggestedBooks, setSearchText } =
-    useBooksContext();
+  const {
+    suggestedBooks,
+    findSuggestedBooks,
+    setSearchText,
+    clearSuggestedBooks,
+  } = useBooksContext();
 
   const recommendedSuggestion = useMemo(
     () => suggestedBooks.find((book) => book.recommended),
@@ -26,10 +30,14 @@ const Search = () => {
   );
 
   const searchHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value !== "") findSuggestedBooks?.(event.target.value);
+    if (event.target.value === "" || event.target.value.length < 3) {
+      clearSuggestedBooks?.();
+      return;
+    }
+    findSuggestedBooks?.(event.target.value);
   };
 
-  const debouncedSearchHandler = useCallback(debounce(searchHandler, 2000), []);
+  const debouncedSearchHandler = useCallback(debounce(searchHandler, 200), []);
 
   const navigateToBookDetails = (bookId: number | undefined) =>
     navigate(`${routes.BOOK_DETAILS_PATH}/${bookId}`);
@@ -42,11 +50,12 @@ const Search = () => {
   const renderGroup = () => recommendedSuggestion || !otherSuggestion;
 
   const enterHandler = (event: any) => {
-    if (event.key === "Enter") setSearchText?.(event.target.value);
+    if (event.key === "Enter") setSearchText?.(event.target.value || undefined);
   };
 
   return (
     <Autocomplete
+      data-testId="search-autocomplete"
       id="free-solo-demo"
       freeSolo
       autoSelect
@@ -71,6 +80,7 @@ const Search = () => {
       renderInput={(params) => (
         <TextField
           {...params}
+          data-testId="search-textfield"
           placeholder="Search for title or author"
           variant="outlined"
           onChange={debouncedSearchHandler}
