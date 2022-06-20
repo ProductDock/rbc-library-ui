@@ -29,7 +29,6 @@ export const handlers = [
         ctx.json([])
       );
   }),
-  rest.get(`${SUGGESTED_BOOKS_URL_}c`, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json([SuggestedBooksFixture[1]]))),
 
   rest.get(`${BOOK_DETAILS_URL}/1`, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json(BooksFixture.books[1]))),
 

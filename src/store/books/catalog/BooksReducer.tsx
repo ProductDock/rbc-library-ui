@@ -24,7 +24,6 @@ const reducer = (state: IBooksContext, action: any) => {
         recommendedBooksCount: action.payload.count,
       };
     case actions.SET_SUGGESTED_BOOKS:
-      console.log(action.payload);
       return {
         ...state,
         suggestedBooks:
