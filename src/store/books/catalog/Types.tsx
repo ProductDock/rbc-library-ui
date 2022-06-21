@@ -36,10 +36,10 @@ export interface IBooksContext {
   error: string | null;
   page: number;
   topics: string[];
-  searchText: string | undefined;
+  searchText: string;
   setPage?: (pageNumber: number) => void;
   findSuggestedBooks?: (searchText: string) => void;
-  clearSuggestedBooks?: () => void;
+  clearSuggestedBooks?: (totalClear?: boolean) => void;
   setSearchText?: (searchText: string) => void;
   setTopicFilter?: (topics: string[]) => void;
 }

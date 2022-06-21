@@ -1,20 +1,42 @@
 import { useSearchParams } from "react-router-dom";
 
-export const useQueryParam = (paramName: string): [string[], Function] => {
+export const useQueryParam = (
+  topicParam: string,
+  searchParam: string
+): [string[], string, Function] => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const setQueryParam = (params: string[]) => {
-    searchParams.delete(paramName);
-    params.forEach((param: string) => {
-      searchParams.append(paramName, param);
+  const setQueryParam = (
+    topicQueryParams: string[],
+    searchQueryParam: string
+  ) => {
+    searchParams.delete(topicParam);
+    searchParams.delete(searchParam);
+    topicQueryParams.forEach((param: string) => {
+      searchParams.append(topicParam, param);
     });
+    if (!(searchQueryParam === "")) {
+      searchParams.append(searchParam, searchQueryParam);
+    }
     setSearchParams(searchParams);
   };
 
-  const queryParam = (): string[] =>
+  const topicQueryParam = (): string[] =>
     Array.from(searchParams.entries())
-      .filter((param) => param[0] === paramName)
-      .map((param) => param[1]);
+      .filter((param) => param[0] === topicParam)
+      .map((param) => param[1])
+      .concat(
+        Array.from(searchParams.entries())
+          .filter((param) => param[0] === searchParam)
+          .map((param) => param[1])
+      );
 
-  return [queryParam(), setQueryParam];
+  const searchQueryParam = (): string => {
+    if (searchParams.get(searchParam) === undefined) {
+      return "";
+    }
+    return searchParams.get(searchParam) || "";
+  };
+
+  return [topicQueryParam(), searchQueryParam(), setQueryParam];
 };

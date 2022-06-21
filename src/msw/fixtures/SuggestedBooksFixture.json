@@ -3,7 +3,7 @@
     "id": 1,
     "author": "Pera Peric",
     "title": "Bitle1",
-    "recommended": true
+    "recommended": false
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "id": 3,
     "author": "Dummy user 3",
     "title": "Title3",
-    "recommended": true
+    "recommended": false
   },
   {
     "id": 4,

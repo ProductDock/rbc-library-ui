@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import * as bookService from "../../../services/BookService";
 import reducer from "./BooksReducer";
@@ -15,7 +16,7 @@ const initialState = {
   error: null,
   page: 0,
   topics: [],
-  searchText: undefined,
+  searchText: "",
 };
 
 export const BooksContext = React.createContext<IBooksContext>(initialState);
@@ -24,7 +25,10 @@ const BooksContextProvider = (props: any) => {
   const [booksState, dispatch] = useReducer(reducer, initialState);
   const { page, topics, searchText } = booksState;
 
-  const [topicQueryParam, setTopicQueryParam] = useQueryParam("topics");
+  const [topicQueryParam, searchQueryParam, setQueryParam] = useQueryParam(
+    "topics",
+    "searchText"
+  );
   const [stateReady, setStateReady] = useState<boolean>(false);
 
   const [loading, setLoading] = useState<boolean>(false);
@@ -43,9 +47,9 @@ const BooksContextProvider = (props: any) => {
     setLoading(false);
   };
 
-  const findSuggestedBooks = async (searchText: string) => {
+  const findSuggestedBooks = async (search: string) => {
     await bookService
-      .fetchSuggestedBooks(searchText)
+      .fetchSuggestedBooks(search)
       .then((resp) => {
         dispatch({ type: actions.SET_SUGGESTED_BOOKS, payload: resp.data });
       })
@@ -60,17 +64,21 @@ const BooksContextProvider = (props: any) => {
     dispatch({ type: actions.SET_TOPICS, payload: topicFilter });
   };
 
-  const setSearchText = (searchText: string) => {
-    dispatch({ type: actions.SET_SEARCH_TEXT, payload: searchText });
+  const setSearchText = (search: string) => {
+    dispatch({ type: actions.SET_SEARCH_TEXT, payload: search });
   };
 
-  const clearSuggestedBooks = () => {
-    dispatch({ type: actions.SET_SUGGESTED_BOOKS, payload: [] });
+  const clearSuggestedBooks = (totalClear?: boolean) => {
+    if (totalClear) {
+      dispatch({ type: actions.CLEAR_SUGGESTED_BOOKS, payload: [] });
+    } else {
+      dispatch({ type: actions.SET_SUGGESTED_BOOKS, payload: [] });
+    }
   };
 
   useEffect(() => {
     if (stateReady) {
-      setTopicQueryParam(topics);
+      setQueryParam(topics, searchText);
       findBooks?.();
     }
   }, [page, topics, stateReady, searchText]);
@@ -83,6 +91,7 @@ const BooksContextProvider = (props: any) => {
 
   useEffect(() => {
     setTopicFilter(topicQueryParam);
+    setSearchText(searchQueryParam);
     setStateReady(true);
   }, []);
 

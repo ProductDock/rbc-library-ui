@@ -11,10 +11,10 @@ function App() {
       <Router>
         <BooksContextProvider>
           <NavBar />
+          <div className="main-div">
+            <PageRouter />
+          </div>
         </BooksContextProvider>
-        <div className="main-div">
-          <PageRouter />
-        </div>
       </Router>
     </AuthContextProvider>
   );

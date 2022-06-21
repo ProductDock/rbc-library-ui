@@ -29,6 +29,11 @@ const reducer = (state: IBooksContext, action: any) => {
         suggestedBooks:
           action.payload.length > 0 ? action.payload : [NotFoundSuggestion],
       };
+    case actions.CLEAR_SUGGESTED_BOOKS:
+      return {
+        ...state,
+        suggestedBooks: action.payload,
+      };
     case actions.SET_SEARCH_TEXT:
       return {
         ...state,

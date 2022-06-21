@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-unused-vars */
 import { Autocomplete, debounce, TextField } from "@mui/material";
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { routes } from "../../../constants/routes";
 import { searchSections } from "../../../constants/searchSections";
@@ -54,7 +54,7 @@ const Search = () => {
   const enterHandler = (event: any) => {
     if (event.key === "Enter") {
       location.pathname !== routes.HOME && navigate(routes.HOME);
-      setSearchText?.(event.target.value || undefined);
+      setSearchText?.(event.target.value);
     }
   };
 
@@ -63,7 +63,6 @@ const Search = () => {
       data-testId="search-autocomplete"
       id="free-solo-demo"
       freeSolo
-      autoSelect
       filterOptions={(x) => x}
       options={suggestedBooks.sort(
         (a, b) => Number(b.recommended) - Number(a.recommended)
@@ -80,7 +79,6 @@ const Search = () => {
           handleClick={navigateToBookDetails}
         />
       )}
-      onKeyDown={enterHandler}
       getOptionLabel={(option) => option.title || ""}
       renderInput={(params) => (
         <TextField
@@ -89,6 +87,16 @@ const Search = () => {
           placeholder="Search for title or author"
           variant="outlined"
           onChange={debouncedSearchHandler}
+          inputProps={{
+            ...params.inputProps,
+            onKeyDown: (e) => {
+              if (e.key === "Enter") {
+                enterHandler(e);
+                e.stopPropagation();
+                clearSuggestedBooks?.(true);
+              }
+            },
+          }}
         />
       )}
     />
