@@ -17,11 +17,13 @@ describe("Test find all book", () => {
       recommendedBooks: [],
       recommendedBooksCount: 0,
       books: [],
+      suggestedBooks: [],
       allBooksCount: 0,
       loading: false,
       error: null,
       page: 0,
       topics: [],
+      searchText: "",
     }));
 
     render(<App />);
