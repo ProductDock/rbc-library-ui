@@ -23,7 +23,7 @@ import ConfirmationModal, {
 } from "../../../../../../components/Modals/ConfirmationModal";
 
 const title = "Delete review";
-const description = "Are you sure you want to delete the review";
+const description = "Are you sure you want to delete the review?";
 
 type Props = {
   reviewer: string;
