@@ -1,12 +1,16 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-curly-newline */
 import { AppBar, Typography, useMediaQuery } from "@mui/material";
+import { useState } from "react";
 import {
   useNavigate,
   useLocation,
   useSearchParams,
   Link,
 } from "react-router-dom";
+import SearchIcon from "@mui/icons-material/Search";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { MediaQueries } from "../../constants/mediaQueries";
 import { routes } from "../../constants/routes";
 import logo from "../../img/pd-logo.svg";
@@ -18,6 +22,7 @@ import Search from "./Search";
 const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [searchScreenShowed, setSearchScreenShowed] = useState<boolean>(false);
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -41,9 +46,30 @@ const NavBar = () => {
             </span>
           </div>
         </Link>
-        <div className="navbar-search">
-          <Search />
-        </div>
+        {isLargeScreen && (
+          <div className="navbar-search">
+            <Search />
+          </div>
+        )}
+        {!isLargeScreen && searchScreenShowed && (
+          <div className="search-screen-mobile">
+            <div className="navbar-search-back">
+              <a onClick={() => setSearchScreenShowed(!searchScreenShowed)}>
+                <ArrowBackIcon />
+              </a>
+            </div>
+            <div className="navbar-search">
+              <Search />
+            </div>
+          </div>
+        )}
+        {!isLargeScreen && !searchScreenShowed && (
+          <div className="search-screen-toggle">
+            <a onClick={() => setSearchScreenShowed(!searchScreenShowed)}>
+              <SearchIcon />
+            </a>
+          </div>
+        )}
         <div className="account-avatar">
           <AccountAvatar />
         </div>
