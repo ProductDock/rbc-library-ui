@@ -19,6 +19,8 @@
 }
 
 .navbar-info {
+  user-select: none;
+  text-decoration: none;
   display: flex;
   flex-direction: row;
   cursor: pointer;

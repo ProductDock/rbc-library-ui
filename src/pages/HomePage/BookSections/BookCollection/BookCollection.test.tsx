@@ -3,10 +3,40 @@ import { rest } from "msw";
 import App from "../../../../App";
 import { server } from "../../../../msw/server";
 import { BooksFixture } from "../../../../msw/fixtures";
+import * as BooksContext from "../../../../store/books/catalog/BooksContext";
 
 export const BOOKS_URL = `*/search`;
 
+afterEach(() => {
+  jest.restoreAllMocks();
+});
+
 describe("Test find all book", () => {
+  test("should show message when no books in catalog are present", async () => {
+    jest.spyOn(BooksContext, "useBooksContext").mockImplementation(() => ({
+      recommendedBooks: [],
+      recommendedBooksCount: 0,
+      books: [],
+      allBooksCount: 0,
+      loading: false,
+      error: null,
+      page: 0,
+      topics: [],
+    }));
+
+    render(<App />);
+
+    const noBooksInCatalogMessageHeader = await screen.findByText(
+      "No books found"
+    );
+    const noBooksInCatalogMessage = screen.getAllByText(
+      "Try to adjust your active filters or search text to get results"
+    );
+
+    expect(noBooksInCatalogMessageHeader).toBeTruthy();
+    expect(noBooksInCatalogMessage).toBeTruthy();
+  });
+
   test("should render book collection when book service returns list of books", async () => {
     render(<App />);
 

@@ -44,8 +44,8 @@ const responsive = {
   },
   bigMobile: {
     breakpoint: { max: 800, min: 600 },
-    items: 3,
-    slidesToSlide: 3,
+    items: 2,
+    slidesToSlide: 2,
     partialVisibilityGutter: 10,
   },
 };
@@ -69,7 +69,7 @@ const RecommendedBookCarousel = () => {
         draggable={false}
         swipeable
         autoPlay={false}
-        removeArrowOnDeviceType={["mobile", "bigMobile"]}
+        removeArrowOnDeviceType={["mobile"]}
         responsive={responsive}
         renderArrowsWhenDisabled
       >

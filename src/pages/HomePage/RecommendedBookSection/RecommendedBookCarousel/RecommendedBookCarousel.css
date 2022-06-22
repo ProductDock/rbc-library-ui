@@ -36,7 +36,7 @@
 }
 
 .carousel-padding {
-  padding: 0 210px;
+  padding: 0 200px 0 210px;
 }
 
 .carousel-container.react-multi-carousel-list {
@@ -44,7 +44,7 @@
 }
 
 .carousel-container .react-multi-carousel-track {
-  padding-left: 40px;
+  padding-left: 0.75vw;
 }
 
 @media only screen and (max-width: 800px) {
@@ -85,10 +85,22 @@
 
 @media only screen and (min-width: 800px) and (max-width: 900px) {
   .carousel-padding {
-    padding: 0 210px;
+    padding: 0 260px;
   }
 
   .carousel-container .react-multi-carousel-track {
     padding-left: 60px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .carousel-padding {
+    padding: 0 120px;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .carousel-padding {
+    padding: 0 210px 0 230px;
   }
 }
