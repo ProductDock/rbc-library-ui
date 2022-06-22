@@ -3,6 +3,29 @@ import userEvent from "@testing-library/user-event";
 import * as bookService from "../../services/BookService";
 import App from "../../App";
 
+const SCREEN_WIDTH = 900;
+
+const initTest = (width: any) => {
+  Object.defineProperty(window, "innerWidth", {
+    writable: true,
+    configurable: true,
+    value: width,
+  });
+  window.matchMedia = jest.fn().mockImplementation((query) => {
+    return {
+      matches: width >= 800,
+      media: query,
+      onchange: null,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+    };
+  });
+};
+
+beforeEach(() => {
+  initTest(SCREEN_WIDTH);
+});
+
 describe("Test navbar", () => {
   test("should render search component when the app is rendered", async () => {
     render(<App />);
