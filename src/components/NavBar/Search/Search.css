@@ -85,7 +85,7 @@
 .MuiListSubheader-root.MuiAutocomplete-groupLabel {
   font-weight: 300;
   font-size: 12px;
-  height: 20px;
+  min-height: 20px;
   line-height: 20px;
 }
 
