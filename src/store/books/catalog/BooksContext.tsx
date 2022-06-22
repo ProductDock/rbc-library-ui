@@ -90,8 +90,8 @@ const BooksContextProvider = (props: any) => {
   }, [topics, stateReady, searchText]);
 
   useEffect(() => {
-    setTopicFilter(topicQueryParam);
     setSearchText(searchQueryParam);
+    setTopicFilter(topicQueryParam);
     setStateReady(true);
   }, []);
 

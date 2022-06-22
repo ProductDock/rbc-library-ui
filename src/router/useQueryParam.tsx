@@ -24,12 +24,7 @@ export const useQueryParam = (
   const topicQueryParam = (): string[] =>
     Array.from(searchParams.entries())
       .filter((param) => param[0] === topicParam)
-      .map((param) => param[1])
-      .concat(
-        Array.from(searchParams.entries())
-          .filter((param) => param[0] === searchParam)
-          .map((param) => param[1])
-      );
+      .map((param) => param[1]);
 
   const searchQueryParam = (): string => {
     if (searchParams.get(searchParam) === undefined) {

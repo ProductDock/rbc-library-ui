@@ -78,14 +78,14 @@ describe("Test topic buttons", () => {
       page: 0,
       topics: [MARKETING],
       recommended: undefined,
-      searchText: undefined,
+      searchText: "",
     });
 
     expect(mockFetchBooks).toBeCalledWith({
       page: 0,
       topics: [MARKETING],
       recommended: true,
-      searchText: undefined,
+      searchText: "",
     });
   });
 
@@ -102,11 +102,15 @@ describe("Test topic buttons", () => {
         <HomePage />
       </MemoryRouter>
     );
-    const marketingTopicButton = await screen.findByTestId(MARKETING);
-    const designTopicButton = screen.getByTestId(DESIGN);
 
-    expect(marketingTopicButton).toHaveClass(SELECTED_TOPIC_BUTTON_CLASS);
-    expect(designTopicButton).toHaveClass(SELECTED_TOPIC_BUTTON_CLASS);
+    await act(async () => {
+      expect(screen.queryByTestId(MARKETING)).toHaveClass(
+        SELECTED_TOPIC_BUTTON_CLASS
+      );
+      expect(screen.queryByTestId(DESIGN)).toHaveClass(
+        SELECTED_TOPIC_BUTTON_CLASS
+      );
+    });
   });
 
   test("should make topics button disabled until results are loaded", async () => {

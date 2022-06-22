@@ -9,9 +9,7 @@ describe("Test navbar", () => {
 
     const searchComponent = await screen.findByTestId(`search-autocomplete`);
 
-    await act(async () => {
-      expect(searchComponent).toBeTruthy();
-    });
+    expect(searchComponent).toBeTruthy();
   });
 
   test("should render placeholder text in the search bar when the app is loaded", async () => {
@@ -21,9 +19,7 @@ describe("Test navbar", () => {
       `Search for title or author`
     );
 
-    await act(async () => {
-      expect(searchComponent).toBeTruthy();
-    });
+    expect(searchComponent).toBeTruthy();
   });
 
   test("should render book suggestions in the dropdown when text is typed", async () => {
@@ -31,10 +27,13 @@ describe("Test navbar", () => {
 
     const searchTextArea = await screen.findByTestId("search-autocomplete");
 
-    userEvent.type(searchTextArea, "Dum");
+    userEvent.type(searchTextArea, "T");
+    userEvent.type(searchTextArea, "i");
+    userEvent.type(searchTextArea, "t");
+    userEvent.type(searchTextArea, "l");
 
-    await waitFor(() => {
-      expect(screen.queryByText("Title2")).toBeTruthy();
+    await act(async () => {
+      expect(screen.queryAllByText("Title2")).toBeTruthy();
     });
   });
 
@@ -74,7 +73,7 @@ describe("Test navbar", () => {
 
     userEvent.type(searchTextArea, "Dum{enter}");
 
-    await waitFor(() =>
+    act(async () =>
       expect(mockFetchBooks).toBeCalledWith({
         page: 0,
         recommended: undefined,
