@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-curly-newline */
-import { AppBar, Typography } from "@mui/material";
+import { AppBar, Typography, useMediaQuery } from "@mui/material";
 import {
   useNavigate,
   useLocation,
   useSearchParams,
   Link,
 } from "react-router-dom";
+import { MediaQueries } from "../../constants/mediaQueries";
 import { routes } from "../../constants/routes";
 import logo from "../../img/pd-logo.svg";
 import AccountAvatar from "./AccountAvatar";
@@ -17,6 +18,7 @@ import Search from "./Search";
 const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -39,9 +41,7 @@ const NavBar = () => {
             </span>
           </div>
         </Link>
-        <div className="navbar-search">
-          <Search />
-        </div>
+        <div className="navbar-search">{isLargeScreen && <Search />}</div>
         <div className="account-avatar">
           <AccountAvatar />
         </div>

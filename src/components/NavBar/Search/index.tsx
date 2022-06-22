@@ -95,6 +95,7 @@ const Search = () => {
           variant="outlined"
           onChange={debouncedSearchHandler}
           InputProps={{
+            ...params.InputProps,
             startAdornment: (
               <InputAdornment position="start">
                 <SearchIcon />
