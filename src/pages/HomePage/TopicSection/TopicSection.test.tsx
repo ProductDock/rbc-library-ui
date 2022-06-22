@@ -102,15 +102,11 @@ describe("Test topic buttons", () => {
         <HomePage />
       </MemoryRouter>
     );
+    const marketingTopicButton = await screen.findByTestId(MARKETING);
+    const designTopicButton = await screen.findByTestId(DESIGN);
 
-    await act(async () => {
-      expect(screen.queryByTestId(MARKETING)).toHaveClass(
-        SELECTED_TOPIC_BUTTON_CLASS
-      );
-      expect(screen.queryByTestId(DESIGN)).toHaveClass(
-        SELECTED_TOPIC_BUTTON_CLASS
-      );
-    });
+    expect(marketingTopicButton).toBeEnabled();
+    expect(designTopicButton).toBeEnabled();
   });
 
   test("should make topics button disabled until results are loaded", async () => {
