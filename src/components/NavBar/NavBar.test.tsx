@@ -61,7 +61,9 @@ describe("Test navbar", () => {
 
     userEvent.type(searchTextArea, "Dum");
 
-    await waitFor(() => expect(mockFetchSuggestedBooks).toBeCalledWith("Dum"));
+    await waitFor(async () =>
+      expect(mockFetchSuggestedBooks).toBeCalledWith("Dum")
+    );
   });
 
   test("should make an api call when text is typed and enter is pressed", async () => {
