@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { createTheme } from "@material-ui/core/styles";
 
 const neueHaasUnicaW1G = {
@@ -9,13 +8,13 @@ const neueHaasUnicaW1G = {
 };
 
 const theme = createTheme({
+  typography: {
+    fontFamily: "Neue Haas Unica W1G",
+  },
   overrides: {
-    MuiOutlinedInput: {
-      root: {
-        "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
-          border: "2px solid",
-          borderColor: "yellow",
-        },
+    MuiCssBaseline: {
+      "@global": {
+        "@font-face": [neueHaasUnicaW1G],
       },
     },
   },
