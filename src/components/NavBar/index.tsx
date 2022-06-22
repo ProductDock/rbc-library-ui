@@ -41,7 +41,9 @@ const NavBar = () => {
             </span>
           </div>
         </Link>
-        <div className="navbar-search">{isLargeScreen && <Search />}</div>
+        <div className="navbar-search">
+          <Search />
+        </div>
         <div className="account-avatar">
           <AccountAvatar />
         </div>
