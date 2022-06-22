@@ -8,6 +8,7 @@
 
 .MuiInputBase-input.MuiOutlinedInput-input {
   border: 0;
+  margin-left: 25px;
 }
 
 .MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {

@@ -1,6 +1,13 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-unused-vars */
-import { Autocomplete, debounce, TextField } from "@mui/material";
+import {
+  Autocomplete,
+  debounce,
+  InputAdornment,
+  TextField,
+} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { routes } from "../../../constants/routes";
@@ -87,6 +94,13 @@ const Search = () => {
           placeholder="Search for title or author"
           variant="outlined"
           onChange={debouncedSearchHandler}
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <SearchIcon />
+              </InputAdornment>
+            ),
+          }}
           inputProps={{
             ...params.inputProps,
             onKeyDown: (e) => {
