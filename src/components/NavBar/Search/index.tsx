@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-wrap-multilines */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable no-unused-expressions */
@@ -7,10 +8,11 @@ import {
   debounce,
   InputAdornment,
   TextField,
+  useAutocomplete,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { routes } from "../../../constants/routes";
 import { searchSections } from "../../../constants/searchSections";
@@ -33,8 +35,12 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
     suggestedBooks,
     findSuggestedBooks,
     setSearchText,
+    searchText,
     clearSuggestedBooks,
   } = useBooksContext();
+
+  const [defaultTextFieldValue, setDefaultTextFieldValue] =
+    useState<any>(searchText);
 
   const recommendedSuggestion = useMemo(
     () => suggestedBooks.find((book) => book.recommended),
@@ -56,8 +62,10 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
 
   const debouncedSearchHandler = useCallback(debounce(searchHandler, 200), []);
 
-  const navigateToBookDetails = (bookId: number | undefined) =>
+  const navigateToBookDetails = (bookId: number | undefined) => {
     navigate(`${routes.BOOK_DETAILS_PATH}/${bookId}`);
+    clearSuggestedBooks?.(true);
+  };
 
   const getAutocompleteGroup = (suggestedBook: SuggestedBook): string =>
     suggestedBook.recommended
@@ -73,8 +81,22 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
     }
   };
 
+  useEffect(() => {
+    if (location.pathname === routes.HOME) {
+      setDefaultTextFieldValue(searchText);
+    } else {
+      setDefaultTextFieldValue("");
+    }
+  });
+
   return (
     <Autocomplete
+      key={defaultTextFieldValue}
+      defaultValue={{
+        title: `${defaultTextFieldValue || ""}`,
+        author: "string",
+        recommended: false,
+      }}
       data-testId="search-autocomplete"
       id="free-solo-demo"
       freeSolo
@@ -118,6 +140,7 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
           }}
           inputProps={{
             ...params.inputProps,
+            onReset: (e) => {},
             onKeyDown: (e) => {
               if (e.key === "Enter") {
                 enterHandler(e);
