@@ -86,7 +86,7 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
     if (location.pathname === routes.HOME) {
       setDefaultTextFieldValue(searchText || "");
     } else {
-      setDefaultTextFieldValue("");
+      setDefaultTextFieldValue(" ");
     }
   });
 
