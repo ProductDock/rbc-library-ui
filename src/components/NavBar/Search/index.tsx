@@ -81,6 +81,7 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
   const enterHandler = (event: any) => {
     location.pathname !== routes.HOME && navigate(routes.HOME);
     setSearchText?.(event.target.value);
+    setSearchScreenShowed?.(!searchScreenShowed);
   };
 
   useEffect(() => {

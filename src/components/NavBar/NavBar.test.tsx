@@ -85,6 +85,7 @@ describe("Test navbar", () => {
     userEvent.type(searchTextArea, "D");
     userEvent.type(searchTextArea, "u");
     userEvent.type(searchTextArea, "m");
+    userEvent.type(searchTextArea, "m");
 
     await waitFor(async () =>
       expect(mockFetchSuggestedBooks).toBeCalledWith("Dum")
