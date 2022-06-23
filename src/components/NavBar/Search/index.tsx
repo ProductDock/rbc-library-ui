@@ -78,10 +78,8 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
   const renderGroup = () => recommendedSuggestion || !otherSuggestion;
 
   const enterHandler = (event: any) => {
-    if (event.key === "Enter") {
-      location.pathname !== routes.HOME && navigate(routes.HOME);
-      setSearchText?.(event.target.value);
-    }
+    location.pathname !== routes.HOME && navigate(routes.HOME);
+    setSearchText?.(event.target.value);
   };
 
   useEffect(() => {
@@ -92,7 +90,7 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
       setDefaultTextFieldValue("");
       setIsHomePage(false);
     }
-  });
+  }, []);
 
   return (
     <Autocomplete
