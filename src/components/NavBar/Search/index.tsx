@@ -121,7 +121,7 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
           handleClick={navigateToBookDetails}
         />
       )}
-      getOptionLabel={(option: SuggestedBook) => option.title || ""}
+      getOptionLabel={(option) => ""}
       renderInput={(params) => (
         <TextField
           {...params}
