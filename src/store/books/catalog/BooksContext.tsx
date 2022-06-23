@@ -47,9 +47,9 @@ const BooksContextProvider = (props: any) => {
     setLoading(false);
   };
 
-  const findSuggestedBooks = async (search: string) => {
+  const findSuggestedBooks = async (searchText: string) => {
     await bookService
-      .fetchSuggestedBooks({ search })
+      .fetchSuggestedBooks({ searchText })
       .then((resp) => {
         dispatch({ type: actions.SET_SUGGESTED_BOOKS, payload: resp.data });
       })
