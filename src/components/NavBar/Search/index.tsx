@@ -43,6 +43,8 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
     searchText || ""
   );
 
+  const [isHomePage, setIsHomePage] = useState<any>();
+
   const recommendedSuggestion = useMemo(
     () => suggestedBooks.find((book) => book.recommended),
     [suggestedBooks]
@@ -85,14 +87,16 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
   useEffect(() => {
     if (location.pathname === routes.HOME) {
       setDefaultTextFieldValue(searchText || "");
+      setIsHomePage(true);
     } else {
-      setDefaultTextFieldValue(" ");
+      setDefaultTextFieldValue("");
+      setIsHomePage(false);
     }
   });
 
   return (
     <Autocomplete
-      key={defaultTextFieldValue}
+      key={isHomePage}
       defaultValue={{
         title: `${defaultTextFieldValue || ""}`,
         author: "",
