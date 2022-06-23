@@ -39,8 +39,9 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
     clearSuggestedBooks,
   } = useBooksContext();
 
-  const [defaultTextFieldValue, setDefaultTextFieldValue] =
-    useState<any>(searchText);
+  const [defaultTextFieldValue, setDefaultTextFieldValue] = useState<string>(
+    searchText || ""
+  );
 
   const recommendedSuggestion = useMemo(
     () => suggestedBooks.find((book) => book.recommended),
@@ -83,7 +84,7 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
 
   useEffect(() => {
     if (location.pathname === routes.HOME) {
-      setDefaultTextFieldValue(searchText);
+      setDefaultTextFieldValue(searchText || "");
     } else {
       setDefaultTextFieldValue("");
     }
@@ -94,7 +95,7 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
       key={defaultTextFieldValue}
       defaultValue={{
         title: `${defaultTextFieldValue || ""}`,
-        author: "string",
+        author: "",
         recommended: false,
       }}
       data-testId="search-autocomplete"
@@ -140,7 +141,6 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
           }}
           inputProps={{
             ...params.inputProps,
-            onReset: (e) => {},
             onKeyDown: (e) => {
               if (e.key === "Enter") {
                 enterHandler(e);
