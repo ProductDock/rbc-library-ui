@@ -88,9 +88,9 @@
 }
 
 .search-screen-mobile .navbar-search {
-  max-width: 80%;
+  min-width: 100%;
   min-height: 64px;
-  margin: 15px 8% 0 12%;
+  margin: 15px 0;
 }
 
 .search-screen-mobile .navbar-search-back svg {

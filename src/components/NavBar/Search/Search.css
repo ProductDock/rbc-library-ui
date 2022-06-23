@@ -101,3 +101,13 @@
 .MuiAutocomplete-listbox li {
   margin-bottom: 4px;
 }
+
+@media only screen and (max-width: 400px) {
+  .MuiPaper-root.MuiAutocomplete-paper {
+    min-height: 90vh;
+  }
+
+  .MuiPaper-root.MuiAutocomplete-paper .MuiAutocomplete-listbox {
+    min-height: 86vh;
+  }
+}

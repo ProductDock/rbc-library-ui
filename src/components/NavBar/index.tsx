@@ -10,7 +10,6 @@ import {
   Link,
 } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { MediaQueries } from "../../constants/mediaQueries";
 import { routes } from "../../constants/routes";
 import logo from "../../img/pd-logo.svg";
@@ -48,18 +47,17 @@ const NavBar = () => {
         </Link>
         {isLargeScreen && (
           <div className="navbar-search">
-            <Search />
+            <Search icon="search" />
           </div>
         )}
         {!isLargeScreen && searchScreenShowed && (
           <div className="search-screen-mobile">
-            <div className="navbar-search-back">
-              <a onClick={() => setSearchScreenShowed(!searchScreenShowed)}>
-                <ArrowBackIcon />
-              </a>
-            </div>
             <div className="navbar-search">
-              <Search />
+              <Search
+                icon="back"
+                onIconClick={setSearchScreenShowed}
+                searchScreenShowed={searchScreenShowed}
+              />
             </div>
           </div>
         )}

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-unused-vars */
@@ -8,6 +9,7 @@ import {
   TextField,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useCallback, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { routes } from "../../../constants/routes";
@@ -17,7 +19,13 @@ import { SuggestedBook } from "../../../store/books/catalog/Types";
 import SearchSuggestion from "../SearchSuggestion";
 import "./Search.css";
 
-const Search = () => {
+type Props = {
+  icon: string;
+  onIconClick?: Function;
+  searchScreenShowed?: boolean;
+};
+
+const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -98,7 +106,13 @@ const Search = () => {
             ...params.InputProps,
             startAdornment: (
               <InputAdornment position="start">
-                <SearchIcon />
+                {icon === "search" ? (
+                  <SearchIcon />
+                ) : (
+                  <a onClick={() => onIconClick?.(!searchScreenShowed)}>
+                    <ArrowBackIcon />
+                  </a>
+                )}
               </InputAdornment>
             ),
           }}
