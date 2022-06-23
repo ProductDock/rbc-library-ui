@@ -23,11 +23,11 @@ import "./Search.css";
 
 type Props = {
   icon: string;
-  onIconClick?: Function;
+  setSearchScreenShowed?: Function;
   searchScreenShowed?: boolean;
 };
 
-const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
+const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -68,6 +68,7 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
   const navigateToBookDetails = (bookId: number | undefined) => {
     navigate(`${routes.BOOK_DETAILS_PATH}/${bookId}`);
     clearSuggestedBooks?.(true);
+    setSearchScreenShowed?.(!searchScreenShowed);
   };
 
   const getAutocompleteGroup = (suggestedBook: SuggestedBook): string =>
@@ -134,7 +135,9 @@ const Search = ({ icon, onIconClick, searchScreenShowed }: Props) => {
                 {icon === "search" ? (
                   <SearchIcon />
                 ) : (
-                  <a onClick={() => onIconClick?.(!searchScreenShowed)}>
+                  <a
+                    onClick={() => setSearchScreenShowed?.(!searchScreenShowed)}
+                  >
                     <ArrowBackIcon />
                   </a>
                 )}

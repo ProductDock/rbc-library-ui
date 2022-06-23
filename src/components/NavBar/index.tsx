@@ -23,6 +23,8 @@ const NavBar = () => {
   const navigate = useNavigate();
   const [searchScreenShowed, setSearchScreenShowed] = useState<boolean>(false);
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
+  const isSearchIconShowedOnMobile = !isLargeScreen && !searchScreenShowed;
+  const isSearchScreenShowedOnMobile = !isLargeScreen && searchScreenShowed;
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -50,18 +52,18 @@ const NavBar = () => {
             <Search icon="search" />
           </div>
         )}
-        {!isLargeScreen && searchScreenShowed && (
+        {isSearchScreenShowedOnMobile && (
           <div className="search-screen-mobile">
             <div className="navbar-search">
               <Search
                 icon="back"
-                onIconClick={setSearchScreenShowed}
+                setSearchScreenShowed={setSearchScreenShowed}
                 searchScreenShowed={searchScreenShowed}
               />
             </div>
           </div>
         )}
-        {!isLargeScreen && !searchScreenShowed && (
+        {isSearchIconShowedOnMobile && (
           <div className="search-screen-toggle">
             <a onClick={() => setSearchScreenShowed(!searchScreenShowed)}>
               <SearchIcon />
