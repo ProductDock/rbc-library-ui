@@ -1,0 +1,19 @@
+.search-item {
+  padding: 6px 16px;
+}
+
+.search-item:hover {
+  background-color: #f7f7f9;
+  cursor: pointer;
+}
+
+.search-item p {
+  margin-bottom: 2px;
+}
+
+.search-not-found {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

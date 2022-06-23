@@ -7,12 +7,14 @@ describe("Test recommended books collection", () => {
     jest.spyOn(BooksContext, "useBooksContext").mockImplementation(() => ({
       recommendedBooks: [],
       recommendedBooksCount: 0,
+      suggestedBooks: [],
       books: [],
       allBooksCount: 0,
       loading: false,
       error: null,
       page: 0,
       topics: [],
+      searchText: "",
     }));
 
     render(<App />);

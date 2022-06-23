@@ -1,0 +1,113 @@
+.MuiAutocomplete-root {
+  flex: 1;
+}
+
+.navbar-search > div > div > div > input:hover {
+  border: 0;
+}
+
+.MuiInputBase-input.MuiOutlinedInput-input {
+  border: 0;
+  margin-left: 25px;
+}
+
+.MuiAutocomplete-root .MuiOutlinedInput-root .MuiAutocomplete-input {
+  flex: 1;
+  position: absolute;
+  font-family: Roboto, sans-serif;
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root {
+  height: 40px;
+  padding: 8px, 12px, 8px, 16px;
+  background-color: #f7f7f9;
+  border-radius: 8px;
+  position: relative;
+  font-size: 14px;
+}
+
+.navbar-search
+  .MuiAutocomplete-root
+  .MuiAutocomplete-inputRoot
+  .MuiAutocomplete-input {
+  min-width: 85%;
+}
+
+.navbar-search
+  .MuiAutocomplete-root
+  .MuiAutocomplete-inputRoot
+  .MuiAutocomplete-endAdornment {
+  position: absolute;
+  height: 40px;
+  top: 0;
+  bottom: 0;
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root:hover {
+  background-color: #eeeeee;
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root.Mui-focused {
+  background-color: #f7f7f9;
+}
+
+.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: white;
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root:hover
+  .MuiOutlinedInput-notchedOutline {
+  border-color: white;
+}
+
+.MuiInputBase-root.MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border: 1px solid #00609a;
+  box-shadow: 0px 0px 0px 2px #cce0f2;
+}
+
+.MuiPopper-root .MuiAutocomplete-popper > div {
+  margin: 30px;
+  background: #ffffff;
+  padding: 16px, 0px, 16px, 0px;
+  box-shadow: 0px 1px 4px rgba(59, 59, 59, 0.1);
+  border-radius: 8px;
+}
+
+.MuiPaper-root.MuiAutocomplete-paper {
+  max-height: 298px;
+  margin-top: 8px;
+  background: #ffffff;
+  padding: 16px, 0px, 16px, 0px;
+  box-shadow: 0px 1px 4px rgba(59, 59, 59, 0.1);
+  border-radius: 8px;
+}
+
+.MuiListSubheader-root.MuiAutocomplete-groupLabel {
+  font-weight: 300;
+  font-size: 12px;
+  min-height: 20px;
+  line-height: 20px;
+}
+
+.MuiAutocomplete-option {
+  font-size: 14px;
+}
+
+.MuiAutocomplete-listbox {
+  padding: 0;
+}
+
+.MuiAutocomplete-listbox li {
+  margin-bottom: 4px;
+}
+
+@media only screen and (max-width: 400px) {
+  .MuiPaper-root.MuiAutocomplete-paper {
+    min-height: 90vh;
+  }
+
+  .MuiPaper-root.MuiAutocomplete-paper .MuiAutocomplete-listbox {
+    min-height: 86vh;
+  }
+}
