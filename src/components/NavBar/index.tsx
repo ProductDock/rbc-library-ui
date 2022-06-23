@@ -17,6 +17,7 @@ import AccountAvatar from "./AccountAvatar";
 
 import "./NavBar.css";
 import Search from "./Search";
+import BooksContextProvider from "../../store/books/catalog/BooksContext";
 
 const NavBar = () => {
   const location = useLocation();
@@ -34,47 +35,53 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar className="navbar">
-      <div className="navbar-div">
-        <Link to={routes.HOME} className="navbar-info" onClick={reloadHomePage}>
-          <img src={logo} alt="logo" className="logo" />
-          <div className="navbar-text">
-            <span className="navbar-company">
-              <Typography>ProductDock</Typography>
-            </span>
-            <span className="navbar-title">
-              <Typography>Library</Typography>
-            </span>
-          </div>
-        </Link>
-        {isLargeScreen && (
-          <div className="navbar-search">
-            <Search icon="search" />
-          </div>
-        )}
-        {isSearchScreenShowedOnMobile && (
-          <div className="search-screen-mobile">
-            <div className="navbar-search">
-              <Search
-                icon="back"
-                setSearchScreenShowed={setSearchScreenShowed}
-                searchScreenShowed={searchScreenShowed}
-              />
+    <BooksContextProvider>
+      <AppBar className="navbar">
+        <div className="navbar-div">
+          <Link
+            to={routes.HOME}
+            className="navbar-info"
+            onClick={reloadHomePage}
+          >
+            <img src={logo} alt="logo" className="logo" />
+            <div className="navbar-text">
+              <span className="navbar-company">
+                <Typography>ProductDock</Typography>
+              </span>
+              <span className="navbar-title">
+                <Typography>Library</Typography>
+              </span>
             </div>
+          </Link>
+          {isLargeScreen && (
+            <div className="navbar-search">
+              <Search icon="search" />
+            </div>
+          )}
+          {isSearchScreenShowedOnMobile && (
+            <div className="search-screen-mobile">
+              <div className="navbar-search">
+                <Search
+                  icon="back"
+                  setSearchScreenShowed={setSearchScreenShowed}
+                  searchScreenShowed={searchScreenShowed}
+                />
+              </div>
+            </div>
+          )}
+          {isSearchIconShowedOnMobile && (
+            <div className="search-screen-toggle">
+              <a onClick={() => setSearchScreenShowed(!searchScreenShowed)}>
+                <SearchIcon />
+              </a>
+            </div>
+          )}
+          <div className="account-avatar">
+            <AccountAvatar />
           </div>
-        )}
-        {isSearchIconShowedOnMobile && (
-          <div className="search-screen-toggle">
-            <a onClick={() => setSearchScreenShowed(!searchScreenShowed)}>
-              <SearchIcon />
-            </a>
-          </div>
-        )}
-        <div className="account-avatar">
-          <AccountAvatar />
         </div>
-      </div>
-    </AppBar>
+      </AppBar>
+    </BooksContextProvider>
   );
 };
 
