@@ -16,7 +16,7 @@ const initialState = {
   error: null,
   page: 0,
   topics: [],
-  searchText: "",
+  searchText: undefined,
 };
 
 export const BooksContext = React.createContext<IBooksContext>(initialState);
@@ -64,7 +64,7 @@ const BooksContextProvider = (props: any) => {
     dispatch({ type: actions.SET_TOPICS, payload: topicFilter });
   };
 
-  const setSearchText = (search: string) => {
+  const setSearchText = (search: string | undefined) => {
     dispatch({ type: actions.SET_SEARCH_TEXT, payload: search });
   };
 
@@ -78,7 +78,7 @@ const BooksContextProvider = (props: any) => {
 
   useEffect(() => {
     if (stateReady) {
-      setQueryParam(topics, searchText);
+      setQueryParam(topics, searchText || "");
       findBooks?.();
     }
   }, [page, topics, stateReady, searchText]);
