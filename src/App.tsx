@@ -1,6 +1,5 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
-import NavBar from "./components/NavBar";
 import PageRouter from "./router";
 import AuthContextProvider from "./store/auth/AuthContext";
 
@@ -8,7 +7,6 @@ function App() {
   return (
     <AuthContextProvider>
       <Router>
-        <NavBar />
         <div className="main-div">
           <PageRouter />
         </div>

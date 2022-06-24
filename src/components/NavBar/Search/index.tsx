@@ -17,9 +17,10 @@ import { useLocation, useNavigate } from "react-router";
 import { routes } from "../../../constants/routes";
 import { searchSections } from "../../../constants/searchSections";
 import { useBooksContext } from "../../../store/books/catalog/BooksContext";
-import { SuggestedBook } from "../../../store/books/catalog/Types";
+import { SuggestedBook } from "../../../store/books/suggested/Types";
 import SearchSuggestion from "../SearchSuggestion";
 import "./Search.css";
+import { useSuggestedBooksContext } from "../../../store/books/suggested/SuggestedBooksContext";
 
 type Props = {
   icon: string;
@@ -31,13 +32,10 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const {
-    suggestedBooks,
-    findSuggestedBooks,
-    setSearchText,
-    searchText,
-    clearSuggestedBooks,
-  } = useBooksContext();
+  const { setSearchText, searchText } = useBooksContext();
+
+  const { suggestedBooks, findSuggestedBooks, clearSuggestedBooks } =
+    useSuggestedBooksContext();
 
   const [defaultTextFieldValue, setDefaultTextFieldValue] = useState<string>(
     searchText || ""
@@ -79,7 +77,10 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
   const renderGroup = () => recommendedSuggestion || !otherSuggestion;
 
   const enterHandler = (event: any) => {
-    location.pathname !== routes.HOME && navigate(routes.HOME);
+    if (location.pathname !== routes.HOME) {
+      navigate(`${routes.HOME}?searchText=${event.target.value}`);
+      return;
+    }
     setSearchText?.(event.target.value);
     setSearchScreenShowed?.(!searchScreenShowed);
   };
@@ -87,10 +88,10 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
   useEffect(() => {
     if (location.pathname === routes.HOME) {
       setDefaultTextFieldValue(searchText || "");
-      setIsHomePage(true);
+      setIsHomePage(false);
     } else {
       setDefaultTextFieldValue("");
-      setIsHomePage(false);
+      setIsHomePage(true);
     }
   }, []);
 
@@ -121,7 +122,7 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
           handleClick={navigateToBookDetails}
         />
       )}
-      getOptionLabel={(option) => ""}
+      getOptionLabel={(option) => option.title || ""}
       renderInput={(params) => (
         <TextField
           {...params}
