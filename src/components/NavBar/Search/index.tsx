@@ -89,10 +89,10 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
   useEffect(() => {
     if (location.pathname === routes.HOME) {
       setDefaultTextFieldValue(searchText || "");
-      setIsHomePage(false);
+      setIsHomePage(true);
     } else {
       setDefaultTextFieldValue("");
-      setIsHomePage(true);
+      setIsHomePage(false);
     }
   }, []);
 
