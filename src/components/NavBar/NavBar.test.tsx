@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable no-promise-executor-return */
 import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -76,12 +77,11 @@ describe("Test navbar", () => {
   test("should make an api call when text is typed", async () => {
     render(<App />);
 
-    const searchTextArea = await screen.findByTestId("search-autocomplete");
-
     const mockFetchSuggestedBooks = jest.spyOn(
       bookService,
       "fetchSuggestedBooks"
     );
+    const searchTextArea = await screen.findByTestId("search-autocomplete");
 
     userEvent.type(searchTextArea, "D");
     userEvent.type(searchTextArea, "u");
