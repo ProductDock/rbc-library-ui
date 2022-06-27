@@ -87,7 +87,7 @@ describe("Test navbar", () => {
     userEvent.type(searchTextArea, "m");
 
     await waitFor(() =>
-      expect(mockFetchSuggestedBooks).toBeCalledWith({ search: "Dumm" })
+      expect(mockFetchSuggestedBooks).toBeCalledWith({ searchText: "Dumm" })
     );
   });
 
