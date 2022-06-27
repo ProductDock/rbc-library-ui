@@ -1,5 +1,5 @@
 import { render, screen, act } from "@testing-library/react";
-import Router from "react-router-dom";
+import Router, { BrowserRouter } from "react-router-dom";
 import BookDetailsPage from "../../BookDetailsPage";
 
 const BOOK_ID_WITH_REVIEWS = "1";
@@ -15,7 +15,11 @@ describe("Test review section", () => {
       .spyOn(Router, "useParams")
       .mockReturnValue({ bookId: BOOK_ID_WITH_REVIEWS });
 
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     const reviewsSectionTitle = await screen.findByText(`Reviews (3)`);
 
@@ -29,7 +33,11 @@ describe("Test review section", () => {
       .spyOn(Router, "useParams")
       .mockReturnValue({ bookId: BOOK_ID_WITH_REVIEWS });
 
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     const writeAReviewButton = await screen.findByText(`Write a review`);
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { act } from "react-dom/test-utils";
 import App from "../../../App";
 import * as AuthContext from "../../../store/auth/AuthContext";
 
@@ -43,7 +44,8 @@ describe("AccountAvatar component", () => {
 
     expect(signOutMock).toBeCalledTimes(1);
 
-    const landingText = await screen.findByText("Welcome to");
-    expect(landingText).toBeTruthy();
+    await act(async () => {
+      expect(screen.findByText("Welcome to")).toBeTruthy();
+    });
   });
 });

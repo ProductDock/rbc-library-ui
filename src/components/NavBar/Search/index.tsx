@@ -13,13 +13,14 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router-dom";
 import { routes } from "../../../constants/routes";
 import { searchSections } from "../../../constants/searchSections";
 import { useBooksContext } from "../../../store/books/catalog/BooksContext";
-import { SuggestedBook } from "../../../store/books/catalog/Types";
+import { SuggestedBook } from "../../../store/books/suggested/Types";
 import SearchSuggestion from "../SearchSuggestion";
 import "./Search.css";
+import { useSuggestedBooksContext } from "../../../store/books/suggested/SuggestedBooksContext";
 
 type Props = {
   icon: string;
@@ -31,13 +32,10 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const {
-    suggestedBooks,
-    findSuggestedBooks,
-    setSearchText,
-    searchText,
-    clearSuggestedBooks,
-  } = useBooksContext();
+  const { setSearchText, searchText } = useBooksContext();
+
+  const { suggestedBooks, findSuggestedBooks, clearSuggestedBooks } =
+    useSuggestedBooksContext();
 
   const [defaultTextFieldValue, setDefaultTextFieldValue] = useState<string>(
     searchText || ""
@@ -67,6 +65,7 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
 
   const navigateToBookDetails = (bookId: number | undefined) => {
     navigate(`${routes.BOOK_DETAILS_PATH}/${bookId}`);
+    if (location.pathname.includes(routes.BOOK_DETAILS_PATH)) navigate(0);
     clearSuggestedBooks?.(true);
     setSearchScreenShowed?.(!searchScreenShowed);
   };
@@ -79,7 +78,10 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
   const renderGroup = () => recommendedSuggestion || !otherSuggestion;
 
   const enterHandler = (event: any) => {
-    location.pathname !== routes.HOME && navigate(routes.HOME);
+    if (location.pathname !== routes.HOME) {
+      navigate(`${routes.HOME}?searchText=${event.target.value}`);
+      return;
+    }
     setSearchText?.(event.target.value);
     setSearchScreenShowed?.(!searchScreenShowed);
   };
@@ -121,7 +123,7 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
           handleClick={navigateToBookDetails}
         />
       )}
-      getOptionLabel={(option) => ""}
+      getOptionLabel={(option) => option.title || ""}
       renderInput={(params) => (
         <TextField
           {...params}

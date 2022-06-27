@@ -10,7 +10,6 @@ const initialState = {
   recommendedBooks: [],
   recommendedBooksCount: 0,
   books: [],
-  suggestedBooks: [],
   allBooksCount: 0,
   loading: false,
   error: null,
@@ -47,15 +46,6 @@ const BooksContextProvider = (props: any) => {
     setLoading(false);
   };
 
-  const findSuggestedBooks = async (searchText: string) => {
-    await bookService
-      .fetchSuggestedBooks({ searchText })
-      .then((resp) => {
-        dispatch({ type: actions.SET_SUGGESTED_BOOKS, payload: resp.data });
-      })
-      .catch(() => setError("Error while fetching data"));
-  };
-
   const setPage = (pageNumber: number) => {
     dispatch({ type: actions.SET_PAGE, payload: pageNumber });
   };
@@ -66,14 +56,6 @@ const BooksContextProvider = (props: any) => {
 
   const setSearchText = (search: string | undefined) => {
     dispatch({ type: actions.SET_SEARCH_TEXT, payload: search });
-  };
-
-  const clearSuggestedBooks = (totalClear?: boolean) => {
-    if (totalClear) {
-      dispatch({ type: actions.CLEAR_SUGGESTED_BOOKS, payload: [] });
-    } else {
-      dispatch({ type: actions.SET_SUGGESTED_BOOKS, payload: [] });
-    }
   };
 
   useEffect(() => {
@@ -103,9 +85,7 @@ const BooksContextProvider = (props: any) => {
         error,
         setPage,
         setTopicFilter,
-        findSuggestedBooks,
         setSearchText,
-        clearSuggestedBooks,
       }}
     >
       {props.children}

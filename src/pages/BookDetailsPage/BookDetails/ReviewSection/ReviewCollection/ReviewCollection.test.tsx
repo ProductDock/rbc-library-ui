@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-no-undef */
 import { act, render, screen } from "@testing-library/react";
-import Router from "react-router-dom";
+import Router, { BrowserRouter } from "react-router-dom";
 import BookDetailsPage from "../../../BookDetailsPage";
 
 const BOOK_ID_WITH_REVIEWS = "1";
@@ -17,7 +18,11 @@ beforeEach(() => {
 
 describe("Test if reviews are loaded properly", () => {
   test("should render book details with 3 reviews", async () => {
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     const reviews = await screen.findAllByTestId("review-card");
 
@@ -25,7 +30,11 @@ describe("Test if reviews are loaded properly", () => {
   });
 
   test("should render your review", async () => {
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     const yourReview = await screen.findByText("Your review");
 
@@ -33,7 +42,11 @@ describe("Test if reviews are loaded properly", () => {
   });
 
   test("should render your review first in the list", async () => {
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     const reviews = await screen.findAllByTestId("review-card");
     const yourReview = reviews[0];
@@ -42,7 +55,11 @@ describe("Test if reviews are loaded properly", () => {
   });
 
   test("should render book details with review rating", async () => {
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     const rating = await screen.findByText("4");
 
@@ -52,7 +69,11 @@ describe("Test if reviews are loaded properly", () => {
   });
 
   test("should render book details with name of the reviewer", async () => {
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     const userName = await screen.findByText("Dummy user");
 
@@ -62,7 +83,11 @@ describe("Test if reviews are loaded properly", () => {
   });
 
   test("should render book details with review recommendations", async () => {
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     const recommendations = await screen.findByText(
       "Recommended to - Medior, Senior"

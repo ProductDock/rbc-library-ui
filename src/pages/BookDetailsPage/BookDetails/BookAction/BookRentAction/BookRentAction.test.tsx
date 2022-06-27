@@ -1,4 +1,4 @@
-import Router from "react-router-dom";
+import Router, { BrowserRouter } from "react-router-dom";
 import { render, waitFor, screen } from "@testing-library/react";
 import BookDetailsPage from "../../../BookDetailsPage";
 
@@ -21,7 +21,11 @@ describe("Test book rent action", () => {
       .spyOn(Router, "useParams")
       .mockReturnValue({ bookId: AVAILABLE_BOOK_ID });
 
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     await waitFor(() =>
       expect(screen.queryByTestId("rent-book-button")).toBeTruthy()
@@ -46,7 +50,11 @@ describe("Test book rent action", () => {
       .spyOn(Router, "useParams")
       .mockReturnValue({ bookId: RESERVED_BY_YOU_BOOK_ID });
 
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     await waitFor(() =>
       expect(screen.queryByTestId("rent-book-button")).toBeTruthy()

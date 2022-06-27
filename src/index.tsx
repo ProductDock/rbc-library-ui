@@ -20,10 +20,10 @@ if (process.env.NODE_ENV === "development" && isMockServiceWorkerEnabled()) {
 }
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <React.StrictMode>
+  <React.StrictMode>
+    <ThemeProvider theme={theme}>
       <App />
-    </React.StrictMode>
-  </ThemeProvider>,
+    </ThemeProvider>
+  </React.StrictMode>,
   document.getElementById("root")
 );
