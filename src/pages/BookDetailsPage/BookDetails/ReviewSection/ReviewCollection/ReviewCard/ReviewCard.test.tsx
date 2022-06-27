@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-no-undef */
 import { render, screen, act, waitFor } from "@testing-library/react";
-import Router from "react-router-dom";
+import Router, { BrowserRouter } from "react-router-dom";
 import BookDetailsPage from "../../../../BookDetailsPage";
 import * as bookService from "../../../../../../services/BookService";
 import { BooksFixture } from "../../../../../../msw/fixtures";
@@ -19,7 +20,11 @@ describe("Test review card action buttons", () => {
       .spyOn(Router, "useParams")
       .mockReturnValue({ bookId: BOOK_ID_WITH_REVIEWS });
 
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     const deleteAReviewButton = await screen.findAllByTestId(
       "delete-a-review-button"
@@ -35,7 +40,11 @@ describe("Test review card action buttons", () => {
       .spyOn(Router, "useParams")
       .mockReturnValue({ bookId: BOOK_ID_WITH_REVIEWS });
 
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     const editAReviewButton = await screen.findAllByTestId(
       "edit-a-review-button"
@@ -53,7 +62,11 @@ describe("Test review card action buttons", () => {
 
     const mockDeleteBookReview = jest.spyOn(bookService, "deleteBookReview");
 
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     await waitFor(() =>
       expect(screen.queryByTestId("delete-a-review-button")).toBeTruthy()
@@ -78,7 +91,11 @@ describe("Test review card action buttons", () => {
 
     const mockEditBookReview = jest.spyOn(bookService, "putBookReview");
 
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     await waitFor(() =>
       expect(screen.queryByTestId("edit-a-review-button")).toBeTruthy()
@@ -108,7 +125,11 @@ describe("Test review card action buttons", () => {
       .spyOn(Router, "useParams")
       .mockReturnValue({ bookId: BOOK_ID_WITH_REVIEWS });
 
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     await waitFor(() =>
       expect(screen.queryByTestId("edit-a-review-button")).toBeTruthy()

@@ -1,4 +1,4 @@
-import Router from "react-router-dom";
+import Router, { BrowserRouter } from "react-router-dom";
 import { render, waitFor, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import BookDetailsPage from "../../../BookDetailsPage";
@@ -23,7 +23,11 @@ describe("Test book return action", () => {
       .spyOn(Router, "useParams")
       .mockReturnValue({ bookId: RENTED_BY_YOU_BOOK_ID });
 
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     await waitFor(() =>
       expect(screen.queryByTestId("return-book-button")).toBeTruthy()
@@ -44,7 +48,11 @@ describe("Test book return action", () => {
       .spyOn(Router, "useParams")
       .mockReturnValue({ bookId: RENTED_BY_YOU_BOOK_ID });
 
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     const returnButton = await screen.findByTestId(
       "return-book-button",
@@ -72,7 +80,11 @@ describe("Test book return action", () => {
       .spyOn(Router, "useParams")
       .mockReturnValue({ bookId: RENTED_BY_YOU_BOOK_ID_WITH_REVIEW });
 
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     const returnButton = await screen.findByTestId(
       "return-book-button",
@@ -93,7 +105,11 @@ describe("Test book return action", () => {
       .spyOn(Router, "useParams")
       .mockReturnValue({ bookId: RENTED_BY_YOU_BOOK_ID });
 
-    render(<BookDetailsPage />);
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
 
     await waitFor(() =>
       expect(screen.queryByTestId("return-book-button")).toBeTruthy()

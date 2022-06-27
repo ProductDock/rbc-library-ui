@@ -13,7 +13,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router-dom";
 import { routes } from "../../../constants/routes";
 import { searchSections } from "../../../constants/searchSections";
 import { useBooksContext } from "../../../store/books/catalog/BooksContext";
