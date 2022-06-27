@@ -123,7 +123,7 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
           handleClick={navigateToBookDetails}
         />
       )}
-      getOptionLabel={(option) => option.title || ""}
+      getOptionLabel={(option: any) => option.title || ""}
       renderInput={(params) => (
         <TextField
           {...params}
