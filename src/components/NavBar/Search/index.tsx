@@ -65,7 +65,6 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
 
   const navigateToBookDetails = (bookId: number | undefined) => {
     navigate(`${routes.BOOK_DETAILS_PATH}/${bookId}`);
-    if (location.pathname.includes(routes.BOOK_DETAILS_PATH)) navigate(0);
     clearSuggestedBooks?.(true);
     setSearchScreenShowed?.(!searchScreenShowed);
   };

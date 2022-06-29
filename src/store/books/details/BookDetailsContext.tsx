@@ -76,7 +76,7 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
 
   useEffect(() => {
     findBook?.();
-  }, [bookReload]);
+  }, [bookReload, bookId]);
 
   return (
     <BookDetailsContext.Provider
