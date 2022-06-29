@@ -103,18 +103,20 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
         author: "",
         recommended: false,
       }}
+      autoComplete
       data-testId="search-autocomplete"
       id="free-solo-demo"
       freeSolo
       filterOptions={(x) => x}
-      options={suggestedBooks.sort(
-        (a, b) => Number(b.recommended) - Number(a.recommended)
-      )}
+      options={suggestedBooks
+        .sort((a, b) => Number(b.recommended) - Number(a.recommended))
+        .slice(0, 5)}
       groupBy={
         renderGroup() ? (option) => getAutocompleteGroup(option) : undefined
       }
       renderOption={(props, option, state) => (
         <SearchSuggestion
+          {...props}
           id={option.id}
           author={option.author}
           title={option.title}

@@ -16,13 +16,19 @@ const SearchSuggestion = ({
   author,
   notFound,
   handleClick,
+  ...props
 }: SuggestionProps) => {
   const handleElementClick = () => {
     if (!notFound) handleClick?.(id);
   };
 
   return !notFound ? (
-    <div className="search-item" onClick={handleElementClick} key={id}>
+    <div
+      {...props}
+      className="search-item"
+      onClick={handleElementClick}
+      key={id}
+    >
       <Typography fontSize={14}>{title}</Typography>
       <Typography fontWeight={300} fontSize={12}>
         {author}

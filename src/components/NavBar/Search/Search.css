@@ -75,12 +75,13 @@
 }
 
 .MuiPaper-root.MuiAutocomplete-paper {
-  max-height: 298px;
+  max-height: auto;
   margin-top: 8px;
   background: #ffffff;
   padding: 16px, 0px, 16px, 0px;
   box-shadow: 0px 1px 4px rgba(59, 59, 59, 0.1);
   border-radius: 8px;
+  overflow-y: hidden;
 }
 
 .MuiListSubheader-root.MuiAutocomplete-groupLabel {
