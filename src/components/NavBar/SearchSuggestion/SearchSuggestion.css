@@ -7,6 +7,10 @@
   cursor: pointer;
 }
 
+.search-item.Mui-focused {
+  background-color: #f7f7f9;
+}
+
 .search-item p {
   margin-bottom: 2px;
 }
