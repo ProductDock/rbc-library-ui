@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import BookCard from ".";
+import { BookStatus } from "../../store/books/status/Types";
 
 test("renders test page and finds title", async () => {
   render(
@@ -10,7 +11,9 @@ test("renders test page and finds title", async () => {
         title="Book2"
         author="John Doe"
         cover="Cover"
-        records={[{ email: "example@productdock.com", status: "AVAILABLE" }]}
+        records={[
+          { email: "example@productdock.com", status: BookStatus.AVAILABLE },
+        ]}
         rating={3.5}
         ratingsCount={3}
       />

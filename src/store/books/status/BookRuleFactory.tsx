@@ -5,25 +5,25 @@ import RentedBookRule from "./rules/RentedBookRule/RentedBookRule";
 import RentedByYouBookRule from "./rules/RentedByYouBookRule/RentedByYouBookRule";
 import ReservedBookRule from "./rules/ReservedBookRule/ReservedBookRule";
 import ReservedByYouBookRule from "./rules/ReservedByYouBookRule/ReservedByYouBookRule";
-import { Rule } from "./Types";
+import { BookStatus, Rule } from "./Types";
 
 export default class BookRuleFactory {
   public static for = (
-    status: string,
+    status: BookStatus,
     records: Record[],
     loggedInUserEmail: string
   ): Rule => {
     const bookStatusRecords = new BookStatusRecords(records, loggedInUserEmail);
     switch (status) {
-      case "AVAILABLE":
+      case BookStatus.AVAILABLE:
         return new AvailableBookRule(bookStatusRecords);
-      case "RENTED":
+      case BookStatus.RENTED:
         return new RentedBookRule(bookStatusRecords);
-      case "RESERVED":
+      case BookStatus.RESERVED:
         return new ReservedBookRule(bookStatusRecords);
-      case "RENTED_BY_YOU":
+      case BookStatus.RENTED_BY_YOU:
         return new RentedByYouBookRule(bookStatusRecords);
-      case "RESERVED_BY_YOU":
+      case BookStatus.RESERVED_BY_YOU:
         return new ReservedByYouBookRule(bookStatusRecords);
       default:
         return new AvailableBookRule(bookStatusRecords);

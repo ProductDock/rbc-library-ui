@@ -14,8 +14,8 @@ export enum BookStatus {
 }
 
 export enum BookActions {
-  RETURNED = "RETURNED",
-  RENTED = "RENTED",
-  RESERVED = "RESERVED",
-  CANCELED = "CANCELED",
+  RETURN = "RETURN",
+  RENT = "RENT",
+  RESERVE = "RESERVE",
+  CANCEL_RESERVATION = "CANCEL_RESERVATION",
 }

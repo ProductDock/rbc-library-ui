@@ -2,8 +2,11 @@
 /* eslint-disable no-promise-executor-return */
 import { act, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { MemoryRouter } from "react-router";
 import * as bookService from "../../services/BookService";
+import * as SuggestedBooksContext from "../../store/books/suggested/SuggestedBooksContext";
 import App from "../../App";
+import Search from "./Search";
 
 const SCREEN_WIDTH = 900;
 
@@ -74,13 +77,26 @@ describe("Test navbar", () => {
     });
   });
 
-  test("should make an api call when text is typed", async () => {
-    render(<App />);
+  test("should fetch suggested books when text is typed", async () => {
+    const mockFetchSuggestedBooks = jest.fn();
+    jest
+      .spyOn(SuggestedBooksContext, "useSuggestedBooksContext")
+      .mockImplementation(() => ({
+        suggestedBooks: [],
+        error: null,
+        findSuggestedBooks: mockFetchSuggestedBooks,
+      }));
 
-    const mockFetchSuggestedBooks = jest.spyOn(
-      bookService,
-      "fetchSuggestedBooks"
+    render(
+      <MemoryRouter>
+        <Search
+          icon=""
+          searchScreenShowed={false}
+          setSearchScreenShowed={jest.fn()}
+        />
+      </MemoryRouter>
     );
+
     const searchTextArea = await screen.findByTestId("search-autocomplete");
 
     userEvent.type(searchTextArea, "D");
@@ -88,9 +104,9 @@ describe("Test navbar", () => {
     userEvent.type(searchTextArea, "m");
     userEvent.type(searchTextArea, "m");
 
-    await waitFor(() =>
-      expect(mockFetchSuggestedBooks).toBeCalledWith({ searchText: "Dumm" })
-    );
+    await waitFor(() => expect(mockFetchSuggestedBooks).toBeCalledWith("Dumm"));
+
+    jest.restoreAllMocks();
   });
 
   test("should make an api call when text is typed and enter is pressed", async () => {

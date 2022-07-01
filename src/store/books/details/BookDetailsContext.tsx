@@ -42,30 +42,29 @@ const BookDetailsContextProvider = ({ bookId, children }: Props) => {
     setBookAction(null);
   };
 
-  const sendRentalRequest = async (requestedStatus: BookActions) =>
-    bookService.postRentalRequest({
-      bookId: bookId.toString(),
-      requestedStatus,
+  const sendRentalRequest = async (rentalAction: BookActions) =>
+    bookService.postRentalRequest(bookId, {
+      rentalAction,
     });
 
   const rentABook = async (onSuccessHandler: () => void) => {
-    setBookAction(BookActions.RENTED);
-    sendRentalRequest(BookActions.RENTED).then(onSuccessHandler);
+    setBookAction(BookActions.RENT);
+    sendRentalRequest(BookActions.RENT).then(onSuccessHandler);
   };
 
   const returnABook = async (onSuccessHandler: () => void) => {
-    setBookAction(BookActions.RETURNED);
-    sendRentalRequest(BookActions.RETURNED).then(onSuccessHandler);
+    setBookAction(BookActions.RETURN);
+    sendRentalRequest(BookActions.RETURN).then(onSuccessHandler);
   };
 
   const reserveABook = async (onSuccessHandler: () => void) => {
-    setBookAction(BookActions.RESERVED);
-    sendRentalRequest(BookActions.RESERVED).then(onSuccessHandler);
+    setBookAction(BookActions.RESERVE);
+    sendRentalRequest(BookActions.RESERVE).then(onSuccessHandler);
   };
 
   const cancelBookReservation = async (onSuccessHandler: () => void) => {
-    setBookAction(BookActions.CANCELED);
-    sendRentalRequest(BookActions.CANCELED).then(onSuccessHandler);
+    setBookAction(BookActions.CANCEL_RESERVATION);
+    sendRentalRequest(BookActions.CANCEL_RESERVATION).then(onSuccessHandler);
   };
 
   const addBookReview = async (bookReview: BookReview) =>

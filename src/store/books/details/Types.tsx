@@ -4,7 +4,7 @@ import { BookActions, BookStatus } from "../status/Types";
 
 export type Record = {
   email: string;
-  status: string;
+  status: BookStatus;
 };
 
 export type Rating = {
@@ -45,8 +45,7 @@ export type BookActionModal = {
 };
 
 export type RentalRequest = {
-  bookId: string;
-  requestedStatus: BookActions | null;
+  rentalAction: BookActions;
 };
 
 export type BookReview = {

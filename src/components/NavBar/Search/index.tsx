@@ -8,11 +8,10 @@ import {
   debounce,
   InputAdornment,
   TextField,
-  useAutocomplete,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { routes } from "../../../constants/routes";
 import { searchSections } from "../../../constants/searchSections";
@@ -104,7 +103,7 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
         recommended: false,
       }}
       autoComplete
-      data-testId="search-autocomplete"
+      data-testid="search-autocomplete"
       id="free-solo-demo"
       freeSolo
       filterOptions={(x) => x}
@@ -128,7 +127,7 @@ const Search = ({ icon, setSearchScreenShowed, searchScreenShowed }: Props) => {
       renderInput={(params) => (
         <TextField
           {...params}
-          data-testId="search-textfield"
+          data-testid="search-textfield"
           placeholder="Search for title or author"
           variant="outlined"
           onChange={debouncedSearchHandler}

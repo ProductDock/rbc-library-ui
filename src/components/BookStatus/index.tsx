@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "../../store/auth/AuthContext";
 import { Record } from "../../store/books/catalog/Types";
 import BookStatusCalculator from "../../store/books/status/BookStatusCalculator";
+import { BookStatus as BookStatusValues } from "../../store/books/status/Types";
 import AvailableBookStatus from "./AvailableBookStatus";
 import RentedBookStatus from "./RentedBookStatus";
 import RentedByYouBookStatus from "./RentedByYouBookStatus";
@@ -15,7 +16,7 @@ type Props = {
 
 const BookStatus = ({ records, statusChangeCallback }: Props) => {
   const { userProfile } = useAuthContext();
-  const [bookStatus, setBookStatus] = useState("");
+  const [bookStatus, setBookStatus] = useState<BookStatusValues | null>(null);
 
   useEffect(() => {
     if (!records || !userProfile) {
@@ -32,15 +33,14 @@ const BookStatus = ({ records, statusChangeCallback }: Props) => {
 
   return (
     <div>
-      {
+      {bookStatus &&
         {
           AVAILABLE: <AvailableBookStatus />,
           RENTED: <RentedBookStatus />,
           RENTED_BY_YOU: <RentedByYouBookStatus />,
           RESERVED: <ReservedBookStatus />,
           RESERVED_BY_YOU: <ReservedByYouBookStatus />,
-        }[bookStatus]
-      }
+        }[bookStatus]}
     </div>
   );
 };

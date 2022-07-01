@@ -6,9 +6,9 @@ export default class BookStatusCalculator {
   public static calculate(
     records: Record[],
     loggedInUserEmail: string
-  ): string {
-    const bookStatuses = Object.keys(BookStatus);
-    let bookStatus = "AVAILABLE";
+  ): BookStatus {
+    const bookStatuses = Object.values(BookStatus);
+    let bookStatus = BookStatus.AVAILABLE;
     bookStatuses.forEach((status) => {
       const rule: Rule = BookRuleFactory.for(
         status,
