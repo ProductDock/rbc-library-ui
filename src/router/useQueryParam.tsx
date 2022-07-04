@@ -18,7 +18,7 @@ export const useQueryParam = (
     if (!(searchQueryParam === "")) {
       searchParams.append(searchParam, searchQueryParam);
     }
-    setSearchParams(searchParams);
+    setSearchParams(searchParams, { replace: true });
   };
 
   const topicQueryParam = (): string[] =>
