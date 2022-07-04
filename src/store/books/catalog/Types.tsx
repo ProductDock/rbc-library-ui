@@ -1,7 +1,9 @@
+import { BookStatus } from "../status/Types";
+
 /* eslint-disable no-unused-vars */
 export type Record = {
   email: string;
-  status: string;
+  status: BookStatus;
 };
 
 export type Rating = {

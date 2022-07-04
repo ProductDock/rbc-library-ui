@@ -33,7 +33,7 @@ const BookDetails = () => {
 
   const endReview = () => {
     hideReviewForm?.();
-    if (currentAction === BookActions.RETURNED) {
+    if (currentAction === BookActions.RETURN) {
       reloadBook?.();
       showSuccessScreen?.(
         successMessages.RETURN_BOOK,

@@ -14,8 +14,10 @@ export const fetchSuggestedBooks = async (params: any) =>
 
 export const getBook = async (bookId: number) => client.get(`/books/${bookId}`);
 
-export const postRentalRequest = async (rentalRequest: RentalRequest) =>
-  client.post("/rental/record", rentalRequest);
+export const postRentalRequest = async (
+  bookId: number,
+  rentalRequest: RentalRequest
+) => client.post(`/rental/book/${bookId}/action`, rentalRequest);
 
 export const postBookReview = async (bookId: number, review: BookReview) =>
   client.post(`/catalog/books/${bookId}/reviews`, review);

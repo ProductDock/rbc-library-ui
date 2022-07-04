@@ -50,7 +50,7 @@ const BookReviewForm = () => {
 
   const endReview = () => {
     hideReviewForm?.();
-    if (currentAction === BookActions.RETURNED) {
+    if (currentAction === BookActions.RETURN) {
       reloadBook?.();
       showSuccessScreen?.(
         successMessages.RETURN_BOOK,
@@ -60,7 +60,7 @@ const BookReviewForm = () => {
   };
 
   const onSuccessCallback = () => {
-    if (currentAction === BookActions.RETURNED) {
+    if (currentAction === BookActions.RETURN) {
       showSuccessScreen?.(
         successMessages.RETURN_BOOK,
         gratitudeMessages.THANK_YOU

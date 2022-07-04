@@ -3,7 +3,7 @@ import { BooksFixture, SuggestedBooksFixture } from "./fixtures";
 
 export const BOOKS_URL = `*/search`;
 export const BOOK_DETAILS_URL = `*/books`;
-export const RENTAL_RECORD_URL = `*/rental/record`;
+export const RENTAL_RECORD_URL = `*/rental/book/*/action`;
 export const POST_BOOK_REVIEW_URL = `*/catalog/books/*/reviews`;
 export const PUT_BOOK_REVIEW_URL = `*/catalog/books/*/reviews*`;
 export const DELETE_BOOK_REVIEW_URL = `*/catalog/books/*/reviews*`;
