@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../store/auth/AuthContext";
 import { Record } from "../../store/books/catalog/Types";

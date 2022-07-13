@@ -1,0 +1,26 @@
+.MuiAvatar-root.MuiAvatarGroup-avatar {
+  width: 20px;
+  height: 20px;
+}
+
+.MuiAvatar-root.MuiAvatarGroup-avatar :hover {
+  cursor: pointer;
+}
+
+.MuiAvatarGroup-root :hover {
+  cursor: pointer;
+}
+
+.rental-info-popper {
+  font-size: 12px;
+}
+
+.MuiDialog-container {
+  align-items: flex-end !important;
+}
+
+.MuiPaper-root.MuiDialog-paper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 !important;
+}
