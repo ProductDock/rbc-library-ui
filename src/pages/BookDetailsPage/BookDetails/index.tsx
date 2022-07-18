@@ -65,7 +65,14 @@ const BookDetails = () => {
                 records={book?.records}
                 statusChangeCallback={setBookStatus}
               />
-              <BookRecordsUsers />
+              {bookStatus !== "AVAILABLE" &&
+                book?.records &&
+                book?.records?.length > 1 && (
+                  <BookRecordsUsers
+                    records={book?.records}
+                    bookStatus={bookStatus}
+                  />
+                )}
             </div>
             <div className="bd-text-box">
               <Typography className="bd-title">{book?.title}</Typography>

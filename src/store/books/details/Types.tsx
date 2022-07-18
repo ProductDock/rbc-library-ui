@@ -2,9 +2,14 @@
 /* eslint-disable no-shadow */
 import { BookActions, BookStatus } from "../status/Types";
 
-export type Record = {
-  email: string;
+export type DetailedRecord = {
+  user: {
+    fullName: string;
+    image: string;
+    email: string;
+  };
   status: BookStatus;
+  date: string;
 };
 
 export type Rating = {
@@ -31,7 +36,7 @@ export type Book = {
   title: string;
   author: string;
   cover: string;
-  records: Record[];
+  records: DetailedRecord[];
   numberOfCopies: number;
   reviews: Review[];
   rating: Rating;
