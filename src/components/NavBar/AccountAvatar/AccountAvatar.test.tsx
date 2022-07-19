@@ -1,7 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { act } from "react-dom/test-utils";
 import App from "../../../App";
 import * as AuthContext from "../../../store/auth/AuthContext";
 
@@ -25,7 +24,6 @@ describe("AccountAvatar component", () => {
     jest.spyOn(AuthContext, "useAuthContext").mockImplementation(() => ({
       signOut: signOutMock,
       isLoggedIn: true,
-      loaded: true,
       userProfile: {
         name: "test",
         imageUrl: "http://test.com",
@@ -43,9 +41,5 @@ describe("AccountAvatar component", () => {
     userEvent.click(signOutButton);
 
     expect(signOutMock).toBeCalledTimes(1);
-
-    await act(async () => {
-      expect(screen.findByText("Welcome to")).toBeTruthy();
-    });
   });
 });

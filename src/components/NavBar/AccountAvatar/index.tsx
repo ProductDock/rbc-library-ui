@@ -76,8 +76,9 @@ const AccountAvatar = () => {
             </div>
           </div>
         </MenuItem>
-        <MenuItem data-testid="sign-out-button">
+        <MenuItem>
           <a
+            data-testid="sign-out-button"
             className="sign-out-text"
             href="/api/logout"
             onClick={handleSignOut}

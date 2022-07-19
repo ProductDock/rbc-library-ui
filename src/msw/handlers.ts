@@ -1,6 +1,7 @@
 import { rest } from "msw";
 import { BooksFixture, SuggestedBooksFixture } from "./fixtures";
 
+export const USER_INFO_URL = `*/user-info`;
 export const BOOKS_URL = `*/search`;
 export const BOOK_DETAILS_URL = `*/books`;
 export const RENTAL_RECORD_URL = `*/rental/book/*/action`;
@@ -10,6 +11,12 @@ export const DELETE_BOOK_REVIEW_URL = `*/catalog/books/*/reviews*`;
 export const SUGGESTED_BOOKS_URL = `*/search/suggestions*`;
 
 export const handlers = [
+
+  rest.get(USER_INFO_URL, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json({
+    name: "test",
+    imageUrl: "https://w7.pngwing.com/pngs/223/244/png-transparent-computer-icons-avatar-user-profile-avatar-heroes-rectangle-black.png",
+    email: "test@test.com",
+  }))),
 
   rest.get(BOOKS_URL, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json(BooksFixture))),
 
