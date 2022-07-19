@@ -46,3 +46,11 @@
   padding: 16px;
   pointer-events: none;
 }
+
+.sign-out-text {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
