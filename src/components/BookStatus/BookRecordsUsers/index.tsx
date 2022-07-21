@@ -2,21 +2,22 @@
 import {
   Avatar,
   AvatarGroup,
-  Paper,
-  Popper,
   Tooltip,
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import "./BookRecordsUsers.css";
 import { MediaQueries } from "../../../constants/mediaQueries";
 import { DetailedRecord } from "../../../store/books/details/Types";
 import { BookStatus } from "../../../store/books/status/Types";
 import BookStatusProperties from "../../../store/books/status/BookStatusProperties";
 import MobileUserRecordsModal, {
-  MobileUserRecordsRefObject,
-} from "./MobileUserRecordsModal";
+  UserRecordsMobileRefObject,
+} from "./UserRecordsMobileModal";
+import UserRecordsPopper, {
+  UserRecordsPopperRefObject,
+} from "./UserRecordsPopper";
 
 type Props = {
   records?: DetailedRecord[];
@@ -25,9 +26,8 @@ type Props = {
 
 const BookRecordsUsers = ({ records, bookStatus }: Props) => {
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  const mobileUserRecordsModal = useRef<MobileUserRecordsRefObject>(null);
+  const mobileUserRecordsModal = useRef<UserRecordsMobileRefObject>(null);
+  const userRecordsPopper = useRef<UserRecordsPopperRefObject>(null);
 
   const showMobileModal = () => {
     if (!isLargeScreen) {
@@ -37,12 +37,12 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
 
   const showPopper = (event: any) => {
     if (isLargeScreen) {
-      setAnchorEl(event.currentTarget);
+      userRecordsPopper?.current?.showPopper?.(event);
     }
   };
 
   const handleLeave = () => {
-    setAnchorEl(null);
+    userRecordsPopper?.current?.handleLeave?.();
   };
 
   const getBookStatusProperties = (
@@ -54,37 +54,7 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
 
   return (
     <>
-      <Popper
-        className="rental-info-popper"
-        open={open}
-        anchorEl={anchorEl}
-        onMouseLeave={handleLeave}
-      >
-        {records?.map((record) => {
-          return (
-            <Paper elevation={0} sx={{ p: 1 }}>
-              <Typography fontSize={12}>
-                <span
-                  style={{
-                    color: `${
-                      getBookStatusProperties(record.status).fontColor
-                    }`,
-                  }}
-                >
-                  {getBookStatusProperties(record.status).text}
-                </span>
-                {
-                  getBookStatusProperties(record.status, record.user.fullName)
-                    .userFullName
-                }
-              </Typography>
-              <Typography fontWeight={300} fontSize={12}>
-                {record.date}
-              </Typography>
-            </Paper>
-          );
-        })}
-      </Popper>
+      <UserRecordsPopper ref={userRecordsPopper} records={records} />
       <MobileUserRecordsModal ref={mobileUserRecordsModal} records={records} />
       <AvatarGroup
         max={3}

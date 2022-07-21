@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, Typography } from "@mui/material";
-import "./MobileUserRecordsModal.css";
+import "./UserRecordsMobileModal.css";
 import { forwardRef, Ref, useImperativeHandle, useState } from "react";
 import { DetailedRecord } from "../../../../store/books/details/Types";
 import BookStatusProperties from "../../../../store/books/status/BookStatusProperties";
@@ -9,13 +9,12 @@ type Props = {
   records?: DetailedRecord[];
 };
 
-export interface MobileUserRecordsRefObject {
-  hideModal?: () => void;
+export interface UserRecordsMobileRefObject {
   showModal?: () => void;
 }
 
-const MobileUserRecordsModal = forwardRef(
-  ({ records }: Props, ref: Ref<MobileUserRecordsRefObject>) => {
+const UserRecordsMobileModal = forwardRef(
+  ({ records }: Props, ref: Ref<UserRecordsMobileRefObject>) => {
     const [showed, setShowed] = useState(false);
 
     const showModal = () => {
@@ -25,7 +24,7 @@ const MobileUserRecordsModal = forwardRef(
       setShowed(false);
     };
 
-    useImperativeHandle(ref, () => ({ showModal, hideModal }));
+    useImperativeHandle(ref, () => ({ showModal }));
 
     const getBookStatusProperties = (
       status: BookStatus | null,
@@ -67,4 +66,4 @@ const MobileUserRecordsModal = forwardRef(
   }
 );
 
-export default MobileUserRecordsModal;
+export default UserRecordsMobileModal;
