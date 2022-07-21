@@ -10,6 +10,6 @@
   margin-bottom: 0px;
   display: flex;
   background-color: #f5fbff;
-  width: auto;
+  max-width: 9em;
   border-radius: 8px;
 }

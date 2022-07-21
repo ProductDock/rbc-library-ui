@@ -3,20 +3,16 @@ import "./RentedBookStatus.css";
 import status from "../../../img/book-status/rented.svg";
 
 type Props = {
-  userFullName: string;
+  userFullName: string | undefined;
 };
 
 const RentedBookStatus = ({ userFullName }: Props) => {
   return (
     <div className="rented-book-status">
       <img src={status} alt="" />
-      {userFullName === "" ? (
-        <Typography className="book-status-rented-text">Rented</Typography>
-      ) : (
-        <Typography className="book-status-rented-text">
-          Rented by {userFullName}
-        </Typography>
-      )}
+      <Typography className="book-status-rented-text">
+        Rented{userFullName ? ` by ${userFullName}` : ""}
+      </Typography>
     </div>
   );
 };

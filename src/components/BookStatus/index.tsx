@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import { useEffect, useState } from "react";
-// import { Record } from "../../store/books/catalog/Types";
+import { Record } from "../../store/books/catalog/Types";
 import { useAuthContext } from "../../store/auth/AuthContext";
-// import { DetailedRecord } from "../../store/books/details/Types";
+import { DetailedRecord } from "../../store/books/details/Types";
 import BookStatusCalculator from "../../store/books/status/BookStatusCalculator";
 import { BookStatus as BookStatusValues } from "../../store/books/status/Types";
 import AvailableBookStatus from "./AvailableBookStatus";
@@ -12,20 +12,13 @@ import ReservedBookStatus from "./ReservedBookStatus";
 import ReservedByYouBookStatus from "./ReservedByYouBookStatus";
 
 type Props = {
-  records?: any;
+  records?: DetailedRecord[] | Record[];
   statusChangeCallback?: Function;
 };
 
 const BookStatus = ({ records, statusChangeCallback }: Props) => {
   const { userProfile } = useAuthContext();
   const [bookStatus, setBookStatus] = useState<BookStatusValues | null>(null);
-
-  const getUserFullName = () => {
-    if (records?.length === 1 && records?.at(0).user) {
-      return records[0].user?.fullName;
-    }
-    return "";
-  };
 
   useEffect(() => {
     if (!records || !userProfile) {
@@ -36,10 +29,16 @@ const BookStatus = ({ records, statusChangeCallback }: Props) => {
       userProfile.email
     );
     setBookStatus(calculatedBookStatus);
-    getUserFullName();
   });
 
   useEffect(() => statusChangeCallback?.(bookStatus), [bookStatus]);
+
+  const getUserFullName = () => {
+    if (records?.length === 1) {
+      return (records as DetailedRecord[])[0].user?.fullName;
+    }
+    return "";
+  };
 
   return (
     <div>
