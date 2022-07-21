@@ -2,20 +2,21 @@
 import {
   Avatar,
   AvatarGroup,
-  Dialog,
-  DialogContent,
   Paper,
   Popper,
   Tooltip,
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./BookRecordsUsers.css";
 import { MediaQueries } from "../../../constants/mediaQueries";
 import { DetailedRecord } from "../../../store/books/details/Types";
 import { BookStatus } from "../../../store/books/status/Types";
 import BookStatusProperties from "../../../store/books/status/BookStatusProperties";
+import MobileUserRecordsModal, {
+  MobileUserRecordsRefObject,
+} from "./MobileUserRecordsModal";
 
 type Props = {
   records?: DetailedRecord[];
@@ -24,26 +25,24 @@ type Props = {
 
 const BookRecordsUsers = ({ records, bookStatus }: Props) => {
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
-
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const handleLeave = () => {
-    setAnchorEl(null);
+  const mobileUserRecordsModal = useRef<MobileUserRecordsRefObject>(null);
+
+  const showMobileModal = () => {
+    if (!isLargeScreen) {
+      mobileUserRecordsModal?.current?.showModal?.();
+    }
   };
 
-  const [openMobile, setOpenMobile] = useState(false);
   const showPopper = (event: any) => {
     if (isLargeScreen) {
       setAnchorEl(event.currentTarget);
     }
   };
 
-  const showMobile = () => {
-    if (!isLargeScreen) setOpenMobile(true);
-  };
-
-  const handleCloseMobile = () => {
-    setOpenMobile(false);
+  const handleLeave = () => {
+    setAnchorEl(null);
   };
 
   const getBookStatusProperties = (
@@ -86,34 +85,7 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
           );
         })}
       </Popper>
-      <Dialog open={openMobile} onClose={handleCloseMobile} className="dialog">
-        <DialogContent>
-          {records?.map((record) => {
-            return (
-              <div className="dialog-item">
-                <Typography>
-                  <span
-                    style={{
-                      color: `${
-                        getBookStatusProperties(record.status).fontColor
-                      }`,
-                    }}
-                  >
-                    {getBookStatusProperties(record.status).text}
-                  </span>
-                  {
-                    getBookStatusProperties(record.status, record.user.fullName)
-                      .userFullName
-                  }
-                </Typography>
-                <Typography fontWeight={300} fontSize={13}>
-                  {record.date}
-                </Typography>
-              </div>
-            );
-          })}
-        </DialogContent>
-      </Dialog>
+      <MobileUserRecordsModal ref={mobileUserRecordsModal} records={records} />
       <AvatarGroup
         max={3}
         variant="rounded"
@@ -127,7 +99,7 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
               fontSize: "12px",
               zIndex: 1203,
             },
-            onClick: showMobile,
+            onClick: showMobileModal,
             onMouseEnter: showPopper,
             onMouseLeave: handleLeave,
           },
