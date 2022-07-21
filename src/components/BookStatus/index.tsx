@@ -33,21 +33,21 @@ const BookStatus = ({ records, statusChangeCallback }: Props) => {
 
   useEffect(() => statusChangeCallback?.(bookStatus), [bookStatus]);
 
-  // const getUserFullName = () => {
-  //   if (records?.length === 1 && records?.at(0).user) {
-  //     return records[0].user?.fullName;
-  //   }
-  //   return "";
-  // };
+  const getUserFullName = () => {
+    if (records?.length === 1) {
+      return (records as DetailedRecord[])[0].user?.fullName;
+    }
+    return "";
+  };
 
   return (
     <div>
       {bookStatus &&
         {
           AVAILABLE: <AvailableBookStatus />,
-          RENTED: <RentedBookStatus />,
+          RENTED: <RentedBookStatus userFullName={getUserFullName()} />,
           RENTED_BY_YOU: <RentedByYouBookStatus />,
-          RESERVED: <ReservedBookStatus />,
+          RESERVED: <ReservedBookStatus userFullName={getUserFullName()} />,
           RESERVED_BY_YOU: <ReservedByYouBookStatus />,
         }[bookStatus]}
     </div>

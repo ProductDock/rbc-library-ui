@@ -15,6 +15,7 @@ import "./BookRecordsUsers.css";
 import { MediaQueries } from "../../../constants/mediaQueries";
 import { DetailedRecord } from "../../../store/books/details/Types";
 import { BookStatus } from "../../../store/books/status/Types";
+import BookStatusProperties from "../../../store/books/status/BookStatusProperties";
 
 type Props = {
   records?: DetailedRecord[];
@@ -45,11 +46,11 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
     setOpenMobile(false);
   };
 
-  const isStatusRented = (status: BookStatus | null) => {
-    if (status === BookStatus.RENTED || status === BookStatus.RENTED_BY_YOU) {
-      return true;
-    }
-    return false;
+  const getBookStatusProperties = (
+    status: BookStatus | null,
+    userFullName: string | null = ""
+  ) => {
+    return new BookStatusProperties(status, userFullName);
   };
 
   return (
@@ -67,15 +68,16 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
                 <span
                   style={{
                     color: `${
-                      isStatusRented(record.status) ? "#EA592A" : "#00609A"
+                      getBookStatusProperties(record.status).fontColor
                     }`,
                   }}
                 >
-                  {isStatusRented(record.status)
-                    ? "Rented by "
-                    : "Reserved by "}
+                  {getBookStatusProperties(record.status).text}
                 </span>
-                {record.user.fullName}
+                {
+                  getBookStatusProperties(record.status, record.user.fullName)
+                    .userFullName
+                }
               </Typography>
               <Typography fontWeight={300} fontSize={12}>
                 {record.date}
@@ -93,15 +95,16 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
                   <span
                     style={{
                       color: `${
-                        isStatusRented(record.status) ? "#EA592A" : "#00609A"
+                        getBookStatusProperties(record.status).fontColor
                       }`,
                     }}
                   >
-                    {isStatusRented(record.status)
-                      ? "Rented by "
-                      : "Reserved by "}
+                    {getBookStatusProperties(record.status).text}
                   </span>
-                  {record.user.fullName}
+                  {
+                    getBookStatusProperties(record.status, record.user.fullName)
+                      .userFullName
+                  }
                 </Typography>
                 <Typography fontWeight={300} fontSize={13}>
                   {record.date}
@@ -117,9 +120,9 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
         componentsProps={{
           additionalAvatar: {
             sx: {
-              color: `${isStatusRented(bookStatus) ? "#EA592A" : "#00609A"}`,
+              color: `${getBookStatusProperties(bookStatus).fontColor}`,
               backgroundColor: `${
-                isStatusRented(bookStatus) ? "#f9d0c3" : "#c8eaff"
+                getBookStatusProperties(bookStatus).backgroundColor
               }`,
               fontSize: "12px",
               zIndex: 1203,
@@ -139,15 +142,18 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
                     <span
                       style={{
                         color: `${
-                          isStatusRented(record.status) ? "#EA592A" : "#00609A"
+                          getBookStatusProperties(record.status).fontColor
                         }`,
                       }}
                     >
-                      {isStatusRented(record.status)
-                        ? "Rented by "
-                        : "Reserved by "}
+                      {getBookStatusProperties(record.status).text}
                     </span>
-                    {record.user.fullName}
+                    {
+                      getBookStatusProperties(
+                        record.status,
+                        record.user.fullName
+                      ).userFullName
+                    }
                   </Typography>
                   <Typography fontWeight={300} fontSize={12}>
                     {record.date}
