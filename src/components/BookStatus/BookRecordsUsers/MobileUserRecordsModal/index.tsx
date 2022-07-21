@@ -1,23 +1,9 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import {
-  Dialog,
-  DialogContent,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Dialog, DialogContent, Typography } from "@mui/material";
 import "./MobileUserRecordsModal.css";
 import { forwardRef, Ref, useImperativeHandle, useState } from "react";
 import { DetailedRecord } from "../../../../store/books/details/Types";
-import { MediaQueries } from "../../../../constants/mediaQueries";
 import BookStatusProperties from "../../../../store/books/status/BookStatusProperties";
 import { BookStatus } from "../../../../store/books/status/Types";
-
-export enum ActionVariant {
-  confirm,
-  delete,
-}
 
 type Props = {
   records?: DetailedRecord[];
