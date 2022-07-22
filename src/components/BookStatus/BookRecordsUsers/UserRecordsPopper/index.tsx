@@ -42,7 +42,14 @@ const UserRecordsPopper = forwardRef(
         open={open}
         anchorEl={anchorEl}
         onMouseLeave={handleLeave}
-        className="user-records-popper"
+        modifiers={[
+          {
+            name: "offset",
+            options: {
+              offset: [0, 15],
+            },
+          },
+        ]}
       >
         {records?.map((record) => {
           return (
