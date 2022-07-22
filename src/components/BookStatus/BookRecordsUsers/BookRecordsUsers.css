@@ -1,0 +1,12 @@
+.MuiAvatar-root.MuiAvatarGroup-avatar {
+  width: 22px;
+  height: 22px;
+}
+
+.MuiAvatar-root.MuiAvatarGroup-avatar :hover {
+  cursor: pointer;
+}
+
+.MuiAvatarGroup-root :hover {
+  cursor: pointer;
+}

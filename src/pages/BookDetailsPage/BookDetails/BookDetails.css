@@ -36,6 +36,8 @@
   width: 80%;
   height: 30px;
   margin: 0.6em 0;
+  display: flex;
+  gap: 0.5em;
 }
 
 .book-details-status > div > div {
@@ -223,7 +225,7 @@
     padding: 0.7em 2em 0em 2em;
   }
 
-  .book-details-status > div {
+  .book-details-status > div > div {
     margin-left: 2.2em;
     transform: scale(1);
   }

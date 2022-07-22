@@ -8,8 +8,9 @@ import BookDetailsPage from "../BookDetailsPage";
 const { books } = BooksFixture;
 const testBook = books[1];
 const AVAILABLE_BOOK_ID = "1";
-const RENTED_BOOK_ID = "2";
+const RENTED_BOOK_ID = "6";
 const RENTED_BY_YOU_BOOK_ID = "3";
+const RENTED_BY_OTHER_USERS_BOOK_ID = "5";
 
 const SUCCESS_DISAPPEAR_AFTER = 2000;
 const BUTTON_APPEAR_AFTER = 1500;
@@ -111,6 +112,44 @@ describe("Test book details page", () => {
 
     await waitFor(() => expect(screen.queryByText("Success!")).toBeFalsy(), {
       timeout: SUCCESS_DISAPPEAR_AFTER,
+    });
+  });
+
+  test("should display user avatars when book is rented by users other then logged in user", async () => {
+    jest
+      .spyOn(Router, "useParams")
+      .mockReturnValue({ bookId: RENTED_BY_OTHER_USERS_BOOK_ID });
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
+
+    const bookStatus = await screen.findByText("Rented");
+    const statusComponent = screen.getByTestId("rented-book-status");
+    const recordsAvatars = screen.getByTestId("records-users-avatars");
+
+    await act(async () => {
+      expect(bookStatus).toBeTruthy();
+      expect(statusComponent).toBeTruthy();
+      expect(recordsAvatars).toBeTruthy();
+    });
+  });
+
+  test("should display user full name in status when book is rented by single user other then logged in user", async () => {
+    jest.spyOn(Router, "useParams").mockReturnValue({ bookId: RENTED_BOOK_ID });
+    render(
+      <BrowserRouter>
+        <BookDetailsPage />
+      </BrowserRouter>
+    );
+
+    const bookStatus = await screen.findByText("Rented by Test2 test2");
+    const recordsAvatars = screen.queryByTestId("records-users-avatars");
+
+    await act(async () => {
+      expect(bookStatus).toBeTruthy();
+      expect(recordsAvatars).toBeFalsy();
     });
   });
 });

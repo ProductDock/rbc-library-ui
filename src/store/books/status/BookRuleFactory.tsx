@@ -1,3 +1,4 @@
+import { DetailedRecord } from "../details/Types";
 import { Record } from "../catalog/Types";
 import BookStatusRecords from "./BookStatusRecords";
 import AvailableBookRule from "./rules/AvailableBookRule/AvailableBookRule";
@@ -10,7 +11,7 @@ import { BookStatus, Rule } from "./Types";
 export default class BookRuleFactory {
   public static for = (
     status: BookStatus,
-    records: Record[],
+    records: DetailedRecord[] | Record[],
     loggedInUserEmail: string
   ): Rule => {
     const bookStatusRecords = new BookStatusRecords(records, loggedInUserEmail);
