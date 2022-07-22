@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
-import { Box, Paper, Popper, Typography } from "@mui/material";
+import { Paper, Popper, Typography } from "@mui/material";
 import { forwardRef, Ref, useImperativeHandle, useState } from "react";
 import { DetailedRecord } from "../../../../store/books/details/Types";
 import BookStatusProperties from "../../../../store/books/status/BookStatusProperties";
 import { BookStatus } from "../../../../store/books/status/Types";
-import "./UserRecordsPopper.css";
 
 type Props = {
   records?: DetailedRecord[];
