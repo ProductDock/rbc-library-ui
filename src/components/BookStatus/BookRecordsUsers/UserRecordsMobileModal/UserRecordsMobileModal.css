@@ -1,8 +1,8 @@
-.MuiDialog-root .MuiDialog-container {
+.dialog.MuiDialog-root .MuiDialog-container {
   align-items: flex-end;
 }
 
-.MuiPaper-root.MuiDialog-paper {
+.dialog .MuiPaper-root.MuiDialog-paper {
   width: 100%;
   max-width: 100%;
   margin: 0;

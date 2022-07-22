@@ -1,15 +1,10 @@
 /* eslint-disable no-unused-vars */
-import {
-  Dialog,
-  DialogContent,
-  Paper,
-  Popper,
-  Typography,
-} from "@mui/material";
+import { Box, Paper, Popper, Typography } from "@mui/material";
 import { forwardRef, Ref, useImperativeHandle, useState } from "react";
 import { DetailedRecord } from "../../../../store/books/details/Types";
 import BookStatusProperties from "../../../../store/books/status/BookStatusProperties";
 import { BookStatus } from "../../../../store/books/status/Types";
+import "./UserRecordsPopper.css";
 
 type Props = {
   records?: DetailedRecord[];
@@ -43,7 +38,14 @@ const UserRecordsPopper = forwardRef(
     };
 
     return (
-      <Popper open={open} anchorEl={anchorEl} onMouseLeave={handleLeave}>
+      <Popper
+        open={open}
+        anchorEl={anchorEl}
+        onMouseLeave={handleLeave}
+        sx={{
+          marginTop: "0.8em !important",
+        }}
+      >
         {records?.map((record) => {
           return (
             <Paper elevation={0} sx={{ p: 1 }}>

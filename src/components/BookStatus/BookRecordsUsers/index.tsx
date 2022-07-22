@@ -74,6 +74,7 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
             onMouseLeave: handleLeave,
           },
         }}
+        data-testid="records-users-avatars"
       >
         {records?.map((record) => {
           return (

@@ -194,7 +194,7 @@
         "user": {
           "fullName": "Nemanja Vasiljevic",
           "image": "https://ca.slack-edge.com/T01GT9EC0LB-U0250D0LC1F-b8e0966c9cd2-512",
-          "email": "nenad.becanovic@productdock.com"
+          "email": "ok@productdock.com"
         },
         "status": "RENTED",
         "date": "23.05.2022"
@@ -203,7 +203,7 @@
         "user": {
           "fullName": "Milica Zivkov",
           "image": "https://ca.slack-edge.com/T01GT9EC0LB-U02H2AT94PN-e2260a8db8b6-512",
-          "email": "nenad.becanovic@productdock.com"
+          "email": "ok@productdock.com"
         },
         "status": "RENTED",
         "date": "23.05.2022"
@@ -212,7 +212,7 @@
         "user": {
           "fullName": "Vladimir Vukoman",
           "image": "https://ca.slack-edge.com/T01GT9EC0LB-U034N9727JB-e40d04b87aab-512",
-          "email": "nenad.becanovic@productdock.com"
+          "email": "ok@productdock.com"
         },
         "status": "RENTED",
         "date": "23.05.2022"
@@ -224,15 +224,6 @@
           "email": "nenad.becanovic@productdock.com"
         },
         "status": "RENTED",
-        "date": "23.05.2022"
-      },
-      {
-        "user": {
-          "fullName": "Nenad Becanovic",
-          "image": "https://ca.slack-edge.com/T01GT9EC0LB-U03556VEJ84-5e048cf443af-512",
-          "email": "nenad.becanovic@productdock.com"
-        },
-        "status": "RESERVED",
         "date": "23.05.2022"
       }
     ],
@@ -246,7 +237,17 @@
     "author": "Petar Peric",
     "cover": "Cover3",
     "title": "Book title3",
-    "records": [{ "email": "", "status": "AVAILABLE" }],
+    "records": [
+      {
+        "user": {
+          "fullName": "Test2 test2",
+          "image": "",
+          "email": "test2@test.com"
+        },
+        "status": "RENTED",
+        "date": "23.05.2022"
+      }
+    ],
     "rating": {
       "score": 1.5,
       "count": 7

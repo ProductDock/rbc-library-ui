@@ -8,7 +8,7 @@ type Props = {
 
 const RentedBookStatus = ({ userFullName }: Props) => {
   return (
-    <div className="rented-book-status">
+    <div className="rented-book-status" data-testid="rented-book-status">
       <img src={status} alt="" />
       <Typography className="book-status-rented-text">
         Rented{userFullName ? ` by ${userFullName}` : ""}
