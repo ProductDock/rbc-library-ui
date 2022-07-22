@@ -11,7 +11,7 @@ import "./BookRecordsUsers.css";
 import { MediaQueries } from "../../../constants/mediaQueries";
 import { DetailedRecord } from "../../../store/books/details/Types";
 import { BookStatus } from "../../../store/books/status/Types";
-import BookStatusProperties from "../../../store/books/status/BookStatusProperties";
+import { getBookStatusProperties } from "../../../store/books/status/BookStatusProperties";
 import MobileUserRecordsModal, {
   UserRecordsMobileRefObject,
 } from "./UserRecordsMobileModal";
@@ -43,13 +43,6 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
 
   const handleLeave = () => {
     userRecordsPopper?.current?.handleLeave?.();
-  };
-
-  const getBookStatusProperties = (
-    status: BookStatus | null,
-    userFullName: string | null = ""
-  ) => {
-    return new BookStatusProperties(status, userFullName);
   };
 
   return (

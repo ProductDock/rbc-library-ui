@@ -1,5 +1,4 @@
 import { createTheme } from "@material-ui/core/styles";
-// import type {} from "@material-ui/lab/themeAugmentation";
 
 const neueHaasUnicaW1G = {
   fontFamily: "Neue Haas Unica W1G",

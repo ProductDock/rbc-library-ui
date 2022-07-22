@@ -44,3 +44,10 @@ export default class BookStatusProperties {
     }
   }
 }
+
+export const getBookStatusProperties = (
+  status: BookStatus | null,
+  userFullName: string | null = ""
+) => {
+  return new BookStatusProperties(status, userFullName);
+};

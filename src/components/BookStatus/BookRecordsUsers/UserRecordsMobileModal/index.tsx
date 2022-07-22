@@ -2,8 +2,7 @@ import { Dialog, DialogContent, Typography } from "@mui/material";
 import "./UserRecordsMobileModal.css";
 import { forwardRef, Ref, useImperativeHandle, useState } from "react";
 import { DetailedRecord } from "../../../../store/books/details/Types";
-import BookStatusProperties from "../../../../store/books/status/BookStatusProperties";
-import { BookStatus } from "../../../../store/books/status/Types";
+import { getBookStatusProperties } from "../../../../store/books/status/BookStatusProperties";
 
 type Props = {
   records?: DetailedRecord[];
@@ -25,13 +24,6 @@ const UserRecordsMobileModal = forwardRef(
     };
 
     useImperativeHandle(ref, () => ({ showModal }));
-
-    const getBookStatusProperties = (
-      status: BookStatus | null,
-      userFullName: string | null = ""
-    ) => {
-      return new BookStatusProperties(status, userFullName);
-    };
 
     return (
       <Dialog open={showed} onClose={hideModal} className="records-dialog">
