@@ -1,13 +1,14 @@
-.dialog.MuiDialog-root .MuiDialog-container {
+.records-dialog.MuiDialog-root .MuiDialog-container {
   align-items: flex-end;
+  background-color: rgba(247, 247, 249, 0.2);
 }
 
-.dialog .MuiPaper-root.MuiDialog-paper {
+.records-dialog .MuiPaper-root.MuiDialog-paper {
   width: 100%;
   max-width: 100%;
   margin: 0;
 }
 
-.dialog-item {
+.records-dialog-item {
   margin-bottom: 10px;
 }

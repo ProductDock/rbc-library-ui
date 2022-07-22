@@ -34,11 +34,11 @@ const UserRecordsMobileModal = forwardRef(
     };
 
     return (
-      <Dialog open={showed} onClose={hideModal} className="dialog">
+      <Dialog open={showed} onClose={hideModal} className="records-dialog">
         <DialogContent>
           {records?.map((record) => {
             return (
-              <div className="dialog-item">
+              <div className="records-dialog-item">
                 <Typography>
                   <span
                     style={{

@@ -42,9 +42,7 @@ const UserRecordsPopper = forwardRef(
         open={open}
         anchorEl={anchorEl}
         onMouseLeave={handleLeave}
-        sx={{
-          marginTop: "0.8em !important",
-        }}
+        className="user-records-popper"
       >
         {records?.map((record) => {
           return (
