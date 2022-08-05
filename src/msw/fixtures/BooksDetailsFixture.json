@@ -1,0 +1,401 @@
+[
+  {
+    "id": 1,
+    "author": "Pera Peric",
+    "cover": "Cover",
+    "title": "Book titleBook titleBook titleBook titleBook titleBook titleBook titleBook titleBook titleBook titleBook titleBook title",
+    "records": [
+      {
+        "user": {
+          "fullName": "Nemanja Vasiljevic",
+          "image": "https://ca.slack-edge.com/T01GT9EC0LB-U0250D0LC1F-b8e0966c9cd2-512",
+          "email": "nenad.becanovic@productdock.com"
+        },
+        "status": "RENTED",
+        "date": "23.05.2022"
+      },
+      {
+        "user": {
+          "fullName": "Milica Zivkov",
+          "image": "https://ca.slack-edge.com/T01GT9EC0LB-U02H2AT94PN-e2260a8db8b6-512",
+          "email": "nenad.becanovic@productdock.com"
+        },
+        "status": "RENTED",
+        "date": "23.05.2022"
+      },
+      {
+        "user": {
+          "fullName": "Vladimir Vukoman",
+          "image": "https://ca.slack-edge.com/T01GT9EC0LB-U034N9727JB-e40d04b87aab-512",
+          "email": "nenad.becanovic@productdock.com"
+        },
+        "status": "RENTED",
+        "date": "23.05.2022"
+      },
+      {
+        "user": {
+          "fullName": "Dusan Petrovic",
+          "image": "https://ca.slack-edge.com/T01GT9EC0LB-U03556VLHEY-8211d4ebc81b-512",
+          "email": "nenad.becanovic@productdock.com"
+        },
+        "status": "RENTED",
+        "date": "23.05.2022"
+      },
+      {
+        "user": {
+          "fullName": "Nenad Becanovic",
+          "image": "https://ca.slack-edge.com/T01GT9EC0LB-U03556VEJ84-5e048cf443af-512",
+          "email": "nenad.becanovic@productdock.com"
+        },
+        "status": "RESERVED",
+        "date": "23.05.2022"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "1",
+        "userFullName": "Dummy user",
+        "rating": 4,
+        "recommendation": ["Medior", "Senior"],
+        "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+      },
+      {
+        "id": "2",
+        "userFullName": "Dummy user",
+        "rating": 4,
+        "recommendation": ["Medior", "Senior"],
+        "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+      }
+    ],
+    "rating": {
+      "score": 1.5,
+      "count": 7
+    }
+  },
+  {
+    "id": 2,
+    "author": "Nikola Peric",
+    "cover": "Cover1",
+    "title": "Book title1",
+    "records": [
+      {
+        "user": {
+          "fullName": "",
+          "image": "",
+          "email": ""
+        },
+        "status": "AVAILABLE",
+        "date": ""
+      }
+    ],
+    "reviews": [
+      {
+        "id": "1",
+        "userFullName": "Dummyuser2",
+        "userId": "test@test.com",
+        "rating": 4,
+        "recommendation": ["MEDIOR", "SENIOR"],
+        "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+      },
+      {
+        "id": "2",
+        "userFullName": "Dummy user",
+        "userId": "vladimir.vukoman@productdock.com",
+        "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+      },
+      {
+        "id": "3",
+        "userFullName": "Dummyuser2",
+        "rating": 3,
+        "userId": "dusan.petrovic@productdock.com",
+        "recommendation": ["JUNIOR"],
+        "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+      }
+    ],
+    "rating": {
+      "score": 3.5,
+      "count": 3
+    },
+    "topics": ["MARKETING", "SOFTWARE DEVELOPMENT"],
+    "description": "Why are we sometimes blind to the minds of others, treating them like objects or animals instead? Why do we talk to our cars, or the stars, as if there is a mind that can hear us? Why do we so routinely believe that others think, feel, and want what we do when, in fact, they do not? And why do we think we understand our spouses, family, and friends so much better than we actually do? In this illuminating book, leading social psychologist Nicholas Epley introduces us to what scientists have learned about our ability to understand the most complicated puzzle on the planet—other people—and the surprising mistakes we so routinely make. Mindwise will not turn others into open books, but it will give you the wisdom to revolutionize how you think about them—and yourself."
+  },
+  {
+    "id": 3,
+    "author": "Milan Peric",
+    "cover": "Cover2",
+    "title": "Book title2",
+    "records": [
+      {
+        "user": {
+          "fullName": "Test test",
+          "image": "",
+          "email": "test@test.com"
+        },
+        "status": "RESERVED",
+        "date": "23.05.2022"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "author": "Petar Peric",
+    "cover": "Cover3",
+    "title": "Book title3",
+    "records": [
+      {
+        "user": {
+          "fullName": "Test test",
+          "image": "",
+          "email": "test@test.com"
+        },
+        "status": "RENTED",
+        "date": "23.05.2022"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "author": "Nikola Peric",
+    "cover": "Cover1",
+    "title": "Book title1",
+    "records": [
+      {
+        "user": {
+          "fullName": "Test test",
+          "image": "",
+          "email": "test@test.com"
+        },
+        "status": "RENTED",
+        "date": "23.05.2022"
+      }
+    ],
+    "reviews": [
+      {
+        "id": "1",
+        "userFullName": "Dummyuser2",
+        "userId": "test@test.com",
+        "rating": 4,
+        "recommendation": ["MEDIOR", "SENIOR"],
+        "comment": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
+      }
+    ],
+    "rating": {
+      "score": 1.5,
+      "count": 7
+    }
+  },
+  {
+    "id": 6,
+    "author": "Milan Peric",
+    "cover": "Cover2",
+    "title": "Book title2",
+    "records": [
+      {
+        "user": {
+          "fullName": "Nemanja Vasiljevic",
+          "image": "https://ca.slack-edge.com/T01GT9EC0LB-U0250D0LC1F-b8e0966c9cd2-512",
+          "email": "ok@productdock.com"
+        },
+        "status": "RENTED",
+        "date": "23.05.2022"
+      },
+      {
+        "user": {
+          "fullName": "Milica Zivkov",
+          "image": "https://ca.slack-edge.com/T01GT9EC0LB-U02H2AT94PN-e2260a8db8b6-512",
+          "email": "ok@productdock.com"
+        },
+        "status": "RENTED",
+        "date": "23.05.2022"
+      },
+      {
+        "user": {
+          "fullName": "Vladimir Vukoman",
+          "image": "https://ca.slack-edge.com/T01GT9EC0LB-U034N9727JB-e40d04b87aab-512",
+          "email": "ok@productdock.com"
+        },
+        "status": "RENTED",
+        "date": "23.05.2022"
+      },
+      {
+        "user": {
+          "fullName": "Dusan Petrovic",
+          "image": "https://ca.slack-edge.com/T01GT9EC0LB-U03556VLHEY-8211d4ebc81b-512",
+          "email": "nenad.becanovic@productdock.com"
+        },
+        "status": "RENTED",
+        "date": "23.05.2022"
+      }
+    ],
+    "rating": {
+      "score": 1.5,
+      "count": 7
+    }
+  },
+  {
+    "id": 7,
+    "author": "Petar Peric",
+    "cover": "Cover3",
+    "title": "Book title3",
+    "records": [
+      {
+        "user": {
+          "fullName": "Test2 test2",
+          "image": "",
+          "email": "test2@test.com"
+        },
+        "status": "RENTED",
+        "date": "23.05.2022"
+      }
+    ],
+    "rating": {
+      "score": 1.5,
+      "count": 7
+    }
+  },
+  {
+    "id": 8,
+    "author": "Nikola Peric",
+    "cover": "Cover1",
+    "title": "Book title1",
+    "records": [{ "email": "", "status": "AVAILABLE" }],
+    "rating": {
+      "score": 1.5,
+      "count": 7
+    }
+  },
+  {
+    "id": 9,
+    "author": "Milan Peric",
+    "cover": "Cover2",
+    "title": "Book title2",
+    "records": [{ "email": "", "status": "AVAILABLE" }],
+    "rating": {
+      "score": 1.5,
+      "count": 7
+    }
+  },
+  {
+    "id": 10,
+    "author": "Petar Peric",
+    "cover": "Cover3",
+    "title": "Book title3",
+    "records": [{ "email": "", "status": "AVAILABLE" }],
+    "rating": {
+      "score": 1.5,
+      "count": 7
+    }
+  },
+  {
+    "id": 11,
+    "author": "Nikola Peric",
+    "cover": "Cover1",
+    "title": "Book title1",
+    "records": [
+      { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+      { "email": "", "status": "AVAILABLE" }
+    ],
+    "rating": {
+      "score": 1.5,
+      "count": 7
+    }
+  },
+  {
+    "id": 12,
+    "author": "Milan Peric",
+    "cover": "Cover2",
+    "title": "Book title2",
+    "records": [
+      { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+      { "email": "", "status": "AVAILABLE" }
+    ],
+    "rating": {
+      "score": 1.5,
+      "count": 7
+    }
+  },
+  {
+    "id": 13,
+    "author": "Petar Peric",
+    "cover": "Cover3",
+    "title": "Book title3",
+    "records": [
+      { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+      { "email": "", "status": "AVAILABLE" }
+    ],
+    "rating": {
+      "score": 1.5,
+      "count": 7
+    }
+  },
+  {
+    "id": 14,
+    "author": "Nikola Peric",
+    "cover": "Cover1",
+    "title": "Book title1",
+    "records": [
+      { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+      { "email": "", "status": "AVAILABLE" }
+    ],
+    "rating": {
+      "score": 1.5,
+      "count": 2
+    }
+  },
+  {
+    "id": 15,
+    "author": "Milan Peric",
+    "cover": "Cover2",
+    "title": "Book title2",
+    "records": [
+      { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+      { "email": "", "status": "AVAILABLE" }
+    ],
+    "rating": {
+      "score": 1.5,
+      "count": 2
+    }
+  },
+  {
+    "id": 16,
+    "author": "Petar Peric",
+    "cover": "Cover3",
+    "title": "Book title3",
+    "records": [
+      { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+      { "email": "", "status": "AVAILABLE" }
+    ],
+    "rating": {
+      "score": 1.5,
+      "count": 2
+    }
+  },
+  {
+    "id": 17,
+    "author": "Nikola Peric",
+    "cover": "Cover1",
+    "title": "Book title1",
+    "records": [
+      { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+      { "email": "", "status": "AVAILABLE" }
+    ],
+    "rating": {
+      "score": 1.5,
+      "count": 2
+    }
+  },
+  {
+    "id": 18,
+    "author": "Milan Peric",
+    "cover": "Cover2",
+    "title": "Book title2",
+    "records": [
+      { "email": "dusan.petrovic@productdock.com", "status": "RENTED" },
+      { "email": "", "status": "AVAILABLE" }
+    ],
+    "rating": {
+      "score": 2.5,
+      "count": 2
+    }
+  }
+]

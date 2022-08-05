@@ -16,6 +16,7 @@ import { BookActions } from "../../../store/books/status/Types";
 import { successMessages } from "../../../constants/successMessages";
 import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
 import { gratitudeMessages } from "../../../constants/gratitudeMessages";
+import BookRecordsUsers from "../../../components/BookStatus/BookRecordsUsers";
 
 const BookDetails = () => {
   const { book, currentAction, bookStatus, setBookStatus, reloadBook } =
@@ -64,6 +65,14 @@ const BookDetails = () => {
                 records={book?.records}
                 statusChangeCallback={setBookStatus}
               />
+              {bookStatus !== "AVAILABLE" &&
+                book?.records &&
+                book?.records?.length > 1 && (
+                  <BookRecordsUsers
+                    records={book?.records}
+                    bookStatus={bookStatus}
+                  />
+                )}
             </div>
             <div className="bd-text-box">
               <Typography className="bd-title">{book?.title}</Typography>
