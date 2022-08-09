@@ -8,6 +8,8 @@
   width: 14rem;
   position: relative;
   height: 40px;
+  text-decoration: none;
+  color: black;
 }
 
 .login-button .button-container {
