@@ -15,7 +15,9 @@ const AuthContextProvider = (props: any) => {
   const [authState, dispatch] = useReducer(reducer, initialState);
 
   const signOut = async () => {
-    return Promise.resolve(dispatch({ type: actions.REMOVE_LOGGED_USER }));
+    authService.logout().then(() => {
+      dispatch({ type: actions.REMOVE_LOGGED_USER });
+    });
   };
 
   const getLoggedInUserInfo = () => {
