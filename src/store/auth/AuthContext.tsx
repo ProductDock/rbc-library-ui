@@ -11,6 +11,9 @@ const initialState = {
   loaded: false,
 };
 
+const REDIRECT_PATHNAME = "REDIRECT_PATHNAME";
+const STATUS_UNAUTHORIZED = 401;
+
 export const AuthContext = React.createContext<IAuthContext>(initialState);
 
 const AuthContextProvider = (props: any) => {
@@ -27,16 +30,23 @@ const AuthContextProvider = (props: any) => {
       .then(() => {
         dispatch({ type: actions.REMOVE_LOGGED_USER });
       })
-      .then(() => localStorage.removeItem("currentPathname"));
+      .then(() => localStorage.removeItem(REDIRECT_PATHNAME));
 
   const loadFinished = () => dispatch({ type: actions.AUTH_LOAD_FINISHED });
 
-  const setCurrentPathname = (pathname: string) =>
-    localStorage.setItem("currentPathname", pathname);
+  const setRedirectPathname = (pathname: string) =>
+    localStorage.setItem(REDIRECT_PATHNAME, pathname);
+
+  const redirectToPreviousPage = () => {
+    const redirectPath = localStorage.getItem(REDIRECT_PATHNAME);
+
+    if (redirectPath) {
+      navigate(redirectPath);
+      localStorage.removeItem(REDIRECT_PATHNAME);
+    }
+  };
 
   const getLoggedInUserInfo = () => {
-    const currentPath = localStorage.getItem("currentPathname");
-
     authService
       .userInfoRequest()
       .then((res) => {
@@ -45,11 +55,13 @@ const AuthContextProvider = (props: any) => {
           payload: res.data,
         });
 
-        if (currentPath) {
-          navigate(currentPath);
+        redirectToPreviousPage();
+      })
+      .catch((reason) => {
+        if (reason?.response?.status === STATUS_UNAUTHORIZED) {
+          setRedirectPathname(pathname);
         }
       })
-      .catch(() => setCurrentPathname(pathname))
       .finally(() => loadFinished());
   };
 
