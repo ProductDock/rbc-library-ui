@@ -17,6 +17,8 @@ const AuthContextProvider = (props: any) => {
   const [authState, dispatch] = useReducer(reducer, initialState);
 
   const location = useLocation();
+  const { pathname } = location;
+
   const navigate = useNavigate();
 
   const signOut = async () =>
@@ -33,7 +35,7 @@ const AuthContextProvider = (props: any) => {
     localStorage.setItem("currentPathname", pathname);
 
   const getLoggedInUserInfo = () => {
-    const { pathname } = location;
+    const currentPath = localStorage.getItem("currentPathname");
 
     authService
       .userInfoRequest()
@@ -43,7 +45,6 @@ const AuthContextProvider = (props: any) => {
           payload: res.data,
         });
 
-        const currentPath = localStorage.getItem("currentPathname");
         if (currentPath) {
           navigate(currentPath);
         }

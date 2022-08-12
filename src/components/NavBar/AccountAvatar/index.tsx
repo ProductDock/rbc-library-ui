@@ -28,9 +28,7 @@ const AccountAvatar = () => {
   };
 
   const handleSignOut = () => {
-    signOut?.()
-      .then(() => navigate(routes.WELCOME))
-      .then(() => handleClose());
+    signOut?.().then(() => navigate(routes.WELCOME));
   };
 
   return userProfile ? (
