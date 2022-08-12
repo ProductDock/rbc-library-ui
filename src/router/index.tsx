@@ -5,8 +5,14 @@ import HomePage from "../pages/HomePage/HomePage";
 import ProtectedRouter from "./ProtectedRouter";
 import LandingPage from "../pages/LandingPage/LandingPage";
 import BookDetailsPage from "../pages/BookDetailsPage/BookDetailsPage";
+import { useAuthContext } from "../store/auth/AuthContext";
 
 const PageRouter = () => {
+  const { loaded } = useAuthContext();
+
+  if (!loaded) {
+    return null;
+  }
   return (
     <Routes>
       <Route path={routes.HOME} element={<ProtectedRouter />}>

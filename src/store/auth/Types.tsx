@@ -8,4 +8,5 @@ export interface IAuthContext {
   userProfile: UserProfile | null;
   isLoggedIn: boolean | null;
   signOut?: () => Promise<any>;
+  loaded: boolean;
 }

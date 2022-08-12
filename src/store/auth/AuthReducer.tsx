@@ -15,6 +15,11 @@ const reducer = (state: IAuthContext, action: any) => {
         isLoggedIn: null,
         userProfile: null,
       };
+    case actions.AUTH_LOAD_FINISHED:
+      return {
+        ...state,
+        loaded: true,
+      };
     default:
       return state;
   }

@@ -5,13 +5,13 @@ import AuthContextProvider from "./store/auth/AuthContext";
 
 function App() {
   return (
-    <AuthContextProvider>
-      <Router>
+    <Router>
+      <AuthContextProvider>
         <div className="main-div">
           <PageRouter />
         </div>
-      </Router>
-    </AuthContextProvider>
+      </AuthContextProvider>
+    </Router>
   );
 }
 
