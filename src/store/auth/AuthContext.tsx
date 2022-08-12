@@ -46,7 +46,13 @@ const AuthContextProvider = (props: any) => {
     }
   };
 
-  const getLoggedInUserInfo = () => {
+  const handleUnauthorizedError = (reason: any) => {
+    if (reason?.response?.status === STATUS_UNAUTHORIZED) {
+      setRedirectPathname(pathname);
+    }
+  };
+
+  const completeLogin = (successHandler: Function, errorHandler: Function) => {
     authService
       .userInfoRequest()
       .then((res) => {
@@ -55,19 +61,15 @@ const AuthContextProvider = (props: any) => {
           payload: res.data,
         });
 
-        redirectToPreviousPage();
+        successHandler();
       })
-      .catch((reason) => {
-        if (reason?.response?.status === STATUS_UNAUTHORIZED) {
-          setRedirectPathname(pathname);
-        }
-      })
+      .catch((reason) => errorHandler(reason))
       .finally(() => loadFinished());
   };
 
   useEffect(() => {
     dispatch({ type: actions.REMOVE_LOGGED_USER });
-    getLoggedInUserInfo();
+    completeLogin(redirectToPreviousPage, handleUnauthorizedError);
   }, []);
 
   return (
