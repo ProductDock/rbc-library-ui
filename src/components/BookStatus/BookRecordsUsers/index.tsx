@@ -18,6 +18,7 @@ import MobileUserRecordsModal, {
 import UserRecordsPopper, {
   UserRecordsPopperRefObject,
 } from "./UserRecordsPopper";
+import { formatDate } from "../../../utils/dateUtil";
 
 type Props = {
   records?: DetailedRecord[];
@@ -92,7 +93,7 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
                     }
                   </Typography>
                   <Typography fontWeight={300} fontSize={12}>
-                    {record.date}
+                    {formatDate(new Date(record.date))}
                   </Typography>
                 </div>
               }

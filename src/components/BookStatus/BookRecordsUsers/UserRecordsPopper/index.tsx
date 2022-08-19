@@ -3,6 +3,7 @@ import { Paper, Popper, Typography } from "@mui/material";
 import { forwardRef, Ref, useImperativeHandle, useState } from "react";
 import { DetailedRecord } from "../../../../store/books/details/Types";
 import { getBookStatusProperties } from "../../../../store/books/status/BookStatusProperties";
+import { formatDate } from "../../../../utils/dateUtil";
 
 type Props = {
   records?: DetailedRecord[];
@@ -61,7 +62,7 @@ const UserRecordsPopper = forwardRef(
                 }
               </Typography>
               <Typography fontWeight={300} fontSize={12}>
-                {record.date}
+                {formatDate(new Date(record.date))}
               </Typography>
             </Paper>
           );
