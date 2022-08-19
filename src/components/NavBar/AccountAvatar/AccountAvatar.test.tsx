@@ -27,10 +27,9 @@ describe("AccountAvatar component", () => {
       isLoggedIn: true,
       loaded: true,
       userProfile: {
-        name: "test",
-        imageUrl: "http://test.com",
+        fullName: "test",
+        image: "http://test.com",
         email: "test@test.com",
-        googleAccessToken: "1234567",
       },
     }));
 
