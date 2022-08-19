@@ -45,7 +45,7 @@ const UserRecordsPopper = forwardRef(
       >
         {records?.map((record) => {
           return (
-            <Paper elevation={0} sx={{ p: 1 }}>
+            <Paper key={record.user.email} elevation={0} sx={{ p: 1 }}>
               <Typography fontSize={12}>
                 <span
                   style={{

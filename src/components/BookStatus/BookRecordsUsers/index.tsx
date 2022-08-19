@@ -73,6 +73,7 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
         {records?.map((record) => {
           return (
             <Tooltip
+              key={record.user.email}
               title={
                 <div>
                   <Typography fontSize={12}>

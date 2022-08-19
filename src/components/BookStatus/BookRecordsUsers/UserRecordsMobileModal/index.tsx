@@ -31,7 +31,7 @@ const UserRecordsMobileModal = forwardRef(
         <DialogContent>
           {records?.map((record) => {
             return (
-              <div className="records-dialog-item">
+              <div key={record.user.email} className="records-dialog-item">
                 <Typography>
                   <span
                     style={{
