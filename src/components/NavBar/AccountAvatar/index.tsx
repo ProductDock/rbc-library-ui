@@ -45,7 +45,7 @@ const AccountAvatar = () => {
             <img
               referrerPolicy="no-referrer"
               className="credentials-image-navbar"
-              src={userProfile?.imageUrl}
+              src={userProfile?.image}
               alt=""
             />
           </IconButton>
@@ -63,13 +63,13 @@ const AccountAvatar = () => {
           <img
             referrerPolicy="no-referrer"
             className="credentials-image"
-            src={userProfile?.imageUrl}
+            src={userProfile?.image}
             alt=""
           />
           <div className="d-flex flex-column">
             <div className="d-flex flex-row user-name">
               <span>
-                <Typography>{userProfile?.name}</Typography>
+                <Typography>{userProfile?.fullName}</Typography>
               </span>
             </div>
             <div className="d-flex flex-row">
