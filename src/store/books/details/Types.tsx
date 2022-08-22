@@ -9,7 +9,7 @@ export type DetailedRecord = {
     email: string;
   };
   status: BookStatus;
-  date: string;
+  date: Date;
 };
 
 export type Rating = {

@@ -3,6 +3,7 @@ import "./UserRecordsMobileModal.css";
 import { forwardRef, Ref, useImperativeHandle, useState } from "react";
 import { DetailedRecord } from "../../../../store/books/details/Types";
 import { getBookStatusProperties } from "../../../../store/books/status/BookStatusProperties";
+import { formatDate } from "../../../../utils/dateUtil";
 
 type Props = {
   records?: DetailedRecord[];
@@ -30,7 +31,7 @@ const UserRecordsMobileModal = forwardRef(
         <DialogContent>
           {records?.map((record) => {
             return (
-              <div className="records-dialog-item">
+              <div key={record.user.email} className="records-dialog-item">
                 <Typography>
                   <span
                     style={{
@@ -47,7 +48,7 @@ const UserRecordsMobileModal = forwardRef(
                   }
                 </Typography>
                 <Typography fontWeight={300} fontSize={13}>
-                  {record.date}
+                  {formatDate(new Date(record.date))}
                 </Typography>
               </div>
             );

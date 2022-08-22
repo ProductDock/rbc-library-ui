@@ -12,7 +12,7 @@
           "email": "nenad.becanovic@productdock.com"
         },
         "status": "RENTED",
-        "date": "23.05.2022"
+        "date": "2022-06-21T10:00:00.000+00:00"
       },
       {
         "user": {
@@ -21,7 +21,7 @@
           "email": "nenad.becanovic@productdock.com"
         },
         "status": "RENTED",
-        "date": "23.05.2022"
+        "date": "2022-06-21T10:00:00.000+00:00"
       },
       {
         "user": {
@@ -30,7 +30,7 @@
           "email": "nenad.becanovic@productdock.com"
         },
         "status": "RENTED",
-        "date": "23.05.2022"
+        "date": "2022-06-21T10:00:00.000+00:00"
       },
       {
         "user": {
@@ -39,7 +39,7 @@
           "email": "nenad.becanovic@productdock.com"
         },
         "status": "RENTED",
-        "date": "23.05.2022"
+        "date": "2022-06-21T10:00:00.000+00:00"
       },
       {
         "user": {
@@ -48,7 +48,7 @@
           "email": "nenad.becanovic@productdock.com"
         },
         "status": "RESERVED",
-        "date": "23.05.2022"
+        "date": "2022-06-21T10:00:00.000+00:00"
       }
     ],
     "reviews": [
@@ -85,7 +85,7 @@
           "email": ""
         },
         "status": "AVAILABLE",
-        "date": ""
+        "date": "2022-06-21T10:00:00.000+00:00"
       }
     ],
     "reviews": [
@@ -132,7 +132,7 @@
           "email": "test@test.com"
         },
         "status": "RESERVED",
-        "date": "23.05.2022"
+        "date": "2022-06-21T10:00:00.000+00:00"
       }
     ]
   },
@@ -149,7 +149,7 @@
           "email": "test@test.com"
         },
         "status": "RENTED",
-        "date": "23.05.2022"
+        "date": "2022-06-21T10:00:00.000+00:00"
       }
     ]
   },
@@ -166,7 +166,7 @@
           "email": "test@test.com"
         },
         "status": "RENTED",
-        "date": "23.05.2022"
+        "date": "2022-06-21T10:00:00.000+00:00"
       }
     ],
     "reviews": [
@@ -194,37 +194,37 @@
         "user": {
           "fullName": "Nemanja Vasiljevic",
           "image": "https://ca.slack-edge.com/T01GT9EC0LB-U0250D0LC1F-b8e0966c9cd2-512",
-          "email": "ok@productdock.com"
+          "email": "nemanje@productdock.com"
         },
         "status": "RENTED",
-        "date": "23.05.2022"
+        "date": "2022-06-21T10:00:00.000+00:00"
       },
       {
         "user": {
           "fullName": "Milica Zivkov",
           "image": "https://ca.slack-edge.com/T01GT9EC0LB-U02H2AT94PN-e2260a8db8b6-512",
-          "email": "ok@productdock.com"
+          "email": "milica@productdock.com"
         },
         "status": "RENTED",
-        "date": "23.05.2022"
+        "date": "2022-06-21T10:00:00.000+00:00"
       },
       {
         "user": {
           "fullName": "Vladimir Vukoman",
           "image": "https://ca.slack-edge.com/T01GT9EC0LB-U034N9727JB-e40d04b87aab-512",
-          "email": "ok@productdock.com"
+          "email": "vladimir@productdock.com"
         },
         "status": "RENTED",
-        "date": "23.05.2022"
+        "date": "2022-06-21T10:00:00.000+00:00"
       },
       {
         "user": {
           "fullName": "Dusan Petrovic",
           "image": "https://ca.slack-edge.com/T01GT9EC0LB-U03556VLHEY-8211d4ebc81b-512",
-          "email": "nenad.becanovic@productdock.com"
+          "email": "dusan@productdock.com"
         },
         "status": "RENTED",
-        "date": "23.05.2022"
+        "date": "2022-06-21T10:00:00.000+00:00"
       }
     ],
     "rating": {
@@ -245,7 +245,7 @@
           "email": "test2@test.com"
         },
         "status": "RENTED",
-        "date": "23.05.2022"
+        "date": "2022-06-21T10:00:00.000+00:00"
       }
     ],
     "rating": {

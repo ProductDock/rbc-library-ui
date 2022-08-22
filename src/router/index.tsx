@@ -2,10 +2,10 @@ import { Routes } from "react-router-dom";
 import { Route } from "react-router";
 import { routes } from "../constants/routes";
 import HomePage from "../pages/HomePage/HomePage";
-import { useAuthContext } from "../store/auth/AuthContext";
 import ProtectedRouter from "./ProtectedRouter";
 import LandingPage from "../pages/LandingPage/LandingPage";
 import BookDetailsPage from "../pages/BookDetailsPage/BookDetailsPage";
+import { useAuthContext } from "../store/auth/AuthContext";
 
 const PageRouter = () => {
   const { loaded } = useAuthContext();

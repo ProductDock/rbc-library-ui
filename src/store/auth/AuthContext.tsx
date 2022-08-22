@@ -1,71 +1,82 @@
 import React, { useContext, useEffect, useReducer } from "react";
-import { useGoogleLogin } from "react-google-login";
-import { gapi } from "gapi-script";
+import { useLocation, useNavigate } from "react-router";
 import { actions } from "./authActions";
 import reducer from "./AuthReducer";
-import { TokenStorage } from "./TokenStorage";
 import { IAuthContext } from "./Types";
-
-const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID || "";
+import * as authService from "../../services/AuthService";
 
 const initialState = {
   userProfile: null,
   isLoggedIn: null,
+  loaded: false,
 };
+
+const REDIRECT_PATHNAME = "REDIRECT_PATHNAME";
+const STATUS_UNAUTHORIZED = 401;
 
 export const AuthContext = React.createContext<IAuthContext>(initialState);
 
 const AuthContextProvider = (props: any) => {
   const [authState, dispatch] = useReducer(reducer, initialState);
 
-  const onSuccess = (res: any) => {
-    const { accessToken } = res;
-    const { name, email, imageUrl } = res.profileObj;
-    dispatch({
-      type: actions.SET_LOGGED_USER,
-      payload: { name, email, imageUrl, googleAccessToken: accessToken },
-    });
-    TokenStorage.setAccessToken(res.tokenId);
+  const location = useLocation();
+  const { pathname } = location;
+
+  const navigate = useNavigate();
+
+  const signOut = async () =>
+    authService
+      .logout()
+      .then(() => {
+        dispatch({ type: actions.REMOVE_LOGGED_USER });
+      })
+      .then(() => localStorage.removeItem(REDIRECT_PATHNAME));
+
+  const loadFinished = () => dispatch({ type: actions.AUTH_LOAD_FINISHED });
+
+  const setRedirectPathname = (pathname: string) =>
+    localStorage.setItem(REDIRECT_PATHNAME, pathname);
+
+  const redirectToPreviousPage = () => {
+    const redirectPath = localStorage.getItem(REDIRECT_PATHNAME);
+
+    if (redirectPath) {
+      navigate(redirectPath);
+      localStorage.removeItem(REDIRECT_PATHNAME);
+    }
   };
 
-  const onFailure = (res: any) => {
-    // eslint-disable-next-line no-console
-    console.log("Login failed: res:", res);
+  const handleUnauthorizedError = (reason: any) => {
+    if (reason?.response?.status === STATUS_UNAUTHORIZED) {
+      setRedirectPathname(pathname);
+    }
   };
 
-  const signOut = async () => {
-    const auth2 = gapi.auth2.getAuthInstance();
-    return auth2?.signOut().then(
-      auth2
-        .disconnect()
-        .then(dispatch({ type: actions.REMOVE_LOGGED_USER }))
-        .then(TokenStorage.removeAccessToken())
-    );
+  const completeLogin = (successHandler: Function, errorHandler: Function) => {
+    authService
+      .userInfoRequest()
+      .then((res) => {
+        dispatch({
+          type: actions.SET_LOGGED_USER,
+          payload: res.data,
+        });
+
+        successHandler();
+      })
+      .catch((reason) => errorHandler(reason))
+      .finally(() => loadFinished());
   };
 
   useEffect(() => {
-    TokenStorage.removeAccessToken();
+    dispatch({ type: actions.REMOVE_LOGGED_USER });
+    completeLogin(redirectToPreviousPage, handleUnauthorizedError);
   }, []);
-
-  const onAutoLoadFinished = (successLogin: boolean) => {
-    dispatch({ type: actions.SET_LOGIN_STATUS, payload: successLogin });
-  };
-
-  const { signIn, loaded } = useGoogleLogin({
-    onSuccess,
-    onFailure,
-    onAutoLoadFinished,
-    clientId,
-    isSignedIn: true,
-  });
 
   return (
     <AuthContext.Provider
       value={{
         ...authState,
-        signIn,
         signOut,
-        loaded,
       }}
     >
       {props.children}

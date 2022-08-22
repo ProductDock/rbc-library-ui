@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import { BooksFixture, BooksDetailsFixture, SuggestedBooksFixture } from "./fixtures";
+import { BooksFixture, BooksDetailsFixture, SuggestedBooksFixture, UserInfoFixture } from "./fixtures";
 
 export const BOOKS_URL = `*/search`;
 export const BOOK_DETAILS_URL = `*/books`;
@@ -8,8 +8,11 @@ export const POST_BOOK_REVIEW_URL = `*/catalog/books/*/reviews`;
 export const PUT_BOOK_REVIEW_URL = `*/catalog/books/*/reviews*`;
 export const DELETE_BOOK_REVIEW_URL = `*/catalog/books/*/reviews*`;
 export const SUGGESTED_BOOKS_URL = `*/search/suggestions*`;
+export const USER_INFO_URL = `*/user-info`;
 
 export const handlers = [
+
+  rest.get(USER_INFO_URL, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json(UserInfoFixture))),
 
   rest.get(BOOKS_URL, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json(BooksFixture))),
 

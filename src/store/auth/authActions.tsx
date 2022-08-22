@@ -1,5 +1,5 @@
 export const actions = {
   REMOVE_LOGGED_USER: "removeLoggedUser",
   SET_LOGGED_USER: "setLoggedUser",
-  SET_LOGIN_STATUS: "setLoginStatus",
+  AUTH_LOAD_FINISHED: "authLoadFinished",
 } as const;
