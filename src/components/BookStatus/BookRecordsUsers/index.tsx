@@ -72,40 +72,42 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
       >
         {records?.map((record) => {
           return (
-            <Tooltip
-              key={record.user.email}
-              title={
-                <div>
-                  <Typography fontSize={12}>
-                    <span
-                      style={{
-                        color: `${
-                          getBookStatusProperties(record.status).fontColor
-                        }`,
-                      }}
-                    >
-                      {getBookStatusProperties(record.status).text}
-                    </span>
-                    {
-                      getBookStatusProperties(
-                        record.status,
-                        record.user.fullName
-                      ).userFullName
-                    }
-                  </Typography>
-                  <Typography fontWeight={300} fontSize={12}>
-                    {formatDate(new Date(record.date))}
-                  </Typography>
-                </div>
-              }
-            >
-              <Avatar
-                alt={record.user.fullName}
-                src={record.user.image}
-                variant="rounded"
-                sx={{ zIndex: `120${records?.indexOf(record)}` }}
-              />
-            </Tooltip>
+            record.user && (
+              <Tooltip
+                key={record.user.email}
+                title={
+                  <div>
+                    <Typography fontSize={12}>
+                      <span
+                        style={{
+                          color: `${
+                            getBookStatusProperties(record.status).fontColor
+                          }`,
+                        }}
+                      >
+                        {getBookStatusProperties(record.status).text}
+                      </span>
+                      {
+                        getBookStatusProperties(
+                          record.status,
+                          record.user.fullName
+                        ).userFullName
+                      }
+                    </Typography>
+                    <Typography fontWeight={300} fontSize={12}>
+                      {formatDate(new Date(record.date))}
+                    </Typography>
+                  </div>
+                }
+              >
+                <Avatar
+                  alt={record.user.fullName}
+                  src={record.user.image}
+                  variant="rounded"
+                  sx={{ zIndex: `120${records?.indexOf(record)}` }}
+                />
+              </Tooltip>
+            )
           );
         })}
       </AvatarGroup>

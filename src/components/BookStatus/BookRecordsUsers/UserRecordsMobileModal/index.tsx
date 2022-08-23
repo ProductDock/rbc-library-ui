@@ -31,26 +31,30 @@ const UserRecordsMobileModal = forwardRef(
         <DialogContent>
           {records?.map((record) => {
             return (
-              <div key={record.user.email} className="records-dialog-item">
-                <Typography>
-                  <span
-                    style={{
-                      color: `${
-                        getBookStatusProperties(record.status).fontColor
-                      }`,
-                    }}
-                  >
-                    {getBookStatusProperties(record.status).text}
-                  </span>
-                  {
-                    getBookStatusProperties(record.status, record.user.fullName)
-                      .userFullName
-                  }
-                </Typography>
-                <Typography fontWeight={300} fontSize={13}>
-                  {formatDate(new Date(record.date))}
-                </Typography>
-              </div>
+              record.user && (
+                <div key={record.user.email} className="records-dialog-item">
+                  <Typography>
+                    <span
+                      style={{
+                        color: `${
+                          getBookStatusProperties(record.status).fontColor
+                        }`,
+                      }}
+                    >
+                      {getBookStatusProperties(record.status).text}
+                    </span>
+                    {
+                      getBookStatusProperties(
+                        record.status,
+                        record.user.fullName
+                      ).userFullName
+                    }
+                  </Typography>
+                  <Typography fontWeight={300} fontSize={13}>
+                    {formatDate(new Date(record.date))}
+                  </Typography>
+                </div>
+              )
             );
           })}
         </DialogContent>
