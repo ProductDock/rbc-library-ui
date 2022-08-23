@@ -45,26 +45,28 @@ const UserRecordsPopper = forwardRef(
       >
         {records?.map((record) => {
           return (
-            <Paper key={record.user.email} elevation={0} sx={{ p: 1 }}>
-              <Typography fontSize={12}>
-                <span
-                  style={{
-                    color: `${
-                      getBookStatusProperties(record.status).fontColor
-                    }`,
-                  }}
-                >
-                  {getBookStatusProperties(record.status).text}
-                </span>
-                {
-                  getBookStatusProperties(record.status, record.user.fullName)
-                    .userFullName
-                }
-              </Typography>
-              <Typography fontWeight={300} fontSize={12}>
-                {formatDate(new Date(record.date))}
-              </Typography>
-            </Paper>
+            record.user && (
+              <Paper key={record.user.email} elevation={0} sx={{ p: 1 }}>
+                <Typography fontSize={12}>
+                  <span
+                    style={{
+                      color: `${
+                        getBookStatusProperties(record.status).fontColor
+                      }`,
+                    }}
+                  >
+                    {getBookStatusProperties(record.status).text}
+                  </span>
+                  {
+                    getBookStatusProperties(record.status, record.user.fullName)
+                      .userFullName
+                  }
+                </Typography>
+                <Typography fontWeight={300} fontSize={12}>
+                  {formatDate(new Date(record.date))}
+                </Typography>
+              </Paper>
+            )
           );
         })}
       </Popper>
