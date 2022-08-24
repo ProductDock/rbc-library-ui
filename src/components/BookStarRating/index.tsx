@@ -32,7 +32,7 @@ const BookStarRating = ({ rating, ratingsCount, ratingsCountShow }: Props) => {
       {ratingsCountShow &&
         (rating ? (
           <Typography className="ratings-count" fontSize={12} fontWeight={300}>
-            ({ratingsCount} ratings)
+            ({ratingsCount} rating{ratingsCount && ratingsCount > 1 ? "s" : ""})
           </Typography>
         ) : (
           <Typography className="ratings-count" fontSize={12} fontWeight={300}>
