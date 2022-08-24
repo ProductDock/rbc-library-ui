@@ -105,6 +105,7 @@ const BookRecordsUsers = ({ records, bookStatus }: Props) => {
                   src={record.user.image}
                   variant="rounded"
                   sx={{ zIndex: `120${records?.indexOf(record)}` }}
+                  onClick={showMobileModal}
                 />
               </Tooltip>
             )
