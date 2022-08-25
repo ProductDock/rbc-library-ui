@@ -23,7 +23,7 @@ const BookStarRating = ({ rating, ratingsCount, ratingsCountShow }: Props) => {
         <StarBorderRoundedIcon className="outlined-icon" />
       )}
 
-      {rating && (
+      {rating ? (
         <>
           <Typography fontSize={16} fontWeight={500}>
             {rating}
@@ -32,7 +32,7 @@ const BookStarRating = ({ rating, ratingsCount, ratingsCountShow }: Props) => {
             /5
           </Typography>
         </>
-      )}
+      ) : null}
       {ratingsCountShow &&
         (rating ? (
           <Typography className="ratings-count" fontSize={12} fontWeight={300}>
