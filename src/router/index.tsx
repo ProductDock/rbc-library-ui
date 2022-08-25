@@ -6,6 +6,7 @@ import ProtectedRouter from "./ProtectedRouter";
 import LandingPage from "../pages/LandingPage/LandingPage";
 import BookDetailsPage from "../pages/BookDetailsPage/BookDetailsPage";
 import { useAuthContext } from "../store/auth/AuthContext";
+import BookDetailsQrPage from "../pages/BookDetailsQrPage";
 
 const PageRouter = () => {
   const { loaded } = useAuthContext();
@@ -21,6 +22,9 @@ const PageRouter = () => {
       <Route path={routes.WELCOME} element={<LandingPage />} />
       <Route path={routes.BOOK_DETAILS} element={<ProtectedRouter />}>
         <Route path={routes.BOOK_DETAILS} element={<BookDetailsPage />} />
+      </Route>
+      <Route path={routes.BOOK_DETAILS_QR} element={<ProtectedRouter />}>
+        <Route path={routes.BOOK_DETAILS_QR} element={<BookDetailsQrPage />} />
       </Route>
     </Routes>
   );

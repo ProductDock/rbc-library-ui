@@ -18,7 +18,11 @@ import { useSuccessScreenContext } from "../../../store/books/success/SuccessScr
 import { gratitudeMessages } from "../../../constants/gratitudeMessages";
 import BookRecordsUsers from "../../../components/BookStatus/BookRecordsUsers";
 
-const BookDetails = () => {
+type Props = {
+  qrScanned?: boolean;
+};
+
+const BookDetails = ({ qrScanned }: Props) => {
   const { book, currentAction, bookStatus, setBookStatus, reloadBook } =
     useBookDetailsContext();
   const { showedReviewForm, hideReviewForm } = useBookReviewContext();
@@ -77,7 +81,7 @@ const BookDetails = () => {
             <div className="bd-text-box">
               <Typography className="bd-title">{book?.title}</Typography>
               <Typography className="bd-author"> {book?.author} </Typography>
-              <BookAction bookStatus={bookStatus} />
+              <BookAction bookStatus={bookStatus} qrScanned={qrScanned} />
             </div>
             <DescriptionSection description={book?.description} />
             <CategoriesSection categories={book?.topics} />
