@@ -11,6 +11,10 @@ type Props = {
 };
 
 const BookStarRating = ({ rating, ratingsCount, ratingsCountShow }: Props) => {
+  const getRatingText = () =>
+    `(${ratingsCount} ${
+      ratingsCount && ratingsCount > 1 ? "ratings" : "rating"
+    })`;
   return (
     <div className="star-rating">
       {rating ? (
@@ -32,7 +36,7 @@ const BookStarRating = ({ rating, ratingsCount, ratingsCountShow }: Props) => {
       {ratingsCountShow &&
         (rating ? (
           <Typography className="ratings-count" fontSize={12} fontWeight={300}>
-            ({ratingsCount} rating{ratingsCount && ratingsCount > 1 ? "s" : ""})
+            {getRatingText()}
           </Typography>
         ) : (
           <Typography className="ratings-count" fontSize={12} fontWeight={300}>
