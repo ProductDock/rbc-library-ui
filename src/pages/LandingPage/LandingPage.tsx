@@ -33,7 +33,10 @@ const LandingPage = () => {
               <b>ProductDock</b> Library
             </Typography>
           </div>
-
+          <Typography className="small-font description">
+            A place where you can find a book to read and help your colleagues
+            to do the same
+          </Typography>
           <Typography className="small-font">
             Please use ProductDock Google account
           </Typography>
