@@ -8,6 +8,11 @@ const reducer = (state: IBookReviewContext, action: any) => {
         ...state,
         selectedReview: action.payload,
       };
+    case actions.RESET_SELECTED_REVIEW:
+      return {
+        ...state,
+        selectedReview: null,
+      };
     case actions.SHOW_REVIEW_FORM:
       return {
         ...state,
