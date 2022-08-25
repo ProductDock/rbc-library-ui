@@ -25,10 +25,14 @@ const BookReviewContextProvider = (props: any) => {
   const editReview = async (bookId: number, bookReview: BookReview) =>
     bookService.putBookReview(bookId, bookReview, userProfile?.email);
 
+  const resetSelectedReview = async () =>
+    dispatch({ type: actions.RESET_SELECTED_REVIEW });
+
   const deleteReview = async (bookId: number, onSuccessHandler: () => void) =>
     bookService
       .deleteBookReview(bookId, userProfile?.email)
-      .then(onSuccessHandler);
+      .then(onSuccessHandler)
+      .then(() => resetSelectedReview());
 
   const selectReview = async (bookReview: BookReview) =>
     dispatch({ type: actions.SELECT_REVIEW_FOR_EDIT, payload: bookReview });
