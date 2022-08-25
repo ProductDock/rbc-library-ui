@@ -1,7 +1,7 @@
 import Router, { BrowserRouter } from "react-router-dom";
 import { render, waitFor, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import BookDetailsPage from "../../../BookDetailsPage";
+import BookDetailsQrPage from "../../../../BookDetailsQrPage";
 
 const RENTED_BY_YOU_BOOK_ID = "3";
 const RENTED_BY_YOU_BOOK_ID_WITH_REVIEW = "4";
@@ -25,7 +25,7 @@ describe("Test book return action", () => {
 
     render(
       <BrowserRouter>
-        <BookDetailsPage />
+        <BookDetailsQrPage />
       </BrowserRouter>
     );
 
@@ -50,7 +50,7 @@ describe("Test book return action", () => {
 
     render(
       <BrowserRouter>
-        <BookDetailsPage />
+        <BookDetailsQrPage />
       </BrowserRouter>
     );
 
@@ -82,7 +82,7 @@ describe("Test book return action", () => {
 
     render(
       <BrowserRouter>
-        <BookDetailsPage />
+        <BookDetailsQrPage />
       </BrowserRouter>
     );
 
@@ -107,7 +107,7 @@ describe("Test book return action", () => {
 
     render(
       <BrowserRouter>
-        <BookDetailsPage />
+        <BookDetailsQrPage />
       </BrowserRouter>
     );
 
