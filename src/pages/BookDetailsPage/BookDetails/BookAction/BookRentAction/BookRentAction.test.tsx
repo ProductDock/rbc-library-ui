@@ -1,6 +1,6 @@
 import Router, { BrowserRouter } from "react-router-dom";
 import { render, waitFor, screen } from "@testing-library/react";
-import BookDetailsPage from "../../../BookDetailsPage";
+import BookDetailsQrPage from "../../../../BookDetailsQrPage";
 
 const AVAILABLE_BOOK_ID = "1";
 const RESERVED_BY_YOU_BOOK_ID = "2";
@@ -23,7 +23,7 @@ describe("Test book rent action", () => {
 
     render(
       <BrowserRouter>
-        <BookDetailsPage />
+        <BookDetailsQrPage />
       </BrowserRouter>
     );
 
@@ -52,7 +52,7 @@ describe("Test book rent action", () => {
 
     render(
       <BrowserRouter>
-        <BookDetailsPage />
+        <BookDetailsQrPage />
       </BrowserRouter>
     );
 

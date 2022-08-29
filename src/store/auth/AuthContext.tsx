@@ -20,7 +20,7 @@ const AuthContextProvider = (props: any) => {
   const [authState, dispatch] = useReducer(reducer, initialState);
 
   const location = useLocation();
-  const { pathname } = location;
+  const { pathname, search } = location;
 
   const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ const AuthContextProvider = (props: any) => {
 
   const handleUnauthorizedError = (reason: any) => {
     if (reason?.response?.status === STATUS_UNAUTHORIZED) {
-      setRedirectPathname(pathname);
+      setRedirectPathname(`${pathname}${search}`);
     }
   };
 
