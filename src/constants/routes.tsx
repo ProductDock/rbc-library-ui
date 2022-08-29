@@ -3,5 +3,5 @@ export const routes = {
   WELCOME: "/",
   BOOK_DETAILS: "/book-details/:bookId",
   BOOK_DETAILS_PATH: "/book-details",
-  BOOK_DETAILS_QR: "/scanned-qr/:bookId",
+  BOOK_DETAILS_QR: "/book-details-qr/:bookId",
 } as const;
