@@ -17,11 +17,11 @@ const BookAction = ({ bookStatus, qrScanned = false }: Props) => {
     if (bookStatus === BookStatus.RESERVED_BY_YOU) {
       return <BookCancelReservationAction />;
     }
+    if (bookStatus === BookStatus.RENTED_BY_YOU) {
+      return <BookReturnAction />;
+    }
   } else {
-    if (
-      bookStatus === BookStatus.AVAILABLE ||
-      bookStatus === BookStatus.RESERVED_BY_YOU
-    ) {
+    if (bookStatus === BookStatus.AVAILABLE || bookStatus === BookStatus.RESERVED_BY_YOU) {
       return <BookRentAction />;
     }
     if (bookStatus === BookStatus.RENTED_BY_YOU) return <BookReturnAction />;
