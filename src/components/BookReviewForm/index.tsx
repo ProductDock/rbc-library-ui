@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import { Typography, Rating } from "@mui/material";
+import { Typography, Rating, useMediaQuery } from "@mui/material";
 import { useCallback, useState } from "react";
 import BookReviewFormTitle from "./FormTitle";
 import "./BookReviewForm.css";
@@ -8,10 +8,7 @@ import TextArea from "./TextArea";
 import SubmitReviewButton from "./SubmitReviewButton";
 import SkipReviewButton from "./SkipReviewButton";
 import CheckboxGroup from "./CheckboxGroup";
-import {
-  BookRecommendations,
-  BookReview,
-} from "../../store/books/details/Types";
+import { BookRecommendations, BookReview } from "../../store/books/details/Types";
 import { useBookDetailsContext } from "../../store/books/details/BookDetailsContext";
 import RecommendationCheckboxValues from "./util/RecomendationCheckoxValues";
 import { useBookReviewContext } from "../../store/books/reviews/BookReviewContext";
@@ -20,20 +17,18 @@ import { BookActions } from "../../store/books/status/Types";
 import { successMessages } from "../../constants/successMessages";
 import { useSuccessScreenContext } from "../../store/books/success/SuccessScreenContext";
 import { gratitudeMessages } from "../../constants/gratitudeMessages";
+import { MediaQueries } from "../../constants/mediaQueries";
 
 const BookReviewForm = () => {
   const { book, currentAction, reloadBook } = useBookDetailsContext();
-  const { addReview, editReview, formVariant, selectedReview, hideReviewForm } =
-    useBookReviewContext();
+  const { addReview, editReview, formVariant, selectedReview, hideReviewForm } = useBookReviewContext();
   const { showSuccessScreen } = useSuccessScreenContext();
 
+  const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
+
   const [comment, setComment] = useState<string>(selectedReview?.comment || "");
-  const [rating, setRating] = useState<number | null>(
-    selectedReview?.rating || 0
-  );
-  const [recommendation, setRecommendation] = useState<BookRecommendations[]>(
-    selectedReview?.recommendation || []
-  );
+  const [rating, setRating] = useState<number | null>(selectedReview?.rating || 0);
+  const [recommendation, setRecommendation] = useState<BookRecommendations[]>(selectedReview?.recommendation || []);
 
   const createReview = (): BookReview => {
     const review: BookReview = {
@@ -52,24 +47,15 @@ const BookReviewForm = () => {
     hideReviewForm?.();
     if (currentAction === BookActions.RETURN) {
       reloadBook?.();
-      showSuccessScreen?.(
-        successMessages.RETURN_BOOK,
-        gratitudeMessages.THANK_YOU
-      );
+      showSuccessScreen?.(successMessages.RETURN_BOOK, gratitudeMessages.THANK_YOU);
     }
   };
 
   const onSuccessCallback = () => {
     if (currentAction === BookActions.RETURN) {
-      showSuccessScreen?.(
-        successMessages.RETURN_BOOK,
-        gratitudeMessages.THANK_YOU
-      );
+      showSuccessScreen?.(successMessages.RETURN_BOOK, gratitudeMessages.THANK_YOU);
     } else {
-      showSuccessScreen?.(
-        successMessages.REVIEW_BOOK,
-        gratitudeMessages.THANK_YOU
-      );
+      showSuccessScreen?.(successMessages.REVIEW_BOOK, gratitudeMessages.THANK_YOU);
     }
     hideReviewForm?.();
     reloadBook?.();
@@ -77,17 +63,27 @@ const BookReviewForm = () => {
 
   const handleSubmit = () => {
     selectedReview
-      ? editReview?.(book?.id || 0, createReview()).then(() =>
-          onSuccessCallback()
-        )
-      : addReview?.(book?.id || 0, createReview()).then(() =>
-          onSuccessCallback()
-        );
+      ? editReview?.(book?.id || 0, createReview()).then(() => onSuccessCallback())
+      : addReview?.(book?.id || 0, createReview()).then(() => onSuccessCallback());
   };
 
   const isSubmitEnabled = useCallback(() => {
     return rating || recommendation.length > 0 || comment.length > 0;
   }, [recommendation, rating, comment]);
+
+  const reviewActionButtons = () => (
+    <>
+      <SubmitReviewButton
+        text={formVariant === BookReviewFormVariant.EDIT ? "Save" : "Submit"}
+        disabled={!isSubmitEnabled()}
+        onClick={handleSubmit}
+      />
+      <SkipReviewButton
+        text={formVariant === BookReviewFormVariant.EDIT || !currentAction ? "Cancel" : "Skip"}
+        onClick={endReview}
+      />
+    </>
+  );
 
   return (
     <>
@@ -103,9 +99,7 @@ const BookReviewForm = () => {
             value={rating}
             onChange={(event, newValue) => setRating(newValue)}
           />
-          <Typography className="book-review-field-title">
-            To whom would you recommend this book?
-          </Typography>
+          <Typography className="book-review-field-title">To whom would you recommend this book?</Typography>
           <CheckboxGroup
             checkboxes={RecommendationCheckboxValues.get()}
             setCheckedValues={setRecommendation}
@@ -113,23 +107,10 @@ const BookReviewForm = () => {
           />
           <Typography className="book-review-field-title">Comment</Typography>
           <TextArea maxLength={500} text={comment} setText={setComment} />
+          {isLargeScreen && <div className="book-review-form-button-container">{reviewActionButtons()}</div>}
         </div>
       </div>
-      <div className="book-review-form-footer">
-        <SubmitReviewButton
-          text={formVariant === BookReviewFormVariant.EDIT ? "Save" : "Submit"}
-          disabled={!isSubmitEnabled()}
-          onClick={handleSubmit}
-        />
-        <SkipReviewButton
-          text={
-            formVariant === BookReviewFormVariant.EDIT || !currentAction
-              ? "Cancel"
-              : "Skip"
-          }
-          onClick={endReview}
-        />
-      </div>
+      {!isLargeScreen && <div className="book-review-form-footer">{reviewActionButtons()}</div>}
     </>
   );
 };
