@@ -17,36 +17,26 @@
   color: #266095;
 }
 
-.book-review-form-footer {
-  z-index: 1302;
-  float: right;
-  width: 100%;
-  vertical-align: middle;
-  direction: rtl;
-  top: 34em;
-  position: absolute;
-  right: 1.5em;
-  width: 25vw;
-}
-
 .field-container {
   height: auto;
+}
+
+.book-review-form-footer {
+  width: 100%;
+  direction: rtl;
+  margin-top: 1rem;
 }
 
 @media only screen and (max-width: 800px) {
   .book-review-form-footer {
     z-index: 1298;
     background-color: #f7f7f9;
-    padding: 0 1.5em;
+    padding: 0 3em 0 0;
     box-sizing: border-box;
     position: fixed;
-    top: auto;
-    left: 0;
     bottom: 0;
     height: 8em;
     width: 100%;
-    margin-top: 0;
-    text-align: center;
   }
 
   .field-container {

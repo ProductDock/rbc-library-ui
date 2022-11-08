@@ -23,11 +23,10 @@ type Props = {
 };
 
 const BookDetails = ({ qrScanned }: Props) => {
-  const { book, currentAction, bookStatus, setBookStatus, reloadBook } =
-    useBookDetailsContext();
+  const { book, currentAction, bookStatus, setBookStatus, reloadBook } = useBookDetailsContext();
   const { showedReviewForm, hideReviewForm } = useBookReviewContext();
   const { showSuccessScreen } = useSuccessScreenContext();
-  const isLargeScreen = useMediaQuery(MediaQueries.LARGE);
+  const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
 
   const showingBookDetails = () => {
     if (isLargeScreen) return true;
@@ -40,10 +39,7 @@ const BookDetails = ({ qrScanned }: Props) => {
     hideReviewForm?.();
     if (currentAction === BookActions.RETURN) {
       reloadBook?.();
-      showSuccessScreen?.(
-        successMessages.RETURN_BOOK,
-        gratitudeMessages.THANK_YOU
-      );
+      showSuccessScreen?.(successMessages.RETURN_BOOK, gratitudeMessages.THANK_YOU);
     }
   };
 
@@ -56,27 +52,15 @@ const BookDetails = ({ qrScanned }: Props) => {
               <BookCover imageUrl={book?.cover} />
             </div>
             <div className="rating-div">
-              <BookStarRating
-                rating={book?.rating?.score}
-                ratingsCount={book?.rating?.count}
-                ratingsCountShow
-              />
+              <BookStarRating rating={book?.rating?.score} ratingsCount={book?.rating?.count} ratingsCountShow />
             </div>
           </div>
           <div className="book-details-right">
             <div className="book-details-status">
-              <BookStatus
-                records={book?.records}
-                statusChangeCallback={setBookStatus}
-              />
-              {bookStatus !== "AVAILABLE" &&
-                book?.records &&
-                book?.records?.length > 1 && (
-                  <BookRecordsUsers
-                    records={book?.records}
-                    bookStatus={bookStatus}
-                  />
-                )}
+              <BookStatus records={book?.records} statusChangeCallback={setBookStatus} />
+              {bookStatus !== "AVAILABLE" && book?.records && book?.records?.length > 1 && (
+                <BookRecordsUsers records={book?.records} bookStatus={bookStatus} />
+              )}
             </div>
             <div className="bd-text-box">
               <Typography className="bd-title">{book?.title}</Typography>
