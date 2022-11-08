@@ -21,7 +21,7 @@
   height: auto;
 }
 
-.book-review-form-button-container {
+.book-review-form-footer {
   width: 100%;
   direction: rtl;
   margin-top: 1rem;
@@ -31,7 +31,7 @@
   .book-review-form-footer {
     z-index: 1298;
     background-color: #f7f7f9;
-    padding: 0 1.5em;
+    padding: 0 3em 0 0;
     box-sizing: border-box;
     position: fixed;
     bottom: 0;

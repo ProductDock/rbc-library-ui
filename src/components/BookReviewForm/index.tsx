@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import { Typography, Rating, useMediaQuery } from "@mui/material";
+import { Typography, Rating } from "@mui/material";
 import { useCallback, useState } from "react";
 import BookReviewFormTitle from "./FormTitle";
 import "./BookReviewForm.css";
@@ -17,14 +17,11 @@ import { BookActions } from "../../store/books/status/Types";
 import { successMessages } from "../../constants/successMessages";
 import { useSuccessScreenContext } from "../../store/books/success/SuccessScreenContext";
 import { gratitudeMessages } from "../../constants/gratitudeMessages";
-import { MediaQueries } from "../../constants/mediaQueries";
 
 const BookReviewForm = () => {
   const { book, currentAction, reloadBook } = useBookDetailsContext();
   const { addReview, editReview, formVariant, selectedReview, hideReviewForm } = useBookReviewContext();
   const { showSuccessScreen } = useSuccessScreenContext();
-
-  const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
 
   const [comment, setComment] = useState<string>(selectedReview?.comment || "");
   const [rating, setRating] = useState<number | null>(selectedReview?.rating || 0);
@@ -71,47 +68,38 @@ const BookReviewForm = () => {
     return rating || recommendation.length > 0 || comment.length > 0;
   }, [recommendation, rating, comment]);
 
-  const reviewActionButtons = () => (
-    <>
-      <SubmitReviewButton
-        text={formVariant === BookReviewFormVariant.EDIT ? "Save" : "Submit"}
-        disabled={!isSubmitEnabled()}
-        onClick={handleSubmit}
-      />
-      <SkipReviewButton
-        text={formVariant === BookReviewFormVariant.EDIT || !currentAction ? "Cancel" : "Skip"}
-        onClick={endReview}
-      />
-    </>
-  );
-
   return (
-    <>
-      <div className="book-review-form-container">
-        <div className="field-container">
-          <BookReviewFormTitle onSkip={endReview} />
-          <Typography className="book-review-field-title">
-            How would you rate your experience with this book?
-          </Typography>
-          <Rating
-            data-testid="book-review-rating"
-            className="book-review-field"
-            value={rating}
-            onChange={(event, newValue) => setRating(newValue)}
+    <div className="book-review-form-container">
+      <div className="field-container">
+        <BookReviewFormTitle onSkip={endReview} />
+        <Typography className="book-review-field-title">How would you rate your experience with this book?</Typography>
+        <Rating
+          data-testid="book-review-rating"
+          className="book-review-field"
+          value={rating}
+          onChange={(event, newValue) => setRating(newValue)}
+        />
+        <Typography className="book-review-field-title">To whom would you recommend this book?</Typography>
+        <CheckboxGroup
+          checkboxes={RecommendationCheckboxValues.get()}
+          setCheckedValues={setRecommendation}
+          checkedValues={recommendation}
+        />
+        <Typography className="book-review-field-title">Comment</Typography>
+        <TextArea maxLength={500} text={comment} setText={setComment} />
+        <div className="book-review-form-footer">
+          <SubmitReviewButton
+            text={formVariant === BookReviewFormVariant.EDIT ? "Save" : "Submit"}
+            disabled={!isSubmitEnabled()}
+            onClick={handleSubmit}
           />
-          <Typography className="book-review-field-title">To whom would you recommend this book?</Typography>
-          <CheckboxGroup
-            checkboxes={RecommendationCheckboxValues.get()}
-            setCheckedValues={setRecommendation}
-            checkedValues={recommendation}
+          <SkipReviewButton
+            text={formVariant === BookReviewFormVariant.EDIT || !currentAction ? "Cancel" : "Skip"}
+            onClick={endReview}
           />
-          <Typography className="book-review-field-title">Comment</Typography>
-          <TextArea maxLength={500} text={comment} setText={setComment} />
-          {isLargeScreen && <div className="book-review-form-button-container">{reviewActionButtons()}</div>}
         </div>
       </div>
-      {!isLargeScreen && <div className="book-review-form-footer">{reviewActionButtons()}</div>}
-    </>
+    </div>
   );
 };
 
