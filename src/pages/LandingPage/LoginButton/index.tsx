@@ -1,9 +1,10 @@
 import { Typography } from "@mui/material";
 import "./LoginButton.css";
 import googleLogo from "../../../img/icons/google.svg";
+import { getEnvProperties } from "../../../utils/envProvider";
 
 const LoginButton = () => {
-  const authUrl = process.env.REACT_APP_AUTH_URL;
+  const authUrl = getEnvProperties().REACT_APP_AUTH_URL;
 
   return (
     <a href={authUrl} className="login-button">

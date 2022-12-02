@@ -31,11 +31,9 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "start:prod": "env-cmd -f .env.prod react-scripts start",
+    "start": "touch ./public/env-config.js && env-cmd -f .env.local react-scripts start",
     "build": "react-scripts build",
-    "build:prod": "env-cmd -f .env.prod react-scripts build",
-    "test": "react-scripts test --watchAll=false",
+    "test": "env-cmd -f .env.local react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
     "prepare": "husky install"
   },

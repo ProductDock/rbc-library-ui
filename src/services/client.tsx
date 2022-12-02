@@ -1,9 +1,10 @@
 import axios from "axios";
+import { getEnvProperties } from "../utils/envProvider";
 
 const REDIRECT_PATHNAME = "REDIRECT_PATHNAME";
 const STATUS_UNAUTHORIZED = 401;
 
-const baseURL = process.env.REACT_APP_API_URL;
+const baseURL = getEnvProperties().REACT_APP_API_URL;
 const client = axios.create({ baseURL, withCredentials: true });
 
 client.interceptors.response.use(
