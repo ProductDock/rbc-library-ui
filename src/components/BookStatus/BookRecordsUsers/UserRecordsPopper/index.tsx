@@ -14,59 +14,66 @@ export interface UserRecordsPopperRefObject {
   handleLeave?: () => void;
 }
 
-const UserRecordsPopper = forwardRef(({ records }: Props, ref: Ref<UserRecordsPopperRefObject>) => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+const UserRecordsPopper = forwardRef(
+  ({ records }: Props, ref: Ref<UserRecordsPopperRefObject>) => {
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
 
-  const showPopper = (event: any) => {
-    setAnchorEl(event.currentTarget);
-  };
+    const showPopper = (event: any) => {
+      setAnchorEl(event.currentTarget);
+    };
 
-  const handleLeave = () => {
-    setAnchorEl(null);
-  };
+    const handleLeave = () => {
+      setAnchorEl(null);
+    };
 
-  useImperativeHandle(ref, () => ({ showPopper, handleLeave }));
+    useImperativeHandle(ref, () => ({ showPopper, handleLeave }));
 
-  return (
-    <Popper
-      open={open}
-      anchorEl={anchorEl}
-      onMouseLeave={handleLeave}
-      modifiers={[
-        {
-          name: "offset",
-          options: {
-            offset: [0, 15],
+    return (
+      <Popper
+        open={open}
+        anchorEl={anchorEl}
+        onMouseLeave={handleLeave}
+        modifiers={[
+          {
+            name: "offset",
+            options: {
+              offset: [0, 15],
+            },
           },
-        },
-      ]}
-      onResize={undefined}
-      onResizeCapture={undefined}
-    >
-      {records?.map((record) => {
-        return (
-          record.user && (
-            <Paper key={record.user.email} elevation={0} sx={{ p: 1 }}>
-              <Typography fontSize={12}>
-                <span
-                  style={{
-                    color: `${getBookStatusProperties(record.status).fontColor}`,
-                  }}
-                >
-                  {getBookStatusProperties(record.status).text}
-                </span>
-                {getBookStatusProperties(record.status, record.user.fullName).userFullName}
-              </Typography>
-              <Typography fontWeight={300} fontSize={12}>
-                {formatDate(new Date(record.date))}
-              </Typography>
-            </Paper>
-          )
-        );
-      })}
-    </Popper>
-  );
-});
+        ]}
+        onResize={undefined}
+        onResizeCapture={undefined}
+      >
+        {records?.map((record) => {
+          return (
+            record.user && (
+              <Paper key={record.user.email} elevation={0} sx={{ p: 1 }}>
+                <Typography fontSize={12}>
+                  <span
+                    style={{
+                      color: `${
+                        getBookStatusProperties(record.status).fontColor
+                      }`,
+                    }}
+                  >
+                    {getBookStatusProperties(record.status).text}
+                  </span>
+                  {
+                    getBookStatusProperties(record.status, record.user.fullName)
+                      .userFullName
+                  }
+                </Typography>
+                <Typography fontWeight={300} fontSize={12}>
+                  {formatDate(new Date(record.date))}
+                </Typography>
+              </Paper>
+            )
+          );
+        })}
+      </Popper>
+    );
+  }
+);
 
 export default UserRecordsPopper;
