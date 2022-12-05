@@ -42,6 +42,8 @@ const UserRecordsPopper = forwardRef(
             },
           },
         ]}
+        onResize={undefined}
+        onResizeCapture={undefined}
       >
         {records?.map((record) => {
           return (
