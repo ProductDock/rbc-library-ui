@@ -31,7 +31,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "touch ./public/env-config.js && env-cmd -f .env.local react-scripts start",
+    "start": "env-cmd -f .env.local react-scripts start",
     "build": "react-scripts build",
     "test": "env-cmd -f .env.local react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
