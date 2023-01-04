@@ -26,7 +26,7 @@ RUN apk add --no-cache bash
 # Make our shell script executable
 RUN chmod +x env.sh
 
-RUN adduser -u 1002 -D non-root-user && chown -R non-root-user:non-root-user /app
+RUN adduser -u 1002 -D non-root-user && chown -R non-root-user:non-root-user /usr/share/nginx/html
 USER non-root-user
 
 ENTRYPOINT ["/bin/bash", "-c", "/usr/share/nginx/html/env.sh && nginx -g \"daemon off;\""]
