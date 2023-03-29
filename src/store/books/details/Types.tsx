@@ -31,6 +31,11 @@ export type Review = {
   comment: string;
 };
 
+export type Topic = {
+  id: number;
+  name: string;
+}
+
 export type Book = {
   id?: number;
   title: string;
@@ -41,7 +46,7 @@ export type Book = {
   reviews: Review[];
   rating: Rating;
   description: string;
-  topics: string[];
+  topics: Topic[];
 };
 
 export type BookActionModal = {
