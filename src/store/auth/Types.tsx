@@ -2,6 +2,7 @@ export type UserProfile = {
   fullName: string;
   image: string;
   email: string;
+  role: string;
 };
 
 export interface IAuthContext {

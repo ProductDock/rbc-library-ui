@@ -9,6 +9,7 @@ const NewBookButton = () => {
     const onClick = () => {
       showAddBookForm?.();
     };
+
     return (
       <Link
         className="add-book-button side-text"

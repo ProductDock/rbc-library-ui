@@ -18,10 +18,13 @@ import AccountAvatar from "./AccountAvatar";
 import "./NavBar.css";
 import Search from "./Search";
 import NewBookButton from "./NewBookButton";
+import { useAuthContext } from "../../store/auth/AuthContext";
+import { userRoles } from "../../constants/userRoles";
 
 const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { userProfile } = useAuthContext();
   const [searchScreenShowed, setSearchScreenShowed] = useState<boolean>(false);
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
   const isSearchIconShowedOnMobile = !isLargeScreen && !searchScreenShowed;
@@ -72,9 +75,11 @@ const NavBar = () => {
           </div>
         )}
         <div className="right-side">
+          {userProfile?.role === userRoles.ROLE_ADMIN && (
           <div className="add-book-button">
             <NewBookButton />
           </div>
+          )}
           <div className="account-avatar">
             <AccountAvatar />
           </div>
