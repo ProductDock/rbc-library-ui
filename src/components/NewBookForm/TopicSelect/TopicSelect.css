@@ -1,11 +1,8 @@
 
   .topic-select-menu {
     width: 500px;
-    display: flex;
-    flex-wrap: wrap;
     margin-top: 0.7em;
     border: 1px solid #cccccc;
-    border-radius: 0.3em;
   }
   
   .MuiModal-root.MuiPopover-root.MuiMenu-root {

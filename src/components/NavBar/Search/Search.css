@@ -6,7 +6,7 @@
   border: 0;
 }
 
-.MuiInputBase-input.MuiOutlinedInput-input {
+.navbar-search .MuiInputBase-input.MuiOutlinedInput-input {
   border: 0;
   margin-left: 25px;
 }

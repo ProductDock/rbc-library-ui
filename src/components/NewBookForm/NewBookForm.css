@@ -48,9 +48,13 @@
     flex-wrap: wrap;
     background-color: #ffffff;
     cursor: pointer;
-    margin-left: 0;
   }
-  
+
+  .topic-select .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused {
+    border-color: black;
+    box-shadow: none;
+  }
+
   @media only screen and (max-width: 800px) {
     .new-book-form-footer {
       z-index: 1298;
