@@ -17,6 +17,7 @@ import AccountAvatar from "./AccountAvatar";
 
 import "./NavBar.css";
 import Search from "./Search";
+import NewBookButton from "./NewBookButton";
 
 const NavBar = () => {
   const location = useLocation();
@@ -70,8 +71,13 @@ const NavBar = () => {
             </a>
           </div>
         )}
-        <div className="account-avatar">
-          <AccountAvatar />
+        <div className="right-side">
+          <div className="add-book-button">
+            <NewBookButton />
+          </div>
+          <div className="account-avatar">
+            <AccountAvatar />
+          </div>
         </div>
       </div>
     </AppBar>

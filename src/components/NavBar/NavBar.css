@@ -118,3 +118,8 @@
 .account-avatar {
   align-self: center;
 }
+
+.right-side {
+  display: flex;
+  align-self: center;
+}
