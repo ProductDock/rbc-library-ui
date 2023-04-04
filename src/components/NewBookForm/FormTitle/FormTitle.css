@@ -1,14 +1,7 @@
-.MuiTypography-root.book-review-title {
+.MuiTypography-root.new-book-title {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-}
-
-.MuiTypography-root.book-review-title-description {
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 18px;
-  margin-top: 0.8em;
 }
 
 .field-container .title-container {

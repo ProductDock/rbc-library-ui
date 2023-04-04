@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { Box, Chip, MenuItem, OutlinedInput, Select, SelectChangeEvent, Theme, useTheme } from "@mui/material";
+import { Box, Chip, MenuItem, OutlinedInput, Select, Theme, useTheme } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import _without from "lodash/without";
 import { useNewBookContext } from "../../../store/books/new/NewBookContext";
@@ -34,7 +33,7 @@ const TopicSelect = ({ selectedTopics, setSelectedTopics }: Props) => {
     const { existingTopics } = useNewBookContext();
     const theme = useTheme();
 
-    const handleChange = (event: any, object: any) => {
+    const handleChange = (event: any) => {
         setSelectedTopics(event.target.value);
       };
 
@@ -45,14 +44,11 @@ const TopicSelect = ({ selectedTopics, setSelectedTopics }: Props) => {
 
     return (
       <Select
-        className="topic-select"
-        labelId="demo-multiple-chip-label"
-        id="demo-multiple-chip"
-        placeholder="ok"
+        className="topic-select-menu"
         multiple
         value={selectedTopics}
         onChange={handleChange}
-        input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+        input={<OutlinedInput />}
         renderValue={(selected) => (
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
             {selected.map((value) => (

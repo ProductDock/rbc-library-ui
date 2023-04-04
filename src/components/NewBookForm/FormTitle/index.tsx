@@ -11,8 +11,8 @@ const NewBookFormTitle = ({ onSkip }: Props) => {
   return (
     <div className="title-container">
       <Typography
-        data-testid="book-review-form-title"
-        className="book-review-title"
+        data-testid="new-book-form-title"
+        className="new-book-title"
       >
         Add a new book
       </Typography>

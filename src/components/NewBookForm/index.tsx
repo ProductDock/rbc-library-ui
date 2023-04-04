@@ -5,8 +5,8 @@ import { useCallback, useState } from "react";
 import NewBookFormTitle from "./FormTitle";
 import "./NewBookForm.css";
 import TextArea from "./TextArea";
-import SubmitReviewButton from "./SubmitReviewButton";
-import SkipReviewButton from "./SkipReviewButton";
+import SubmitNewBookButton from "./SubmitNewBookButton";
+import CancelNewBookButton from "./CancelNewBookButton";
 import { successMessages } from "../../constants/successMessages";
 import { useSuccessScreenContext } from "../../store/books/success/SuccessScreenContext";
 import { gratitudeMessages } from "../../constants/gratitudeMessages";
@@ -85,12 +85,12 @@ const NewBookForm = () => {
             <TopicSelect selectedTopics={selectedTopics} setSelectedTopics={setSelectedTopics} />
           </div>
           <div className="book-review-form-footer">
-            <SubmitReviewButton
+            <SubmitNewBookButton
               text="Add"
               disabled={!isSubmitEnabled()}
               onClick={handleSubmit}
             />
-            <SkipReviewButton
+            <CancelNewBookButton
               text="Cancel"
               onClick={hideForm}
             />

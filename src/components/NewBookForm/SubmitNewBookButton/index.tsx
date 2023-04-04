@@ -1,5 +1,5 @@
 import { Button, Typography } from "@mui/material";
-import "./SubmitReviewButton.css";
+import "./SubmitNewBookButton.css";
 
 type Props = {
   text?: string;
@@ -7,17 +7,17 @@ type Props = {
   disabled: boolean;
 };
 
-const SubmitReviewButton = ({ text, onClick, disabled }: Props) => {
+const SubmitNewBookButton = ({ text, onClick, disabled }: Props) => {
   const buttonTextClass = () =>
     disabled
-      ? "submit-review-button-text-disabled"
-      : "submit-review-button-text";
+      ? "submit-new-book-button-text-disabled"
+      : "submit-new-book-button-text";
 
   return (
     <Button
-      data-testid="submit-review-button"
+      data-testid="submit-new-book-button"
       disabled={disabled}
-      className="submit-review-button"
+      className="submit-new-book-button"
       onClick={onClick}
     >
       <Typography className={buttonTextClass()}>{text}</Typography>
@@ -25,4 +25,4 @@ const SubmitReviewButton = ({ text, onClick, disabled }: Props) => {
   );
 };
 
-export default SubmitReviewButton;
+export default SubmitNewBookButton;

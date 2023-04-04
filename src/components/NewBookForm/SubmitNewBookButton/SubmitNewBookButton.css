@@ -1,4 +1,4 @@
-.submit-review-button.MuiButton-root {
+.submit-new-book-button.MuiButton-root {
   background-color: #00609a;
   border-radius: 20px;
   margin: 0;
@@ -7,23 +7,23 @@
   height: 40px;
 }
 
-.submit-review-button.MuiButton-root:hover {
+.submit-new-book-button.MuiButton-root:hover {
   background-color: #00609a;
   border: 0;
 }
 
-.submit-review-button.MuiButton-root:disabled {
+.submit-new-book-button.MuiButton-root:disabled {
   background-color: #eeeeee;
 }
 
-.submit-review-button-text {
+.submit-new-book-button-text {
   color: white;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
 }
 
-.submit-review-button-text-disabled {
+.submit-new-book-button-text-disabled {
   color: #cccccc;
   font-weight: 400;
   font-size: 14px;
@@ -31,7 +31,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .submit-review-button.MuiButton-root {
+  .submit-new-book-button.MuiButton-root {
     background-color: #00609a;
     border-radius: 20px;
     margin: 1em 0 0 0;

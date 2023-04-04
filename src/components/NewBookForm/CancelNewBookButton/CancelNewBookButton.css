@@ -1,4 +1,4 @@
-.skip-review-button.MuiButton-root {
+.cancel-new-book-button.MuiButton-root {
   background-color: transparent;
   border-radius: 20px;
   margin: 0 1em;
@@ -6,14 +6,14 @@
   width: 132px;
   height: 40px;
 }
-.skip-review-button.MuiButton-root:hover {
+.cancel-new-book-button.MuiButton-root:hover {
   border: 1px solid #eeeeee;
 }
-.skip-review-button.MuiButton-root:hover::after {
+.cancel-new-book-button.MuiButton-root:hover::after {
   border: 1px solid #eeeeee;
 }
 
-.skip-review-button-text {
+.cancel-new-book-button-text {
   color: black;
   font-weight: 400;
   font-size: 14px;
@@ -21,7 +21,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .skip-review-button.MuiButton-root {
+  .cancel-new-book-button.MuiButton-root {
     background-color: transparent;
     border-radius: 20px;
     margin: 0.7em 0 1.5em 0;
