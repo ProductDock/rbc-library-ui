@@ -17,6 +17,8 @@ import { successMessages } from "../../../constants/successMessages";
 import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
 import { gratitudeMessages } from "../../../constants/gratitudeMessages";
 import BookRecordsUsers from "../../../components/BookStatus/BookRecordsUsers";
+import { useNewBookContext } from "../../../store/books/new/NewBookContext";
+import NewBookForm from "../../../components/NewBookForm";
 
 type Props = {
   qrScanned?: boolean;
@@ -27,6 +29,11 @@ const BookDetails = ({ qrScanned }: Props) => {
   const { showedReviewForm, hideReviewForm } = useBookReviewContext();
   const { showSuccessScreen } = useSuccessScreenContext();
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
+  const { showedNewBookForm: showedAddBookForm, hideNewBookForm: hideAddBookForm } = useNewBookContext();
+
+  const hideNewBookForm = () => {
+    hideAddBookForm?.();
+  };
 
   const showingBookDetails = () => {
     if (isLargeScreen) return true;
@@ -78,6 +85,12 @@ const BookDetails = ({ qrScanned }: Props) => {
           <div className="book-review-form-wrapper" onClick={endReview} />
           <BookReviewForm />
         </>
+      )}
+      {showedAddBookForm && (
+      <>
+        <div className="add-book-form-wrapper" onClick={hideNewBookForm} />
+        <NewBookForm />
+      </>
       )}
     </>
   );

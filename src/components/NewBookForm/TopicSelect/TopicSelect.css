@@ -1,0 +1,10 @@
+
+  .topic-select-view {
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .MuiModal-root.MuiPopover-root.MuiMenu-root {
+    z-index: 1400;
+  }

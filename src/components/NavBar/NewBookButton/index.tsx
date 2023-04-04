@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Link } from "@mui/material";
 import plusIcon from "../../../img/icons/plus-icon.svg";
-import { useAddBookContext } from "../../../store/books/new/AddBookContext";
+import { useNewBookContext } from "../../../store/books/new/NewBookContext";
 import "./NewBookButton.css";
 
 const NewBookButton = () => {
-    const { showAddBookForm } = useAddBookContext();
+    const { showNewBookForm: showAddBookForm } = useNewBookContext();
     const onClick = () => {
       showAddBookForm?.();
     };

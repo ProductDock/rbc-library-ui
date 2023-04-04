@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import { BooksFixture, BooksDetailsFixture, SuggestedBooksFixture, UserInfoFixture } from "./fixtures";
+import { BooksFixture, BooksDetailsFixture, SuggestedBooksFixture, UserInfoFixture, TopicsFixture } from "./fixtures";
 
 export const BOOKS_URL = `*/search`;
 export const BOOK_DETAILS_URL = `*/books`;
@@ -9,6 +9,8 @@ export const PUT_BOOK_REVIEW_URL = `*/catalog/books/*/reviews*`;
 export const DELETE_BOOK_REVIEW_URL = `*/catalog/books/*/reviews*`;
 export const SUGGESTED_BOOKS_URL = `*/search/suggestions*`;
 export const USER_INFO_URL = `*/user-info`;
+export const TOPICS_URL = `*/catalog/topics`;
+export const POST_BOOK_URL = `*/catalog/books`;
 
 export const handlers = [
 
@@ -37,4 +39,8 @@ export const handlers = [
   rest.put(`${PUT_BOOK_REVIEW_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
 
   rest.delete(`${DELETE_BOOK_REVIEW_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
+
+  rest.get(`${TOPICS_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json(TopicsFixture))),
+
+  rest.post(`${POST_BOOK_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
 ];
