@@ -6,24 +6,21 @@ import Notification from "./BookDetails/Notification";
 import BookReviewContextProvider from "../../store/books/reviews/BookReviewContext";
 import SuggestedBooksContextProvider from "../../store/books/suggested/SuggestedBooksContext";
 import NavBar from "../../components/NavBar";
-import NewBookContextProvider from "../../store/books/new/NewBookContext";
 
 const BookDetailsPage = () => {
   const { bookId } = useParams();
 
   return (
     <BookDetailsContexProvider bookId={parseInt(bookId || "0", 10)}>
-      <NewBookContextProvider>
-        <BookReviewContextProvider>
-          <SuccessScreenContextProvider>
-            <SuggestedBooksContextProvider>
-              <NavBar />
-            </SuggestedBooksContextProvider>
-            <BookDetails />
-            <Notification />
-          </SuccessScreenContextProvider>
-        </BookReviewContextProvider>
-      </NewBookContextProvider>
+      <BookReviewContextProvider>
+        <SuccessScreenContextProvider>
+          <SuggestedBooksContextProvider>
+            <NavBar />
+          </SuggestedBooksContextProvider>
+          <BookDetails />
+          <Notification />
+        </SuccessScreenContextProvider>
+      </BookReviewContextProvider>
     </BookDetailsContexProvider>
   );
 };

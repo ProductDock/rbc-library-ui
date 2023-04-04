@@ -29,11 +29,7 @@ const BookDetails = ({ qrScanned }: Props) => {
   const { showedReviewForm, hideReviewForm } = useBookReviewContext();
   const { showSuccessScreen } = useSuccessScreenContext();
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
-  const { showedNewBookForm: showedAddBookForm, hideNewBookForm: hideAddBookForm } = useNewBookContext();
-
-  const hideNewBookForm = () => {
-    hideAddBookForm?.();
-  };
+  const { showedNewBookForm, hideNewBookForm } = useNewBookContext();
 
   const showingBookDetails = () => {
     if (isLargeScreen) return true;
@@ -86,9 +82,9 @@ const BookDetails = ({ qrScanned }: Props) => {
           <BookReviewForm />
         </>
       )}
-      {showedAddBookForm && (
+      {showedNewBookForm && (
       <>
-        <div className="add-book-form-wrapper" onClick={hideNewBookForm} />
+        <div className="new-book-form-wrapper" onClick={hideNewBookForm} />
         <NewBookForm />
       </>
       )}

@@ -3,15 +3,18 @@ import "./App.css";
 import PageRouter from "./router";
 import AuthContextProvider from "./store/auth/AuthContext";
 import NewBookContextProvider from "./store/books/new/NewBookContext";
+import SuccessScreenContextProvider from "./store/books/success/SuccessScreenContext";
 
 function App() {
   return (
     <Router>
       <AuthContextProvider>
         <NewBookContextProvider>
-          <div className="main-div">
-            <PageRouter />
-          </div>
+          <SuccessScreenContextProvider>
+            <div className="main-div">
+              <PageRouter />
+            </div>
+          </SuccessScreenContextProvider>
         </NewBookContextProvider>
       </AuthContextProvider>
     </Router>

@@ -4,7 +4,7 @@
   padding-right: 5.56%;
 }
 
-.add-book-form-wrapper {
+.new-book-form-wrapper {
   background-color: #000000;
   position: fixed;
   z-index: 1300;
@@ -16,7 +16,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .add-book-form-wrapper {
+  .new-book-form-wrapper {
     display: none;
   }
 }

@@ -138,7 +138,7 @@
   right: 1%;
 }
 
-.add-book-form-wrapper {
+.new-book-form-wrapper {
   background-color: #000000;
   position: fixed;
   z-index: 1300;
@@ -250,7 +250,7 @@
     margin: 3% 0 0 22%;
   }
 
-  .add-book-form-wrapper {
+  .new-book-form-wrapper {
     display: none;
   }
 }

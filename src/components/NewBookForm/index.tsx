@@ -9,14 +9,13 @@ import SubmitNewBookButton from "./SubmitNewBookButton";
 import CancelNewBookButton from "./CancelNewBookButton";
 import { successMessages } from "../../constants/successMessages";
 import { useSuccessScreenContext } from "../../store/books/success/SuccessScreenContext";
-import { gratitudeMessages } from "../../constants/gratitudeMessages";
 import { useNewBookContext } from "../../store/books/new/NewBookContext";
 import NumberInput from "./NumberInput";
 import { NewBook, SelectedTopic } from "../../store/books/new/Types";
 import TopicSelect from "./TopicSelect";
 
 const NewBookForm = () => {
-    const { addBook, hideNewBookForm: hideAddBookForm, existingTopics } = useNewBookContext();
+    const { addBook, hideNewBookForm, existingTopics } = useNewBookContext();
     const { showSuccessScreen } = useSuccessScreenContext();
 
     const [title, setTitle] = useState<string>("");
@@ -40,12 +39,12 @@ const NewBookForm = () => {
     };
 
     const hideForm = () => {
-      hideAddBookForm?.();
+      hideNewBookForm?.();
     };
 
     const onSuccessCallback = () => {
-      showSuccessScreen?.(successMessages.REVIEW_BOOK, gratitudeMessages.THANK_YOU);
-      hideAddBookForm?.();
+      showSuccessScreen?.(successMessages.ADD_BOOK, '');
+      hideForm?.();
     };
 
     const handleSubmit = () => {
