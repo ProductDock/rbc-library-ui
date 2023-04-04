@@ -1,9 +1,10 @@
 import { Typography } from "@mui/material";
 import CategoryItem from "./CategoryItem";
 import "./CategoriesSection.css";
+import { Topic } from "../../../../store/books/details/Types";
 
 type Props = {
-  categories?: string[];
+  categories?: Topic[];
 };
 
 const CategoriesSection = ({ categories }: Props) => {
@@ -15,8 +16,8 @@ const CategoriesSection = ({ categories }: Props) => {
       <div className="categories-list">
         {categories?.map((category) => {
           return (
-            <div key={category}>
-              <CategoryItem category={category} />
+            <div key={category.id}>
+              <CategoryItem category={category.name} />
             </div>
           );
         })}
