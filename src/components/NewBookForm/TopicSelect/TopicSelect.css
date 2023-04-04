@@ -4,14 +4,8 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 0.7em;
-    padding: 11px;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 18px;
     border: 1px solid #cccccc;
     border-radius: 0.3em;
-    font-family: Roboto, sans-serif;
-    background-color: #ffffff;
   }
   
   .MuiModal-root.MuiPopover-root.MuiMenu-root {

@@ -67,24 +67,24 @@ const NewBookForm = () => {
     }, [author, title, description]);
 
     return (
-      <div className="add-book-form-container">
+      <div className="new-book-form-container">
         <div className="field-container">
           <NewBookFormTitle onSkip={hideForm} />
-          <Typography className="book-review-field-title">Title</Typography>
+          <Typography className="new-book-field-title">Title</Typography>
           <TextArea maxLength={100} text={title} setText={setTitle} minRows={1} placeholder="Enter a link to the book cover" />
-          <Typography className="book-review-field-title">Author</Typography>
+          <Typography className="new-book-field-title">Author</Typography>
           <TextArea maxLength={100} text={author} setText={setAuthor} minRows={1} placeholder="Enter a link to the book cover" />
-          <Typography className="book-review-field-title">Book cover(URL)</Typography>
+          <Typography className="new-book-field-title">Book cover(URL)</Typography>
           <TextArea maxLength={100} text={coverUrl} setText={setCoverUrl} minRows={1} placeholder="Enter a link to the book cover" />
-          <Typography className="book-review-field-title">Description</Typography>
+          <Typography className="new-book-field-title">Description</Typography>
           <TextArea maxLength={500} text={description} setText={setDescription} minRows={5} placeholder="Enter a description" />
-          <Typography className="book-review-field-title">Number of copies</Typography>
+          <Typography className="new-book-field-title">Number of copies</Typography>
           <NumberInput number={numberOfCopies} setNumber={setNumberOfCopies} />
-          <Typography className="book-review-field-title">Category</Typography>
+          <Typography className="new-book-field-title">Category</Typography>
           <div className="topic-select">
-            <TopicSelect selectedTopics={selectedTopics} setSelectedTopics={setSelectedTopics} />
+            <TopicSelect selectedTopics={selectedTopics} setSelectedTopics={setSelectedTopics} existingTopics={existingTopics} />
           </div>
-          <div className="book-review-form-footer">
+          <div className="new-book-form-footer">
             <SubmitNewBookButton
               text="Add"
               disabled={!isSubmitEnabled()}

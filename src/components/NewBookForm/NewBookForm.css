@@ -1,11 +1,11 @@
-.MuiTypography-root.book-review-field-title {
+.MuiTypography-root.new-book-field-title {
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
     margin-top: 1.5em;
   }
   
-  .book-review-field {
+  .new-book-field {
     margin-top: 0.7em;
   }
   
@@ -18,13 +18,13 @@
     height: auto;
   }
   
-  .book-review-form-footer {
+  .new-book-form-footer {
     width: 100%;
     direction: rtl;
     margin-top: 1rem;
   }
 
-  .add-book-form-container {
+  .new-book-form-container {
     background-color: #f7f7f9;
     position: fixed;
     z-index: 1301;
@@ -38,17 +38,21 @@
 
   .topic-select .MuiBox-root {
     width: auto;
-    margin-bottom: 20px;
+    height: auto;
   } 
 
   .topic-select .MuiInputBase-root.MuiOutlinedInput-root {
     height: auto;
+    min-height:  5em;
     display: flex;
     flex-wrap: wrap;
+    background-color: #ffffff;
+    cursor: pointer;
+    margin-left: 0;
   }
   
   @media only screen and (max-width: 800px) {
-    .book-review-form-footer {
+    .new-book-form-footer {
       z-index: 1298;
       background-color: #f7f7f9;
       padding: 0 3em 0 0;
