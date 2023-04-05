@@ -62,17 +62,17 @@ const NewBookForm = () => {
     };
 
     const isSubmitEnabled = useCallback(() => {
-      return author.length > 0 && title.length > 0 && description.length > 0;
-    }, [author, title, description]);
+      return author.length > 0 && title.length > 0 && coverUrl.length > 0 && description.length > 0;
+    }, [author, title, coverUrl, description]);
 
     return (
       <div className="new-book-form-container">
         <div className="field-container">
           <NewBookFormTitle onSkip={hideForm} />
           <Typography className="new-book-field-title">Title</Typography>
-          <TextArea maxLength={100} text={title} setText={setTitle} minRows={1} placeholder="Enter a link to the book cover" />
+          <TextArea maxLength={100} text={title} setText={setTitle} minRows={1} placeholder="Enter the book title" />
           <Typography className="new-book-field-title">Author</Typography>
-          <TextArea maxLength={100} text={author} setText={setAuthor} minRows={1} placeholder="Enter a link to the book cover" />
+          <TextArea maxLength={100} text={author} setText={setAuthor} minRows={1} placeholder="Who is the author of the book?" />
           <Typography className="new-book-field-title">Book cover(URL)</Typography>
           <TextArea maxLength={100} text={coverUrl} setText={setCoverUrl} minRows={1} placeholder="Enter a link to the book cover" />
           <Typography className="new-book-field-title">Description</Typography>

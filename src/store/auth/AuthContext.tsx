@@ -4,6 +4,7 @@ import { actions } from "./authActions";
 import reducer from "./AuthReducer";
 import { IAuthContext } from "./Types";
 import * as authService from "../../services/AuthService";
+import { userRoles } from "../../constants/userRoles";
 
 const initialState = {
   userProfile: null,
@@ -67,6 +68,10 @@ const AuthContextProvider = (props: any) => {
       .finally(() => loadFinished());
   };
 
+  const isUserAdmin = ():Boolean => {
+    return authState.userProfile.role === userRoles.ROLE_ADMIN;
+  };
+
   useEffect(() => {
     dispatch({ type: actions.REMOVE_LOGGED_USER });
     completeLogin(redirectToPreviousPage, handleUnauthorizedError);
@@ -77,6 +82,7 @@ const AuthContextProvider = (props: any) => {
       value={{
         ...authState,
         signOut,
+        isUserAdmin,
       }}
     >
       {props.children}
