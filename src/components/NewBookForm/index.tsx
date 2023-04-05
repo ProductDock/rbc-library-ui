@@ -56,13 +56,13 @@ const NewBookForm = () => {
             };
             topics.push(topic);
         }
-    });
+      });
 
-    addBook?.(createBook()).then(() => onSuccessCallback());
+      addBook?.(createBook()).then(() => onSuccessCallback());
     };
 
     const isSubmitEnabled = useCallback(() => {
-      return author.length > 0 || title.length > 0 || description.length > 0;
+      return author.length > 0 && title.length > 0 && description.length > 0;
     }, [author, title, description]);
 
     return (
