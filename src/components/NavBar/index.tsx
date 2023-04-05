@@ -37,6 +37,10 @@ const NavBar = () => {
     if (location.pathname === routes.HOME) navigate(0);
   };
 
+  const isUserAdmin = ():Boolean => {
+    return userProfile?.role === userRoles.ROLE_ADMIN;
+  };
+
   return (
     <AppBar className="navbar">
       <div className="navbar-div">
@@ -75,7 +79,7 @@ const NavBar = () => {
           </div>
         )}
         <div className="right-side">
-          {userProfile?.role === userRoles.ROLE_ADMIN && (
+          { isUserAdmin() && (
           <div className="add-book-button">
             <NewBookButton />
           </div>

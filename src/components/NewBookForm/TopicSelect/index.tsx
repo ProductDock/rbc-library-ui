@@ -27,7 +27,6 @@ const TopicSelect = ({ selectedTopics, setSelectedTopics, existingTopics }: Prop
         value={selectedTopics}
         onChange={handleChange}
         input={<OutlinedInput />}
-        label="Topics"
         renderValue={(selected) => (
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
             {selected.map((value) => (
