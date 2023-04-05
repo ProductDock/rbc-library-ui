@@ -50,8 +50,9 @@
     cursor: pointer;
   }
 
-  .topic-select .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused {
-    border-color: black;
+  .topic-select .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused
+    .MuiOutlinedInput-notchedOutline {
+    border: none;
     box-shadow: none;
   }
 

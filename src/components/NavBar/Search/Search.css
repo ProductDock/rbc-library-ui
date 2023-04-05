@@ -60,7 +60,7 @@
   border-color: white;
 }
 
-.MuiInputBase-root.MuiOutlinedInput-root.Mui-focused
+.navbar-search .MuiInputBase-root.MuiOutlinedInput-root.Mui-focused
   .MuiOutlinedInput-notchedOutline {
   border: 1px solid #00609a;
   box-shadow: 0px 0px 0px 2px #cce0f2;
