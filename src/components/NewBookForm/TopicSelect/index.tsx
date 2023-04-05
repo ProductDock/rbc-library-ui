@@ -1,20 +1,8 @@
-/* eslint-disable no-unused-vars */
 import { Box, Chip, MenuItem, OutlinedInput, Select } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import _without from "lodash/without";
 import "./TopicSelect.css";
 import { Topic } from "../../../store/books/new/Types";
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: "auto",
-    },
-  },
-};
 
 type Props = {
     selectedTopics: string[];
@@ -39,6 +27,7 @@ const TopicSelect = ({ selectedTopics, setSelectedTopics, existingTopics }: Prop
         value={selectedTopics}
         onChange={handleChange}
         input={<OutlinedInput />}
+        label="Topics"
         renderValue={(selected) => (
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
             {selected.map((value) => (
@@ -55,8 +44,10 @@ const TopicSelect = ({ selectedTopics, setSelectedTopics, existingTopics }: Prop
           ))}
           </Box>
       )}
-        MenuProps={MenuProps}
       >
+        <MenuItem value="" onKeyDown={(e) => e.stopPropagation()}>
+          <em>None</em>
+        </MenuItem>
         {existingTopics.map((topic) => (
           <MenuItem
             key={topic.id}
