@@ -45,7 +45,7 @@ const TopicSelect = ({ selectedTopics, setSelectedTopics, existingTopics }: Prop
           </Box>
       )}
       >
-        <MenuItem value="" onKeyDown={(e) => e.stopPropagation()}>
+        <MenuItem value="" disabled>
           <em>None</em>
         </MenuItem>
         {existingTopics.map((topic) => (
