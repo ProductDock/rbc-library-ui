@@ -15,6 +15,7 @@ const TextArea = ({ maxLength, text, setText, minRows, placeholder }: Props) => 
       data-testid="review-comment-textarea"
       maxLength={maxLength}
       minRows={minRows}
+      maxRows={10}
       className="text-area"
       onChange={(e) => setText(e.target.value)}
       placeholder={placeholder}

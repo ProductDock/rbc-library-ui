@@ -76,7 +76,7 @@ const NewBookForm = () => {
           <Typography className="new-book-field-title">Book cover(URL)</Typography>
           <TextArea maxLength={100} text={coverUrl} setText={setCoverUrl} minRows={1} placeholder="Enter a link to the book cover" />
           <Typography className="new-book-field-title">Description</Typography>
-          <TextArea maxLength={500} text={description} setText={setDescription} minRows={5} placeholder="Enter a description" />
+          <TextArea maxLength={1500} text={description} setText={setDescription} minRows={5} placeholder="Enter a description" />
           <Typography className="new-book-field-title">Number of copies</Typography>
           <NumberInput number={numberOfCopies} setNumber={setNumberOfCopies} />
           <Typography className="new-book-field-title">Category</Typography>
