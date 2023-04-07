@@ -7,12 +7,13 @@ type Props = {
   setText: Function;
   minRows: number;
   placeholder: string;
+  dataTestId: string;
 };
 
-const TextArea = ({ maxLength, text, setText, minRows, placeholder }: Props) => {
+const TextArea = ({ maxLength, text, setText, minRows, placeholder, dataTestId }: Props) => {
   return (
     <TextareaAutosize
-      data-testid="review-comment-textarea"
+      data-testid={dataTestId}
       maxLength={maxLength}
       minRows={minRows}
       maxRows={10}

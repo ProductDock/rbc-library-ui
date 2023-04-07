@@ -23,6 +23,7 @@ const TopicSelect = ({ selectedTopics, setSelectedTopics, existingTopics }: Prop
     return (
       <Select
         className="topic-select-menu"
+        data-testid="new-book-select-topics"
         multiple
         value={selectedTopics}
         onChange={handleChange}
@@ -31,6 +32,7 @@ const TopicSelect = ({ selectedTopics, setSelectedTopics, existingTopics }: Prop
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
             {selected.map((value) => (
               <Chip
+                data-testid={value}
                 key={value}
                 label={value}
                 deleteIcon={(

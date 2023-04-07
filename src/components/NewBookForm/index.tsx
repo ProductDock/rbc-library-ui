@@ -70,13 +70,13 @@ const NewBookForm = () => {
         <div className="field-container">
           <NewBookFormTitle onSkip={hideForm} />
           <Typography className="new-book-field-title">Title</Typography>
-          <TextArea maxLength={100} text={title} setText={setTitle} minRows={1} placeholder="Enter the book title" />
+          <TextArea dataTestId="new-book-title" maxLength={100} text={title} setText={setTitle} minRows={1} placeholder="Enter the book title" />
           <Typography className="new-book-field-title">Author</Typography>
-          <TextArea maxLength={100} text={author} setText={setAuthor} minRows={1} placeholder="Who is the author of the book?" />
+          <TextArea dataTestId="new-book-author" maxLength={100} text={author} setText={setAuthor} minRows={1} placeholder="Who is the author of the book?" />
           <Typography className="new-book-field-title">Book cover(URL)</Typography>
-          <TextArea maxLength={100} text={coverUrl} setText={setCoverUrl} minRows={1} placeholder="Enter a link to the book cover" />
+          <TextArea dataTestId="new-book-cover" maxLength={100} text={coverUrl} setText={setCoverUrl} minRows={1} placeholder="Enter a link to the book cover" />
           <Typography className="new-book-field-title">Description</Typography>
-          <TextArea maxLength={1500} text={description} setText={setDescription} minRows={5} placeholder="Enter a description" />
+          <TextArea dataTestId="new-book-description" maxLength={1500} text={description} setText={setDescription} minRows={5} placeholder="Enter a description" />
           <Typography className="new-book-field-title">Number of copies</Typography>
           <NumberInput number={numberOfCopies} setNumber={setNumberOfCopies} />
           <Typography className="new-book-field-title">Category</Typography>
