@@ -7,7 +7,6 @@ import * as NewBookContext from "../../../../store/books/new/NewBookContext";
 
 describe("Test topic select", () => {
   test("should show topics when clicked on select menu", async () => {
-    // const signOutMock = jest.fn().mockResolvedValue({});
     const topics = TopicsFixture;
     jest.spyOn(NewBookContext, "useNewBookContext").mockImplementation(() => ({
         showedNewBookForm: false,

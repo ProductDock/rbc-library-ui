@@ -9,11 +9,11 @@ type Props = {
 const CancelButton = ({ text, onClick }: Props) => {
   return (
     <Button
-      className="cancel-button"
+      className="form-cancel-button"
       onClick={onClick}
       data-testid="cancel-button"
     >
-      <Typography className="cancel-button-text">{text}</Typography>
+      <Typography className="form-cancel-button-text">{text}</Typography>
     </Button>
   );
 };
