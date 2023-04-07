@@ -6,7 +6,7 @@ describe("Test new book form", () => {
   test("should show new book form fields", async () => {
     render(<NewBookForm />);
 
-    const formTitle = await screen.findByTestId("new-book-form-title");
+    const formTitle = await screen.findByTestId("form-title");
     const title = screen.getByTestId("new-book-title");
     const author = screen.getByTestId("new-book-author");
     const cover = screen.getByTestId("new-book-cover");

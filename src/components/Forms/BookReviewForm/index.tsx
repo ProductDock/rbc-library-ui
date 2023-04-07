@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { Typography, Rating } from "@mui/material";
 import { useCallback, useState } from "react";
-import BookReviewFormTitle from "./FormTitle";
 import "./BookReviewForm.css";
 import TextArea from "../Components/TextArea";
 import CheckboxGroup from "./CheckboxGroup";
@@ -17,6 +16,7 @@ import { useSuccessScreenContext } from "../../../store/books/success/SuccessScr
 import { gratitudeMessages } from "../../../constants/gratitudeMessages";
 import CancelButton from "../Components/CancelButton";
 import SubmitButton from "../Components/SubmitButton";
+import FormTitle from "../Components/FormTitle";
 
 const BookReviewForm = () => {
   const { book, currentAction, reloadBook } = useBookDetailsContext();
@@ -71,7 +71,11 @@ const BookReviewForm = () => {
   return (
     <div className="book-review-form-container">
       <div className="field-container">
-        <BookReviewFormTitle onSkip={endReview} />
+        <FormTitle
+          onSkip={endReview}
+          text={formVariant === BookReviewFormVariant.EDIT ? "Edit a review " : "Write a review "}
+          description="You can review the book once"
+        />
         <Typography className="book-review-field-title">How would you rate your experience with this book?</Typography>
         <Rating
           data-testid="book-review-rating"

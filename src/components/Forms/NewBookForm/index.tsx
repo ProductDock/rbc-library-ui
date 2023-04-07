@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { Typography } from "@mui/material";
 import { useCallback, useState } from "react";
-import NewBookFormTitle from "./FormTitle";
+import NewBookFormTitle from "../Components/FormTitle";
 import "./NewBookForm.css";
 import TextArea from "../Components/TextArea";
 import SubmitNewBookButton from "../Components/SubmitButton";
@@ -68,7 +68,7 @@ const NewBookForm = () => {
     return (
       <div className="new-book-form-container">
         <div className="field-container">
-          <NewBookFormTitle onSkip={hideForm} />
+          <NewBookFormTitle onSkip={hideForm} text="Add a new book" />
           <Typography className="new-book-field-title">Title</Typography>
           <TextArea dataTestId="new-book-title" maxLength={100} text={title} setText={setTitle} minRows={1} placeholder="Enter the book title" showTextLength={false} />
           <Typography className="new-book-field-title">Author</Typography>
