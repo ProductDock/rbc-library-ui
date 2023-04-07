@@ -6,7 +6,6 @@ import BookReviewFormTitle from "./FormTitle";
 import "./BookReviewForm.css";
 import TextArea from "../Components/TextArea";
 import SubmitReviewButton from "./SubmitReviewButton";
-import SkipReviewButton from "./SkipReviewButton";
 import CheckboxGroup from "./CheckboxGroup";
 import { BookRecommendations, BookReview } from "../../../store/books/details/Types";
 import { useBookDetailsContext } from "../../../store/books/details/BookDetailsContext";
@@ -17,6 +16,7 @@ import { BookActions } from "../../../store/books/status/Types";
 import { successMessages } from "../../../constants/successMessages";
 import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
 import { gratitudeMessages } from "../../../constants/gratitudeMessages";
+import CancelButton from "../Components/CancelButton";
 
 const BookReviewForm = () => {
   const { book, currentAction, reloadBook } = useBookDetailsContext();
@@ -93,7 +93,7 @@ const BookReviewForm = () => {
             disabled={!isSubmitEnabled()}
             onClick={handleSubmit}
           />
-          <SkipReviewButton
+          <CancelButton
             text={formVariant === BookReviewFormVariant.EDIT || !currentAction ? "Cancel" : "Skip"}
             onClick={endReview}
           />

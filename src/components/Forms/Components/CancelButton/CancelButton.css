@@ -1,4 +1,4 @@
-.cancel-new-book-button.MuiButton-root {
+.cancel-button.MuiButton-root {
   background-color: transparent;
   border-radius: 20px;
   margin: 0 1em;
@@ -6,14 +6,14 @@
   width: 132px;
   height: 40px;
 }
-.cancel-new-book-button.MuiButton-root:hover {
+.cancel-button.MuiButton-root:hover {
   border: 1px solid #eeeeee;
 }
-.cancel-new-book-button.MuiButton-root:hover::after {
+.cancel-button.MuiButton-root:hover::after {
   border: 1px solid #eeeeee;
 }
 
-.cancel-new-book-button-text {
+.cancel-button-text {
   color: black;
   font-weight: 400;
   font-size: 14px;
@@ -21,7 +21,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .cancel-new-book-button.MuiButton-root {
+  .cancel-button.MuiButton-root {
     background-color: transparent;
     border-radius: 20px;
     margin: 0.7em 0 1.5em 0;

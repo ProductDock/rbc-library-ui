@@ -6,7 +6,7 @@ import NewBookFormTitle from "./FormTitle";
 import "./NewBookForm.css";
 import TextArea from "../Components/TextArea";
 import SubmitNewBookButton from "./SubmitNewBookButton";
-import CancelNewBookButton from "./CancelNewBookButton";
+import CancelButton from "../Components/CancelButton";
 import { successMessages } from "../../../constants/successMessages";
 import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
 import { useNewBookContext } from "../../../store/books/new/NewBookContext";
@@ -89,7 +89,7 @@ const NewBookForm = () => {
               disabled={!isSubmitEnabled()}
               onClick={handleSubmit}
             />
-            <CancelNewBookButton
+            <CancelButton
               text="Cancel"
               onClick={hideForm}
             />
