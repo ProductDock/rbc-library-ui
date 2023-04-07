@@ -5,7 +5,7 @@ import { useCallback, useState } from "react";
 import NewBookFormTitle from "./FormTitle";
 import "./NewBookForm.css";
 import TextArea from "../Components/TextArea";
-import SubmitNewBookButton from "./SubmitNewBookButton";
+import SubmitNewBookButton from "../Components/SubmitButton";
 import CancelButton from "../Components/CancelButton";
 import { successMessages } from "../../../constants/successMessages";
 import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";

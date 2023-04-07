@@ -5,7 +5,6 @@ import { useCallback, useState } from "react";
 import BookReviewFormTitle from "./FormTitle";
 import "./BookReviewForm.css";
 import TextArea from "../Components/TextArea";
-import SubmitReviewButton from "./SubmitReviewButton";
 import CheckboxGroup from "./CheckboxGroup";
 import { BookRecommendations, BookReview } from "../../../store/books/details/Types";
 import { useBookDetailsContext } from "../../../store/books/details/BookDetailsContext";
@@ -17,6 +16,7 @@ import { successMessages } from "../../../constants/successMessages";
 import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
 import { gratitudeMessages } from "../../../constants/gratitudeMessages";
 import CancelButton from "../Components/CancelButton";
+import SubmitButton from "../Components/SubmitButton";
 
 const BookReviewForm = () => {
   const { book, currentAction, reloadBook } = useBookDetailsContext();
@@ -88,7 +88,7 @@ const BookReviewForm = () => {
         <Typography className="book-review-field-title">Comment</Typography>
         <TextArea dataTestId="review-comment-textarea" maxLength={500} text={comment} setText={setComment} minRows={5} placeholder="Please be as detailed as possible" showTextLength />
         <div className="book-review-form-footer">
-          <SubmitReviewButton
+          <SubmitButton
             text={formVariant === BookReviewFormVariant.EDIT ? "Save" : "Submit"}
             disabled={!isSubmitEnabled()}
             onClick={handleSubmit}
