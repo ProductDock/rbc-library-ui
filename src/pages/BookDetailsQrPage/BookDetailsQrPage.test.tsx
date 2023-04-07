@@ -2,6 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 import Router, { BrowserRouter } from "react-router-dom";
 import BookDetailsQrPage from ".";
+import SuccessScreenContextProvider from "../../store/books/success/SuccessScreenContext";
 
 const AVAILABLE_BOOK_ID = "1";
 const RENTED_BOOK_ID = "6";
@@ -21,7 +22,9 @@ beforeEach(() => {
     .mockReturnValue({ bookId: AVAILABLE_BOOK_ID });
   render(
     <BrowserRouter>
-      <BookDetailsQrPage />
+      <SuccessScreenContextProvider>
+        <BookDetailsQrPage />
+      </SuccessScreenContextProvider>
     </BrowserRouter>
   );
 });

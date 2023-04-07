@@ -1,6 +1,7 @@
 import Router, { BrowserRouter } from "react-router-dom";
 import { render, waitFor, screen } from "@testing-library/react";
 import BookDetailsQrPage from "../../../../BookDetailsQrPage";
+import SuccessScreenContextProvider from "../../../../../store/books/success/SuccessScreenContext";
 
 const AVAILABLE_BOOK_ID = "1";
 const RESERVED_BY_YOU_BOOK_ID = "2";
@@ -23,7 +24,9 @@ describe("Test book rent action", () => {
 
     render(
       <BrowserRouter>
-        <BookDetailsQrPage />
+        <SuccessScreenContextProvider>
+          <BookDetailsQrPage />
+        </SuccessScreenContextProvider>
       </BrowserRouter>
     );
 
@@ -52,7 +55,9 @@ describe("Test book rent action", () => {
 
     render(
       <BrowserRouter>
-        <BookDetailsQrPage />
+        <SuccessScreenContextProvider>
+          <BookDetailsQrPage />
+        </SuccessScreenContextProvider>
       </BrowserRouter>
     );
 

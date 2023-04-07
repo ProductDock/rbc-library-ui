@@ -6,12 +6,12 @@ describe("Test book review form", () => {
   test("should show review form fields", async () => {
     render(<BookReviewForm />);
 
-    const formTitle = await screen.findByTestId("book-review-form-title");
+    const formTitle = await screen.findByTestId("form-title");
     const rating = screen.getByTestId("book-review-rating");
     const checkboxes = screen.getByTestId("book-review-checkboxes");
     const textarea = screen.getByTestId("review-comment-textarea");
-    const submitReviewButton = screen.getByTestId("submit-review-button");
-    const skipReviewButton = screen.getByTestId("skip-review-button");
+    const submitReviewButton = screen.getByTestId("submit-button");
+    const skipReviewButton = screen.getByTestId("cancel-button");
 
     expect(formTitle).toBeInTheDocument();
     expect(rating).toBeInTheDocument();
@@ -25,7 +25,7 @@ describe("Test book review form", () => {
     render(<BookReviewForm />);
 
     const submitReviewButton = await screen.findByTestId(
-      "submit-review-button"
+      "submit-button"
     );
     expect(submitReviewButton).toBeDisabled();
   });
@@ -39,7 +39,7 @@ describe("Test book review form", () => {
     userEvent.type(reviewCommentTextArea, "Test review comment");
 
     const submitReviewButton = await screen.findByTestId(
-      "submit-review-button"
+      "submit-button"
     );
     expect(submitReviewButton).toBeEnabled();
   });
@@ -53,7 +53,7 @@ describe("Test book review form", () => {
     fireEvent.click(firstStar!!);
 
     const submitReviewButton = await screen.findByTestId(
-      "submit-review-button"
+      "submit-button"
     );
     expect(submitReviewButton).toBeEnabled();
   });
@@ -68,7 +68,7 @@ describe("Test book review form", () => {
     userEvent.click(recommendation.at(0)!!);
 
     const submitReviewButton = await screen.findByTestId(
-      "submit-review-button"
+      "submit-button"
     );
     expect(submitReviewButton).toBeEnabled();
   });

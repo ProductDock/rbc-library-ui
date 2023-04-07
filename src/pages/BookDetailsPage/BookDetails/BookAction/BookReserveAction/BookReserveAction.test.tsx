@@ -2,6 +2,7 @@
 import Router, { BrowserRouter } from "react-router-dom";
 import { render, waitFor, screen } from "@testing-library/react";
 import BookDetailsPage from "../../../BookDetailsPage";
+import SuccessScreenContextProvider from "../../../../../store/books/success/SuccessScreenContext";
 
 const AVAILABLE_BOOK_ID = "1";
 const SCREEN_WIDTH = 900;
@@ -41,7 +42,9 @@ describe("Test book rent action", () => {
 
     render(
       <BrowserRouter>
-        <BookDetailsPage />
+        <SuccessScreenContextProvider>
+          <BookDetailsPage />
+        </SuccessScreenContextProvider>
       </BrowserRouter>
     );
 

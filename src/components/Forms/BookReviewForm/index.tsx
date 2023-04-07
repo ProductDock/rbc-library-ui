@@ -73,7 +73,7 @@ const BookReviewForm = () => {
       <div className="field-container">
         <FormTitle
           onSkip={endReview}
-          text={formVariant === BookReviewFormVariant.EDIT ? "Edit a review " : "Write a review "}
+          text={formVariant === BookReviewFormVariant.EDIT ? "Edit a review" : "Write a review"}
           description="You can review the book once"
         />
         <Typography className="book-review-field-title">How would you rate your experience with this book?</Typography>

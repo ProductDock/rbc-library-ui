@@ -13,8 +13,8 @@ describe("Test new book form", () => {
     const description = screen.getByTestId("new-book-description");
     const copies = screen.getByTestId("new-book-copies");
     const selectTopics = screen.getByTestId("new-book-select-topics");
-    const submitNewBookButton = screen.getByTestId("submit-new-book-button");
-    const cancelNewBookButton = screen.getByTestId("cancel-new-book-button");
+    const submitNewBookButton = screen.getByTestId("submit-button");
+    const cancelNewBookButton = screen.getByTestId("cancel-button");
 
     expect(formTitle).toBeInTheDocument();
     expect(title).toBeInTheDocument();
@@ -31,7 +31,7 @@ describe("Test new book form", () => {
     render(<NewBookForm />);
 
     const submitNewBookButton = await screen.findByTestId(
-      "submit-new-book-button"
+      "submit-button"
     );
     expect(submitNewBookButton).toBeDisabled();
   });
@@ -50,7 +50,7 @@ describe("Test new book form", () => {
     userEvent.type(description, "Book description");
 
     const submitNewBookButton = await screen.findByTestId(
-        "submit-new-book-button"
+        "submit-button"
     );
     expect(submitNewBookButton).toBeEnabled();
   });
