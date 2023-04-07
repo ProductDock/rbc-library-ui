@@ -11,14 +11,14 @@ import DescriptionSection from "./DescriptionSection";
 import CategoriesSection from "./CategoriesSection";
 import { useBookReviewContext } from "../../../store/books/reviews/BookReviewContext";
 import { MediaQueries } from "../../../constants/mediaQueries";
-import BookReviewForm from "../../../components/BookReviewForm";
+import BookReviewForm from "../../../components/Forms/BookReviewForm";
 import { BookActions } from "../../../store/books/status/Types";
 import { successMessages } from "../../../constants/successMessages";
 import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
 import { gratitudeMessages } from "../../../constants/gratitudeMessages";
 import BookRecordsUsers from "../../../components/BookStatus/BookRecordsUsers";
 import { useNewBookContext } from "../../../store/books/new/NewBookContext";
-import NewBookForm from "../../../components/NewBookForm";
+import NewBookForm from "../../../components/Forms/NewBookForm";
 
 type Props = {
   qrScanned?: boolean;

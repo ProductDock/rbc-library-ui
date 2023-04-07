@@ -3,10 +3,10 @@ import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter as Router } from "react-router-dom";
 import NewBookForm from ".";
-import App from "../../App";
-import { TopicsFixture } from "../../msw/fixtures";
-import HomePage from "../../pages/HomePage/HomePage";
-import * as NewBookContext from "../../store/books/new/NewBookContext";
+import App from "../../../App";
+import { TopicsFixture } from "../../../msw/fixtures";
+import HomePage from "../../../pages/HomePage/HomePage";
+import * as NewBookContext from "../../../store/books/new/NewBookContext";
 
 const SUCCESS_DISAPPEAR_AFTER = 2000;
 

@@ -2,7 +2,7 @@ import { Box, Chip, MenuItem, OutlinedInput, Select } from "@mui/material";
 import CancelIcon from "@mui/icons-material/Cancel";
 import _without from "lodash/without";
 import "./TopicSelect.css";
-import { Topic } from "../../../store/books/new/Types";
+import { Topic } from "../../../../store/books/new/Types";
 
 type Props = {
     selectedTopics: string[];

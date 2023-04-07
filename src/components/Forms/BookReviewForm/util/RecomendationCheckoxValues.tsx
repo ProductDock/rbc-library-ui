@@ -1,4 +1,4 @@
-import { BookRecommendations } from "../../../store/books/details/Types";
+import { BookRecommendations } from "../../../../store/books/details/Types";
 import { CheckboxProps } from "../CheckboxGroup";
 
 class RecommendationCheckboxValues {

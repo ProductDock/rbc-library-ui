@@ -4,19 +4,19 @@ import { Typography, Rating } from "@mui/material";
 import { useCallback, useState } from "react";
 import BookReviewFormTitle from "./FormTitle";
 import "./BookReviewForm.css";
-import TextArea from "./TextArea";
+import TextArea from "../Components/TextArea";
 import SubmitReviewButton from "./SubmitReviewButton";
 import SkipReviewButton from "./SkipReviewButton";
 import CheckboxGroup from "./CheckboxGroup";
-import { BookRecommendations, BookReview } from "../../store/books/details/Types";
-import { useBookDetailsContext } from "../../store/books/details/BookDetailsContext";
+import { BookRecommendations, BookReview } from "../../../store/books/details/Types";
+import { useBookDetailsContext } from "../../../store/books/details/BookDetailsContext";
 import RecommendationCheckboxValues from "./util/RecomendationCheckoxValues";
-import { useBookReviewContext } from "../../store/books/reviews/BookReviewContext";
-import { BookReviewFormVariant } from "../../store/books/reviews/Types";
-import { BookActions } from "../../store/books/status/Types";
-import { successMessages } from "../../constants/successMessages";
-import { useSuccessScreenContext } from "../../store/books/success/SuccessScreenContext";
-import { gratitudeMessages } from "../../constants/gratitudeMessages";
+import { useBookReviewContext } from "../../../store/books/reviews/BookReviewContext";
+import { BookReviewFormVariant } from "../../../store/books/reviews/Types";
+import { BookActions } from "../../../store/books/status/Types";
+import { successMessages } from "../../../constants/successMessages";
+import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
+import { gratitudeMessages } from "../../../constants/gratitudeMessages";
 
 const BookReviewForm = () => {
   const { book, currentAction, reloadBook } = useBookDetailsContext();
@@ -86,7 +86,7 @@ const BookReviewForm = () => {
           checkedValues={recommendation}
         />
         <Typography className="book-review-field-title">Comment</Typography>
-        <TextArea maxLength={500} text={comment} setText={setComment} />
+        <TextArea dataTestId="review-comment-textarea" maxLength={500} text={comment} setText={setComment} minRows={5} placeholder="Please be as detailed as possible" showTextLength />
         <div className="book-review-form-footer">
           <SubmitReviewButton
             text={formVariant === BookReviewFormVariant.EDIT ? "Save" : "Submit"}

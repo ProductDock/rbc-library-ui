@@ -5,26 +5,33 @@ type Props = {
   maxLength: number;
   text: string;
   setText: Function;
+  minRows: number;
+  placeholder: string;
+  dataTestId: string;
+  showTextLength: boolean;
 };
 
-const TextArea = ({ maxLength, text, setText }: Props) => {
+const TextArea = ({ maxLength, text, setText, minRows, placeholder, dataTestId, showTextLength }: Props) => {
   return (
     <>
       <TextareaAutosize
-        data-testid="review-comment-textarea"
+        data-testid={dataTestId}
         maxLength={maxLength}
-        minRows={5}
-        className="description-text-area"
+        minRows={minRows}
+        maxRows={10}
+        className="text-area"
         onChange={(e) => setText(e.target.value)}
-        placeholder="Please be as detailed as possible"
+        placeholder={placeholder}
         defaultValue={text}
       />
+      { showTextLength && (
       <div className="text-area-characters-num-container">
         <Typography className="text-area-characters-num">
           {text.length}
           <span className="max-length">/{maxLength}</span>
         </Typography>
       </div>
+    )}
     </>
   );
 };

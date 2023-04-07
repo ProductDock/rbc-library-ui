@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { Typography } from "@mui/material";
 import "./FormTitle.css";
-import closeIcon from "../../../img/icons/close-icon.svg";
-import { useBookReviewContext } from "../../../store/books/reviews/BookReviewContext";
-import { BookReviewFormVariant } from "../../../store/books/reviews/Types";
+import closeIcon from "../../../../img/icons/close-icon.svg";
+import { useBookReviewContext } from "../../../../store/books/reviews/BookReviewContext";
+import { BookReviewFormVariant } from "../../../../store/books/reviews/Types";
 
 type Props = {
   onSkip: () => void;
