@@ -6,8 +6,8 @@ export type SelectedTopic = {
 export type NewBook = {
     title: string;
     author: string;
-    coverUrl: string;
-    numberOfCopies: number;
+    cover: string;
+    bookCopies: number;
     description: string;
     topics: SelectedTopic[];
 };
