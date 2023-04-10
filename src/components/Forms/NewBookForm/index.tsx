@@ -21,8 +21,8 @@ const NewBookForm = () => {
     const [title, setTitle] = useState<string>("");
     const [author, setAuthor] = useState<string>("");
     const [description, setDescription] = useState<string>("");
-    const [coverUrl, setCoverUrl] = useState<string>("");
-    const [numberOfCopies, setNumberOfCopies] = useState<number>(1);
+    const [cover, setCover] = useState<string>("");
+    const [bookCopies, setBookCopies] = useState<number>(1);
     const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
     const topics: SelectedTopic[] = [];
 
@@ -30,8 +30,8 @@ const NewBookForm = () => {
       const book: NewBook = {
         title,
         author,
-        coverUrl,
-        numberOfCopies,
+        cover,
+        bookCopies,
         description,
         topics
       };
@@ -62,8 +62,8 @@ const NewBookForm = () => {
     };
 
     const isSubmitEnabled = useCallback(() => {
-      return author.length > 0 && title.length > 0 && coverUrl.length > 0 && description.length > 0;
-    }, [author, title, coverUrl, description]);
+      return author.length > 0 && title.length > 0 && cover.length > 0 && description.length > 0;
+    }, [author, title, cover, description]);
 
     return (
       <div className="new-book-form-container">
@@ -74,11 +74,11 @@ const NewBookForm = () => {
           <Typography className="new-book-field-title">Author</Typography>
           <TextArea dataTestId="new-book-author" maxLength={100} text={author} setText={setAuthor} minRows={1} placeholder="Who is the author of the book?" showTextLength={false} />
           <Typography className="new-book-field-title">Book cover(URL)</Typography>
-          <TextArea dataTestId="new-book-cover" maxLength={100} text={coverUrl} setText={setCoverUrl} minRows={1} placeholder="Enter a link to the book cover" showTextLength={false} />
+          <TextArea dataTestId="new-book-cover" maxLength={100} text={cover} setText={setCover} minRows={1} placeholder="Enter a link to the book cover" showTextLength={false} />
           <Typography className="new-book-field-title">Description</Typography>
           <TextArea dataTestId="new-book-description" maxLength={1500} text={description} setText={setDescription} minRows={5} placeholder="Enter a description" showTextLength={false} />
           <Typography className="new-book-field-title">Number of copies</Typography>
-          <NumberInput number={numberOfCopies} setNumber={setNumberOfCopies} />
+          <NumberInput number={bookCopies} setNumber={setBookCopies} />
           <Typography className="new-book-field-title">Category</Typography>
           <div className="topic-select">
             <TopicSelect selectedTopics={selectedTopics} setSelectedTopics={setSelectedTopics} existingTopics={existingTopics} />
