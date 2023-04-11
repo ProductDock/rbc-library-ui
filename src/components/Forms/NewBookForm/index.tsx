@@ -3,6 +3,7 @@
 import { Typography } from "@mui/material";
 import { useCallback, useState } from "react";
 import "./NewBookForm.css";
+import { useLocation, useNavigate } from "react-router";
 import TextArea from "../Components/TextArea";
 import { successMessages } from "../../../constants/successMessages";
 import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
@@ -11,11 +12,16 @@ import NumberInput from "./NumberInput";
 import { NewBook, SelectedTopic } from "../../../store/books/new/Types";
 import TopicSelect from "./TopicSelect";
 import SidebarFormModal from "../../SidebarFormModal";
+import { useBooksContext } from "../../../store/books/catalog/BooksContext";
+import { routes } from "../../../constants/routes";
 
 const NewBookForm = () => {
   const { addBook, hideNewBookForm, existingTopics, showedNewBookForm } =
     useNewBookContext();
+  const { findBooks } = useBooksContext();
   const { showSuccessScreen } = useSuccessScreenContext();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [title, setTitle] = useState<string>("");
   const [author, setAuthor] = useState<string>("");
@@ -44,6 +50,12 @@ const NewBookForm = () => {
   const onSuccessCallback = () => {
     showSuccessScreen?.(successMessages.ADD_BOOK, "");
     hideForm?.();
+
+    if (location.pathname === routes.HOME) {
+      findBooks?.();
+    } else {
+      navigate(`${routes.HOME}`);
+    }
   };
 
   const handleSubmit = () => {
