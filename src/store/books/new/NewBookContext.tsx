@@ -15,23 +15,23 @@ export const NewBookContext =
 const NewBookContextProvider = (props: any) => {
   const [newBookState, dispatch] = useReducer(reducer, initialState);
 
-  const addBook = async (book: NewBook) =>
-    bookService.postBook(book);
+  const addBook = async (book: NewBook) => bookService.postBook(book);
 
   const showNewBookForm = async () =>
     dispatch({ type: actions.SHOW_NEW_BOOK_FORM });
 
-  const hideNewBookForm = async () =>
-    dispatch({ type: actions.HIDE_NEW_BOOK_FORM });
+  const hideNewBookForm = () => dispatch({ type: actions.HIDE_NEW_BOOK_FORM });
 
-    const getExistingTopics = async () =>
+  const getExistingTopics = async () =>
     bookService
       .fetchTopics()
-      .then((resp) => dispatch({ type: actions.GET_TOPICS, payload: resp.data }));
+      .then((resp) =>
+        dispatch({ type: actions.GET_TOPICS, payload: resp.data })
+      );
 
-    useEffect(() => {
-      getExistingTopics?.();
-    }, []);
+  useEffect(() => {
+    getExistingTopics?.();
+  }, []);
 
   return (
     <NewBookContext.Provider

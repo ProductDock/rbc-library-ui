@@ -10,7 +10,6 @@ import DescriptionSection from "./DescriptionSection";
 import CategoriesSection from "./CategoriesSection";
 import BookReviewForm from "../../../components/Forms/BookReviewForm";
 import BookRecordsUsers from "../../../components/BookStatus/BookRecordsUsers";
-import { useNewBookContext } from "../../../store/books/new/NewBookContext";
 import NewBookForm from "../../../components/Forms/NewBookForm";
 
 type Props = {
@@ -19,7 +18,6 @@ type Props = {
 
 const BookDetails = ({ qrScanned }: Props) => {
   const { book, bookStatus, setBookStatus } = useBookDetailsContext();
-  const { showedNewBookForm, hideNewBookForm } = useNewBookContext();
 
   return (
     <>
@@ -63,12 +61,7 @@ const BookDetails = ({ qrScanned }: Props) => {
       </div>
 
       <BookReviewForm />
-      {showedNewBookForm && (
-        <>
-          <div className="new-book-form-wrapper" onClick={hideNewBookForm} />
-          <NewBookForm />
-        </>
-      )}
+      <NewBookForm />
     </>
   );
 };

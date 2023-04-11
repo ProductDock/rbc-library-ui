@@ -74,14 +74,12 @@ const NavBar = () => {
           </div>
         )}
         <div className="right-side">
-          { isUserAdmin?.() && (
-          <div className="add-book-button">
-            <NewBookButton />
-          </div>
+          {isUserAdmin?.() && (
+            <div className="add-book-button">
+              <NewBookButton />
+            </div>
           )}
-          <div className="account-avatar">
-            <AccountAvatar />
-          </div>
+          <AccountAvatar />
         </div>
       </div>
     </AppBar>

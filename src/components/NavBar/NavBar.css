@@ -115,10 +115,6 @@
   box-shadow: none;
 }
 
-.account-avatar {
-  align-self: center;
-}
-
 .right-side {
   display: flex;
   align-self: center;

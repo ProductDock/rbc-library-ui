@@ -138,17 +138,6 @@
   right: 1%;
 }
 
-.new-book-form-wrapper {
-  background-color: #000000;
-  position: fixed;
-  z-index: 1300;
-  opacity: 0.1;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-}
-
 @media only screen and (max-width: 800px) {
   .book-details {
     display: block;
@@ -248,9 +237,5 @@
     top: 0;
     right: 0;
     margin: 3% 0 0 22%;
-  }
-
-  .new-book-form-wrapper {
-    display: none;
   }
 }
