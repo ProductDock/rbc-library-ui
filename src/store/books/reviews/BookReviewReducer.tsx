@@ -1,28 +1,28 @@
-import { IBookReviewContext } from "./Types";
+import { BookReviewFormVariant, IBookReviewContext } from "./Types";
 import { actions } from "./BookReviewActions";
 
 const reducer = (state: IBookReviewContext, action: any) => {
   switch (action.type) {
-    case actions.SELECT_REVIEW_FOR_EDIT:
-      return {
-        ...state,
-        selectedReview: action.payload,
-      };
-    case actions.RESET_SELECTED_REVIEW:
-      return {
-        ...state,
-        selectedReview: null,
-      };
-    case actions.SHOW_REVIEW_FORM:
+    case actions.SHOW_CREATE_REVIEW_FORM:
       return {
         ...state,
         showedReviewForm: true,
-        formVariant: action.payload,
+        selectedReview: null,
+        formVariant: BookReviewFormVariant.CREATE,
+      };
+    case actions.SHOW_EDIT_REVIEW_FORM:
+      return {
+        ...state,
+        showedReviewForm: true,
+        selectedReview: action.payload,
+        formVariant: BookReviewFormVariant.EDIT,
       };
     case actions.HIDE_REVIEW_FORM:
       return {
         ...state,
         showedReviewForm: false,
+        selectedReview: null,
+        formVariant: BookReviewFormVariant.CREATE,
       };
     default:
       return state;

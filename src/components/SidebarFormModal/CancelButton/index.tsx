@@ -11,7 +11,7 @@ const CancelButton = ({ text, onClick }: Props) => {
     <Button
       className="form-cancel-button"
       onClick={onClick}
-      data-testid="cancel-button"
+      data-testid="sidebar-modal-cancel-button"
     >
       <Typography className="form-cancel-button-text">{text}</Typography>
     </Button>

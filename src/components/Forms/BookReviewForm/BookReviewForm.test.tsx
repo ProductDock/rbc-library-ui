@@ -1,17 +1,29 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import BookReviewForm from ".";
+import * as BookReviewContext from "../../../store/books/reviews/BookReviewContext";
+import { BookReviewFormVariant } from "../../../store/books/reviews/Types";
+
+beforeEach(() => {
+  jest.spyOn(BookReviewContext, "useBookReviewContext").mockReturnValue({
+    showedReviewForm: true,
+    selectedReview: null,
+    formVariant: BookReviewFormVariant.CREATE,
+  });
+});
 
 describe("Test book review form", () => {
   test("should show review form fields", async () => {
     render(<BookReviewForm />);
 
-    const formTitle = await screen.findByTestId("form-title");
+    const formTitle = await screen.findByTestId("sidebar-modal-title");
     const rating = screen.getByTestId("book-review-rating");
     const checkboxes = screen.getByTestId("book-review-checkboxes");
     const textarea = screen.getByTestId("review-comment-textarea");
-    const submitReviewButton = screen.getByTestId("submit-button");
-    const skipReviewButton = screen.getByTestId("cancel-button");
+    const submitReviewButton = screen.getByTestId(
+      "sidebar-modal-submit-button"
+    );
+    const skipReviewButton = screen.getByTestId("sidebar-modal-cancel-button");
 
     expect(formTitle).toBeInTheDocument();
     expect(rating).toBeInTheDocument();
@@ -25,7 +37,7 @@ describe("Test book review form", () => {
     render(<BookReviewForm />);
 
     const submitReviewButton = await screen.findByTestId(
-      "submit-button"
+      "sidebar-modal-submit-button"
     );
     expect(submitReviewButton).toBeDisabled();
   });
@@ -39,7 +51,7 @@ describe("Test book review form", () => {
     userEvent.type(reviewCommentTextArea, "Test review comment");
 
     const submitReviewButton = await screen.findByTestId(
-      "submit-button"
+      "sidebar-modal-submit-button"
     );
     expect(submitReviewButton).toBeEnabled();
   });
@@ -53,7 +65,7 @@ describe("Test book review form", () => {
     fireEvent.click(firstStar!!);
 
     const submitReviewButton = await screen.findByTestId(
-      "submit-button"
+      "sidebar-modal-submit-button"
     );
     expect(submitReviewButton).toBeEnabled();
   });
@@ -68,7 +80,7 @@ describe("Test book review form", () => {
     userEvent.click(recommendation.at(0)!!);
 
     const submitReviewButton = await screen.findByTestId(
-      "submit-button"
+      "sidebar-modal-submit-button"
     );
     expect(submitReviewButton).toBeEnabled();
   });

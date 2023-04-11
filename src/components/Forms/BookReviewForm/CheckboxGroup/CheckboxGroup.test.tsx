@@ -1,6 +1,16 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import BookReviewForm from "..";
+import * as BookReviewContext from "../../../../store/books/reviews/BookReviewContext";
+import { BookReviewFormVariant } from "../../../../store/books/reviews/Types";
+
+beforeEach(() => {
+  jest.spyOn(BookReviewContext, "useBookReviewContext").mockReturnValue({
+    showedReviewForm: true,
+    selectedReview: null,
+    formVariant: BookReviewFormVariant.CREATE,
+  });
+});
 
 describe("Test checkbox group", () => {
   test("should select all checkboxes when select all checked", async () => {

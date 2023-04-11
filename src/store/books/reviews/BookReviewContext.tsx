@@ -7,8 +7,8 @@ import { useAuthContext } from "../../auth/AuthContext";
 import { BookReview } from "../details/Types";
 
 const initialState = {
-  selectedReview: null,
   showedReviewForm: false,
+  selectedReview: null,
   formVariant: BookReviewFormVariant.CREATE,
 };
 
@@ -25,23 +25,19 @@ const BookReviewContextProvider = (props: any) => {
   const editReview = async (bookId: number, bookReview: BookReview) =>
     bookService.putBookReview(bookId, bookReview, userProfile?.email);
 
-  const resetSelectedReview = async () =>
-    dispatch({ type: actions.RESET_SELECTED_REVIEW });
+  const hideReviewForm = () => dispatch({ type: actions.HIDE_REVIEW_FORM });
 
   const deleteReview = async (bookId: number, onSuccessHandler: () => void) =>
     bookService
       .deleteBookReview(bookId, userProfile?.email)
       .then(onSuccessHandler)
-      .then(() => resetSelectedReview());
+      .then(() => hideReviewForm());
 
-  const selectReview = async (bookReview: BookReview) =>
-    dispatch({ type: actions.SELECT_REVIEW_FOR_EDIT, payload: bookReview });
+  const showCreateReviewForm = () =>
+    dispatch({ type: actions.SHOW_CREATE_REVIEW_FORM });
 
-  const showReviewForm = async (formVariant: BookReviewFormVariant) =>
-    dispatch({ type: actions.SHOW_REVIEW_FORM, payload: formVariant });
-
-  const hideReviewForm = async () =>
-    dispatch({ type: actions.HIDE_REVIEW_FORM });
+  const showEditReviewForm = (review: BookReview) =>
+    dispatch({ type: actions.SHOW_EDIT_REVIEW_FORM, payload: review });
 
   return (
     <BookReviewContext.Provider
@@ -50,8 +46,8 @@ const BookReviewContextProvider = (props: any) => {
         addReview,
         editReview,
         deleteReview,
-        selectReview,
-        showReviewForm,
+        showCreateReviewForm,
+        showEditReviewForm,
         hideReviewForm,
       }}
     >

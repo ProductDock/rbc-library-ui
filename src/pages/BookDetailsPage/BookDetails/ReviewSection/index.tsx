@@ -8,7 +8,6 @@ import "./ReviewSection.css";
 import plusIcon from "../../../../img/icons/plus-icon.svg";
 import { useAuthContext } from "../../../../store/auth/AuthContext";
 import { useBookReviewContext } from "../../../../store/books/reviews/BookReviewContext";
-import { BookReviewFormVariant } from "../../../../store/books/reviews/Types";
 
 type Props = {
   reviews?: Review[];
@@ -16,7 +15,7 @@ type Props = {
 
 const ReviewSection = ({ reviews }: Props) => {
   const { userProfile } = useAuthContext();
-  const { showReviewForm } = useBookReviewContext();
+  const { showCreateReviewForm } = useBookReviewContext();
 
   const userLeftReview = useMemo(
     () => reviews?.find((r) => r.userId === userProfile?.email),
@@ -33,7 +32,7 @@ const ReviewSection = ({ reviews }: Props) => {
             <Link
               className="write-a-review-button side-text"
               underline="none"
-              onClick={() => showReviewForm?.(BookReviewFormVariant.CREATE)}
+              onClick={() => showCreateReviewForm?.()}
               data-testid="write-a-review-button"
             >
               Write a review

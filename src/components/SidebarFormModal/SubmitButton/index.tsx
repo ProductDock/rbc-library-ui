@@ -13,7 +13,7 @@ const SubmitNewBookButton = ({ text, onClick, disabled }: Props) => {
 
   return (
     <Button
-      data-testid="submit-button"
+      data-testid="sidebar-modal-submit-button"
       disabled={disabled}
       className="submit-button"
       onClick={() => onClick()}

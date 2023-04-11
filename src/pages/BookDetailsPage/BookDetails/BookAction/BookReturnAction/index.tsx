@@ -7,7 +7,6 @@ import ConfirmationModal, {
 } from "../../../../../components/Modals/ConfirmationModal";
 import "./BookReturnAction.css";
 import { useBookReviewContext } from "../../../../../store/books/reviews/BookReviewContext";
-import { BookReviewFormVariant } from "../../../../../store/books/reviews/Types";
 import { useAuthContext } from "../../../../../store/auth/AuthContext";
 
 const title = "Return the book";
@@ -16,7 +15,7 @@ const description = "Are you sure you want to return the book?";
 const BookReturnAction = () => {
   const { userProfile } = useAuthContext();
   const { returnABook, book } = useBookDetailsContext();
-  const { showReviewForm, selectReview } = useBookReviewContext();
+  const { showCreateReviewForm, showEditReviewForm } = useBookReviewContext();
 
   const modal = useRef<ConfirmationRefObject>(null);
 
@@ -31,13 +30,14 @@ const BookReturnAction = () => {
     const review = findExistingReview();
 
     if (review) {
-      selectReview?.({
+      showEditReviewForm?.({
         rating: review.rating,
         recommendation: review.recommendation,
         comment: review.comment,
       });
-      showReviewForm?.(BookReviewFormVariant.EDIT);
-    } else showReviewForm?.(BookReviewFormVariant.CREATE);
+    } else {
+      showCreateReviewForm?.();
+    }
   };
 
   return (

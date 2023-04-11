@@ -69,7 +69,9 @@ describe("Test book return action", () => {
     const confirmButton = await screen.findByTestId("confirm-button");
     confirmButton.click();
 
-    const skipReviewButton = await screen.findByTestId("cancel-button");
+    const skipReviewButton = await screen.findByTestId(
+      "sidebar-modal-cancel-button"
+    );
     skipReviewButton.click();
 
     const successText = await screen.findByText("Success!");
@@ -135,7 +137,9 @@ describe("Test book return action", () => {
     );
     userEvent.type(reviewCommentTextArea, "Test review comment");
 
-    const submitReviewButton = screen.getByTestId("submit-button");
+    const submitReviewButton = screen.getByTestId(
+      "sidebar-modal-submit-button"
+    );
     expect(submitReviewButton).toBeEnabled();
     submitReviewButton.click();
 

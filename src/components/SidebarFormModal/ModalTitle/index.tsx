@@ -14,7 +14,7 @@ const ModalTitle = ({ title, description, hideModal }: Props) => {
   return (
     <>
       <div className="sidebar-modal-title-container">
-        <Typography data-testid="modal-title" className="modal-title">
+        <Typography data-testid="sidebar-modal-title" className="modal-title">
           {title}
         </Typography>
         <img

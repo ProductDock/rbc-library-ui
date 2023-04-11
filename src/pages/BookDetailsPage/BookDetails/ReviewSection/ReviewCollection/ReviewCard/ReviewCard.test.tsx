@@ -104,7 +104,7 @@ describe("Test review card action buttons", () => {
     const editAReviewButton = screen.getByTestId("edit-a-review-button");
     editAReviewButton?.click();
 
-    const editButton = await screen.findByTestId("submit-button");
+    const editButton = await screen.findByTestId("sidebar-modal-submit-button");
     editButton.click();
 
     const usersReview = books[BOOK_ID_WITH_REVIEWS].reviews?.at(0);

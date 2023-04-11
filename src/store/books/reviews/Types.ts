@@ -2,18 +2,17 @@
 import { BookReview } from "../details/Types";
 
 export enum BookReviewFormVariant {
-    CREATE = "CREATE",
-    EDIT = "EDIT",
+  CREATE = "CREATE",
+  EDIT = "EDIT",
 }
-
 export interface IBookReviewContext {
-    selectedReview: BookReview | null;
-    showedReviewForm: boolean;
-    formVariant: BookReviewFormVariant;
-    addReview?: (bookId: number, review: BookReview) => Promise<any>;
-    editReview?: (bookId: number, review: BookReview) => Promise<any>;
-    deleteReview?: (bookId: number, onSuccessHandler: () => void) => Promise<any>;
-    selectReview?: (review: BookReview) => void;
-    hideReviewForm?: () => void;
-    showReviewForm?: (formVariant: BookReviewFormVariant) => void;
+  selectedReview: BookReview | null;
+  showedReviewForm: boolean;
+  formVariant: BookReviewFormVariant;
+  addReview?: (bookId: number, review: BookReview) => Promise<any>;
+  editReview?: (bookId: number, review: BookReview) => Promise<any>;
+  deleteReview?: (bookId: number, onSuccessHandler: () => void) => Promise<any>;
+  hideReviewForm?: () => void;
+  showCreateReviewForm?: () => void;
+  showEditReviewForm?: (review: BookReview) => void;
 }
