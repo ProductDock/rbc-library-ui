@@ -5,24 +5,25 @@ import NewBookForm from "..";
 import { TopicsFixture } from "../../../../msw/fixtures";
 import * as NewBookContext from "../../../../store/books/new/NewBookContext";
 
+beforeEach(() => {
+  const topics = TopicsFixture;
+  jest.spyOn(NewBookContext, "useNewBookContext").mockImplementation(() => ({
+    showedNewBookForm: true,
+    existingTopics: topics,
+  }));
+});
+
 describe("Test topic select", () => {
   test("should show topics when clicked on select menu", async () => {
-    const topics = TopicsFixture;
-    jest.spyOn(NewBookContext, "useNewBookContext").mockImplementation(() => ({
-        showedNewBookForm: false,
-        existingTopics: topics,
-    }));
-
     render(
       <Router>
         <NewBookForm />
-      </Router>);
-
-    const topicsSelect = await screen.findByTestId(
-      "new-book-select-topics"
+      </Router>
     );
 
-    const selectMenu = within(topicsSelect).getByRole('button');
+    const topicsSelect = await screen.findByTestId("new-book-select-topics");
+
+    const selectMenu = within(topicsSelect).getByRole("button");
     userEvent.click(selectMenu);
 
     expect(screen.getByText("None")).toBeInTheDocument();
@@ -33,22 +34,15 @@ describe("Test topic select", () => {
   });
 
   test("should show selected topics when clicked on topic in select menu", async () => {
-    const topics = TopicsFixture;
-    jest.spyOn(NewBookContext, "useNewBookContext").mockImplementation(() => ({
-        showedNewBookForm: false,
-        existingTopics: topics,
-    }));
-
     render(
       <Router>
         <NewBookForm />
-      </Router>);
-
-    const topicsSelect = await screen.findByTestId(
-      "new-book-select-topics"
+      </Router>
     );
 
-    const selectMenu = within(topicsSelect).getByRole('button');
+    const topicsSelect = await screen.findByTestId("new-book-select-topics");
+
+    const selectMenu = within(topicsSelect).getByRole("button");
     userEvent.click(selectMenu);
     userEvent.click(screen.getByText("Software Development"));
     userEvent.click(selectMenu);
