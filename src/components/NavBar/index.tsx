@@ -75,7 +75,7 @@ const NavBar = () => {
         )}
         <div className="right-side">
           {isUserAdmin?.() && (
-            <div className="add-book-button">
+            <div className="add-book-button-wrapper">
               <NewBookButton />
             </div>
           )}

@@ -21,6 +21,8 @@
 
 .account-avatar {
   align-self: center;
+  padding-left: 25px;
+  border-left: 1px solid #cccccc;
 }
 
 .MuiBox-root {

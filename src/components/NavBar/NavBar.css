@@ -119,3 +119,9 @@
   display: flex;
   align-self: center;
 }
+
+.add-book-button-wrapper {
+  align-self: center;
+  position: relative;
+  padding-right: 25px;
+}
