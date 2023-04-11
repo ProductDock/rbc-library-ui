@@ -18,7 +18,7 @@ const ModalTitle = ({ title, description, hideModal }: Props) => {
           {title}
         </Typography>
         <img
-          id="close-x"
+          data-testid="sidebar-modal-close-icon"
           src={closeIcon}
           alt="closeIcon"
           onClick={hideModal}
@@ -26,7 +26,10 @@ const ModalTitle = ({ title, description, hideModal }: Props) => {
         />
       </div>
       {description && (
-        <Typography className="modal-title-description">
+        <Typography
+          data-testid="sidebar-modal-description"
+          className="modal-title-description"
+        >
           {description}
         </Typography>
       )}

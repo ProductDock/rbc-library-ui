@@ -59,6 +59,7 @@ const SidebarFormModal = ({
     showed && (
       <div
         ref={outsideModal}
+        data-testid="sidebar-modal-wrapper"
         className="sidebar-modal-wrapper"
         onClick={modalClickCaptured}
       >
