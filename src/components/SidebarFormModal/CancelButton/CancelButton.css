@@ -20,7 +20,7 @@
   line-height: 18px;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 860px) {
   .form-cancel-button.MuiButton-root {
     background-color: transparent;
     border-radius: 20px;
