@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { Typography } from "@mui/material";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./NewBookForm.css";
 import { useLocation, useNavigate } from "react-router";
 import TextArea from "../FormComponents/TextArea";
@@ -47,7 +47,6 @@ const NewBookForm = () => {
   const hideForm = () => {
     hideNewBookForm?.();
     setSelectedTopics([]);
-    setShowedTopics(existingTopics);
   };
 
   const onSuccessCallback = () => {
@@ -83,6 +82,8 @@ const NewBookForm = () => {
       description.length > 0
     );
   }, [author, title, cover, description]);
+
+  useEffect(() => setShowedTopics(existingTopics), [existingTopics]);
 
   return (
     <SidebarFormModal
