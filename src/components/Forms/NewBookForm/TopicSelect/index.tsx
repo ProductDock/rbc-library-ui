@@ -9,20 +9,33 @@ type Props = {
   selectedTopics: string[];
   setSelectedTopics: Function;
   existingTopics: Topic[];
+  showedTopics: Topic[];
+  setShowedTopics: Function;
 };
 
 const TopicSelect = ({
   selectedTopics,
   setSelectedTopics,
   existingTopics,
+  showedTopics,
+  setShowedTopics,
 }: Props) => {
   const handleChange = (event: any) => {
     setSelectedTopics(event.target.value);
+    setShowedTopics(
+      showedTopics.filter((topic) => !event.target.value.includes(topic.name))
+    );
   };
 
   const handleDelete = (e: MouseEvent, value: string) => {
     e.preventDefault();
-    setSelectedTopics((current: string) => _without(current, value));
+    setSelectedTopics((current: string[]) => _without(current, value));
+    const selected = existingTopics.find(
+      (current: Topic) => current.name === value
+    );
+    if (selected !== undefined) {
+      setShowedTopics([...showedTopics, selected]);
+    }
   };
 
   return (
@@ -52,10 +65,7 @@ const TopicSelect = ({
           </Box>
         )}
       >
-        <MenuItem value="" disabled>
-          <em>None</em>
-        </MenuItem>
-        {existingTopics.map((topic) => (
+        {showedTopics.map((topic) => (
           <MenuItem key={topic.id} value={topic.name}>
             {topic.name}
           </MenuItem>

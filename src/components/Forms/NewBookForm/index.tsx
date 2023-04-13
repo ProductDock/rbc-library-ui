@@ -9,7 +9,7 @@ import { successMessages } from "../../../constants/successMessages";
 import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
 import { useNewBookContext } from "../../../store/books/new/NewBookContext";
 import NumberInput from "./NumberInput";
-import { NewBook, SelectedTopic } from "../../../store/books/new/Types";
+import { NewBook, SelectedTopic, Topic } from "../../../store/books/new/Types";
 import TopicSelect from "./TopicSelect";
 import SidebarFormModal from "../../SidebarFormModal";
 import { useBooksContext } from "../../../store/books/catalog/BooksContext";
@@ -29,6 +29,7 @@ const NewBookForm = () => {
   const [cover, setCover] = useState<string>("");
   const [bookCopies, setBookCopies] = useState<number>(1);
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
+  const [showedTopics, setShowedTopics] = useState<Topic[]>(existingTopics);
   const topics: SelectedTopic[] = [];
 
   const createBook = (): NewBook => {
@@ -45,6 +46,8 @@ const NewBookForm = () => {
 
   const hideForm = () => {
     hideNewBookForm?.();
+    setSelectedTopics([]);
+    setShowedTopics(existingTopics);
   };
 
   const onSuccessCallback = () => {
@@ -138,6 +141,8 @@ const NewBookForm = () => {
         selectedTopics={selectedTopics}
         setSelectedTopics={setSelectedTopics}
         existingTopics={existingTopics}
+        showedTopics={showedTopics}
+        setShowedTopics={setShowedTopics}
       />
     </SidebarFormModal>
   );

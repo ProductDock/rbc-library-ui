@@ -46,7 +46,7 @@
   border-radius: 8px;
 }
 
-.MuiButtonBase-root.MuiMenuItem-root:first-child {
+#account-menu .MuiButtonBase-root.MuiMenuItem-root:first-child {
   background-color: #eeeeee;
   color: #000000;
   padding: 16px;
