@@ -4,7 +4,7 @@
 import { Typography, Rating } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import "./BookReviewForm.css";
-import TextArea from "../../../../components/FormComponents/Components/TextArea";
+import TextArea from "../../../../components/FormComponents/TextArea";
 import CheckboxGroup from "./CheckboxGroup";
 import {
   BookRecommendations,

@@ -20,8 +20,8 @@ body.no-scroll {
   box-sizing: border-box;
   top: 0;
   right: 0;
-  min-width: 380px;
-  max-width: 30%;
+  min-width: 480px;
+  max-width: 480px;
   padding: 1.5em 1.5em 1.5em 1.5em;
   overflow: scroll;
 }

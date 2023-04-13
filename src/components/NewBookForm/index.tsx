@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 import { useCallback, useState } from "react";
 import "./NewBookForm.css";
 import { useLocation, useNavigate } from "react-router";
-import TextArea from "../FormComponents/Components/TextArea";
+import TextArea from "../FormComponents/TextArea";
 import { successMessages } from "../../constants/successMessages";
 import { useSuccessScreenContext } from "../../store/books/success/SuccessScreenContext";
 import { useNewBookContext } from "../../store/books/new/NewBookContext";
