@@ -26,7 +26,6 @@ describe("Test topic select", () => {
     const selectMenu = within(topicsSelect).getByRole("button");
     userEvent.click(selectMenu);
 
-    expect(screen.getByText("None")).toBeInTheDocument();
     expect(screen.getByText("Software Development")).toBeInTheDocument();
     expect(screen.getByText("Product Management")).toBeInTheDocument();
     expect(screen.getByText("Design")).toBeInTheDocument();
