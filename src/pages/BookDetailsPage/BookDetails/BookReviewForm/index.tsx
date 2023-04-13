@@ -4,21 +4,21 @@
 import { Typography, Rating } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 import "./BookReviewForm.css";
-import TextArea from "../Components/TextArea";
+import TextArea from "../../../../components/FormComponents/Components/TextArea";
 import CheckboxGroup from "./CheckboxGroup";
 import {
   BookRecommendations,
   BookReview,
-} from "../../../store/books/details/Types";
-import { useBookDetailsContext } from "../../../store/books/details/BookDetailsContext";
+} from "../../../../store/books/details/Types";
+import { useBookDetailsContext } from "../../../../store/books/details/BookDetailsContext";
 import RecommendationCheckboxValues from "./util/RecomendationCheckoxValues";
-import { useBookReviewContext } from "../../../store/books/reviews/BookReviewContext";
-import { BookActions } from "../../../store/books/status/Types";
-import { successMessages } from "../../../constants/successMessages";
-import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
-import { gratitudeMessages } from "../../../constants/gratitudeMessages";
-import SidebarFormModal from "../../SidebarFormModal";
-import { BookReviewFormVariant } from "../../../store/books/reviews/Types";
+import { useBookReviewContext } from "../../../../store/books/reviews/BookReviewContext";
+import { BookActions } from "../../../../store/books/status/Types";
+import { successMessages } from "../../../../constants/successMessages";
+import { useSuccessScreenContext } from "../../../../store/books/success/SuccessScreenContext";
+import { gratitudeMessages } from "../../../../constants/gratitudeMessages";
+import SidebarFormModal from "../../../../components/SidebarFormModal";
+import { BookReviewFormVariant } from "../../../../store/books/reviews/Types";
 
 const BookReviewForm = () => {
   const { book, currentAction, reloadBook } = useBookDetailsContext();

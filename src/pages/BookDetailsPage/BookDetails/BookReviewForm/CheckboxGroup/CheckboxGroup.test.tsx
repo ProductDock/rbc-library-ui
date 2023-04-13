@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import BookReviewForm from "..";
-import * as BookReviewContext from "../../../../store/books/reviews/BookReviewContext";
-import { BookReviewFormVariant } from "../../../../store/books/reviews/Types";
+import * as BookReviewContext from "../../../../../store/books/reviews/BookReviewContext";
+import { BookReviewFormVariant } from "../../../../../store/books/reviews/Types";
 
 beforeEach(() => {
   jest.spyOn(BookReviewContext, "useBookReviewContext").mockReturnValue({

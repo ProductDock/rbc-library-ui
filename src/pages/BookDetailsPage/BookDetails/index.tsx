@@ -8,7 +8,7 @@ import BookAction from "./BookAction";
 import BookStarRating from "../../../components/BookStarRating";
 import DescriptionSection from "./DescriptionSection";
 import CategoriesSection from "./CategoriesSection";
-import BookReviewForm from "../../../components/FormComponents/BookReviewForm";
+import BookReviewForm from "./BookReviewForm";
 import BookRecordsUsers from "../../../components/BookStatus/BookRecordsUsers";
 import NewBookForm from "../../../components/FormComponents/NewBookForm";
 

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-wrap-multilines */
 import { FormGroup, FormControlLabel, Checkbox } from "@mui/material";
-import SetUtil from "../../../../utils/setUtil";
+import SetUtil from "../../../../../utils/setUtil";
 import BookReviewCheckboxLabel from "./CheckboxLabel";
 
 export type CheckboxProps = {
