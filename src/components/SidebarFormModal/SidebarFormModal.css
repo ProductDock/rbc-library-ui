@@ -1,0 +1,58 @@
+body.no-scroll {
+  overflow: hidden;
+}
+
+.sidebar-modal-wrapper {
+  background-color: rgb(0, 0, 0, 0.1);
+  position: fixed;
+  overflow: auto;
+  z-index: 1300;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.sidebar-modal-container {
+  background-color: #f7f7f9;
+  position: absolute;
+  height: 100%;
+  box-sizing: border-box;
+  top: 0;
+  right: 0;
+  min-width: 480px;
+  max-width: 480px;
+  padding: 1.5em 1.5em 1.5em 1.5em;
+  overflow: scroll;
+}
+
+.sidebar-modal-form-actions-container {
+  width: 100%;
+  direction: rtl;
+  margin-top: 1rem;
+}
+
+@media only screen and (max-width: 700px) {
+  .sidebar-modal-wrapper {
+    z-index: 1297;
+    height: calc(100% - 64px - 8em);
+    top: 64px;
+  }
+
+  .sidebar-modal-container {
+    background-color: #f7f7f9;
+    position: static;
+    max-width: 100vw;
+  }
+
+  .sidebar-modal-form-actions-container {
+    z-index: 1298;
+    background-color: #f7f7f9;
+    padding: 0 1.5em 0 1.5em;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 8em;
+  }
+}

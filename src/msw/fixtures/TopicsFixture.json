@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Software Development"
+    },
+    {
+        "id": 2,
+        "name": "Product Management"
+    },
+    {
+        "id": 3,
+        "name": "Marketing"
+    },
+    {
+        "id": 4,
+        "name": "Design"
+    },
+    {
+        "id": 5,
+        "name": "Psychology"
+    }
+]

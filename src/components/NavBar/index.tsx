@@ -17,10 +17,13 @@ import AccountAvatar from "./AccountAvatar";
 
 import "./NavBar.css";
 import Search from "./Search";
+import NewBookButton from "./NewBookButton";
+import { useAuthContext } from "../../store/auth/AuthContext";
 
 const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { isUserAdmin } = useAuthContext();
   const [searchScreenShowed, setSearchScreenShowed] = useState<boolean>(false);
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
   const isSearchIconShowedOnMobile = !isLargeScreen && !searchScreenShowed;
@@ -70,7 +73,12 @@ const NavBar = () => {
             </a>
           </div>
         )}
-        <div className="account-avatar">
+        <div className="right-side">
+          {isUserAdmin?.() && (
+            <div className="add-book-button-wrapper">
+              <NewBookButton />
+            </div>
+          )}
           <AccountAvatar />
         </div>
       </div>

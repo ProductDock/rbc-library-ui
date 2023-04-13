@@ -1,5 +1,6 @@
 import qs from "qs";
 import { RentalRequest, BookReview } from "../store/books/details/Types";
+import { NewBook } from "../store/books/new/Types";
 import client from "./client";
 
 export const fetchBooks = async (params: any) =>
@@ -36,3 +37,9 @@ export const deleteBookReview = async (bookId: number, userId?: string) =>
   client.delete(
     `/catalog/books/${bookId}/reviews/${encodeURIComponent(userId || "")}`
   );
+
+export const fetchTopics = async () =>
+  client.get(`/catalog/topics`);
+
+export const postBook = async (book: NewBook) =>
+  client.post(`/catalog/books`, book);

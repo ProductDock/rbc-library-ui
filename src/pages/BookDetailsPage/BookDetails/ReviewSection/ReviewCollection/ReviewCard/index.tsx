@@ -15,12 +15,13 @@ import {
 import editIcon from "../../../../../../img/icons/edit-icon.svg";
 import deleteIcon from "../../../../../../img/icons/delete-icon.svg";
 import { useBookReviewContext } from "../../../../../../store/books/reviews/BookReviewContext";
-import { BookReviewFormVariant } from "../../../../../../store/books/reviews/Types";
+// import { BookReviewFormVariant } from "../../../../../../store/books/reviews/Types";
 import { useBookDetailsContext } from "../../../../../../store/books/details/BookDetailsContext";
 import ConfirmationModal, {
   ActionVariant,
   ConfirmationRefObject,
 } from "../../../../../../components/Modals/ConfirmationModal";
+import { BookReviewFormVariant } from "../../../../../../store/books/reviews/Types";
 
 const title = "Delete review";
 const description = "Are you sure you want to delete the review?";
@@ -43,8 +44,9 @@ const ReviewCard = ({
   ratingsCount,
 }: Props) => {
   const { userProfile } = useAuthContext();
-  const { selectReview, deleteReview, showReviewForm } = useBookReviewContext();
+  const { showEditReviewForm, deleteReview } = useBookReviewContext();
   const { book, reloadBook } = useBookDetailsContext();
+
   const modal = useRef<ConfirmationRefObject>(null);
   const showModal = () => modal?.current?.showModal?.();
   const hideModal = () => modal?.current?.hideModal?.();
@@ -59,12 +61,11 @@ const ReviewCard = ({
   const recommendationString = capitalCaseRecommendation?.join(", ");
 
   const handleEditReview = () => {
-    selectReview?.({
+    showEditReviewForm?.({
       rating,
       recommendation,
       comment,
     });
-    showReviewForm?.(BookReviewFormVariant.EDIT);
   };
 
   const handleDeleteReview = () => {

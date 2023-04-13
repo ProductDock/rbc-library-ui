@@ -30,6 +30,7 @@ describe("AccountAvatar component", () => {
         fullName: "test",
         image: "http://test.com",
         email: "test@test.com",
+        role: "ROLE_USER",
       },
     }));
 

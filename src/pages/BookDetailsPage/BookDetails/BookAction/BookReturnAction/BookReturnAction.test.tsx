@@ -2,6 +2,7 @@ import Router, { BrowserRouter } from "react-router-dom";
 import { render, waitFor, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import BookDetailsQrPage from "../../../../BookDetailsQrPage";
+import SuccessScreenContextProvider from "../../../../../store/books/success/SuccessScreenContext";
 
 const RENTED_BY_YOU_BOOK_ID = "3";
 const RENTED_BY_YOU_BOOK_ID_WITH_REVIEW = "4";
@@ -25,7 +26,9 @@ describe("Test book return action", () => {
 
     render(
       <BrowserRouter>
-        <BookDetailsQrPage />
+        <SuccessScreenContextProvider>
+          <BookDetailsQrPage />
+        </SuccessScreenContextProvider>
       </BrowserRouter>
     );
 
@@ -50,7 +53,9 @@ describe("Test book return action", () => {
 
     render(
       <BrowserRouter>
-        <BookDetailsQrPage />
+        <SuccessScreenContextProvider>
+          <BookDetailsQrPage />
+        </SuccessScreenContextProvider>
       </BrowserRouter>
     );
 
@@ -64,7 +69,9 @@ describe("Test book return action", () => {
     const confirmButton = await screen.findByTestId("confirm-button");
     confirmButton.click();
 
-    const skipReviewButton = await screen.findByTestId("skip-review-button");
+    const skipReviewButton = await screen.findByTestId(
+      "sidebar-modal-cancel-button"
+    );
     skipReviewButton.click();
 
     const successText = await screen.findByText("Success!");
@@ -82,7 +89,9 @@ describe("Test book return action", () => {
 
     render(
       <BrowserRouter>
-        <BookDetailsQrPage />
+        <SuccessScreenContextProvider>
+          <BookDetailsQrPage />
+        </SuccessScreenContextProvider>
       </BrowserRouter>
     );
 
@@ -107,7 +116,9 @@ describe("Test book return action", () => {
 
     render(
       <BrowserRouter>
-        <BookDetailsQrPage />
+        <SuccessScreenContextProvider>
+          <BookDetailsQrPage />
+        </SuccessScreenContextProvider>
       </BrowserRouter>
     );
 
@@ -126,7 +137,9 @@ describe("Test book return action", () => {
     );
     userEvent.type(reviewCommentTextArea, "Test review comment");
 
-    const submitReviewButton = screen.getByTestId("submit-review-button");
+    const submitReviewButton = screen.getByTestId(
+      "sidebar-modal-submit-button"
+    );
     expect(submitReviewButton).toBeEnabled();
     submitReviewButton.click();
 

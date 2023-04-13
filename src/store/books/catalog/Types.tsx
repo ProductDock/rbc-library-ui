@@ -33,4 +33,5 @@ export interface IBooksContext {
   setPage?: (pageNumber: number) => void;
   setSearchText?: (searchText: string) => void;
   setTopicFilter?: (topics: string[]) => void;
+  findBooks?: (recommended?: boolean) => void;
 }

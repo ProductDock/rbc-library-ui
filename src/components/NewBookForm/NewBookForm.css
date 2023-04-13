@@ -1,0 +1,53 @@
+.MuiTypography-root.new-book-field-title {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 1.5em;
+}
+
+.new-book-field {
+  margin-top: 0.7em;
+}
+
+.MuiButtonBase-root.MuiCheckbox-root.Mui-checked {
+  color: #266095;
+}
+
+.field-container {
+  height: auto;
+}
+
+.new-book-form-footer {
+  width: 100%;
+  direction: rtl;
+  margin-top: 1rem;
+}
+
+.new-book-form-container {
+  background-color: #f7f7f9;
+  position: fixed;
+  z-index: 1301;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  right: 0;
+  min-width: 25vw;
+  padding: 1.5em 1.5em 1.5em 1.5em;
+}
+
+@media only screen and (max-width: 800px) {
+  .new-book-form-footer {
+    z-index: 1298;
+    background-color: #f7f7f9;
+    padding: 0 3em 0 0;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    height: 8em;
+    width: 100%;
+  }
+
+  .field-container {
+    position: relative;
+  }
+}

@@ -86,6 +86,7 @@ const BooksContextProvider = (props: any) => {
         setPage,
         setTopicFilter,
         setSearchText,
+        findBooks,
       }}
     >
       {props.children}

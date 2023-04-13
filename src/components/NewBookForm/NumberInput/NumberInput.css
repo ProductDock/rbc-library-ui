@@ -1,0 +1,18 @@
+.number-input {
+    width: 100%;
+    resize: none;
+    box-sizing: border-box;
+    margin-top: 0.7em;
+    padding: 11px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    border: 1px solid #cccccc;
+    border-radius: 0.3em;
+    font-family: Roboto, sans-serif;
+}
+  
+.number-input:focus {
+    outline: none;
+    border-color: #000000;
+}

@@ -115,6 +115,19 @@
   box-shadow: none;
 }
 
-.account-avatar {
+.right-side {
+  display: flex;
   align-self: center;
+}
+
+.add-book-button-wrapper {
+  align-self: center;
+  position: relative;
+  padding-right: 25px;
+}
+
+@media only screen and (max-width: 800px) {
+  .add-book-button-wrapper {
+    padding-right: 0;
+  }
 }

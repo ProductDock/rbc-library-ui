@@ -19,6 +19,12 @@
   font-size: 14px;
 }
 
+.account-avatar {
+  align-self: center;
+  padding-left: 25px;
+  border-left: 1px solid #cccccc;
+}
+
 .MuiBox-root {
   width: 40px;
   height: 40px;
@@ -40,9 +46,16 @@
   border-radius: 8px;
 }
 
-.MuiButtonBase-root.MuiMenuItem-root:first-child {
+#account-menu .MuiButtonBase-root.MuiMenuItem-root:first-child {
   background-color: #eeeeee;
   color: #000000;
   padding: 16px;
   pointer-events: none;
+}
+
+@media only screen and (max-width: 800px) {
+  .account-avatar {
+    padding-left: 0;
+    border-left: none;
+  }
 }

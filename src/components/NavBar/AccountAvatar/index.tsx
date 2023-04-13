@@ -32,7 +32,7 @@ const AccountAvatar = () => {
   };
 
   return userProfile ? (
-    <>
+    <div className="account-avatar">
       <Box>
         <Tooltip title="Account settings">
           <IconButton
@@ -86,7 +86,7 @@ const AccountAvatar = () => {
           <Typography>Sign out</Typography>
         </MenuItem>
       </Menu>
-    </>
+    </div>
   ) : null;
 };
 

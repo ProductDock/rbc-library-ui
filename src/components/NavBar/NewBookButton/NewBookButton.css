@@ -1,0 +1,23 @@
+.add-book-button {
+  font-weight: 400;
+  color: #00609a;
+  margin-left: 1vw;
+  cursor: pointer;
+  margin-right: 0.5em;
+  min-height: 24px;
+}
+
+.add-book-button-icon {
+  vertical-align: middle;
+  margin-left: 0.5em;
+}
+
+@media only screen and (max-width: 800px) {
+  .add-book-button {
+    display: none;
+  }
+}
+
+.side-text {
+  font-size: 14px;
+}

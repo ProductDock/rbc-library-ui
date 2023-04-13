@@ -1,10 +1,8 @@
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable react/jsx-curly-newline */
-/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-wrap-multilines */
 import { useMemo } from "react";
-import { Link } from "@mui/material";
 import { useAuthContext } from "../../../../../store/auth/AuthContext";
 import { Review } from "../../../../../store/books/details/Types";
 import ReviewCard from "./ReviewCard";
