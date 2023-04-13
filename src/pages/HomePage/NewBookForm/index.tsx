@@ -1,4 +1,4 @@
-import NewBookForm from "../../../components/Forms/NewBookForm";
+import NewBookForm from "../../../components/FormComponents/NewBookForm";
 import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
 import SnackbarAlert from "../../../components/Snackbar";
 

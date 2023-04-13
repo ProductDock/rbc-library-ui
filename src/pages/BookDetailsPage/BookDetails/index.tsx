@@ -8,9 +8,9 @@ import BookAction from "./BookAction";
 import BookStarRating from "../../../components/BookStarRating";
 import DescriptionSection from "./DescriptionSection";
 import CategoriesSection from "./CategoriesSection";
-import BookReviewForm from "../../../components/Forms/BookReviewForm";
+import BookReviewForm from "../../../components/FormComponents/BookReviewForm";
 import BookRecordsUsers from "../../../components/BookStatus/BookRecordsUsers";
-import NewBookForm from "../../../components/Forms/NewBookForm";
+import NewBookForm from "../../../components/FormComponents/NewBookForm";
 
 type Props = {
   qrScanned?: boolean;
