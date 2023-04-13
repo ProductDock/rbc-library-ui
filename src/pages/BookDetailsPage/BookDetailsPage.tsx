@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import BookDetails from "./BookDetails";
 import BookDetailsContexProvider from "../../store/books/details/BookDetailsContext";
-import Notification from "./BookDetails/Notification";
 import BookReviewContextProvider from "../../store/books/reviews/BookReviewContext";
 import SuggestedBooksContextProvider from "../../store/books/suggested/SuggestedBooksContext";
 import NavBar from "../../components/NavBar";
@@ -16,7 +15,6 @@ const BookDetailsPage = () => {
           <NavBar />
         </SuggestedBooksContextProvider>
         <BookDetails />
-        <Notification />
       </BookReviewContextProvider>
     </BookDetailsContexProvider>
   );

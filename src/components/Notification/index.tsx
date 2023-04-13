@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import { useMediaQuery } from "@mui/material";
-import { MediaQueries } from "../../../../constants/mediaQueries";
-import SuccessScreen from "../../SuccessScreen";
-import { useSuccessScreenContext } from "../../../../store/books/success/SuccessScreenContext";
-import SnackbarAlert from "../../../../components/Snackbar";
+import { MediaQueries } from "../../constants/mediaQueries";
+import SuccessScreen from "../../pages/BookDetailsPage/SuccessScreen";
+import { useSuccessScreenContext } from "../../store/books/success/SuccessScreenContext";
+import SnackbarAlert from "../Snackbar";
 
 const Notification = () => {
   const { showed, hideSuccessScreen, successMessage, gratitudeMessage } =

@@ -5,7 +5,7 @@ import RecommendedBookSection from "./RecommendedBookSection";
 import BooksContextProvider from "../../store/books/catalog/BooksContext";
 import NavBar from "../../components/NavBar";
 import SuggestedBooksContextProvider from "../../store/books/suggested/SuggestedBooksContext";
-import NewBookFormHomePage from "./NewBookForm";
+import NewBookForm from "../../components/FormComponents/NewBookForm";
 
 const HomePage = () => {
   return (
@@ -17,7 +17,7 @@ const HomePage = () => {
       <div className="main-container">
         <RecommendedBookSection />
         <BookSections />
-        <NewBookFormHomePage />
+        <NewBookForm />
       </div>
     </BooksContextProvider>
   );
