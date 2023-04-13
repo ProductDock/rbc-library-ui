@@ -5,7 +5,7 @@ import RecommendedBookSection from "./RecommendedBookSection";
 import BooksContextProvider from "../../store/books/catalog/BooksContext";
 import NavBar from "../../components/NavBar";
 import SuggestedBooksContextProvider from "../../store/books/suggested/SuggestedBooksContext";
-import NewBookForm from "../../components/FormComponents/NewBookForm";
+import NewBookForm from "../../components/NewBookForm";
 
 const HomePage = () => {
   return (

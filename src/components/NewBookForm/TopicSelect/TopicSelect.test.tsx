@@ -2,8 +2,8 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { BrowserRouter as Router } from "react-router-dom";
 import NewBookForm from "..";
-import { TopicsFixture } from "../../../../msw/fixtures";
-import * as NewBookContext from "../../../../store/books/new/NewBookContext";
+import { TopicsFixture } from "../../../msw/fixtures";
+import * as NewBookContext from "../../../store/books/new/NewBookContext";
 
 beforeEach(() => {
   const topics = TopicsFixture;

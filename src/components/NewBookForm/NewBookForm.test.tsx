@@ -2,9 +2,9 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import NewBookForm from ".";
-import { routes } from "../../../constants/routes";
-import { TopicsFixture } from "../../../msw/fixtures";
-import * as NewBookContext from "../../../store/books/new/NewBookContext";
+import { routes } from "../../constants/routes";
+import { TopicsFixture } from "../../msw/fixtures";
+import * as NewBookContext from "../../store/books/new/NewBookContext";
 
 beforeEach(() => {
   const topics = TopicsFixture;

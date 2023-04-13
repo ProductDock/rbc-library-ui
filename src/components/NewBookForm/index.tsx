@@ -4,16 +4,16 @@ import { Typography } from "@mui/material";
 import { useCallback, useState } from "react";
 import "./NewBookForm.css";
 import { useLocation, useNavigate } from "react-router";
-import TextArea from "../Components/TextArea";
-import { successMessages } from "../../../constants/successMessages";
-import { useSuccessScreenContext } from "../../../store/books/success/SuccessScreenContext";
-import { useNewBookContext } from "../../../store/books/new/NewBookContext";
+import TextArea from "../FormComponents/Components/TextArea";
+import { successMessages } from "../../constants/successMessages";
+import { useSuccessScreenContext } from "../../store/books/success/SuccessScreenContext";
+import { useNewBookContext } from "../../store/books/new/NewBookContext";
 import NumberInput from "./NumberInput";
-import { NewBook, SelectedTopic, Topic } from "../../../store/books/new/Types";
+import { NewBook, SelectedTopic, Topic } from "../../store/books/new/Types";
 import TopicSelect from "./TopicSelect";
-import SidebarFormModal from "../../SidebarFormModal";
-import { useBooksContext } from "../../../store/books/catalog/BooksContext";
-import { routes } from "../../../constants/routes";
+import SidebarFormModal from "../SidebarFormModal";
+import { useBooksContext } from "../../store/books/catalog/BooksContext";
+import { routes } from "../../constants/routes";
 
 const NewBookForm = () => {
   const { addBook, hideNewBookForm, existingTopics, showedNewBookForm } =

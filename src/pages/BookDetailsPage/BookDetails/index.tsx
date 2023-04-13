@@ -10,7 +10,7 @@ import DescriptionSection from "./DescriptionSection";
 import CategoriesSection from "./CategoriesSection";
 import BookReviewForm from "./BookReviewForm";
 import BookRecordsUsers from "../../../components/BookStatus/BookRecordsUsers";
-import NewBookForm from "../../../components/FormComponents/NewBookForm";
+import NewBookForm from "../../../components/NewBookForm";
 
 type Props = {
   qrScanned?: boolean;
