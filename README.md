@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequisites
+
+Local development was done with `v18.16.0` version of Node. Issues might arise
+if newer Node is used.
+
 ## Available Scripts
 
 In the project directory, you can run:
