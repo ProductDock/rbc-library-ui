@@ -21,10 +21,8 @@ const AdminHomePage = () => {
 
   return (
     <div>
+      <SideMenu />
       <NavBar />
-      <div className="side-bar">
-        <SideMenu />
-      </div>
       <div className="main">
         <Typography>Main page</Typography>
         <NewBookForm />
