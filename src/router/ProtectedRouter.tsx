@@ -5,7 +5,7 @@ import { useAuthContext } from "../store/auth/AuthContext";
 const ProtectedRouter = () => {
   const { isLoggedIn } = useAuthContext();
 
-  return isLoggedIn ? <Outlet /> : <LandingPage />;
+   return isLoggedIn ? <Outlet /> : <LandingPage />;
 };
 
 export default ProtectedRouter;
