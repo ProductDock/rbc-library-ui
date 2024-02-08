@@ -16,8 +16,9 @@ const SideMenu = () => {
 
   return (
     <div className="side-bar">
-      <List className="menu-list">
+      <List className="menu-list" data-testid="menu-list">
         <ListItemButton
+          data-testid="dashboard-button"
           className="menu-btn"
           selected={selectedIndex === 0}
           onClick={() => handleListItemClick(0)}
@@ -26,6 +27,7 @@ const SideMenu = () => {
           <ListItemText primary="Dashboard" />
         </ListItemButton>
         <ListItemButton
+          data-testid="reader-button"
           className="menu-btn"
           selected={selectedIndex === 1}
           onClick={() => handleListItemClick(1)}
