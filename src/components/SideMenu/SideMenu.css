@@ -1,6 +1,6 @@
 .side-bar {
     height: 100%;
-    width: 260px;
+    width: 270px;
     padding-top: 64px;
     position: fixed;
     z-index: 1;
@@ -15,6 +15,11 @@
 }
 
 .menu-list .menu-btn.Mui-selected {
-border-left-color: #00609a;
+    border-left-color: #00609a;
+}
 
+.icon {
+    font-size: 20px;
+    padding-right: 5%; 
+    color: #00609a;
 }

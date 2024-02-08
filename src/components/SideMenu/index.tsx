@@ -22,9 +22,7 @@ const SideMenu = () => {
           selected={selectedIndex === 0}
           onClick={() => handleListItemClick(0)}
         >
-          <HomeOutlined
-            style={{ fontSize: "20px", paddingRight: "5%", color: "#00609a" }}
-          />
+          <HomeOutlined className="icon" />
           <ListItemText primary="Dashboard" />
         </ListItemButton>
         <ListItemButton
@@ -32,9 +30,7 @@ const SideMenu = () => {
           selected={selectedIndex === 1}
           onClick={() => handleListItemClick(1)}
         >
-          <PermIdentityOutlined
-            style={{ fontSize: "20px", paddingRight: "5%", color: "#00609a" }}
-          />
+          <PermIdentityOutlined className="icon" />
           <ListItemText primary="Reader Management" />
         </ListItemButton>
         <ListItemButton
@@ -42,9 +38,7 @@ const SideMenu = () => {
           selected={selectedIndex === 2}
           onClick={() => handleListItemClick(2)}
         >
-          <AutoStoriesOutlined
-            style={{ fontSize: "20px", paddingRight: "5%", color: "#00609a" }}
-          />
+          <AutoStoriesOutlined className="icon" />
           <ListItemText primary="Books Management" />
         </ListItemButton>
       </List>
