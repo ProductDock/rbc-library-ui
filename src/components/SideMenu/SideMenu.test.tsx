@@ -1,13 +1,8 @@
-import {
-  fireEvent,
-  getByTestId,
-  getByText,
-  render,
-  screen,
-} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import AdminHomePage from "../../pages/AdminHomePage/AdminHomePage";
 import { MemoryRouter } from "react-router";
 import { routes } from "../../constants/routes";
+import userEvent from "@testing-library/user-event";
 
 describe("Test side-menu", () => {
   test("should render side menu on admin page", async () => {
@@ -25,11 +20,11 @@ describe("Test side-menu", () => {
 
     const menuComponent = await screen.findByTestId(`menu-list`);
 
-    expect(menuComponent).toBeTruthy();
+    expect(menuComponent).toBeInTheDocument();
   });
 
   test("should change selected item on click", () => {
-    const { getByTestId } = render(
+    render(
       <MemoryRouter
         initialEntries={[
           {
@@ -41,15 +36,15 @@ describe("Test side-menu", () => {
       </MemoryRouter>
     );
 
-    const readerButton = getByTestId("reader-button");
+    const readerButton = screen.getByTestId("reader-button");
 
-    fireEvent.click(readerButton);
+    userEvent.click(readerButton);
 
     expect(readerButton).toHaveClass("Mui-selected");
   });
 
   test("should dashboard be selected on default", () => {
-    const { getByTestId } = render(
+    render(
       <MemoryRouter
         initialEntries={[
           {
@@ -61,7 +56,7 @@ describe("Test side-menu", () => {
       </MemoryRouter>
     );
 
-    const dashboardButton = getByTestId("dashboard-button");
+    const dashboardButton = screen.getByTestId("dashboard-button");
 
     expect(dashboardButton).toHaveClass("Mui-selected");
   });
