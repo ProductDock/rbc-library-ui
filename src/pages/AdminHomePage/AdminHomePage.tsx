@@ -7,7 +7,7 @@ const AdminHomePage = () => {
   return (
     <div>
       <SideMenu />
-      <NavBar adminPage />
+      <NavBar showSearchBar={false} />
       <div className="main">
         <Typography>Main page</Typography>
       </div>

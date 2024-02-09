@@ -22,15 +22,15 @@ import { useAuthContext } from "../../store/auth/AuthContext";
 import AdminPanelButton from "./AdminPanelButton";
 
 type Props = {
-  adminPage?: boolean;
+  showSearchBar?: boolean;
 };
 
-const NavBar = ({ adminPage = false }: Props) => {
+const NavBar = ({ showSearchBar = true }: Props) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { isUserAdmin } = useAuthContext();
   const [searchScreenShowed, setSearchScreenShowed] = useState<boolean>(false);
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
+  const isSearchbarShowed = isLargeScreen && showSearchBar;
   const isSearchIconShowedOnMobile = !isLargeScreen && !searchScreenShowed;
   const isSearchScreenShowedOnMobile = !isLargeScreen && searchScreenShowed;
 
@@ -55,12 +55,12 @@ const NavBar = ({ adminPage = false }: Props) => {
             </span>
           </div>
         </Link>
-        {isLargeScreen && !adminPage && (
+        {isSearchbarShowed && (
           <div className="navbar-search">
             <Search icon="search" />
           </div>
         )}
-        {isSearchScreenShowedOnMobile && !adminPage && (
+        {isSearchScreenShowedOnMobile && (
           <div className="search-screen-mobile">
             <div className="navbar-search">
               <Search
@@ -71,7 +71,7 @@ const NavBar = ({ adminPage = false }: Props) => {
             </div>
           </div>
         )}
-        {isSearchIconShowedOnMobile && !adminPage && (
+        {isSearchIconShowedOnMobile && (
           <div className="search-screen-toggle">
             <a onClick={() => setSearchScreenShowed(!searchScreenShowed)}>
               <SearchIcon />
@@ -79,7 +79,7 @@ const NavBar = ({ adminPage = false }: Props) => {
           </div>
         )}
         <div className="right-side">
-          {isUserAdmin?.() && !adminPage && (
+          {showSearchBar && (
             <div className="add-book-button-wrapper">
               <AdminPanelButton />
             </div>

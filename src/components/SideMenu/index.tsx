@@ -1,6 +1,6 @@
 import { List, ListItemButton, ListItemText } from "@mui/material";
 import "./SideMenu.css";
-import React from "react";
+import { useState } from "react";
 import {
   AutoStoriesOutlined,
   HomeOutlined,
@@ -8,7 +8,7 @@ import {
 } from "@mui/icons-material";
 
 const SideMenu = () => {
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
   const handleListItemClick = (index: number) => {
     setSelectedIndex(index);
