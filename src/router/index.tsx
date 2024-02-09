@@ -30,7 +30,7 @@ const PageRouter = () => {
       </Route>
       <Route
         path={routes.ADMIN_HOME}
-        element={<ProtectedRouter authCheck={userRoles.ROLE_ADMIN} />}
+        element={<ProtectedRouter allowedRole={userRoles.ROLE_ADMIN} />}
       >
         <Route path={routes.ADMIN_HOME} element={<AdminHomePage />} />
       </Route>

@@ -5,15 +5,15 @@ import { userRoles } from "../constants/userRoles";
 import { routes } from "../constants/routes";
 
 type Props = {
-  authCheck?: string;
+  allowedRole?: string;
 };
 
-const ProtectedRouter = ({ authCheck = userRoles.ROLE_USER }: Props) => {
+const ProtectedRouter = ({ allowedRole = userRoles.ROLE_USER }: Props) => {
   const { isLoggedIn, isUserAdmin } = useAuthContext();
 
   if (!isLoggedIn) return <LandingPage />;
 
-  if (authCheck === userRoles.ROLE_ADMIN && !isUserAdmin?.()) {
+  if (allowedRole === userRoles.ROLE_ADMIN && !isUserAdmin?.()) {
     return <Navigate to={routes.HOME} />;
   }
 
