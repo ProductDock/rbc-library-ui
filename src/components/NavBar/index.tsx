@@ -19,13 +19,18 @@ import "./NavBar.css";
 import Search from "./Search";
 import NewBookButton from "./NewBookButton";
 import { useAuthContext } from "../../store/auth/AuthContext";
+import AdminPanelButton from "./AdminPanelButton";
 
-const NavBar = () => {
+type Props = {
+  showSearchBar?: boolean;
+};
+
+const NavBar = ({ showSearchBar = true }: Props) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { isUserAdmin } = useAuthContext();
   const [searchScreenShowed, setSearchScreenShowed] = useState<boolean>(false);
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
+  const isSearchbarShowed = isLargeScreen && showSearchBar;
   const isSearchIconShowedOnMobile = !isLargeScreen && !searchScreenShowed;
   const isSearchScreenShowedOnMobile = !isLargeScreen && searchScreenShowed;
 
@@ -50,7 +55,7 @@ const NavBar = () => {
             </span>
           </div>
         </Link>
-        {isLargeScreen && (
+        {isSearchbarShowed && (
           <div className="navbar-search">
             <Search icon="search" />
           </div>
@@ -74,9 +79,9 @@ const NavBar = () => {
           </div>
         )}
         <div className="right-side">
-          {isUserAdmin?.() && (
+          {showSearchBar && (
             <div className="add-book-button-wrapper">
-              <NewBookButton />
+              <AdminPanelButton />
             </div>
           )}
           <AccountAvatar />

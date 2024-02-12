@@ -1,0 +1,18 @@
+.panel-button {
+    font-weight: 400;
+    color: #00609a;
+    cursor: pointer;
+    margin-right: 0.5em;
+    min-height: 24px;
+  }
+  
+  .panel-icon {
+    padding-bottom: 3%;
+    vertical-align:middle;
+    margin-left: 0.5em;
+  }
+  
+  .side-text {
+    font-size: 14px;
+  }
+  
