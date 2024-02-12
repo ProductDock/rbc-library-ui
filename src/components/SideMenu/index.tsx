@@ -1,17 +1,22 @@
 import { List, ListItemButton, ListItemText } from "@mui/material";
 import "./SideMenu.css";
-import { useState } from "react";
 import {
   AutoStoriesOutlined,
   HomeOutlined,
   PermIdentityOutlined,
 } from "@mui/icons-material";
+import { useNavigate } from "react-router";
+import { routes } from "../../constants/routes";
 
-const SideMenu = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+type Props = {
+  selectedRoute?: string;
+};
 
-  const handleListItemClick = (index: number) => {
-    setSelectedIndex(index);
+const SideMenu = ({ selectedRoute = routes.ADMIN_HOME }: Props) => {
+  const navigate = useNavigate();
+
+  const handleListItemClick = (route: string) => {
+    navigate(route);
   };
 
   return (
@@ -20,8 +25,8 @@ const SideMenu = () => {
         <ListItemButton
           data-testid="dashboard-button"
           className="menu-btn"
-          selected={selectedIndex === 0}
-          onClick={() => handleListItemClick(0)}
+          selected={selectedRoute === routes.ADMIN_HOME}
+          onClick={() => handleListItemClick(routes.ADMIN_HOME)}
         >
           <HomeOutlined className="icon" />
           <ListItemText primary="Dashboard" />
@@ -29,16 +34,16 @@ const SideMenu = () => {
         <ListItemButton
           data-testid="reader-button"
           className="menu-btn"
-          selected={selectedIndex === 1}
-          onClick={() => handleListItemClick(1)}
+          selected={selectedRoute === routes.ADMIN_READERS}
+          onClick={() => handleListItemClick(routes.ADMIN_READERS)}
         >
           <PermIdentityOutlined className="icon" />
           <ListItemText primary="Reader Management" />
         </ListItemButton>
         <ListItemButton
           className="menu-btn"
-          selected={selectedIndex === 2}
-          onClick={() => handleListItemClick(2)}
+          selected={selectedRoute === routes.ADMIN_BOOKS}
+          onClick={() => handleListItemClick(routes.ADMIN_BOOKS)}
         >
           <AutoStoriesOutlined className="icon" />
           <ListItemText primary="Books Management" />

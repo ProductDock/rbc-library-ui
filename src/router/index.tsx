@@ -34,6 +34,24 @@ const PageRouter = () => {
       >
         <Route path={routes.ADMIN_HOME} element={<AdminHomePage />} />
       </Route>
+      <Route
+        path={routes.ADMIN_BOOKS}
+        element={<ProtectedRouter allowedRole={userRoles.ROLE_ADMIN} />}
+      >
+        <Route
+          path={routes.ADMIN_BOOKS}
+          element={<AdminHomePage selectedRoute={routes.ADMIN_BOOKS} />}
+        />
+      </Route>
+      <Route
+        path={routes.ADMIN_READERS}
+        element={<ProtectedRouter allowedRole={userRoles.ROLE_ADMIN} />}
+      >
+        <Route
+          path={routes.ADMIN_READERS}
+          element={<AdminHomePage selectedRoute={routes.ADMIN_READERS} />}
+        />
+      </Route>
     </Routes>
   );
 };
