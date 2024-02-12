@@ -9,6 +9,7 @@ import { useAuthContext } from "../store/auth/AuthContext";
 import BookDetailsQrPage from "../pages/BookDetailsQrPage";
 import AdminHomePage from "../pages/AdminHomePage/AdminHomePage";
 import { userRoles } from "../constants/userRoles";
+import AdminBooksPage from "../pages/AdminBooksPage";
 
 const PageRouter = () => {
   const { loaded } = useAuthContext();
@@ -38,19 +39,13 @@ const PageRouter = () => {
         path={routes.ADMIN_BOOKS}
         element={<ProtectedRouter allowedRole={userRoles.ROLE_ADMIN} />}
       >
-        <Route
-          path={routes.ADMIN_BOOKS}
-          element={<AdminHomePage selectedRoute={routes.ADMIN_BOOKS} />}
-        />
+        <Route path={routes.ADMIN_BOOKS} element={<AdminBooksPage />} />
       </Route>
       <Route
         path={routes.ADMIN_READERS}
         element={<ProtectedRouter allowedRole={userRoles.ROLE_ADMIN} />}
       >
-        <Route
-          path={routes.ADMIN_READERS}
-          element={<AdminHomePage selectedRoute={routes.ADMIN_READERS} />}
-        />
+        <Route path={routes.ADMIN_READERS} element={<AdminHomePage />} />
       </Route>
     </Routes>
   );

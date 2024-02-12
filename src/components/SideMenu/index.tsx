@@ -5,15 +5,12 @@ import {
   HomeOutlined,
   PermIdentityOutlined,
 } from "@mui/icons-material";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { routes } from "../../constants/routes";
 
-type Props = {
-  selectedRoute?: string;
-};
-
-const SideMenu = ({ selectedRoute = routes.ADMIN_HOME }: Props) => {
+const SideMenu = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleListItemClick = (route: string) => {
     navigate(route);
@@ -25,7 +22,7 @@ const SideMenu = ({ selectedRoute = routes.ADMIN_HOME }: Props) => {
         <ListItemButton
           data-testid="dashboard-button"
           className="menu-btn"
-          selected={selectedRoute === routes.ADMIN_HOME}
+          selected={location.pathname === routes.ADMIN_HOME}
           onClick={() => handleListItemClick(routes.ADMIN_HOME)}
         >
           <HomeOutlined className="icon" />
@@ -34,7 +31,7 @@ const SideMenu = ({ selectedRoute = routes.ADMIN_HOME }: Props) => {
         <ListItemButton
           data-testid="reader-button"
           className="menu-btn"
-          selected={selectedRoute === routes.ADMIN_READERS}
+          selected={location.pathname === routes.ADMIN_READERS}
           onClick={() => handleListItemClick(routes.ADMIN_READERS)}
         >
           <PermIdentityOutlined className="icon" />
@@ -42,7 +39,7 @@ const SideMenu = ({ selectedRoute = routes.ADMIN_HOME }: Props) => {
         </ListItemButton>
         <ListItemButton
           className="menu-btn"
-          selected={selectedRoute === routes.ADMIN_BOOKS}
+          selected={location.pathname === routes.ADMIN_BOOKS}
           onClick={() => handleListItemClick(routes.ADMIN_BOOKS)}
         >
           <AutoStoriesOutlined className="icon" />
