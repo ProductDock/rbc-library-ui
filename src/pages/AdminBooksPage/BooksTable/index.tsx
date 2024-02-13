@@ -35,7 +35,7 @@ const BooksTable = () => {
   return (
     <div>
       <TableContainer component={Paper}>
-        <Table aria-label="simple table">
+        <Table aria-label="simple table" data-testid="books-table">
           <TableHead>
             <TableRow className="table-row">
               <TableCell>
