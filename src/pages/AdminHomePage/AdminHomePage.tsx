@@ -10,7 +10,12 @@ const AdminHomePage = () => {
       <NavBar showSearchBar={false} />
 
       <div className="main">
-        <Typography>Admin home</Typography>
+        <div className="welcome-text">
+          <Typography className="small-font">Library admin portal:</Typography>
+          <Typography className="large-font">
+            <b>Welcome</b> Admin!
+          </Typography>
+        </div>
       </div>
     </div>
   );

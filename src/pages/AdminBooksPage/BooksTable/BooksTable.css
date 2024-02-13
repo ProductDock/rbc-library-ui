@@ -30,6 +30,7 @@
 }
 
 .status {
+    max-width: 60px;
     white-space: nowrap;
 }
 
