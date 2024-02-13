@@ -28,6 +28,8 @@ type Props = {
 const NavBar = ({ showSearchBar = true }: Props) => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { isUserAdmin } = useAuthContext();
+  const showAdminButton = showSearchBar && isUserAdmin?.();
   const [searchScreenShowed, setSearchScreenShowed] = useState<boolean>(false);
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
   const isSearchbarShowed = isLargeScreen && showSearchBar;
@@ -79,7 +81,7 @@ const NavBar = ({ showSearchBar = true }: Props) => {
           </div>
         )}
         <div className="right-side">
-          {showSearchBar && (
+          {showAdminButton && (
             <div className="add-book-button-wrapper">
               <AdminPanelButton />
             </div>
