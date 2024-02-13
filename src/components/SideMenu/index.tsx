@@ -38,6 +38,7 @@ const SideMenu = () => {
           <ListItemText primary="Reader Management" />
         </ListItemButton>
         <ListItemButton
+          data-testid="books-button"
           className="menu-btn"
           selected={location.pathname === routes.ADMIN_BOOKS}
           onClick={() => handleListItemClick(routes.ADMIN_BOOKS)}
