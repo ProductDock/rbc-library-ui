@@ -1,4 +1,9 @@
-import { List, ListItemButton, ListItemText } from "@mui/material";
+import {
+  List,
+  ListItemButton,
+  ListItemText,
+  useMediaQuery,
+} from "@mui/material";
 import "./SideMenu.css";
 import {
   AutoStoriesOutlined,
@@ -7,17 +12,19 @@ import {
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router";
 import { routes } from "../../constants/routes";
+import { MediaQueries } from "../../constants/mediaQueries";
 
 const SideMenu = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
 
   const handleListItemClick = (route: string) => {
     navigate(route);
   };
 
   return (
-    <div className="side-bar">
+    <div className={isLargeScreen ? "side-bar" : "side-bar-mobile"}>
       <List className="menu-list" data-testid="menu-list">
         <ListItemButton
           data-testid="dashboard-button"
@@ -26,7 +33,7 @@ const SideMenu = () => {
           onClick={() => handleListItemClick(routes.ADMIN_HOME)}
         >
           <HomeOutlined className="icon" />
-          <ListItemText primary="Dashboard" />
+          {isLargeScreen && <ListItemText primary="Dashboard" />}
         </ListItemButton>
         <ListItemButton
           data-testid="reader-button"
@@ -35,7 +42,7 @@ const SideMenu = () => {
           onClick={() => handleListItemClick(routes.ADMIN_READERS)}
         >
           <PermIdentityOutlined className="icon" />
-          <ListItemText primary="Reader Management" />
+          {isLargeScreen && <ListItemText primary="Reader Management" />}
         </ListItemButton>
         <ListItemButton
           data-testid="books-button"
@@ -44,7 +51,7 @@ const SideMenu = () => {
           onClick={() => handleListItemClick(routes.ADMIN_BOOKS)}
         >
           <AutoStoriesOutlined className="icon" />
-          <ListItemText primary="Books Management" />
+          {isLargeScreen && <ListItemText primary="Books Management" />}
         </ListItemButton>
       </List>
     </div>

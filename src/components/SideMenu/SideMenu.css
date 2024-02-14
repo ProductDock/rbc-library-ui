@@ -10,6 +10,18 @@
     box-shadow: 0px 1px 4px rgba(59, 59, 59, 0.1);
 }
 
+.side-bar-mobile {
+    height: 100%;
+    width: 70px;
+    padding-top: 64px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    overflow-x: hidden;
+    background-color: white;
+    box-shadow: 0px 1px 4px rgba(59, 59, 59, 0.1);
+}
+
 .menu-list .menu-btn {
     border-left: 4px solid transparent;
 }
