@@ -6,13 +6,7 @@ import AdminBooksPage from "..";
 describe("test books table", () => {
   test("should render books table", async () => {
     render(
-      <MemoryRouter
-        initialEntries={[
-          {
-            pathname: routes.ADMIN_BOOKS,
-          },
-        ]}
-      >
+      <MemoryRouter>
         <AdminBooksPage />
       </MemoryRouter>
     );

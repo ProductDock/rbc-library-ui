@@ -3,6 +3,7 @@ import AdminHomePage from "../../pages/AdminHomePage/AdminHomePage";
 import { MemoryRouter } from "react-router";
 import { routes } from "../../constants/routes";
 import userEvent from "@testing-library/user-event";
+import SideMenu from ".";
 
 describe("Test side-menu", () => {
   test("should render side menu on admin page", async () => {
@@ -10,11 +11,11 @@ describe("Test side-menu", () => {
       <MemoryRouter
         initialEntries={[
           {
-            pathname: routes.HOME,
+            pathname: routes.ADMIN_HOME,
           },
         ]}
       >
-        <AdminHomePage />
+        <SideMenu />
       </MemoryRouter>
     );
 
@@ -25,14 +26,8 @@ describe("Test side-menu", () => {
 
   test("should change selected item on click", async () => {
     render(
-      <MemoryRouter
-        initialEntries={[
-          {
-            pathname: routes.ADMIN_HOME,
-          },
-        ]}
-      >
-        <AdminHomePage />
+      <MemoryRouter>
+        <SideMenu />
       </MemoryRouter>
     );
 
@@ -40,7 +35,7 @@ describe("Test side-menu", () => {
 
     userEvent.click(booksbutton);
 
-    expect(screen.getByTestId("books-button")).toHaveClass("Mui-selected");
+    expect(booksbutton).toHaveClass("Mui-selected");
   });
 
   test("should dashboard be selected on default", () => {
@@ -52,7 +47,7 @@ describe("Test side-menu", () => {
           },
         ]}
       >
-        <AdminHomePage />
+        <SideMenu />
       </MemoryRouter>
     );
 
