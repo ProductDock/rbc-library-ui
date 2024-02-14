@@ -1,34 +1,24 @@
-import {
-  Button,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TablePagination,
-  TableRow,
-  Typography,
-} from "@mui/material";
+import { Paper, Table, TableContainer, TablePagination } from "@mui/material";
 import "./BooksTable.css";
-import { useState } from "react";
-import { EditOutlined } from "@mui/icons-material";
+import { ChangeEvent, useState } from "react";
 import { useBooksContext } from "../../../store/books/catalog/BooksContext";
-import BookStatus from "../../../components/BookStatus";
-import BookStarRating from "../../../components/BookStarRating";
+import BooksTableHead from "./BooksTableHead";
+import BooksTableBody from "./BooksTableBody";
 
 const BooksTable = () => {
-  const { books, allBooksCount, page, setPage } = useBooksContext();
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const { books, allBooksCount, page, setPage, setPerPage } = useBooksContext();
+  const [rowsPerPage, setRowsPerPage] = useState<number>(18);
+  const rowsOptions = [18];
+  const columns = ["Image", "Name", "Author", "Status", "Rating", ""];
 
   const handleChangePage = (event: unknown, newPage: number) => {
+    setPerPage?.(true);
     setPage?.(newPage);
   };
 
-  const handleChangeRowsPerPage = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
+  const handleChangeRowsPerPage = (event: ChangeEvent<HTMLInputElement>) => {
+    const rows = parseInt(event.target.value, 10);
+    setRowsPerPage(rows);
     setPage?.(0);
   };
 
@@ -36,62 +26,12 @@ const BooksTable = () => {
     <div>
       <TableContainer component={Paper}>
         <Table aria-label="simple table" data-testid="books-table">
-          <TableHead>
-            <TableRow className="table-row">
-              <TableCell>
-                <Typography className="text">Image</Typography>
-              </TableCell>
-              <TableCell align="left">
-                <Typography className="text">Name</Typography>
-              </TableCell>
-              <TableCell align="left">
-                <Typography className="text">Author</Typography>
-              </TableCell>
-              <TableCell align="left">
-                <Typography className="text">Status</Typography>
-              </TableCell>
-              <TableCell align="left">
-                <Typography className="text">Rating</Typography>
-              </TableCell>
-              <TableCell />
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {books
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((book) => (
-                <TableRow className="book-row" key={book.id}>
-                  <TableCell scope="row">
-                    <div className="cover-image">
-                      <img src={book.cover} alt="book" />
-                    </div>
-                  </TableCell>
-                  <TableCell align="left" className="title-row">
-                    {book.title}
-                  </TableCell>
-                  <TableCell align="left">{book.author}</TableCell>
-                  <TableCell align="left" className="status">
-                    <BookStatus records={book.records} />
-                  </TableCell>
-                  <TableCell align="left">
-                    <BookStarRating
-                      rating={book.rating?.score}
-                      ratingsCount={book.rating?.count}
-                      ratingsCountShow={false}
-                    />
-                  </TableCell>
-                  <TableCell align="center">
-                    <Button className="edit-button">
-                      <EditOutlined className="edit-icon" />
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
-          </TableBody>
+          <BooksTableHead columns={columns} />
+          <BooksTableBody books={books} />
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[10, 25, allBooksCount]}
+        rowsPerPageOptions={rowsOptions}
         component="div"
         count={allBooksCount}
         rowsPerPage={rowsPerPage}
