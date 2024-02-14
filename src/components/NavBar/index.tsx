@@ -25,15 +25,15 @@ const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { isUserAdmin } = useAuthContext();
-  const isHomePage = location.pathname === routes.HOME;
-  const showAdminButton = isHomePage && isUserAdmin?.();
+  const isUserPage = !location.pathname.includes("/admin");
+  const showAdminButton = isUserPage && isUserAdmin?.();
   const [searchScreenShowed, setSearchScreenShowed] = useState<boolean>(false);
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
-  const isSearchbarShowed = isLargeScreen && isHomePage;
+  const isSearchbarShowed = isLargeScreen && isUserPage;
   const isSearchIconShowedOnMobile =
-    !isLargeScreen && !searchScreenShowed && isHomePage;
+    !isLargeScreen && !searchScreenShowed && isUserPage;
   const isSearchScreenShowedOnMobile =
-    !isLargeScreen && searchScreenShowed && isHomePage;
+    !isLargeScreen && searchScreenShowed && isUserPage;
 
   const [searchParams, setSearchParams] = useSearchParams();
 
