@@ -25,15 +25,11 @@ const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { isUserAdmin } = useAuthContext();
-  const isUserPage = !location.pathname.includes("/admin");
-  const showAdminButton = isUserPage && isUserAdmin?.();
   const [searchScreenShowed, setSearchScreenShowed] = useState<boolean>(false);
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
-  const isSearchbarShowed = isLargeScreen && isUserPage;
-  const isSearchIconShowedOnMobile =
-    !isLargeScreen && !searchScreenShowed && isUserPage;
-  const isSearchScreenShowedOnMobile =
-    !isLargeScreen && searchScreenShowed && isUserPage;
+  const isSearchbarShowed = isLargeScreen;
+  const isSearchIconShowedOnMobile = !isLargeScreen && !searchScreenShowed;
+  const isSearchScreenShowedOnMobile = !isLargeScreen && searchScreenShowed;
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -80,7 +76,7 @@ const NavBar = () => {
           </div>
         )}
         <div className="right-side">
-          {showAdminButton && (
+          {isUserAdmin?.() && (
             <div className="add-book-button-wrapper">
               <AdminPanelButton />
             </div>

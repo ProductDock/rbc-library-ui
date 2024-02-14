@@ -1,13 +1,13 @@
 import "./AdminHomePage.css";
 import { Typography } from "@mui/material";
-import NavBar from "../../components/NavBar";
 import SideMenu from "../../components/SideMenu";
+import AdminNavBar from "../../components/AdminNavBar";
 
 const AdminHomePage = () => {
   return (
     <div>
       <SideMenu />
-      <NavBar />
+      <AdminNavBar />
 
       <div className="main">
         <div className="welcome-text">
