@@ -6,20 +6,19 @@ import BooksTableHead from "./BooksTableHead";
 import BooksTableBody from "./BooksTableBody";
 
 const BooksTable = () => {
-  const { books, allBooksCount, page, setPage, setPerPage } = useBooksContext();
+  const { books, allBooksCount, page, setPage } = useBooksContext();
   const [rowsPerPage, setRowsPerPage] = useState<number>(18);
   const rowsOptions = [18];
   const columns = ["Image", "Name", "Author", "Status", "Rating", ""];
 
   const handleChangePage = (event: unknown, newPage: number) => {
-    setPerPage?.(true);
-    setPage?.(newPage);
+    setPage?.(newPage, true);
   };
 
   const handleChangeRowsPerPage = (event: ChangeEvent<HTMLInputElement>) => {
     const rows = parseInt(event.target.value, 10);
     setRowsPerPage(rows);
-    setPage?.(0);
+    setPage?.(0, true);
   };
 
   return (
