@@ -21,20 +21,19 @@ import NewBookButton from "./NewBookButton";
 import { useAuthContext } from "../../store/auth/AuthContext";
 import AdminPanelButton from "./AdminPanelButton";
 
-type Props = {
-  showSearchBar?: boolean;
-};
-
-const NavBar = ({ showSearchBar = true }: Props) => {
+const NavBar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { isUserAdmin } = useAuthContext();
-  const showAdminButton = showSearchBar && isUserAdmin?.();
+  const isHomePage = location.pathname === routes.HOME;
+  const showAdminButton = isHomePage && isUserAdmin?.();
   const [searchScreenShowed, setSearchScreenShowed] = useState<boolean>(false);
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
-  const isSearchbarShowed = isLargeScreen && showSearchBar;
-  const isSearchIconShowedOnMobile = !isLargeScreen && !searchScreenShowed;
-  const isSearchScreenShowedOnMobile = !isLargeScreen && searchScreenShowed;
+  const isSearchbarShowed = isLargeScreen && isHomePage;
+  const isSearchIconShowedOnMobile =
+    !isLargeScreen && !searchScreenShowed && isHomePage;
+  const isSearchScreenShowedOnMobile =
+    !isLargeScreen && searchScreenShowed && isHomePage;
 
   const [searchParams, setSearchParams] = useSearchParams();
 

@@ -7,7 +7,7 @@ const AdminHomePage = () => {
   return (
     <div>
       <SideMenu />
-      <NavBar showSearchBar={false} />
+      <NavBar />
 
       <div className="main">
         <div className="welcome-text">

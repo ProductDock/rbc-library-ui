@@ -8,7 +8,7 @@ const AdminBooksPage = () => {
   return (
     <div>
       <SideMenu />
-      <NavBar showSearchBar={false} />
+      <NavBar />
 
       <div className="main">
         <BooksContextProvider>
