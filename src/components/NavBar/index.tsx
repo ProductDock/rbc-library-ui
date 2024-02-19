@@ -13,13 +13,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import { MediaQueries } from "../../constants/mediaQueries";
 import { routes } from "../../constants/routes";
 import logo from "../../img/pd-logo.svg";
-import AccountAvatar from "./AccountAvatar";
+import AccountAvatar from "../AccountAvatar";
 
 import "./NavBar.css";
 import Search from "./Search";
-import NewBookButton from "./NewBookButton";
 import { useAuthContext } from "../../store/auth/AuthContext";
 import AdminPanelButton from "./AdminPanelButton";
+import NavBarLogo from "../NavBarLogo";
 
 const NavBar = () => {
   const location = useLocation();
@@ -41,17 +41,7 @@ const NavBar = () => {
   return (
     <AppBar className="navbar">
       <div className="navbar-div">
-        <Link to={routes.HOME} className="navbar-info" onClick={reloadHomePage}>
-          <img src={logo} alt="logo" className="logo" />
-          <div className="navbar-text">
-            <span className="navbar-company">
-              <Typography>ProductDock</Typography>
-            </span>
-            <span className="navbar-title">
-              <Typography>Library</Typography>
-            </span>
-          </div>
-        </Link>
+        <NavBarLogo handleClickLogo={reloadHomePage} />
         {isSearchbarShowed && (
           <div className="navbar-search">
             <Search icon="search" />

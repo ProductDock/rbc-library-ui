@@ -2,8 +2,8 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
-import App from "../../../App";
-import * as AuthContext from "../../../store/auth/AuthContext";
+import App from "../../App";
+import * as AuthContext from "../../store/auth/AuthContext";
 
 describe("AccountAvatar component", () => {
   test("should render account avatar and check for dropdown menu button", () => {
