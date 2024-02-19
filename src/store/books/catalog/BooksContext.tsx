@@ -33,6 +33,8 @@ const BooksContextProvider = (props: any) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
+  const [perPage, setPerPage] = useState<boolean>(false);
+
   const findBooks = async (recommended?: boolean) => {
     setLoading(true);
     await bookService
@@ -40,13 +42,16 @@ const BooksContextProvider = (props: any) => {
       .then((resp) => {
         if (recommended) {
           dispatch({ type: actions.SET_RECOMMENDED_BOOKS, payload: resp.data });
+        } else if (perPage) {
+          dispatch({ type: actions.SET_BOOKS_PER_PAGE, payload: resp.data });
         } else dispatch({ type: actions.SET_BOOKS, payload: resp.data });
       })
       .catch(() => setError("Error while fetching data"));
     setLoading(false);
   };
 
-  const setPage = (pageNumber: number) => {
+  const setPage = (pageNumber: number, paginated: boolean = false) => {
+    setPerPage(paginated);
     dispatch({ type: actions.SET_PAGE, payload: pageNumber });
   };
 

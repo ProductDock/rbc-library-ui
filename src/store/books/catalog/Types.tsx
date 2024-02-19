@@ -30,7 +30,7 @@ export interface IBooksContext {
   page: number;
   topics: string[];
   searchText: string | undefined;
-  setPage?: (pageNumber: number) => void;
+  setPage?: (pageNumber: number, paginated?: boolean) => void;
   setSearchText?: (searchText: string) => void;
   setTopicFilter?: (topics: string[]) => void;
   findBooks?: (recommended?: boolean) => void;

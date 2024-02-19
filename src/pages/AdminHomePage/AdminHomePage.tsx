@@ -1,15 +1,21 @@
-import { Typography } from "@mui/material";
 import "./AdminHomePage.css";
-import NavBar from "../../components/NavBar";
+import { Typography } from "@mui/material";
 import SideMenu from "../../components/SideMenu";
+import AdminNavBar from "../../components/AdminNavBar";
 
 const AdminHomePage = () => {
   return (
     <div>
       <SideMenu />
-      <NavBar showSearchBar={false} />
+      <AdminNavBar />
+
       <div className="main">
-        <Typography>Main page</Typography>
+        <div className="welcome-text">
+          <Typography className="small-font">Library admin portal:</Typography>
+          <Typography className="large-font">
+            <b>Welcome</b> Admin!
+          </Typography>
+        </div>
       </div>
     </div>
   );

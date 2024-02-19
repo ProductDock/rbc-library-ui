@@ -9,8 +9,8 @@ import Logout from "@mui/icons-material/Logout";
 import { Typography } from "@mui/material";
 import "./AccountAvatar.css";
 import { useNavigate } from "react-router";
-import { useAuthContext } from "../../../store/auth/AuthContext";
-import { routes } from "../../../constants/routes";
+import { useAuthContext } from "../../store/auth/AuthContext";
+import { routes } from "../../constants/routes";
 
 const AccountAvatar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);

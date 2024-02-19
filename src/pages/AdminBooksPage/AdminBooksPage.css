@@ -5,6 +5,13 @@
     padding-bottom: 200px;
   }
 
+.main-mobile {
+  margin-left: 100px;
+  margin-top: 60px;
+  margin-right: 40px;
+  padding-bottom: 200px;
+}
+
 .block {
   margin-left: 270px;
   box-shadow: 0px 1px 4px rgba(59, 59, 59, 0.1);
@@ -19,20 +26,4 @@
 
 .button {
   padding: 20px 50px;
-}
-
-.main .small-font {
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 300;
-}
-
-.main .large-font {
-  font-size: 28px;
-  line-height: 42.17px;
-  font-weight: 300;
-}
-
-.main .welcome-text {
-  padding-bottom: 600px;
 }

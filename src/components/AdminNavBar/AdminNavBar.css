@@ -1,0 +1,25 @@
+.navbar {
+    height: 64px;
+  }
+  
+  .MuiPaper-root.MuiAppBar-root {
+    position: sticky;
+    background-color: white;
+    z-index: 1299;
+    box-shadow: 0px 1px 4px rgba(59, 59, 59, 0.1);
+  }
+  
+  .navbar-div {
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px 5.56%;
+  }
+  
+  .right-side {
+    display: flex;
+    align-self: center;
+  }
+  

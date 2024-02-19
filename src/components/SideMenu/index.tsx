@@ -1,47 +1,57 @@
-import { List, ListItemButton, ListItemText } from "@mui/material";
+import {
+  List,
+  ListItemButton,
+  ListItemText,
+  useMediaQuery,
+} from "@mui/material";
 import "./SideMenu.css";
-import { useState } from "react";
 import {
   AutoStoriesOutlined,
   HomeOutlined,
   PermIdentityOutlined,
 } from "@mui/icons-material";
+import { useLocation, useNavigate } from "react-router";
+import { routes } from "../../constants/routes";
+import { MediaQueries } from "../../constants/mediaQueries";
 
 const SideMenu = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
 
-  const handleListItemClick = (index: number) => {
-    setSelectedIndex(index);
+  const handleListItemClick = (route: string) => {
+    navigate(route);
   };
 
   return (
-    <div className="side-bar">
+    <div className={isLargeScreen ? "side-bar" : "side-bar-mobile"}>
       <List className="menu-list" data-testid="menu-list">
         <ListItemButton
           data-testid="dashboard-button"
           className="menu-btn"
-          selected={selectedIndex === 0}
-          onClick={() => handleListItemClick(0)}
+          selected={location.pathname === routes.ADMIN_HOME}
+          onClick={() => handleListItemClick(routes.ADMIN_HOME)}
         >
           <HomeOutlined className="icon" />
-          <ListItemText primary="Dashboard" />
+          {isLargeScreen && <ListItemText primary="Dashboard" />}
         </ListItemButton>
         <ListItemButton
           data-testid="reader-button"
           className="menu-btn"
-          selected={selectedIndex === 1}
-          onClick={() => handleListItemClick(1)}
+          selected={location.pathname === routes.ADMIN_READERS}
+          onClick={() => handleListItemClick(routes.ADMIN_READERS)}
         >
           <PermIdentityOutlined className="icon" />
-          <ListItemText primary="Reader Management" />
+          {isLargeScreen && <ListItemText primary="Reader Management" />}
         </ListItemButton>
         <ListItemButton
+          data-testid="books-button"
           className="menu-btn"
-          selected={selectedIndex === 2}
-          onClick={() => handleListItemClick(2)}
+          selected={location.pathname === routes.ADMIN_BOOKS}
+          onClick={() => handleListItemClick(routes.ADMIN_BOOKS)}
         >
           <AutoStoriesOutlined className="icon" />
-          <ListItemText primary="Books Management" />
+          {isLargeScreen && <ListItemText primary="Books Management" />}
         </ListItemButton>
       </List>
     </div>
