@@ -3,6 +3,7 @@
 /* eslint-disable react/jsx-curly-newline */
 import { AppBar, Typography, useMediaQuery } from "@mui/material";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import { MediaQueries } from "../../constants/mediaQueries";
 import { routes } from "../../constants/routes";
@@ -22,10 +23,16 @@ const NavBar = () => {
   const isSearchIconShowedOnMobile = !isLargeScreen && !searchScreenShowed;
   const isSearchScreenShowedOnMobile = !isLargeScreen && searchScreenShowed;
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const resetParams = () => {
+    setSearchParams("");
+  };
+
   return (
     <AppBar className="navbar">
       <div className="navbar-div">
-        <NavBarLogo homeRoute={routes.HOME} />
+        <NavBarLogo homeRoute={routes.HOME} handleClickCallback={resetParams} />
         {isSearchbarShowed && (
           <div className="navbar-search">
             <Search icon="search" />

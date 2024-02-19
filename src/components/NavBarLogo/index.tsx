@@ -1,21 +1,20 @@
 /* eslint-disable no-restricted-globals */
-/* eslint-disable no-unused-vars */
 import "./NavBarLogo.css";
 import { Typography } from "@mui/material";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../img/pd-logo.svg";
 import { routes } from "../../constants/routes";
 
 type Props = {
+  handleClickCallback?: () => void;
   homeRoute: string;
 };
 
-const NavBarLogo = ({ homeRoute }: Props) => {
+const NavBarLogo = ({ homeRoute, handleClickCallback }: Props) => {
   const navigate = useNavigate();
-  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleClickLogo = () => {
-    setSearchParams("");
+    handleClickCallback?.();
     if (location.pathname === routes.HOME) navigate(0);
   };
 
