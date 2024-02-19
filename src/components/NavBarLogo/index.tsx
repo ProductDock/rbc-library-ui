@@ -3,7 +3,6 @@ import "./NavBarLogo.css";
 import { Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../img/pd-logo.svg";
-import { routes } from "../../constants/routes";
 
 type Props = {
   handleClickCallback?: () => void;
@@ -13,9 +12,12 @@ type Props = {
 const NavBarLogo = ({ homeRoute, handleClickCallback }: Props) => {
   const navigate = useNavigate();
 
+  const forceReloadHome = () => {
+    if (location.pathname === homeRoute) navigate(0);
+  };
   const handleClickLogo = () => {
     handleClickCallback?.();
-    if (location.pathname === routes.HOME) navigate(0);
+    forceReloadHome();
   };
 
   return (
