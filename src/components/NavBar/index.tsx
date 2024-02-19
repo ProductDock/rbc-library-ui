@@ -3,16 +3,9 @@
 /* eslint-disable react/jsx-curly-newline */
 import { AppBar, Typography, useMediaQuery } from "@mui/material";
 import { useState } from "react";
-import {
-  useNavigate,
-  useLocation,
-  useSearchParams,
-  Link,
-} from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import { MediaQueries } from "../../constants/mediaQueries";
 import { routes } from "../../constants/routes";
-import logo from "../../img/pd-logo.svg";
 import AccountAvatar from "../AccountAvatar";
 
 import "./NavBar.css";
@@ -22,8 +15,6 @@ import AdminPanelButton from "./AdminPanelButton";
 import NavBarLogo from "../NavBarLogo";
 
 const NavBar = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
   const { isUserAdmin } = useAuthContext();
   const [searchScreenShowed, setSearchScreenShowed] = useState<boolean>(false);
   const isLargeScreen = useMediaQuery(MediaQueries.X_MEDIUM);
@@ -31,17 +22,10 @@ const NavBar = () => {
   const isSearchIconShowedOnMobile = !isLargeScreen && !searchScreenShowed;
   const isSearchScreenShowedOnMobile = !isLargeScreen && searchScreenShowed;
 
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const reloadHomePage = () => {
-    setSearchParams("");
-    if (location.pathname === routes.HOME) navigate(0);
-  };
-
   return (
     <AppBar className="navbar">
       <div className="navbar-div">
-        <NavBarLogo handleClickLogo={reloadHomePage} />
+        <NavBarLogo homeRoute={routes.HOME} />
         {isSearchbarShowed && (
           <div className="navbar-search">
             <Search icon="search" />

@@ -1,20 +1,26 @@
 /* eslint-disable no-restricted-globals */
+/* eslint-disable no-unused-vars */
 import "./NavBarLogo.css";
 import { Typography } from "@mui/material";
-import { Link } from "react-router-dom";
-import { routes } from "../../constants/routes";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import logo from "../../img/pd-logo.svg";
+import { routes } from "../../constants/routes";
 
 type Props = {
-  handleClickLogo?: () => void;
+  homeRoute: string;
 };
 
-const NavBarLogo = ({ handleClickLogo }: Props) => {
-  const route = location.pathname.includes(routes.ADMIN_HOME)
-    ? routes.ADMIN_HOME
-    : routes.HOME;
+const NavBarLogo = ({ homeRoute }: Props) => {
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const handleClickLogo = () => {
+    setSearchParams("");
+    if (location.pathname === routes.HOME) navigate(0);
+  };
+
   return (
-    <Link to={route} className="navbar-info" onClick={handleClickLogo}>
+    <Link to={homeRoute} className="navbar-info" onClick={handleClickLogo}>
       <img src={logo} alt="logo" className="logo" />
       <div className="navbar-text">
         <span className="navbar-company">
