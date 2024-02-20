@@ -1,4 +1,4 @@
-import { EditOutlined } from "@mui/icons-material";
+import { DeleteOutline, EditOutlined } from "@mui/icons-material";
 import { TableBody, TableRow, TableCell, Button } from "@mui/material";
 import BookStarRating from "../../../../components/BookStarRating";
 import BookStatus from "../../../../components/BookStatus";
@@ -33,9 +33,12 @@ const BooksTableBody = ({ books }: Props) => {
               ratingsCountShow={false}
             />
           </TableCell>
-          <TableCell align="center">
+          <TableCell className="buttons-row" align="right">
             <Button className="edit-button">
               <EditOutlined className="edit-icon" />
+            </Button>
+            <Button className="delete-btn">
+              <DeleteOutline />
             </Button>
           </TableCell>
         </TableRow>

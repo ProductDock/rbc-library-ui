@@ -11,7 +11,11 @@ const NewBookButton = () => {
   };
 
   return (
-    <Button className="add-book-button" onClick={onClick}>
+    <Button
+      className="add-book-button"
+      onClick={onClick}
+      data-testid="new-book-button"
+    >
       Add book
       <AddCircleOutlineOutlinedIcon className="add-book-button-icon" />
     </Button>
