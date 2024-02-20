@@ -34,10 +34,10 @@ const BooksTableBody = ({ books }: Props) => {
             />
           </TableCell>
           <TableCell className="buttons-row" align="right">
-            <Button className="edit-button">
+            <Button className="edit-button" data-testid="edit-btn">
               <EditOutlined className="edit-icon" />
             </Button>
-            <Button className="delete-btn">
+            <Button className="delete-btn" data-testid="delete-btn">
               <DeleteOutline />
             </Button>
           </TableCell>
