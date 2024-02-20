@@ -1,0 +1,19 @@
+.add-book-button {
+  font-weight: 400;
+  background-color: #65b32e !important;
+  border-color: #eeeeee !important;
+  color: white !important;
+  margin-left: 1vw;
+  margin-right: 0.5em;
+  min-height: 24px;
+  height: 45px !important;
+  border-radius: 30px !important;
+}
+
+.add-book-button-icon {
+  margin-left: 5%;
+}
+
+.side-text {
+  font-size: 14px;
+}

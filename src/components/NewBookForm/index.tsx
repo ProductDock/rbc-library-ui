@@ -53,10 +53,10 @@ const NewBookForm = () => {
     showSuccessScreen?.(successMessages.ADD_BOOK, "");
     hideForm?.();
 
-    if (location.pathname === routes.HOME) {
+    if (location.pathname === routes.ADMIN_BOOKS) {
       findBooks?.();
     } else {
-      navigate(`${routes.HOME}`);
+      navigate(`${routes.ADMIN_BOOKS}`);
     }
   };
 
