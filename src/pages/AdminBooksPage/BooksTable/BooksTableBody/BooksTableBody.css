@@ -25,32 +25,32 @@
     white-space: nowrap;
 }
 
-.buttons-row {
-    padding-right: 3% !important;
+.buttons-row.MuiTableCell-root {
+    padding-right: 3%;
     white-space: nowrap;
 }
 
-.edit-button {
-    background-color: #00609a !important;
-    color: white !important;
-    border-radius: 20px !important;
-    border-color: #eeeeee !important;
-    border-width: 1px !important;
-    height: 40px !important;
-    width: auto !important;
+.edit-button.MuiButtonBase-root.MuiButton-root {
+    background-color: #00609a;
+    color: white;
+    border-radius: 20px ;
+    border-color: #eeeeee;
+    border-width: 1px;
+    height: 40px;
+    width: auto;
 }
 
 .edit-icon {
     color: white;
 }
 
-.delete-btn {
-    background-color: #ea592a !important;
-    color: white !important;
-    border-radius: 20px !important;
-    border-color: #eeeeee !important;
-    border-width: 1px !important;
-    height: 40px !important;
-    width: auto !important;
-    margin-left: 10% !important;
+.delete-btn.MuiButtonBase-root.MuiButton-root {
+    background-color: #ea592a;
+    color: white;
+    border-radius: 20px;
+    border-color: #eeeeee;
+    border-width: 1px;
+    height: 40px;
+    width: auto;
+    margin-left: 10%;
 }
