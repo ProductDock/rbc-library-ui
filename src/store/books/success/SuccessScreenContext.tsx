@@ -9,6 +9,7 @@ const initialState = {
   successMessage: "",
   gratitudeMessage: "",
   showed: false,
+  warning: false,
 };
 
 type Props = {
@@ -28,6 +29,15 @@ const SuccessScreenContextProvider = ({ children }: Props) => {
   ) =>
     dispatch({
       type: actions.SHOW_SUCCESS_SCREEN,
+      payload: { successMessage, gratitudeMessage },
+    });
+
+  const showWarningScreen = (
+    successMessage: string,
+    gratitudeMessage: string
+  ) =>
+    dispatch({
+      type: actions.SHOW_WARNING_SCREEN,
       payload: { successMessage, gratitudeMessage },
     });
 
@@ -51,6 +61,7 @@ const SuccessScreenContextProvider = ({ children }: Props) => {
       value={{
         ...successState,
         showSuccessScreen,
+        showWarningScreen,
         hideSuccessScreen,
       }}
     >

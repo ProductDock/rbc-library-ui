@@ -6,8 +6,13 @@ import { useSuccessScreenContext } from "../../store/books/success/SuccessScreen
 import SnackbarAlert from "../Snackbar";
 
 const Notification = () => {
-  const { showed, hideSuccessScreen, successMessage, gratitudeMessage } =
-    useSuccessScreenContext();
+  const {
+    showed,
+    hideSuccessScreen,
+    successMessage,
+    gratitudeMessage,
+    warning,
+  } = useSuccessScreenContext();
   const isLargeScreen = useMediaQuery(MediaQueries.LARGE);
 
   return (
@@ -17,9 +22,10 @@ const Notification = () => {
           showed={showed}
           onClose={hideSuccessScreen}
           autoHideDuration={5000}
-          title="Success!"
+          title={warning ? "Warning" : "Success!"}
           description={successMessage}
           innerMessage={gratitudeMessage}
+          warning={warning}
         />
       ) : (
         <SuccessScreen />

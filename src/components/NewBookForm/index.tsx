@@ -14,12 +14,13 @@ import TopicSelect from "./TopicSelect";
 import SidebarFormModal from "../SidebarFormModal";
 import { useBooksContext } from "../../store/books/catalog/BooksContext";
 import { routes } from "../../constants/routes";
+import { errorMessages } from "../../constants/errorMessages";
 
 const NewBookForm = () => {
   const { addBook, hideNewBookForm, existingTopics, showedNewBookForm } =
     useNewBookContext();
   const { findBooks } = useBooksContext();
-  const { showSuccessScreen } = useSuccessScreenContext();
+  const { showSuccessScreen, showWarningScreen } = useSuccessScreenContext();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -60,6 +61,10 @@ const NewBookForm = () => {
     }
   };
 
+  const onFailureCallback = () => {
+    showWarningScreen?.(errorMessages.ADD_BOOK, "");
+  };
+
   const handleSubmit = () => {
     existingTopics.forEach((t) => {
       if (selectedTopics.includes(t.name)) {
@@ -71,7 +76,9 @@ const NewBookForm = () => {
       }
     });
 
-    addBook?.(createBook()).then(() => onSuccessCallback());
+    addBook?.(createBook())
+      .then(() => onSuccessCallback())
+      .catch(() => onFailureCallback());
   };
 
   const isSubmitEnabled = useCallback(() => {
