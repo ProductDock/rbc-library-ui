@@ -8,15 +8,17 @@ export interface SuccessScreenRefObject {
 }
 
 const SuccessScreen = () => {
-  const { showed, successMessage, gratitudeMessage } =
+  const { showed, successMessage, gratitudeMessage, warning } =
     useSuccessScreenContext();
 
   if (showed) {
     return (
-      <div className="success-screen-container">
+      <div className="success-screen-container" data-testid="snackbar">
         <div className="success-screen-content">
-          <img src={successIcon} alt="successIcon" />
-          <Typography className="success-text">Success!</Typography>
+          {!warning && <img src={successIcon} alt="successIcon" />}
+          <Typography className="success-text">
+            {warning ? "Warning!" : "Success!"}
+          </Typography>
           <Typography className="success-message">{successMessage}</Typography>
           <Typography className="gratitude-message">
             {gratitudeMessage}

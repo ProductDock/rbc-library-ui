@@ -23,6 +23,7 @@ const SnackbarAlert = ({
 }: Props) => {
   return (
     <Snackbar
+      data-testid="snackbar"
       open={showed}
       onClose={onClose}
       className="success-snackbar"
