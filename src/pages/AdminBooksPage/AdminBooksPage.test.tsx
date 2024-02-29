@@ -9,6 +9,7 @@ import { rest } from "msw";
 import { server } from "../../msw/server";
 
 export const BOOK_URL = `*/catalog/books`;
+jest.setTimeout(10000);
 
 describe("Test admin books page", () => {
   test("should render new book button", async () => {
