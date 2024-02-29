@@ -4,6 +4,7 @@ import { MediaQueries } from "../../constants/mediaQueries";
 import SuccessScreen from "../../pages/BookDetailsPage/SuccessScreen";
 import { useSuccessScreenContext } from "../../store/books/success/SuccessScreenContext";
 import SnackbarAlert from "../Snackbar";
+import WarningScreen from "../WarningScreen";
 
 const Notification = () => {
   const {
@@ -28,7 +29,7 @@ const Notification = () => {
           warning={warning}
         />
       ) : (
-        <SuccessScreen />
+        <>{warning ? <WarningScreen /> : <SuccessScreen />}</>
       )}
     </>
   );
