@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { DeleteOutline, EditOutlined } from "@mui/icons-material";
 import { TableBody, TableRow, TableCell, Button } from "@mui/material";
 import BookStarRating from "../../../../components/BookStarRating";
@@ -35,14 +36,7 @@ const BooksTableBody = ({ books }: Props) => {
               ratingsCountShow={false}
             />
           </TableCell>
-          <TableCell className="buttons-row" align="right">
-            <Button className="edit-button" data-testid="edit-btn">
-              <EditOutlined className="edit-icon" />
-            </Button>
-            <Button className="delete-btn" data-testid="delete-btn">
-              <DeleteOutline />
-            </Button>
-          </TableCell>
+          <TableCell className="buttons-row" align="right" />
         </TableRow>
       ))}
     </TableBody>
