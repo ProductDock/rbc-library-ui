@@ -127,7 +127,7 @@ const NewBookForm = () => {
       <Typography className="new-book-field-title">Book cover(URL)</Typography>
       <TextArea
         dataTestId="new-book-cover"
-        maxLength={100}
+        maxLength={255}
         text={cover}
         setText={setCover}
         minRows={1}
