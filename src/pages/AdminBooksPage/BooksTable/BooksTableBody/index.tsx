@@ -26,9 +26,7 @@ const BooksTableBody = ({ books, onDelete, onEdit }: Props) => {
           </TableCell>
           <TableCell align="left">{book.author}</TableCell>
           <TableCell align="left" className="status">
-            <div className="status-div">
-              <BookStatus records={book.records} />
-            </div>
+            <BookStatus records={book.records} />
           </TableCell>
           <TableCell align="left">
             <BookStarRating
