@@ -4,10 +4,16 @@ import { MediaQueries } from "../../constants/mediaQueries";
 import SuccessScreen from "../../pages/BookDetailsPage/SuccessScreen";
 import { useSuccessScreenContext } from "../../store/books/success/SuccessScreenContext";
 import SnackbarAlert from "../Snackbar";
+import WarningScreen from "../WarningScreen";
 
 const Notification = () => {
-  const { showed, hideSuccessScreen, successMessage, gratitudeMessage } =
-    useSuccessScreenContext();
+  const {
+    showed,
+    hideSuccessScreen,
+    successMessage,
+    gratitudeMessage,
+    warning,
+  } = useSuccessScreenContext();
   const isLargeScreen = useMediaQuery(MediaQueries.LARGE);
 
   return (
@@ -17,12 +23,13 @@ const Notification = () => {
           showed={showed}
           onClose={hideSuccessScreen}
           autoHideDuration={5000}
-          title="Success!"
+          title={warning ? "Warning" : "Success!"}
           description={successMessage}
           innerMessage={gratitudeMessage}
+          warning={warning}
         />
       ) : (
-        <SuccessScreen />
+        <>{warning ? <WarningScreen /> : <SuccessScreen />}</>
       )}
     </>
   );

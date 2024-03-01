@@ -8,6 +8,7 @@ type Props = {
   description?: string;
   innerMessage?: string;
   autoHideDuration: number;
+  warning?: boolean;
   onClose?: () => void;
 };
 
@@ -18,9 +19,11 @@ const SnackbarAlert = ({
   title,
   description,
   innerMessage,
+  warning,
 }: Props) => {
   return (
     <Snackbar
+      data-testid="snackbar"
       open={showed}
       onClose={onClose}
       className="success-snackbar"
@@ -28,8 +31,8 @@ const SnackbarAlert = ({
       anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
     >
       <Alert
-        icon={<CheckIcon fontSize="inherit" />}
-        severity="success"
+        icon={warning ? null : <CheckIcon fontSize="inherit" />}
+        severity={warning ? "warning" : "success"}
         onClose={onClose}
       >
         <AlertTitle>{title}</AlertTitle>

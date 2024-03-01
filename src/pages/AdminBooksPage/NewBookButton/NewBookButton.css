@@ -1,0 +1,19 @@
+.add-book-button.MuiButtonBase-root.MuiButton-root {
+  font-weight: 400;
+  background-color: #00609a;
+  border-color: #eeeeee;
+  color: white;
+  margin-left: 1vw;
+  margin-right: 0.5em;
+  min-height: 24px;
+  height: 45px;
+  border-radius: 30px;
+}
+
+.add-book-button-icon {
+  margin-left: 5%;
+}
+
+.side-text {
+  font-size: 14px;
+}

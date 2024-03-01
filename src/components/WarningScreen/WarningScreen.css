@@ -1,0 +1,40 @@
+.warning-screen-container {
+    background-color: #fcf7f4;
+    position: fixed;
+    z-index: 1298;
+    height: calc(100vh - 64px);
+    bottom: 0;
+    width: 100%;
+    left: 0;
+  }
+  
+  .warning-screen-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .warning-text.MuiTypography-root {
+    margin-top: 1em;
+    color: #b34f2e;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .warning-message.MuiTypography-root {
+    margin-top: 1em;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
+  .gratitude-message.MuiTypography-root {
+    margin-top: 1em;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  
