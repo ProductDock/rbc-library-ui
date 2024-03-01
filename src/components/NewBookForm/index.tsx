@@ -14,7 +14,7 @@ import TopicSelect from "./TopicSelect";
 import SidebarFormModal from "../SidebarFormModal";
 import { useBooksContext } from "../../store/books/catalog/BooksContext";
 import { routes } from "../../constants/routes";
-import { errorMessages } from "../../constants/errorMessages";
+import { warningMessages } from "../../constants/warningMessages";
 
 const NewBookForm = () => {
   const { addBook, hideNewBookForm, existingTopics, showedNewBookForm } =
@@ -62,7 +62,7 @@ const NewBookForm = () => {
   };
 
   const onFailureCallback = () => {
-    showWarningScreen?.(errorMessages.ADD_BOOK, "");
+    showWarningScreen?.(warningMessages.ADD_BOOK, "");
   };
 
   const handleSubmit = () => {
@@ -76,7 +76,9 @@ const NewBookForm = () => {
       }
     });
 
-    addBook?.(createBook())
+    const newBook = createBook();
+
+    addBook?.(newBook)
       .then(() => onSuccessCallback())
       .catch(() => onFailureCallback());
   };
