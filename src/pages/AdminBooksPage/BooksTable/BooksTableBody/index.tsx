@@ -24,7 +24,9 @@ const BooksTableBody = ({ books }: Props) => {
           </TableCell>
           <TableCell align="left">{book.author}</TableCell>
           <TableCell align="left" className="status">
-            <BookStatus records={book.records} />
+            <div className="status-div">
+              <BookStatus records={book.records} />
+            </div>
           </TableCell>
           <TableCell align="left">
             <BookStarRating
