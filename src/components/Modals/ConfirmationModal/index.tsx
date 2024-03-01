@@ -16,6 +16,7 @@ import closeIcon from "../../../img/icons/close-icon.svg";
 export enum ActionVariant {
   confirm,
   delete,
+  notify,
 }
 
 type Props = {
@@ -65,12 +66,13 @@ const ConfirmationModal = forwardRef(
             variant={Variant.cancelButton}
             handleClick={hideModal}
           />
-          {variant === ActionVariant.delete ? (
+          {variant === ActionVariant.delete && (
             <ModalActionButton
               variant={Variant.deleteButton}
               handleClick={onConfirmation}
             />
-          ) : (
+          )}
+          {variant === ActionVariant.confirm && (
             <ModalActionButton
               variant={Variant.confirmButton}
               handleClick={onConfirmation}

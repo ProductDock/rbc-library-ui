@@ -1,15 +1,17 @@
 import { DeleteOutline, EditOutlined } from "@mui/icons-material";
 import { TableBody, TableRow, TableCell, Button } from "@mui/material";
 import BookStarRating from "../../../../components/BookStarRating";
-import BookStatus from "../../../../components/BookStatus";
 import { Book } from "../../../../store/books/catalog/Types";
 import "./BooksTableBody.css";
+import BookStatus from "../../../../components/BookStatus";
 
 type Props = {
   books?: Book[];
+  onDelete: Function;
+  onEdit: Function;
 };
 
-const BooksTableBody = ({ books }: Props) => {
+const BooksTableBody = ({ books, onDelete, onEdit }: Props) => {
   return (
     <TableBody>
       {books?.map((book) => (
@@ -24,7 +26,9 @@ const BooksTableBody = ({ books }: Props) => {
           </TableCell>
           <TableCell align="left">{book.author}</TableCell>
           <TableCell align="left" className="status">
-            <BookStatus records={book.records} />
+            <div className="status-div">
+              <BookStatus records={book.records} />
+            </div>
           </TableCell>
           <TableCell align="left">
             <BookStarRating
@@ -34,10 +38,18 @@ const BooksTableBody = ({ books }: Props) => {
             />
           </TableCell>
           <TableCell className="buttons-row" align="right">
-            <Button className="edit-button" data-testid="edit-btn">
+            <Button
+              className="edit-button"
+              data-testid="edit-btn"
+              onClick={() => onEdit(book.id)}
+            >
               <EditOutlined className="edit-icon" />
             </Button>
-            <Button className="delete-btn" data-testid="delete-btn">
+            <Button
+              className="delete-btn"
+              data-testid="delete-btn"
+              onClick={() => onDelete(book.id)}
+            >
               <DeleteOutline />
             </Button>
           </TableCell>

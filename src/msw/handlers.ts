@@ -11,6 +11,7 @@ export const SUGGESTED_BOOKS_URL = `*/search/suggestions*`;
 export const USER_INFO_URL = `*/user-info`;
 export const TOPICS_URL = `*/catalog/topics`;
 export const POST_BOOK_URL = `*/catalog/books`;
+export const DELETE_BOOK = `*/catalog/books/*`;
 
 export const handlers = [
 
@@ -43,4 +44,7 @@ export const handlers = [
   rest.get(`${TOPICS_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json(TopicsFixture))),
 
   rest.post(`${POST_BOOK_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
+
+  rest.delete(`${DELETE_BOOK}`, (req, res, ctx) => res(ctx.status(400, "Mocked status"))),
+
 ];

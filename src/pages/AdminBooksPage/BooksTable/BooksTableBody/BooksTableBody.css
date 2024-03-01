@@ -24,6 +24,9 @@
     max-width: 100px;
     white-space: nowrap;
 }
+.status-div {
+    max-width: 6em;
+}
 
 .buttons-row.MuiTableCell-root {
     padding-right: 3%;
