@@ -45,7 +45,7 @@ const ConfirmationModal = forwardRef(
     useImperativeHandle(ref, () => ({ showModal, hideModal }));
 
     return (
-      <Dialog open={showed}>
+      <Dialog open={showed} data-testid="confirmation-modal">
         <DialogTitle className="modal-title-container">
           <Typography className="modal-title">
             <b> {title}</b>
