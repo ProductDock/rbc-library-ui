@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { DeleteOutline, EditOutlined } from "@mui/icons-material";
 import { TableBody, TableRow, TableCell, Button } from "@mui/material";
 import BookStarRating from "../../../../components/BookStarRating";
@@ -26,7 +27,9 @@ const BooksTableBody = ({ books, onDelete, onEdit }: Props) => {
           </TableCell>
           <TableCell align="left">{book.author}</TableCell>
           <TableCell align="left" className="status">
-            <BookStatus records={book.records} />
+            <div className="status-div">
+              <BookStatus records={book.records} />
+            </div>
           </TableCell>
           <TableCell align="left">
             <BookStarRating

@@ -20,6 +20,7 @@ describe("test books table", () => {
 
     expect(booksTable).toBeInTheDocument();
   });
+
   test("should render buttons in rows", async () => {
     render(
       <MemoryRouter>
