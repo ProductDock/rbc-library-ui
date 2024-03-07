@@ -1,6 +1,3 @@
-/* eslint-disable no-unsafe-optional-chaining */
-/* eslint-disable prefer-template */
-
 import { Paper, Table, TableContainer, TablePagination } from "@mui/material";
 import "./BooksTable.css";
 import { ChangeEvent, useRef, useState } from "react";
@@ -27,7 +24,7 @@ const BooksTable = () => {
   const showModal = () => modal?.current?.showModal?.();
   const hideModal = () => modal?.current?.hideModal?.();
 
-  const { books, count, loading, deleteBook } = useBooks(page);
+  const { books, count, loading, deleteBook, findBooks } = useBooks(page);
 
   const [action, setAction] = useState<ActionVariant>(ActionVariant.delete);
   const [title, setTitle] = useState<string>("");
@@ -49,10 +46,10 @@ const BooksTable = () => {
     setDescription(ConfirmationMessages.DELETE_BOOK);
   };
 
-  const setWarningModal = () => {
+  const setWarningModal = (message: string) => {
     setAction(ActionVariant.notify);
     setTitle(warningMessages.DELETE_BOOK_TITLE);
-    setDescription(warningMessages.DELETE_BOOK);
+    setDescription(message);
   };
 
   const handleDelete = (selectedId: number) => {
@@ -64,8 +61,11 @@ const BooksTable = () => {
   const handleConfirm = () => {
     if (selectedId) {
       deleteBook(selectedId)
-        .then(() => hideModal())
-        .catch(() => setWarningModal());
+        .then(() => {
+          hideModal();
+          findBooks();
+        })
+        .catch((e) => setWarningModal(e.response.data.message));
     }
   };
 

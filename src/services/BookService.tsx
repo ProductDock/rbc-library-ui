@@ -44,4 +44,4 @@ export const postBook = async (book: NewBook) =>
   client.post(`/catalog/books`, book);
 
 export const deleteBook = async (bookId: number) =>
-  client.delete(`catalog/books/${bookId}`);
+  client.delete(`/catalog/books/${bookId}`);
