@@ -86,7 +86,9 @@ describe("test books table", () => {
 
     userEvent.click(confirmDeleteButton);
 
-    const notification = await screen.findByText(warningMessages.DELETE_BOOK);
+    const notification = await screen.findByText(
+      warningMessages.DELETE_BOOK_TITLE
+    );
 
     expect(notification).toBeInTheDocument();
   });
