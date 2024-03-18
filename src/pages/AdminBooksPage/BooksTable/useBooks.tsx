@@ -23,16 +23,11 @@ const useBooks = (page: number) => {
     findBooks();
   }, [page]);
 
-  const deleteBook = async (bookId: number) => {
-    await bookService.deleteBook(bookId);
-  };
-
   return {
     books,
     count,
     loading,
     error,
-    deleteBook,
     findBooks,
   };
 };

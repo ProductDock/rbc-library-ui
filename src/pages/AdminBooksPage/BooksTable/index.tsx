@@ -4,13 +4,13 @@ import { ChangeEvent, useRef, useState } from "react";
 import BooksTableHead from "./BooksTableHead";
 import BooksTableBody from "./BooksTableBody";
 import useBooks from "./useBooks";
-import BooksTableSkeleton from "./BooksTableSkeleton/BooksTableSkeleton";
 import ConfirmationModal, {
   ActionVariant,
   ConfirmationRefObject,
 } from "../../../components/Modals/ConfirmationModal";
 import { warningMessages } from "../../../constants/warningMessages";
 import { ConfirmationMessages } from "../../../constants/confirmationMessages";
+import useDeleteBooks from "./useDeleteBooks";
 
 const BooksTable = () => {
   const [page, setPage] = useState<number>(0);
@@ -24,7 +24,8 @@ const BooksTable = () => {
   const showModal = () => modal?.current?.showModal?.();
   const hideModal = () => modal?.current?.hideModal?.();
 
-  const { books, count, loading, deleteBook, findBooks } = useBooks(page);
+  const { books, count, findBooks } = useBooks(page);
+  const { deleteBook } = useDeleteBooks();
 
   const [action, setAction] = useState<ActionVariant>(ActionVariant.delete);
   const [title, setTitle] = useState<string>("");
@@ -43,7 +44,7 @@ const BooksTable = () => {
   const setConfirmationModal = () => {
     setAction(ActionVariant.delete);
     setTitle(ConfirmationMessages.DELETE_BOOK_TITLE);
-    setDescription(ConfirmationMessages.DELETE_BOOK);
+    setDescription(ConfirmationMessages.DELETE_BOOK_CONFIRM);
   };
 
   const setWarningModal = (message: string) => {
@@ -69,22 +70,12 @@ const BooksTable = () => {
     }
   };
 
-  const handleEdit = () => {};
-
   return (
     <div>
       <TableContainer component={Paper}>
         <Table aria-label="simple table" data-testid="books-table">
           <BooksTableHead columns={columns} />
-          {loading ? (
-            <BooksTableSkeleton />
-          ) : (
-            <BooksTableBody
-              books={books}
-              onDelete={handleDelete}
-              onEdit={handleEdit}
-            />
-          )}
+          <BooksTableBody books={books} onDelete={handleDelete} />
         </Table>
       </TableContainer>
       <TablePagination

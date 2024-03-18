@@ -1,4 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import {
+  render,
+  screen,
+  waitForElementToBeRemoved,
+} from "@testing-library/react";
 import { MemoryRouter } from "react-router";
 import AdminBooksPage from "..";
 import userEvent from "@testing-library/user-event";
@@ -82,7 +86,7 @@ describe("test books table", () => {
 
     const modal = await screen.findByTestId("confirmation-modal");
 
-    const confirmDeleteButton = await screen.findByText("Delete");
+    const confirmDeleteButton = screen.getByText("Delete");
 
     userEvent.click(confirmDeleteButton);
 
@@ -91,5 +95,35 @@ describe("test books table", () => {
     );
 
     expect(notification).toBeInTheDocument();
+  });
+
+  test("should close modal if deleting book is successful", async () => {
+    server.use(
+      rest.delete(DELETE_BOOK_URL, (req, res, ctx) =>
+        res(ctx.status(200, "Mocked status"))
+      )
+    );
+
+    render(
+      <MemoryRouter>
+        <AdminBooksPage />
+      </MemoryRouter>
+    );
+
+    const deleteButton = (await screen.findAllByTestId("delete-btn"))[0];
+
+    userEvent.click(deleteButton);
+
+    const modal = await screen.findByTestId("confirmation-modal");
+
+    const confirmDeleteButton = screen.getByText("Delete");
+
+    userEvent.click(confirmDeleteButton);
+
+    await waitForElementToBeRemoved(() =>
+      screen.getByTestId("confirmation-modal")
+    );
+
+    expect(modal).not.toBeInTheDocument();
   });
 });

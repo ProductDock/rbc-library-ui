@@ -9,10 +9,9 @@ import BookStatus from "../../../../components/BookStatus";
 type Props = {
   books?: Book[];
   onDelete: Function;
-  onEdit: Function;
 };
 
-const BooksTableBody = ({ books, onDelete, onEdit }: Props) => {
+const BooksTableBody = ({ books, onDelete }: Props) => {
   return (
     <TableBody>
       {books?.map((book) => (
@@ -39,13 +38,6 @@ const BooksTableBody = ({ books, onDelete, onEdit }: Props) => {
             />
           </TableCell>
           <TableCell className="buttons-row" align="right">
-            <Button
-              className="edit-button"
-              data-testid="edit-btn"
-              onClick={() => onEdit(book.id)}
-            >
-              <EditOutlined className="edit-icon" />
-            </Button>
             <Button
               className="delete-btn"
               data-testid="delete-btn"
