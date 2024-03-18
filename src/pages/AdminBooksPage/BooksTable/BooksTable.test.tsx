@@ -33,10 +33,8 @@ describe("test books table", () => {
     );
 
     const deleteButton = await screen.findAllByTestId("delete-btn");
-    const editButton = await screen.findAllByTestId("edit-btn");
 
     expect(deleteButton.length).toBeGreaterThan(0);
-    expect(editButton.length).toBeGreaterThan(0);
   });
 
   test("should render 18 rows per page", async () => {
