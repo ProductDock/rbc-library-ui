@@ -1,4 +1,4 @@
-import * as bookService from "../../../services/BookService";
+import * as bookService from "../services/BookService";
 
 const useDeleteBooks = () => {
   const deleteBook = async (bookId: number) => {

@@ -3,14 +3,14 @@ import "./BooksTable.css";
 import { ChangeEvent, useRef, useState } from "react";
 import BooksTableHead from "./BooksTableHead";
 import BooksTableBody from "./BooksTableBody";
-import useBooks from "./useBooks";
+import useBooks from "../../../hooks/useBooks";
 import ConfirmationModal, {
   ActionVariant,
   ConfirmationRefObject,
 } from "../../../components/Modals/ConfirmationModal";
 import { warningMessages } from "../../../constants/warningMessages";
 import { ConfirmationMessages } from "../../../constants/confirmationMessages";
-import useDeleteBooks from "./useDeleteBooks";
+import useDeleteBooks from "../../../hooks/useDeleteBooks";
 
 const BooksTable = () => {
   const [page, setPage] = useState<number>(0);

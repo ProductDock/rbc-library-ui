@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import * as bookService from "../../../services/BookService";
+import * as bookService from "../services/BookService";
 
 const useBooks = (page: number) => {
   const [books, setBooks] = useState();
