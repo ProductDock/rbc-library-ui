@@ -38,8 +38,10 @@ export const deleteBookReview = async (bookId: number, userId?: string) =>
     `/catalog/books/${bookId}/reviews/${encodeURIComponent(userId || "")}`
   );
 
-export const fetchTopics = async () =>
-  client.get(`/catalog/topics`);
+export const fetchTopics = async () => client.get(`/catalog/topics`);
 
 export const postBook = async (book: NewBook) =>
   client.post(`/catalog/books`, book);
+
+export const deleteBook = async (bookId: number) =>
+  client.delete(`/catalog/books/${bookId}`);

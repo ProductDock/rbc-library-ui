@@ -2,15 +2,16 @@
 import { DeleteOutline, EditOutlined } from "@mui/icons-material";
 import { TableBody, TableRow, TableCell, Button } from "@mui/material";
 import BookStarRating from "../../../../components/BookStarRating";
-import BookStatus from "../../../../components/BookStatus";
 import { Book } from "../../../../store/books/catalog/Types";
 import "./BooksTableBody.css";
+import BookStatus from "../../../../components/BookStatus";
 
 type Props = {
   books?: Book[];
+  onDelete: Function;
 };
 
-const BooksTableBody = ({ books }: Props) => {
+const BooksTableBody = ({ books, onDelete }: Props) => {
   return (
     <TableBody>
       {books?.map((book) => (
@@ -36,7 +37,15 @@ const BooksTableBody = ({ books }: Props) => {
               ratingsCountShow={false}
             />
           </TableCell>
-          <TableCell className="buttons-row" align="right" />
+          <TableCell className="buttons-row" align="right">
+            <Button
+              className="delete-btn"
+              data-testid="delete-btn"
+              onClick={() => onDelete(book.id)}
+            >
+              <DeleteOutline />
+            </Button>
+          </TableCell>
         </TableRow>
       ))}
     </TableBody>
