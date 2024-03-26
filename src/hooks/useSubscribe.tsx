@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import * as bookService from "../../../../../services/BookService";
+import * as bookService from "../services/BookService";
 
 const useSubscribe = (bookId: number) => {
   const [isSubscribed, setSubscribed] = useState<boolean>();
