@@ -43,5 +43,14 @@ export const fetchTopics = async () => client.get(`/catalog/topics`);
 export const postBook = async (book: NewBook) =>
   client.post(`/catalog/books`, book);
 
+export const getSubscription = async (bookId: number) =>
+  client.get(`/inventory/subscriptions/${bookId}`);
+
+export const postSubscribe = async (bookId: number) =>
+  client.post(`/inventory/subscriptions/subscribe/${bookId}`);
+
+export const postUnsubscribe = async (bookId: number) =>
+  client.post(`/inventory/subscriptions/unsubscribe/${bookId}`);
+
 export const deleteBook = async (bookId: number) =>
   client.delete(`/catalog/books/${bookId}`);

@@ -12,6 +12,9 @@ export const USER_INFO_URL = `*/user-info`;
 export const TOPICS_URL = `*/catalog/topics`;
 export const POST_BOOK_URL = `*/catalog/books`;
 export const DELETE_BOOK = `*/catalog/books/*`;
+export const BOOK_SUBSCRIPTION_URL = `*/inventory/subscriptions`;
+export const SUBSCRIBE_URL = `*/inventory/subscriptions/subscribe/*`;
+export const UNSUBSCRIBE_URL = `*/inventory/subscriptions/unsubscribe/*`;
 
 export const handlers = [
 
@@ -46,5 +49,13 @@ export const handlers = [
   rest.post(`${POST_BOOK_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
 
   rest.delete(`${DELETE_BOOK}`, (req, res, ctx) => res(ctx.status(400, "Mocked status"))),
+
+  rest.get(`${BOOK_SUBSCRIPTION_URL}/5`, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json(false))),
+
+  rest.post(`${SUBSCRIBE_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
+
+  rest.post(`${UNSUBSCRIBE_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
+
+  rest.get(`${BOOK_SUBSCRIPTION_URL}/*`, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json(true)))
 
 ];
