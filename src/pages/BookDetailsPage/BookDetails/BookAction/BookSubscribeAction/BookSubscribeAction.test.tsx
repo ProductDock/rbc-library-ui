@@ -2,6 +2,9 @@
 import Router, { BrowserRouter } from "react-router-dom";
 import { render, waitFor, screen } from "@testing-library/react";
 import BookDetailsPage from "../../../BookDetailsPage";
+import userEvent from "@testing-library/user-event";
+import Notification from "../../../../../components/Notification";
+import SuccessScreenContextProvider from "../../../../../store/books/success/SuccessScreenContext";
 
 const UNSUBSCRIBED_BOOK = "5";
 const SUBSCRIBED_BOOK = "6";
@@ -66,5 +69,29 @@ describe("Test book subscribe action", () => {
     const button = await screen.findByTestId("unsubscribe-button");
 
     expect(button).toBeInTheDocument();
+  });
+
+  test("should render success screen on subscribe button click", async () => {
+    initTest(SCREEN_WIDTH);
+    jest
+      .spyOn(Router, "useParams")
+      .mockReturnValue({ bookId: SUBSCRIBED_BOOK });
+
+    render(
+      <BrowserRouter>
+        <SuccessScreenContextProvider>
+          <BookDetailsPage />
+          <Notification />
+        </SuccessScreenContextProvider>
+      </BrowserRouter>
+    );
+
+    const button = await screen.findByTestId("subscribe-button");
+
+    userEvent.click(button);
+
+    const notification = await screen.findByText("Success!");
+
+    expect(notification).toBeInTheDocument();
   });
 });

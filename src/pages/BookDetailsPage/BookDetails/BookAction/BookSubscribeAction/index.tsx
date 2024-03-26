@@ -2,7 +2,7 @@
 import "./BookSubscribeAction.css";
 import { Typography } from "@mui/material";
 import { useParams } from "react-router";
-import useSubscribe from "./useSubscribe";
+import useSubscribe from "../../../../../hooks/useSubscribe";
 import { useSuccessScreenContext } from "../../../../../store/books/success/SuccessScreenContext";
 
 const successMessage = "You have successfully subscribed";
