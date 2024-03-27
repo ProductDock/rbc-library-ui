@@ -71,7 +71,7 @@ describe("Test book subscribe action", () => {
     expect(button).toBeInTheDocument();
   });
 
-  test("should open confirmation modal on subscribe button click", async () => {
+  test("should open confirmation modal on button click", async () => {
     initTest(SCREEN_WIDTH);
     jest
       .spyOn(Router, "useParams")

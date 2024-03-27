@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-no-useless-fragment */
 import "./BookSubscribeAction.css";
 import { Typography } from "@mui/material";
-import { useParams } from "react-router";
 import { useRef, useState } from "react";
 import useBookSubscription from "../../../../../hooks/useBookSubscription";
 import { useSuccessScreenContext } from "../../../../../store/books/success/SuccessScreenContext";
@@ -12,12 +11,12 @@ import ConfirmationModal, {
   ConfirmationRefObject,
 } from "../../../../../components/Modals/ConfirmationModal";
 import { ConfirmationMessages } from "../../../../../constants/confirmationMessages";
+import { useBookDetailsContext } from "../../../../../store/books/details/BookDetailsContext";
 
 const BookSubscribeAction = () => {
-  const { bookId } = useParams();
-  const { isSubscribed, subscribe, unsubscribe, getSubscription } =
-    useBookSubscription(parseInt(bookId || "0", 10));
   const { showSuccessScreen, showWarningScreen } = useSuccessScreenContext();
+  const { book, reloadBook } = useBookDetailsContext();
+  const { subscribe, unsubscribe } = useBookSubscription(book?.id || 0);
 
   const modal = useRef<ConfirmationRefObject>(null);
   const showModal = () => modal?.current?.showModal?.();
@@ -51,7 +50,7 @@ const BookSubscribeAction = () => {
             successMessages.BOOK_SUBSCRIPTION_TITLE,
             successMessages.BOOK_SUBSCRIPTION_DESCRIPTION
           );
-          getSubscription();
+          reloadBook?.();
         })
         .catch((e) =>
           showWarningScreen?.(
@@ -61,7 +60,9 @@ const BookSubscribeAction = () => {
         );
     } else {
       unsubscribe()
-        .then(() => getSubscription())
+        .then(() => {
+          reloadBook?.();
+        })
         .catch((e) =>
           showWarningScreen?.(
             warningMessages.BOOK_UNSUBSCRIPTION_TITLE,
@@ -73,7 +74,7 @@ const BookSubscribeAction = () => {
 
   return (
     <>
-      {isSubscribed ? (
+      {book?.subscribed ? (
         <button
           type="button"
           className="unsubscribe-button"
