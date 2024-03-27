@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import * as bookService from "../services/BookService";
 
-const useSubscribe = (bookId: number) => {
+const useBookSubscription = (bookId: number) => {
   const [isSubscribed, setSubscribed] = useState<boolean>();
 
   const getSubscription = async () => {
@@ -11,7 +11,7 @@ const useSubscribe = (bookId: number) => {
   };
 
   const subscribe = async () => {
-    await bookService.postSubscribe(bookId);
+    await bookService.postSubscription(bookId);
   };
 
   const unsubscribe = async () => {
@@ -30,4 +30,4 @@ const useSubscribe = (bookId: number) => {
   };
 };
 
-export default useSubscribe;
+export default useBookSubscription;

@@ -24,6 +24,14 @@
   border-width: 1px;
   height: 40px;
 }
+.unsubscribe-button.MuiButtonBase-root.MuiButton-root {
+  background-color: #EA592A;
+  color: white;
+  border-radius: 20px;
+  border-color: #eeeeee;
+  border-width: 1px;
+  height: 40px;
+}
 
 .modal-action-button-text {
   font-weight: 400;

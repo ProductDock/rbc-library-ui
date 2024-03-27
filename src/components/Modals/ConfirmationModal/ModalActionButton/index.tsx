@@ -7,6 +7,7 @@ export enum Variant {
   cancelButton,
   confirmButton,
   deleteButton,
+  unsubscribeButton,
 }
 
 type Props = {
@@ -23,6 +24,8 @@ const ModalActionButton = ({ variant, handleClick }: Props) => {
         return "Confirm";
       case Variant.deleteButton:
         return "Delete";
+      case Variant.unsubscribeButton:
+        return "Unsubscribe";
       default:
         return "";
     }
@@ -36,6 +39,8 @@ const ModalActionButton = ({ variant, handleClick }: Props) => {
         return "confirm-button";
       case Variant.deleteButton:
         return "delete-button";
+      case Variant.unsubscribeButton:
+        return "unsubscribe-button";
       default:
         return "";
     }

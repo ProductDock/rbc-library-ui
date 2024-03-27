@@ -17,6 +17,7 @@ export enum ActionVariant {
   confirm,
   delete,
   notify,
+  unsubscribe,
 }
 
 type Props = {
@@ -75,6 +76,12 @@ const ConfirmationModal = forwardRef(
           {variant === ActionVariant.confirm && (
             <ModalActionButton
               variant={Variant.confirmButton}
+              handleClick={onConfirmation}
+            />
+          )}
+          {variant === ActionVariant.unsubscribe && (
+            <ModalActionButton
+              variant={Variant.unsubscribeButton}
               handleClick={onConfirmation}
             />
           )}
