@@ -22,6 +22,7 @@ const NavBar = () => {
   const isSearchbarShowed = isLargeScreen;
   const isSearchIconShowedOnMobile = !isLargeScreen && !searchScreenShowed;
   const isSearchScreenShowedOnMobile = !isLargeScreen && searchScreenShowed;
+  const isAdminPanelButtonShowed = isUserAdmin?.() && isLargeScreen;
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -57,7 +58,7 @@ const NavBar = () => {
           </div>
         )}
         <div className="right-side">
-          {isUserAdmin?.() && (
+          {isAdminPanelButtonShowed && (
             <div className="add-book-button-wrapper">
               <AdminPanelButton />
             </div>
