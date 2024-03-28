@@ -70,7 +70,8 @@
     "rating": {
       "score": 1.5,
       "count": 7
-    }
+    },
+    "subscribed": false
   },
   {
     "id": 2,
@@ -126,7 +127,8 @@
         "name": "SOFTWARE DEVELOPMENT"
       }
     ],
-    "description": "Why are we sometimes blind to the minds of others, treating them like objects or animals instead? Why do we talk to our cars, or the stars, as if there is a mind that can hear us? Why do we so routinely believe that others think, feel, and want what we do when, in fact, they do not? And why do we think we understand our spouses, family, and friends so much better than we actually do? In this illuminating book, leading social psychologist Nicholas Epley introduces us to what scientists have learned about our ability to understand the most complicated puzzle on the planet—other people—and the surprising mistakes we so routinely make. Mindwise will not turn others into open books, but it will give you the wisdom to revolutionize how you think about them—and yourself."
+    "description": "Why are we sometimes blind to the minds of others, treating them like objects or animals instead? Why do we talk to our cars, or the stars, as if there is a mind that can hear us? Why do we so routinely believe that others think, feel, and want what we do when, in fact, they do not? And why do we think we understand our spouses, family, and friends so much better than we actually do? In this illuminating book, leading social psychologist Nicholas Epley introduces us to what scientists have learned about our ability to understand the most complicated puzzle on the planet—other people—and the surprising mistakes we so routinely make. Mindwise will not turn others into open books, but it will give you the wisdom to revolutionize how you think about them—and yourself.",
+    "subscribed": false
   },
   {
     "id": 3,
@@ -143,7 +145,8 @@
         "status": "RESERVED",
         "date": "2022-06-21T10:00:00.000+00:00"
       }
-    ]
+    ],
+    "subscribed": false
   },
   {
     "id": 4,
@@ -160,7 +163,8 @@
         "status": "RENTED",
         "date": "2022-06-21T10:00:00.000+00:00"
       }
-    ]
+    ],
+    "subscribed": false
   },
   {
     "id": 5,
@@ -191,7 +195,8 @@
     "rating": {
       "score": 1.5,
       "count": 7
-    }
+    },
+    "subscribed": false
   },
   {
     "id": 6,
@@ -239,7 +244,8 @@
     "rating": {
       "score": 1.5,
       "count": 7
-    }
+    },
+    "subscribed": false
   },
   {
     "id": 7,
@@ -260,7 +266,8 @@
     "rating": {
       "score": 1.5,
       "count": 7
-    }
+    },
+    "subscribed": true
   },
   {
     "id": 8,
@@ -271,7 +278,8 @@
     "rating": {
       "score": 1.5,
       "count": 7
-    }
+    },
+    "subscribed": false
   },
   {
     "id": 9,
@@ -282,7 +290,8 @@
     "rating": {
       "score": 1.5,
       "count": 7
-    }
+    },
+    "subscribed": false
   },
   {
     "id": 10,
@@ -293,7 +302,8 @@
     "rating": {
       "score": 1.5,
       "count": 7
-    }
+    },
+    "subscribed": false
   },
   {
     "id": 11,
@@ -307,7 +317,8 @@
     "rating": {
       "score": 1.5,
       "count": 7
-    }
+    },
+    "subscribed": false
   },
   {
     "id": 12,
@@ -321,7 +332,8 @@
     "rating": {
       "score": 1.5,
       "count": 7
-    }
+    },
+    "subscribed": false
   },
   {
     "id": 13,
@@ -335,7 +347,8 @@
     "rating": {
       "score": 1.5,
       "count": 7
-    }
+    },
+    "subscribed": false
   },
   {
     "id": 14,
@@ -349,7 +362,8 @@
     "rating": {
       "score": 1.5,
       "count": 2
-    }
+    },
+    "subscribed": false
   },
   {
     "id": 15,
@@ -363,7 +377,8 @@
     "rating": {
       "score": 1.5,
       "count": 2
-    }
+    },
+    "subscribed": false
   },
   {
     "id": 16,
@@ -377,7 +392,8 @@
     "rating": {
       "score": 1.5,
       "count": 2
-    }
+    },
+    "subscribed": false
   },
   {
     "id": 17,
@@ -391,7 +407,8 @@
     "rating": {
       "score": 1.5,
       "count": 2
-    }
+    },
+    "subscribed": false
   },
   {
     "id": 18,
@@ -405,6 +422,7 @@
     "rating": {
       "score": 2.5,
       "count": 2
-    }
+    },
+    "subscribed": false
   }
 ]

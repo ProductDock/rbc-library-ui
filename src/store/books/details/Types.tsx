@@ -34,7 +34,7 @@ export type Review = {
 export type Topic = {
   id: number;
   name: string;
-}
+};
 
 export type Book = {
   id?: number;
@@ -47,6 +47,7 @@ export type Book = {
   rating: Rating;
   description: string;
   topics: Topic[];
+  subscribed: boolean;
 };
 
 export type BookActionModal = {
