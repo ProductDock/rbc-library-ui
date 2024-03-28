@@ -54,7 +54,7 @@ export const handlers = [
 
   rest.post(`${SUBSCRIBE_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
 
-  rest.post(`${UNSUBSCRIBE_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
+  rest.delete(`${UNSUBSCRIBE_URL}`, (req, res, ctx) => res(ctx.status(200, "Mocked status"))),
 
   rest.get(`${BOOK_SUBSCRIPTION_URL}/*`, (req, res, ctx) => res(ctx.status(200, "Mocked status"), ctx.json(true)))
 

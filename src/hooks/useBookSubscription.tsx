@@ -6,7 +6,7 @@ const useBookSubscription = (bookId: number) => {
   };
 
   const unsubscribe = async () => {
-    await bookService.postUnsubscribe(bookId);
+    await bookService.deleteSubscription(bookId);
   };
 
   return {
