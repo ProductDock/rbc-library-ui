@@ -3,6 +3,7 @@ import BookCancelReservationAction from "./BookCancelReservationAction";
 import BookRentAction from "./BookRentAction";
 import BookReserveAction from "./BookReserveAction";
 import BookReturnAction from "./BookReturnAction";
+import BookSubscribeAction from "./BookSubscribeAction";
 
 type Props = {
   bookStatus: BookStatus | null;
@@ -21,13 +22,16 @@ const BookAction = ({ bookStatus, qrScanned = false }: Props) => {
       return <BookReturnAction />;
     }
   } else {
-    if (bookStatus === BookStatus.AVAILABLE || bookStatus === BookStatus.RESERVED_BY_YOU) {
+    if (
+      bookStatus === BookStatus.AVAILABLE ||
+      bookStatus === BookStatus.RESERVED_BY_YOU
+    ) {
       return <BookRentAction />;
     }
     if (bookStatus === BookStatus.RENTED_BY_YOU) return <BookReturnAction />;
   }
 
-  return null;
+  return <BookSubscribeAction />;
 };
 
 export default BookAction;
